@@ -9,7 +9,7 @@ specifiers:
   '@trpc/server': 10.0.0-alpha.38
   '@types/node': 18.0.0
   '@types/react': 18.0.15
-  '@types/react-dom': 18.0.5
+  '@types/react-dom': 18.0.6
   autoprefixer: ^10.4.7
   eslint: 8.20.0
   eslint-config-next: 12.2.1
@@ -45,7 +45,7 @@ dependencies:
 devDependencies:
   '@types/node': 18.0.0
   '@types/react': 18.0.15
-  '@types/react-dom': 18.0.5
+  '@types/react-dom': 18.0.6
   autoprefixer: 10.4.7_postcss@8.4.14
   eslint: 8.20.0
   eslint-config-next: 12.2.1_he2ccbldppg44uulnyq4rwocfa
@@ -364,8 +364,8 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/react-dom/18.0.5:
-    resolution: {integrity: sha512-OWPWTUrY/NIrjsAPkAk1wW9LZeIjSvkXRhclsFO8CZcZGCOg2G0YZy4ft+rOyYxy8B7ui5iZzi9OkDebZ7/QSA==}
+  /@types/react-dom/18.0.6:
+    resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
       '@types/react': 18.0.15
     dev: true
