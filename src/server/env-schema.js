@@ -7,6 +7,9 @@ const envSchema = z.object({
   NEXTAUTH_URL: z.string().url(),
   GITHUB_CLIENT_ID: z.string(),
   GITHUB_CLIENT_SECRET: z.string(),
+  CONTENTFUL_SPACE_ID: z.string(),
+  CONTENTFUL_ACCESS_TOKEN: z.string(),
+  CONTENTFUL_ADMIN_TOKEN: z.string(),
 });
 
 module.exports.envSchema = envSchema;
