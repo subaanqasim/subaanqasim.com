@@ -10,6 +10,7 @@ const envSchema = z.object({
   CONTENTFUL_SPACE_ID: z.string(),
   CONTENTFUL_ACCESS_TOKEN: z.string(),
   CONTENTFUL_ADMIN_TOKEN: z.string(),
+  CONTENTFUL_ENVIRONMENT: z.string(),
 });
 
 module.exports.envSchema = envSchema;
