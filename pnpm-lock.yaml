@@ -19,6 +19,7 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   next: 12.2.2
   next-auth: ^4.10.0
+  next-themes: ^0.2.0
   postcss: ^8.4.14
   prettier: ^2.7.1
   prisma: ^4.0.0
@@ -41,6 +42,7 @@ dependencies:
   contentful-management: 10.8.0
   next: 12.2.2_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.10.0_biqbaboplfbrettd7655fr4n2y
+  next-themes: 0.2.0_7gpduzaz4csxytrukenoyuq3te
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
@@ -783,6 +785,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
+    dev: false
 
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -2069,6 +2075,18 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       uuid: 8.3.2
+    dev: false
+
+  /next-themes/0.2.0_7gpduzaz4csxytrukenoyuq3te:
+    resolution: {integrity: sha512-myhpDL4vadBD9YDSHiewqvzorGzB03N84e+3LxCwHRlM/hiBOaW+UsKsQojQAzC7fdcJA0l2ppveXcYaVV+hxQ==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 12.2.2_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /next/12.2.2_biqbaboplfbrettd7655fr4n2y:
