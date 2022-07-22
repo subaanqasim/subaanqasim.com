@@ -127,8 +127,8 @@ const NavLinks = () => {
 
 const Navbar = () => {
   return (
-    <div className="flex flex-col items-center px-8 fixed top-0 left-0 right-0">
-      <NavigationMenuPrimitive.Root className="relative max-w-3xl w-full mt-8 mb-16 rounded-lg bg-white/75 dark:bg-gray-800 p-2 shadow-lg backdrop-blur-md">
+    <div className="flex flex-col justify-center px-8 fixed top-0 left-0 right-0">
+      <NavigationMenuPrimitive.Root className="relative w-full max-w-3xl mt-8 mb-16 mx-auto rounded-lg bg-white/75 dark:bg-gray-800 p-2 shadow-lg backdrop-blur-md">
         <NavigationMenuPrimitive.List className="flex flex-row justify-between opacity-100">
           <NavigationMenuPrimitive.Item>
             <CustomLink href="/">
