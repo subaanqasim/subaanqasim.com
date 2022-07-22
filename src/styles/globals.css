@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-neutral-50 dark:bg-neutral-900;
+@layer base {
+  body {
+    @apply bg-neutral-50 dark:bg-neutral-900 text-base tracking-wide font-normal text-neutral-800 dark:text-neutral-200;
+  }
+
+  h1 {
+    @apply text-3xl md:text-5xl tracking-tight font-extrabold;
+  }
+
+  h2 {
+    @apply text-2xl md:text-4xl tracking-tight font-extrabold;
+  }
+
+  h3 {
+    @apply text-xl md:text-3xl tracking-tight font-extrabold;
+  }
+
+  h4 {
+    @apply text-lg md:text-2xl tracking-tight font-bold;
+  }
+
+  h5 {
+    @apply text-base md:text-xl tracking-normal font-bold;
+  }
+
+  h6 {
+    @apply text-base md:text-base tracking-normal font-semibold;
+  }
 }

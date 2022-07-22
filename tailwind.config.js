@@ -10,6 +10,15 @@ module.exports = {
       fontFamily: {
         sans: ["Articulat CF", ...fontFamily.sans],
       },
+      letterSpacing: {
+        tight: "-0.03em",
+        wide: "0.02em",
+      },
+      fontWeight: {
+        normal: 500,
+        bold: 700,
+        extraBold: 800,
+      },
       keyframes: {
         // Navgiation menu
         "enter-from-right": {
@@ -59,6 +68,7 @@ module.exports = {
         },
       },
       animation: {
+        // Navgiation menu
         "enter-from-right": "enter-from-right 0.25s ease",
         "enter-from-left": "enter-from-left 0.25s ease",
         "exit-to-right": "exit-to-right 0.25s ease",
