@@ -1,4 +1,5 @@
 import useMediaQuery from "@utils/useMediaQuery";
+import Footer from "../Footer";
 import MobileNavbar from "../MobileNavbar";
 import Navbar from "../Navbar";
 
@@ -7,7 +8,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <>
       {isDesktop ? <Navbar /> : <MobileNavbar />}
-      {children}
+      <main className="flex flex-col justify-center px-8">{children}</main>
+      <Footer />
     </>
   );
 };
