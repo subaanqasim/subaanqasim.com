@@ -3,9 +3,11 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import Link from "next/link";
 import cx from "classnames";
 import { useRouter } from "next/router";
+import MobileNavbar from "./MobileNavbar";
 
 const navData = [
   { label: "Home", href: "/" },
+  { label: "Articles", href: "/articles" },
   {
     label: "Portfolio",
     submenu: [
@@ -21,7 +23,6 @@ const navData = [
       },
     ],
   },
-  { label: "Articles", href: "/articles" },
   { label: "About", href: "/about" },
 ];
 
@@ -126,8 +127,7 @@ const NavLinks = () => {
 
 const Navbar = () => {
   return (
-    <div className="hidden md:flex flex-col items-center px-8 fixed top-0 left-0 right-0">
-      {/* Add mobile menu here with 'visible md:hidden'; */}
+    <div className="flex flex-col items-center px-8 fixed top-0 left-0 right-0">
       <NavigationMenuPrimitive.Root className="relative max-w-3xl w-full mt-8 mb-16 rounded-lg bg-white/75 dark:bg-gray-800 p-2 shadow-lg backdrop-blur-md">
         <NavigationMenuPrimitive.List className="flex flex-row justify-between opacity-100">
           <NavigationMenuPrimitive.Item>
@@ -137,7 +137,7 @@ const Navbar = () => {
             </CustomLink>
           </NavigationMenuPrimitive.Item>
 
-          <ul className="w-full max-w-md px-4 flex justify-between">
+          <ul className="w-full max-w-md px-4 flex justify-between ">
             <NavLinks />
           </ul>
 
