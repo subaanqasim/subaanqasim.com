@@ -18,7 +18,7 @@
     "@radix-ui/react-navigation-menu": "1.0.0",
     "@trpc/client": "10.0.0-alpha.38",
     "@trpc/next": "10.0.0-alpha.38",
-    "@trpc/react": "10.0.0-alpha.38",
+    "@trpc/react": "10.0.0-alpha.39",
     "@trpc/server": "10.0.0-alpha.38",
     "classnames": "^2.3.1",
     "contentful": "10.0.0-beta-v10.8",
