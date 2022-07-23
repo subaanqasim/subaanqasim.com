@@ -36,6 +36,7 @@ const footerData: FooterData[] = [
   {
     title: "Miscellaneous",
     links: [
+      { label: "Podcast", href: "https://www.gettingit.co.uk" },
       { label: "Vibes", href: "/vibes" },
       { label: "Brain", href: "/brain" },
       { label: "Support", href: "/support" },
