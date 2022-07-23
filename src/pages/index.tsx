@@ -1,9 +1,6 @@
 import Head from "next/head";
-import { trpc } from "../utils/trpc";
 
 const Home = () => {
-  const hello = trpc.proxy.example.hello.useQuery({ text: "from tRPC" });
-
   return (
     <>
       <Head>

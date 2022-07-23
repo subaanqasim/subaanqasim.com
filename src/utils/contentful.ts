@@ -17,5 +17,5 @@ export const cma = createAdminClient(
       spaceId: env.CONTENTFUL_SPACE_ID,
       environmentId: "master",
     },
-  }
+  },
 );

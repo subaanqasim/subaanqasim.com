@@ -9,7 +9,7 @@ async function createContentfulClient() {
   });
 
   const configuredClient = await contentfulClient.getSpace(
-    env.CONTENTFUL_SPACE_ID
+    env.CONTENTFUL_SPACE_ID,
   );
 
   return configuredClient.getEnvironment(env.CONTENTFUL_ENVIRONMENT);

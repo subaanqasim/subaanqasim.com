@@ -62,7 +62,7 @@ const NavLinks = () => {
               key={sublink.subLabel}
               className={cx(
                 "w-full px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md",
-                "focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-75"
+                "focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-75",
               )}
               href={sublink.href}
             >
@@ -83,7 +83,7 @@ const NavLinks = () => {
                 className={cx(
                   "px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-900",
                   "text-sm font-medium text-gray-700 dark:text-gray-100",
-                  "focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-75"
+                  "focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-75",
                 )}
               >
                 {item.label}
@@ -95,7 +95,7 @@ const NavLinks = () => {
                   "radix-motion-from-start:animate-enter-from-left",
                   "radix-motion-from-end:animate-enter-from-right",
                   "radix-motion-to-start:animate-exit-to-left",
-                  "radix-motion-to-end:animate-exit-to-right"
+                  "radix-motion-to-end:animate-exit-to-right",
                 )}
               >
                 <div className="w-[16rem] lg:w-[18rem] p-3">
@@ -114,7 +114,7 @@ const NavLinks = () => {
             key={item.label}
             className={cx(
               "px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-900",
-              "text-sm font-medium text-gray-700 dark:text-gray-100"
+              "text-sm font-medium text-gray-700 dark:text-gray-100",
             )}
           >
             <CustomLink href={item.href}>{item.label}</CustomLink>
@@ -152,7 +152,7 @@ const Navbar = () => {
         <div
           className={cx(
             "absolute flex justify-center",
-            "w-[140%] left-[-20%] top-[100%]"
+            "w-[140%] left-[-20%] top-[100%]",
           )}
           style={{
             perspective: "2000px",
@@ -165,7 +165,7 @@ const Navbar = () => {
               "h-radix-navigation-menu-viewport",
               "radix-state-open:animate-scale-in-content",
               "radix-state-closed:animate-scale-out-content",
-              "origin-[top_center] transition-[width_height] duration-300 ease-[ease]"
+              "origin-[top_center] transition-[width_height] duration-300 ease-[ease]",
             )}
           />
         </div>
