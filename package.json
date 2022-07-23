@@ -17,7 +17,7 @@
     "@radix-ui/react-icons": "^1.1.1",
     "@radix-ui/react-navigation-menu": "1.0.0",
     "@trpc/client": "10.0.0-alpha.38",
-    "@trpc/next": "10.0.0-alpha.38",
+    "@trpc/next": "10.0.0-alpha.39",
     "@trpc/react": "10.0.0-alpha.38",
     "@trpc/server": "10.0.0-alpha.38",
     "classnames": "^2.3.1",
