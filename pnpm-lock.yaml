@@ -6,10 +6,10 @@ specifiers:
   '@radix-ui/react-dropdown-menu': ^1.0.0
   '@radix-ui/react-icons': ^1.1.1
   '@radix-ui/react-navigation-menu': 1.0.0
-  '@trpc/client': 10.0.0-alpha.38
-  '@trpc/next': 10.0.0-alpha.38
-  '@trpc/react': 10.0.0-alpha.38
-  '@trpc/server': 10.0.0-alpha.38
+  '@trpc/client': 10.0.0-alpha.39
+  '@trpc/next': 10.0.0-alpha.39
+  '@trpc/react': 10.0.0-alpha.39
+  '@trpc/server': 10.0.0-alpha.39
   '@types/node': 18.0.0
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
@@ -43,10 +43,10 @@ dependencies:
   '@radix-ui/react-dropdown-menu': 1.0.0_bb2bxwco6ptpubzwpazr52qf6i
   '@radix-ui/react-icons': 1.1.1_react@18.2.0
   '@radix-ui/react-navigation-menu': 1.0.0_biqbaboplfbrettd7655fr4n2y
-  '@trpc/client': 10.0.0-alpha.38_g54didzcqig66fkzjcj6kpgxpe
-  '@trpc/next': 10.0.0-alpha.38_ttlt37em2x7fswpv424spuchue
-  '@trpc/react': 10.0.0-alpha.38_w45yn7lkqreeaeegmgotf6tn4a
-  '@trpc/server': 10.0.0-alpha.38
+  '@trpc/client': 10.0.0-alpha.39_oyjprm3zzfse52d56sly7ofcai
+  '@trpc/next': 10.0.0-alpha.39_tat4i7mqzrtchigzausm2efs3e
+  '@trpc/react': 10.0.0-alpha.39_coquoviqkp3lwphghmn4vhruqi
+  '@trpc/server': 10.0.0-alpha.39
   classnames: 2.3.1
   contentful: 10.0.0-beta-v10.8
   contentful-management: 10.9.1
@@ -735,30 +735,30 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@trpc/client/10.0.0-alpha.38_g54didzcqig66fkzjcj6kpgxpe:
-    resolution: {integrity: sha512-4Mi2qoHlhhAO+nxPQwx9WU37BTMDzjLddlTFWvSJJYrkOkNt79kpLNFjuKBmBAla8M8ItO9dhaW7b9cA/AI0Cw==}
+  /@trpc/client/10.0.0-alpha.39_oyjprm3zzfse52d56sly7ofcai:
+    resolution: {integrity: sha512-gR3SRYr5qbVKX4S2X3znHKhkpwF7u/A3zMf7XWDKK2iGl/WXSlnSpy8/DPW3hgxdhILMqt8m0r7qLtIDdHWeZw==}
     peerDependencies:
-      '@trpc/server': 10.0.0-alpha.38
+      '@trpc/server': 10.0.0-alpha.39
     dependencies:
       '@babel/runtime': 7.18.6
-      '@trpc/server': 10.0.0-alpha.38
+      '@trpc/server': 10.0.0-alpha.39
     dev: false
 
-  /@trpc/next/10.0.0-alpha.38_ttlt37em2x7fswpv424spuchue:
-    resolution: {integrity: sha512-zTQ5wKAt6tvbYX7wQgSpAG04hejvZmUHCDyNPWDVj+cFr8EgAqlnFT00/FMtrZQrVu0Ib9nuboRKSbQJddvxEA==}
+  /@trpc/next/10.0.0-alpha.39_tat4i7mqzrtchigzausm2efs3e:
+    resolution: {integrity: sha512-+0bpQhOXYf6oO62ZMTw/LWJRv8wFQiqYmQT4ljOe3ghwBZzHsI/abELaR36p+Jx84fWCHvYJoBikvGYsscCCAA==}
     peerDependencies:
-      '@trpc/client': 10.0.0-alpha.38
-      '@trpc/react': 10.0.0-alpha.38
-      '@trpc/server': 10.0.0-alpha.38
+      '@trpc/client': 10.0.0-alpha.39
+      '@trpc/react': 10.0.0-alpha.39
+      '@trpc/server': 10.0.0-alpha.39
       next: '*'
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
-      react-query: ^3.37.0 || ^4.0.0-alpha.4
+      react-query: ^3.37.0
     dependencies:
       '@babel/runtime': 7.18.6
-      '@trpc/client': 10.0.0-alpha.38_g54didzcqig66fkzjcj6kpgxpe
-      '@trpc/react': 10.0.0-alpha.38_w45yn7lkqreeaeegmgotf6tn4a
-      '@trpc/server': 10.0.0-alpha.38
+      '@trpc/client': 10.0.0-alpha.39_oyjprm3zzfse52d56sly7ofcai
+      '@trpc/react': 10.0.0-alpha.39_coquoviqkp3lwphghmn4vhruqi
+      '@trpc/server': 10.0.0-alpha.39
       next: 12.2.3_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -766,25 +766,25 @@ packages:
       react-ssr-prepass: 1.5.0_react@18.2.0
     dev: false
 
-  /@trpc/react/10.0.0-alpha.38_w45yn7lkqreeaeegmgotf6tn4a:
-    resolution: {integrity: sha512-tuuY7I5hl3rI+he8rjLl9UEeBMEgZm53w5uk+0RuQiEvfcdX10YO0534aCFn4pd7IeHncW0s8jQqNCepA+3V4g==}
+  /@trpc/react/10.0.0-alpha.39_coquoviqkp3lwphghmn4vhruqi:
+    resolution: {integrity: sha512-Ji2ouclaOPas3Elb9WGIZo+u3XgMIqwEXpv0RzI3aYRZ9NPySdi4WYi1ENWo9uN4NXX9VeE81Vh86lKl9uvrzA==}
     peerDependencies:
-      '@trpc/client': 10.0.0-alpha.38
-      '@trpc/server': 10.0.0-alpha.38
+      '@trpc/client': 10.0.0-alpha.39
+      '@trpc/server': 10.0.0-alpha.39
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
-      react-query: ^3.37.0 || ^4.0.0-alpha.4
+      react-query: ^3.37.0
     dependencies:
       '@babel/runtime': 7.18.6
-      '@trpc/client': 10.0.0-alpha.38_g54didzcqig66fkzjcj6kpgxpe
-      '@trpc/server': 10.0.0-alpha.38
+      '@trpc/client': 10.0.0-alpha.39_oyjprm3zzfse52d56sly7ofcai
+      '@trpc/server': 10.0.0-alpha.39
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
     dev: false
 
-  /@trpc/server/10.0.0-alpha.38:
-    resolution: {integrity: sha512-/XoI+HtlIs/RgRm2vRBH385afou67P1x3Pldno2EIiiWzxsS+kkyIaC6SghiPLyqneHj5kvtvHX3ZWGmQOVJ/A==}
+  /@trpc/server/10.0.0-alpha.39:
+    resolution: {integrity: sha512-E9zKv7+Ij4FUOVa16O0T4I/VNvuBfBhAyxtzOm4Ho95vYko8HPvF6VaWECpfIFFkYhN6325YzYQzdZ8Z+FxOWw==}
     dependencies:
       tslib: 2.4.0
     dev: false
