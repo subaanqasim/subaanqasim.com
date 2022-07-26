@@ -32,42 +32,49 @@ type ConditionalProps =
 
 type SeoProps = CommonProps & ConditionalProps;
 
-const Wrapper = (props: SeoProps) => {
+const Wrapper = ({
+  title,
+  description,
+  image,
+  noindex,
+  nofollow,
+  children,
+  type,
+  datePublished,
+  dateModified,
+  authorName,
+  authorUrl,
+  tags,
+}: SeoProps) => {
   const router = useRouter();
 
   return (
     <>
       <NextSeo
-        title={
-          props.title.includes("Subaan")
-            ? props.title
-            : `${props.title} | Subaan Qasim`
-        }
-        description={props.description}
+        title={title.includes("Subaan") ? title : `${title} | Subaan Qasim`}
+        description={description}
         canonical={`https://www.subaanqasim.com${router.asPath}`}
         openGraph={{
-          title: props.title.includes("Subaan")
-            ? props.title
-            : `${props.title} | Subaan Qasim`,
-          description: props.description,
+          title: title.includes("Subaan") ? title : `${title} | Subaan Qasim`,
+          description: description,
           url: `https://www.subaanqasim.com${router.asPath}`,
           locale: "en_GB",
           site_name: "Subaan Qasim",
-          type: props.type,
+          type: type,
           images: [
             {
-              url: props.image.fields.file!.url,
-              width: props.image.fields.file!.details.image!.width,
-              height: props.image.fields.file!.details.image!.height,
-              alt: props.image.fields?.title,
-              type: props.image.fields.file?.contentType,
+              url: image.fields.file!.url,
+              width: image.fields.file!.details.image!.width,
+              height: image.fields.file!.details.image!.height,
+              alt: image.fields?.title,
+              type: image.fields.file?.contentType,
             },
           ],
           article: {
-            publishedTime: props.datePublished,
-            modifiedTime: props.dateModified,
-            tags: props.tags,
-            authors: [`${props.authorName}`],
+            publishedTime: datePublished,
+            modifiedTime: dateModified,
+            tags: tags,
+            authors: [`${authorName}`],
             // TODO: add article:section og property
           },
         }}
@@ -77,26 +84,26 @@ const Wrapper = (props: SeoProps) => {
           site: "@subaanqasim",
           cardType: "summary_large_image",
         }}
-        nofollow={props.nofollow}
-        noindex={props.noindex}
+        nofollow={nofollow}
+        noindex={noindex}
       />
-      {props.type === "article" && (
+      {type === "article" && (
         <ArticleJsonLd
           type="Blog"
-          title={`${props.title} | Subaan Qasim`}
-          description={props.description}
+          title={`${title} | Subaan Qasim`}
+          description={description}
           url={`https://www.subaan.qasim.com${router.asPath}`}
-          images={[props.image.fields.file!.url]}
-          datePublished={props.datePublished!}
-          dateModified={props.dateModified}
+          images={[image.fields.file!.url]}
+          datePublished={datePublished!}
+          dateModified={dateModified}
           authorName={{
-            name: props.authorName,
-            url: props.authorUrl,
+            name: authorName,
+            url: authorUrl,
           }}
         />
       )}
       <div className="flex flex-col items-start justify-center w-full max-w-3xl mx-auto">
-        {props.children}
+        {children}
       </div>
     </>
   );

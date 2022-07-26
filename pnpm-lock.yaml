@@ -6,10 +6,10 @@ specifiers:
   '@radix-ui/react-dropdown-menu': ^1.0.0
   '@radix-ui/react-icons': ^1.1.1
   '@radix-ui/react-navigation-menu': 1.0.0
-  '@trpc/client': 10.0.0-alpha.39
-  '@trpc/next': 10.0.0-alpha.39
-  '@trpc/react': 10.0.0-alpha.39
-  '@trpc/server': 10.0.0-alpha.39
+  '@trpc/client': 10.0.0-alpha.40
+  '@trpc/next': 10.0.0-alpha.40
+  '@trpc/react': 10.0.0-alpha.40
+  '@trpc/server': 10.0.0-alpha.40
   '@types/node': 18.0.0
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
@@ -43,10 +43,10 @@ dependencies:
   '@radix-ui/react-dropdown-menu': 1.0.0_bb2bxwco6ptpubzwpazr52qf6i
   '@radix-ui/react-icons': 1.1.1_react@18.2.0
   '@radix-ui/react-navigation-menu': 1.0.0_biqbaboplfbrettd7655fr4n2y
-  '@trpc/client': 10.0.0-alpha.39_oyjprm3zzfse52d56sly7ofcai
-  '@trpc/next': 10.0.0-alpha.39_tat4i7mqzrtchigzausm2efs3e
-  '@trpc/react': 10.0.0-alpha.39_coquoviqkp3lwphghmn4vhruqi
-  '@trpc/server': 10.0.0-alpha.39
+  '@trpc/client': 10.0.0-alpha.40_vggdl7utqy7c3sfyaekokvwnf4
+  '@trpc/next': 10.0.0-alpha.40_rrtfacn7znwhrdzpxgl43j7oj4
+  '@trpc/react': 10.0.0-alpha.40_24sjtixwlanpyjufk2ynqicmhi
+  '@trpc/server': 10.0.0-alpha.40
   classnames: 2.3.1
   contentful: 10.0.0-beta-v10.8
   contentful-management: 10.9.1
@@ -735,30 +735,30 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@trpc/client/10.0.0-alpha.39_oyjprm3zzfse52d56sly7ofcai:
-    resolution: {integrity: sha512-gR3SRYr5qbVKX4S2X3znHKhkpwF7u/A3zMf7XWDKK2iGl/WXSlnSpy8/DPW3hgxdhILMqt8m0r7qLtIDdHWeZw==}
+  /@trpc/client/10.0.0-alpha.40_vggdl7utqy7c3sfyaekokvwnf4:
+    resolution: {integrity: sha512-QxRIg5EQKdeLY+KNw+bG5moZe09+MqvRVJjfi2h8G9pFeN1+oLFQMp5vsYgeXlS2bo9cuBUNJQZdqc9t6Sy/8g==}
     peerDependencies:
-      '@trpc/server': 10.0.0-alpha.39
+      '@trpc/server': 10.0.0-alpha.40
     dependencies:
       '@babel/runtime': 7.18.6
-      '@trpc/server': 10.0.0-alpha.39
+      '@trpc/server': 10.0.0-alpha.40
     dev: false
 
-  /@trpc/next/10.0.0-alpha.39_tat4i7mqzrtchigzausm2efs3e:
-    resolution: {integrity: sha512-+0bpQhOXYf6oO62ZMTw/LWJRv8wFQiqYmQT4ljOe3ghwBZzHsI/abELaR36p+Jx84fWCHvYJoBikvGYsscCCAA==}
+  /@trpc/next/10.0.0-alpha.40_rrtfacn7znwhrdzpxgl43j7oj4:
+    resolution: {integrity: sha512-QpRhZJrMeH48vm3HpNHKKrrXdecZKXErrzn7JsFxijBvJU+40CmrYAMTf/f8Zqz0ofAelbEEdUNh2o5ilm8DAQ==}
     peerDependencies:
-      '@trpc/client': 10.0.0-alpha.39
-      '@trpc/react': 10.0.0-alpha.39
-      '@trpc/server': 10.0.0-alpha.39
+      '@trpc/client': 10.0.0-alpha.40
+      '@trpc/react': 10.0.0-alpha.40
+      '@trpc/server': 10.0.0-alpha.40
       next: '*'
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
       react-query: ^3.37.0
     dependencies:
       '@babel/runtime': 7.18.6
-      '@trpc/client': 10.0.0-alpha.39_oyjprm3zzfse52d56sly7ofcai
-      '@trpc/react': 10.0.0-alpha.39_coquoviqkp3lwphghmn4vhruqi
-      '@trpc/server': 10.0.0-alpha.39
+      '@trpc/client': 10.0.0-alpha.40_vggdl7utqy7c3sfyaekokvwnf4
+      '@trpc/react': 10.0.0-alpha.40_24sjtixwlanpyjufk2ynqicmhi
+      '@trpc/server': 10.0.0-alpha.40
       next: 12.2.3_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -766,25 +766,25 @@ packages:
       react-ssr-prepass: 1.5.0_react@18.2.0
     dev: false
 
-  /@trpc/react/10.0.0-alpha.39_coquoviqkp3lwphghmn4vhruqi:
-    resolution: {integrity: sha512-Ji2ouclaOPas3Elb9WGIZo+u3XgMIqwEXpv0RzI3aYRZ9NPySdi4WYi1ENWo9uN4NXX9VeE81Vh86lKl9uvrzA==}
+  /@trpc/react/10.0.0-alpha.40_24sjtixwlanpyjufk2ynqicmhi:
+    resolution: {integrity: sha512-0AeVHWFLnJFKQFrwXzY3xKoO9t28NFQ1IXQO1ay3deassM/1HMx5YISXzcbC3yq0ZHHxNazkvcrZ7mb5mtzOCw==}
     peerDependencies:
-      '@trpc/client': 10.0.0-alpha.39
-      '@trpc/server': 10.0.0-alpha.39
+      '@trpc/client': 10.0.0-alpha.40
+      '@trpc/server': 10.0.0-alpha.40
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
       react-query: ^3.37.0
     dependencies:
       '@babel/runtime': 7.18.6
-      '@trpc/client': 10.0.0-alpha.39_oyjprm3zzfse52d56sly7ofcai
-      '@trpc/server': 10.0.0-alpha.39
+      '@trpc/client': 10.0.0-alpha.40_vggdl7utqy7c3sfyaekokvwnf4
+      '@trpc/server': 10.0.0-alpha.40
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
     dev: false
 
-  /@trpc/server/10.0.0-alpha.39:
-    resolution: {integrity: sha512-E9zKv7+Ij4FUOVa16O0T4I/VNvuBfBhAyxtzOm4Ho95vYko8HPvF6VaWECpfIFFkYhN6325YzYQzdZ8Z+FxOWw==}
+  /@trpc/server/10.0.0-alpha.40:
+    resolution: {integrity: sha512-ddRZ+1ullfCBXXOhcMYWaIQrNR1TC5MV8eWfE/YYyrLlXiFQSJbezOWF/NqtfwLMxdAj0g8FZSMQH8BIW7I+EA==}
     dependencies:
       tslib: 2.4.0
     dev: false

@@ -1,15 +1,17 @@
 import Wrapper from "../components/Wrapper";
 import type { Asset } from "contentful";
+import { cda } from "@utils/contentful";
+import { InferGetStaticPropsType } from "next";
 
-let image: Asset;
-
-const Home = () => {
+const Home = ({
+  bannerImage,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Wrapper
         title="Subaan Qasim | Medical Student & Developer"
         description="Medical Student, full stack developer, and wannabe data scientist. Posting projects, thoughts and unadulterated streams of consciousness."
-        image={image}
+        image={bannerImage}
         type="website"
       >
         <h1 className=" text-neutral-200">
@@ -22,4 +24,12 @@ const Home = () => {
 
 export default Home;
 
-// getStaticProps for banner image
+export const getStaticProps = async () => {
+  const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
+
+  return {
+    props: {
+      bannerImage,
+    },
+  };
+};
