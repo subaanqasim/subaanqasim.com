@@ -7,7 +7,7 @@ import MainLayout from "../components/layouts/MainLayout";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider attribute="class" forcedTheme="light">
+    <ThemeProvider attribute="class">
       <SessionProvider session={pageProps.session}>
         <MainLayout>
           <Component {...pageProps} />

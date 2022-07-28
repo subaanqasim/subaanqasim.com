@@ -1,9 +1,9 @@
-import React, { forwardRef } from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import Link from "next/link";
 import cx from "classnames";
 import { useRouter } from "next/router";
-import MobileNavbar from "./MobileNavbar";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const navData = [
   { label: "Home", href: "/" },
@@ -42,7 +42,10 @@ const CustomLink = ({ children, href, className }: CustomLinkProps) => {
     <Link href={href} passHref>
       <NavigationMenuPrimitive.Link
         active={isActive}
-        className={cx(className, isActive ? "text-blue-500" : "")}
+        className={cx(
+          className,
+          isActive ? "dark:text-orange-300 text-orange-800 font-semibold" : "",
+        )}
       >
         {children}
       </NavigationMenuPrimitive.Link>
@@ -61,16 +64,16 @@ const NavLinks = () => {
             <CustomLink
               key={sublink.subLabel}
               className={cx(
-                "w-full px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-900 rounded-md",
+                "w-full px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-md",
                 "focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-75",
               )}
               href={sublink.href}
             >
-              <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+              <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
                 {sublink.subLabel}
               </span>
 
-              <div className="mt-1 text-sm text-gray-700 dark:text-gray-400">
+              <div className="mt-1 text-sm text-neutral-700 dark:text-neutral-400">
                 {sublink.desc}
               </div>
             </CustomLink>
@@ -81,8 +84,8 @@ const NavLinks = () => {
             <NavigationMenuPrimitive.Item key={item.label}>
               <NavigationMenuPrimitive.Trigger
                 className={cx(
-                  "px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-900",
-                  "text-sm font-medium text-gray-700 dark:text-gray-100",
+                  "px-3 py-2 text-sm rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-900",
+                  "text-sm font-medium text-neutral-700 dark:text-neutral-100",
                   "focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-75",
                 )}
               >
@@ -113,8 +116,8 @@ const NavLinks = () => {
           <NavigationMenuPrimitive.Item
             key={item.label}
             className={cx(
-              "px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-900",
-              "text-sm font-medium text-gray-700 dark:text-gray-100",
+              "px-3 py-2 text-sm rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-900",
+              "text-sm font-medium text-neutral-700 dark:text-neutral-100",
             )}
           >
             <CustomLink href={item.href}>{item.label}</CustomLink>
@@ -126,14 +129,21 @@ const NavLinks = () => {
 };
 
 const Navbar = () => {
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="flex flex-col justify-center px-8 fixed top-0 left-0 right-0">
-      <NavigationMenuPrimitive.Root className="relative w-full max-w-3xl mt-8 mb-16 mx-auto rounded-lg bg-white/75 dark:bg-gray-800 p-2 shadow-lg backdrop-blur-md">
+      <NavigationMenuPrimitive.Root className="relative w-full max-w-3xl mt-8 mb-16 mx-auto rounded-lg bg-neutral-50/75 dark:bg-neutral-800/75 p-2 shadow-lg backdrop-blur-md">
         <NavigationMenuPrimitive.List className="flex flex-row justify-between opacity-100">
-          <NavigationMenuPrimitive.Item>
+          <NavigationMenuPrimitive.Item className="flex items-center">
             <CustomLink href="/">
               {/* placeholder for logo */}
-              <div className="w-8 h-8 rounded-xl bg-gray-200"></div>
+              <div className="w-8 h-8 rounded-xl bg-neutral-200"></div>
             </CustomLink>
           </NavigationMenuPrimitive.Item>
 
@@ -141,11 +151,48 @@ const Navbar = () => {
             <NavLinks />
           </ul>
 
-          <NavigationMenuPrimitive.Item>
-            <NavigationMenuPrimitive.Link href="/">
-              {/* placeholder for theme toggle */}
-              <div className="w-8 h-8 rounded-xl bg-gray-200"></div>
-            </NavigationMenuPrimitive.Link>
+          <NavigationMenuPrimitive.Item className="flex items-center">
+            <button
+              className="flex items-center justify-center w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-100 origin-center hover:ring-2 ring-neutral-500 dark:ring-neutral-300 transition-all ease-[cubic-bezier(.5,0,.15,1)]"
+              aria-label="Toggle dark mode"
+              onClick={() =>
+                setTheme(resolvedTheme === "dark" ? "light" : "dark")
+              }
+            >
+              {mounted && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={20}
+                  height={20}
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.25"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  {resolvedTheme === "dark" ? (
+                    <>
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"></path>
+                      <path d="M6.343 17.657l-1.414 1.414"></path>
+                      <path d="M6.343 6.343l-1.414 -1.414"></path>
+                      <path d="M17.657 6.343l1.414 -1.414"></path>
+                      <path d="M17.657 17.657l1.414 1.414"></path>
+                      <path d="M4 12h-2"></path>
+                      <path d="M12 4v-2"></path>
+                      <path d="M20 12h2"></path>
+                      <path d="M12 20v2"></path>
+                    </>
+                  ) : (
+                    <>
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+                    </>
+                  )}
+                </svg>
+              )}
+            </button>
           </NavigationMenuPrimitive.Item>
         </NavigationMenuPrimitive.List>
 
@@ -160,7 +207,7 @@ const Navbar = () => {
         >
           <NavigationMenuPrimitive.Viewport
             className={cx(
-              "relative mt-2 shadow-lg rounded-md bg-white dark:bg-gray-800 overflow-hidden",
+              "relative mt-2 shadow-lg rounded-md bg-white dark:bg-neutral-800 overflow-hidden",
               "w-radix-navigation-menu-viewport",
               "h-radix-navigation-menu-viewport",
               "radix-state-open:animate-scale-in-content",
