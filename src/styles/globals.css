@@ -35,3 +35,13 @@
     @apply text-base md:text-base tracking-normal font-semibold;
   }
 }
+
+@layer components {
+  .button-primary {
+    @apply relative bg-neutral-100 dark:bg-neutral-900 text-orange-700  dark:text-orange-400 hocus:text-neutral-800 dark:hocus:text-neutral-200 transition duration-300 ease-[cubic-bezier(.5,0,.15,1)] px-8 py-1.5 rounded-lg  before:absolute before:-inset-1 before:bg-gradient-to-r before:from-amber-600 before:to-orange-700 before:blur before:opacity-75 before:-z-[1] before:hocus:opacity-100 before:transition before:ease-[cubic-bezier(.5,0,.15,1)] before:duration-500 before:animate-glow-tilt;
+  }
+
+  .button-secondary {
+    @apply relative bg-neutral-50 dark:bg-neutral-900 border border-neutral-400 dark:border-neutral-400 text-neutral-500 dark:text-neutral-400 px-8 py-1.5 rounded-lg hocus:text-neutral-800 dark:hocus:text-neutral-200 transition duration-300 ease-[cubic-bezier(.5,0,.15,1)] before:absolute before:-inset-1 before:bg-gradient-to-r before:from-amber-600 before:to-orange-700 before:blur before:opacity-0 before:-z-[1] before:hocus:opacity-100 before:transition before:ease-[cubic-bezier(.5,0,.15,1)] before:duration-500 before:animate-glow-tilt;
+  }
+}
