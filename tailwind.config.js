@@ -73,10 +73,10 @@ module.exports = {
             transform: "rotate(0deg)",
           },
           "25%": {
-            transform: "rotate(0.85deg)",
+            transform: "rotate(0.9deg)",
           },
           "75%": {
-            transform: "rotate(-0.85deg)",
+            transform: "rotate(-0.9deg)",
           },
         },
       },
@@ -95,12 +95,16 @@ module.exports = {
         "slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         "slide-up": "slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         // Button
-        "glow-tilt": "glow-tilt 4.5s infinite linear",
+        "glow-tilt": "glow-tilt 4s infinite ease-in-out",
       },
     },
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
     require("tailwindcss-radix")(),
+    require("@tailwindcss/aspect-ratio"),
     plugin(function ({ addVariant }) {
       addVariant("hocus", ["&:hover", "&:focus"]);
     }),

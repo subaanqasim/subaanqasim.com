@@ -12,19 +12,19 @@
   }
 
   h1 {
-    @apply text-3xl md:text-5xl tracking-tight font-extrabold;
+    @apply text-3xl md:text-5xl tracking-normal md:tracking-tight font-extrabold;
   }
 
   h2 {
-    @apply text-2xl md:text-4xl tracking-tight font-extrabold;
+    @apply text-2xl md:text-4xl tracking-normal md:tracking-tight font-extrabold;
   }
 
   h3 {
-    @apply text-xl md:text-3xl tracking-tight font-extrabold;
+    @apply text-xl md:text-3xl tracking-normal md:tracking-tight font-extrabold;
   }
 
   h4 {
-    @apply text-lg md:text-2xl tracking-tight font-bold;
+    @apply text-lg md:text-2xl tracking-normal md:tracking-tight font-bold;
   }
 
   h5 {
