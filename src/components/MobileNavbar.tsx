@@ -61,11 +61,15 @@ const MobileNavbar = () => {
         document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }))
       }
       onCheckedChange={() => push(href)}
-      className={cx("radix-state-checked:bg-orange-50")}
+      className={cx(
+        "radix-state-checked:bg-neutral-200 dark:radix-state-checked:bg-neutral-600 rounded-md",
+      )}
     >
       <Link href={href}>
-        <a className="flex items-center text-gray-700 dark:text-gray-300 focus:bg-gray-50 dark:focus:bg-gray-900 cursor-pointer select-none rounded-md px-2 py-2 text-xs">
-          <span className="text-gray-400  dark:text-gray-500 ">{icon}</span>
+        <a className="flex items-center text-neutral-900 dark:text-neutral-100 focus:bg-neutral-50 dark:focus:bg-neutral-900 cursor-pointer select-none rounded-md px-2 py-2 text-xs">
+          <span className="text-neutral-500  dark:text-neutral-400 ">
+            {icon}
+          </span>
           <span className="flex-grow">{label}</span>
           <DropdownMenuPrimitive.ItemIndicator>
             <CheckIcon className="h-3.5 w-3.5" />
@@ -86,8 +90,8 @@ const MobileNavbar = () => {
   );
 
   return (
-    <div className="flex flex-col items-center px-8 fixed top-0 left-0 right-0">
-      <nav className="flex justify-between max-w-3xl w-full mt-8 mb-16 rounded-lg bg-white/75 dark:bg-gray-800 p-2 shadow-lg backdrop-blur-md">
+    <div className="flex flex-col items-center px-8 fixed top-0 left-0 right-0 z-[1000]">
+      <nav className="flex justify-between max-w-3xl w-full mt-8 mb-16 rounded-lg bg-neutral-50/75 dark:bg-neutral-800/75 p-2 shadow-lg backdrop-blur-md">
         <DropdownMenuPrimitive.Root>
           <DropdownMenuPrimitive.Trigger className="p-2 rounded-sm cursor-pointer hover:scale-[1.05] transform-gpu transition-all duration-100 ease-in-out">
             <HamburgerMenuIcon className="w-5 h-5" />
@@ -101,14 +105,14 @@ const MobileNavbar = () => {
             className={cx(
               "radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
               "w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56",
-              "bg-white dark:bg-gray-800",
+              "bg-neutral-50 dark:bg-neutral-800",
             )}
           >
             {generalMenuNavLinks}
 
-            <DropdownMenuPrimitive.Separator className="my-1 h-px bg-gray-200 dark:bg-gray-700" />
+            <DropdownMenuPrimitive.Separator className="my-1 h-px bg-neutral-200 dark:bg-neutral-700" />
 
-            <DropdownMenuPrimitive.Label className="select-none px-2 py-2 text-xs text-gray-700 dark:text-gray-200">
+            <DropdownMenuPrimitive.Label className="select-none px-2 py-2 text-xs text-neutral-500 dark:text-neutral-400">
               Portfolio
             </DropdownMenuPrimitive.Label>
 
