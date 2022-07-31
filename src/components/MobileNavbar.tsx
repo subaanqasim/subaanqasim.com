@@ -12,6 +12,7 @@ import cx from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { ReactNode } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 interface MenuItem {
   label: string;
@@ -119,6 +120,8 @@ const MobileNavbar = () => {
             {portfolioMenuNavLinks}
           </DropdownMenuPrimitive.Content>
         </DropdownMenuPrimitive.Root>
+
+        <ThemeToggle />
       </nav>
     </div>
   );
