@@ -18,9 +18,11 @@ const FeaturedPost = ({ type, title, excerpt, slug }: FeaturedPostProps) => {
           <div className="flex flex-col justify-between h-full">
             <div>
               <h4 className="mb-1 text-lg">{title}</h4>
-              <p className="text-sm text-neutral-500">{excerpt}</p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                {excerpt}
+              </p>
             </div>
-            <div className="flex md:justify-between gap-4 mt-3 text-sm  text-neutral-400 dark:text-neutral-600">
+            <div className="flex md:justify-between gap-4 mt-6 text-sm text-neutral-500 dark:text-neutral-400">
               <div className="flex items-center">
                 <svg
                   width="18"
