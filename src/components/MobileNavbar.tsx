@@ -92,7 +92,7 @@ const MobileNavbar = () => {
 
   return (
     <div className="flex flex-col items-center px-8 fixed top-0 left-0 right-0 z-[1000]">
-      <nav className="flex justify-between max-w-3xl w-full mt-8 mb-16 rounded-lg bg-neutral-50/75 dark:bg-neutral-800/75 p-2 shadow-lg backdrop-blur-md">
+      <nav className="flex justify-between max-w-3xl w-full mt-8 mb-16 rounded-lg bg-neutral-50/75 dark:bg-neutral-800/75 p-2 shadow-lg backdrop-blur-[6px]">
         <DropdownMenuPrimitive.Root>
           <DropdownMenuPrimitive.Trigger className="p-2 rounded-sm cursor-pointer hover:scale-[1.05] transform-gpu transition-all duration-100 ease-in-out">
             <HamburgerMenuIcon className="w-5 h-5" />

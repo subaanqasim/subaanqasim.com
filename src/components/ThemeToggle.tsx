@@ -11,7 +11,7 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="flex items-center justify-center w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-100 origin-center hover:ring-2 ring-neutral-500 dark:ring-neutral-300 transition-all ease-[cubic-bezier(.5,0,.15,1)]"
+      className="flex items-center justify-center w-8 h-8 rounded-lg bg-neutral-200/50 dark:bg-neutral-700/50 text-neutral-800 dark:text-neutral-100 origin-center hover:ring-2 ring-neutral-500 dark:ring-neutral-300 transition-all ease-[cubic-bezier(.5,0,.15,1)]"
       aria-label="Toggle dark mode"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
