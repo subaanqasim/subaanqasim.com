@@ -49,7 +49,7 @@ const Home = ({
 
             <h2 className="text-lg md:text-xl font-normal tracking-wide mb-10">
               Medical student &{" "}
-              <span className="italic font-semibold">(kinda)</span> full-stack
+              <span className="italic font-medium">(kinda)</span> full-stack
               developer.
             </h2>
 
