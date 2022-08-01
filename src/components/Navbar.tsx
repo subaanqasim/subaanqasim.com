@@ -131,7 +131,7 @@ const NavLinks = () => {
 
 const Navbar = () => {
   return (
-    <div className="flex flex-col justify-center px-8 fixed top-0 left-0 right-0">
+    <div className="flex flex-col justify-center px-8 fixed top-0 left-0 right-0 z-[1000]">
       <NavigationMenuPrimitive.Root className="relative w-full max-w-3xl mt-8 mb-16 mx-auto rounded-lg bg-neutral-50/75 dark:bg-neutral-800/75 p-2 shadow-lg backdrop-blur-md">
         <NavigationMenuPrimitive.List className="flex flex-row justify-between opacity-100">
           <NavigationMenuPrimitive.Item className="flex items-center">
