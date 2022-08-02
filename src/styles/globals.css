@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-neutral-50 dark:bg-neutral-900 text-base tracking-wide font-normal text-neutral-800 dark:text-neutral-200;
+    @apply bg-neutral-50 dark:bg-neutral-900 text-base tracking-wide font-normal text-neutral-800 dark:text-neutral-100;
   }
 
   h1 {
