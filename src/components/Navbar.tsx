@@ -116,12 +116,11 @@ const NavLinks = () => {
           // create/return navlinks with no submenu
           <NavigationMenuPrimitive.Item
             key={item.label}
-            className={cx(
-              "px-3 py-2 text-sm rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-900",
-              "text-sm font-medium text-neutral-700 dark:text-neutral-100",
-            )}
+            className="flex text-sm rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-900 font-medium text-neutral-700 dark:text-neutral-100"
           >
-            <CustomLink href={item.href}>{item.label}</CustomLink>
+            <CustomLink href={item.href} className="px-3 py-2">
+              {item.label}
+            </CustomLink>
           </NavigationMenuPrimitive.Item>
         );
       })}
