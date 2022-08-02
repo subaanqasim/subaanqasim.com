@@ -1,11 +1,10 @@
-import React from "react";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import type { Asset } from "contentful";
 import { useRouter } from "next/router";
 
 interface CommonProps {
   title: string;
-  description: string;
+  description?: string;
   image: Asset;
   noindex?: boolean;
   nofollow?: boolean;
@@ -48,15 +47,19 @@ const Wrapper = ({
 }: SeoProps) => {
   const router = useRouter();
 
+  const seoDescription = description
+    ? description
+    : "Medical Student, full stack developer, and wannabe data scientist. Posting projects, thoughts and unadulterated streams of consciousness.";
+
   return (
     <>
       <NextSeo
         title={title.includes("Subaan") ? title : `${title} | Subaan Qasim`}
-        description={description}
+        description={seoDescription}
         canonical={`https://www.subaanqasim.com${router.asPath}`}
         openGraph={{
           title: title.includes("Subaan") ? title : `${title} | Subaan Qasim`,
-          description: description,
+          description: seoDescription,
           url: `https://www.subaanqasim.com${router.asPath}`,
           locale: "en_GB",
           site_name: "Subaan Qasim",
@@ -91,7 +94,7 @@ const Wrapper = ({
         <ArticleJsonLd
           type="Blog"
           title={`${title} | Subaan Qasim`}
-          description={description}
+          description={seoDescription}
           url={`https://www.subaan.qasim.com${router.asPath}`}
           images={[image.fields.file!.url]}
           datePublished={datePublished!}

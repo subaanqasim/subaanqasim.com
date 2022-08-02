@@ -39,7 +39,6 @@ const Home = ({
     <>
       <Wrapper
         title="Subaan Qasim | Medical Student & Developer"
-        description="Medical Student, full stack developer, and wannabe data scientist. Posting projects, thoughts and unadulterated streams of consciousness."
         image={bannerImage}
         type="website"
       >

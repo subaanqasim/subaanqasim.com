@@ -6,11 +6,7 @@ export default function About({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Wrapper
-      title="About"
-      description="Medical Student, full stack developer, and wannabe data scientist. Posting projects, thoughts and unadulterated streams of consciousness."
-      image={bannerImage}
-    >
+    <Wrapper title="About" image={bannerImage}>
       <h1>About</h1>
     </Wrapper>
   );
