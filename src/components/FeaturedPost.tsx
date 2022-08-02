@@ -8,8 +8,7 @@ interface FeaturedPostProps {
 }
 
 const FeaturedPost = ({ type, title, excerpt, slug }: FeaturedPostProps) => {
-  const urlBase =
-    type === "project" || "article" ? `/${type}s` : "/photography";
+  const urlBase = type === "project" || "article" ? `${type}s` : "photography";
 
   return (
     <>
