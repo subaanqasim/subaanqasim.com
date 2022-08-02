@@ -13,7 +13,7 @@ const FeaturedPost = ({ type, title, excerpt, slug }: FeaturedPostProps) => {
   return (
     <>
       <Link href={`/${urlBase}/${slug}`}>
-        <a className="outline outline-neutral-300 dark:outline-neutral-600 outline-[3px] rounded-md p-4 w-full md:w-1/3 hocus:scale-[1.02] hocus:-translate-y-1 transition-all">
+        <a className="border-[3px] border-neutral-300 dark:border-neutral-600 rounded-lg p-4 w-full md:w-1/3 hocus:scale-[1.02] hocus:-translate-y-1 transition-all">
           <div className="flex flex-col justify-between h-full">
             <div>
               <h4 className="mb-1 text-lg">{title}</h4>
