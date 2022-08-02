@@ -43,7 +43,7 @@ const Home = ({
         image={bannerImage}
         type="website"
       >
-        <header className="flex flex-col-reverse sm:flex-row gap-8 justify-between w-full mb-14">
+        <header className="flex flex-col-reverse sm:flex-row gap-8 justify-between w-full mb-20">
           <div className="flex flex-col max-w-[500px]">
             <h1 className="mb-2">Subaan Qasim</h1>
 
@@ -82,7 +82,7 @@ const Home = ({
             </div>
           </div>
         </header>
-        <main>
+        <main id="work">
           <h3 className="mb-4 text-2xl md:text-4xl">Featured Projects</h3>
 
           <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
