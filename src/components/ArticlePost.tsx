@@ -9,7 +9,7 @@ interface ArticlePostProps {
 const ArticlePost = ({ title, excerpt, slug }: ArticlePostProps) => {
   return (
     <Link href={`/articles/${slug}`}>
-      <a className="group hover:-translate-y-2 hover:scale-[1.01] transition duration-[250ms] ease-[cubic-bezier(0.5,0,0.15,1)]">
+      <a className="group hover:-translate-y-2 hover:scale-[1.01] transition duration-[250ms] ease-[cubic-bezier(0.5,0,0.15,1)] border-2 rounded-md p-4 border-neutral-300 dark:border-neutral-600">
         <div className="flex flex-col sm:flex-row items-baseline justify-between gap-1 sm:gap-6">
           <h3 className="text-lg sm:text-xl font-medium group-hover:text-orange-700 dark:group-hover:text-orange-500 transition-all duration-[250ms] ease-[cubic-bezier(0.5,0,0.15,1)]">
             {title}
