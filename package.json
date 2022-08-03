@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
@@ -12,6 +13,7 @@
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.4",
+    "@next/env": "^12.2.3",
     "@prisma/client": "^4.1.0",
     "@radix-ui/react-dropdown-menu": "^1.0.0",
     "@radix-ui/react-icons": "^1.1.1",
@@ -26,6 +28,7 @@
     "next": "12.2.3",
     "next-auth": "^4.10.2",
     "next-seo": "^5.5.0",
+    "next-sitemap": "^3.1.15",
     "next-themes": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
