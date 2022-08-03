@@ -1,0 +1,43 @@
+{
+  "name": "Subaan Qasim",
+  "short_name": "Subaan Q",
+  "description": "Medical Student, full stack developer, and wannabe data scientist.",
+  "background_color": "#171717",
+  "theme_color": "#171717",
+  "display": "standalone",
+  "dir": "ltr",
+  "lang": "en-GB",
+  "orientation": "portrait-primary",
+  "start_url": "../index.html",
+  "categories": ["education", "medical", "productivity"],
+  "icons": [
+    {
+      "src": "/static/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Articles",
+      "description": "A list of all the posts I have written.",
+      "url": "/articles"
+    },
+    {
+      "name": "Photography",
+      "description": "A gallery of my favourite photos I have taken.",
+      "url": "/photography"
+    }
+  ]
+}
