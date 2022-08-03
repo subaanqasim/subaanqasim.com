@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 interface Links {
   label: string;
@@ -40,7 +40,7 @@ const footerData: FooterData[] = [
       { label: "Vibes", href: "/vibes" },
       { label: "Brain", href: "/brain" },
       { label: "Support", href: "/support" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Privacy Policy", href: "/privacy" },
     ],
   },
 ];

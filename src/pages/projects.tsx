@@ -1,6 +1,7 @@
 import { cda } from "@utils/contentful";
 import Wrapper from "../components/Wrapper";
 import { InferGetStaticPropsType } from "next";
+import Development from "../components/Development";
 
 const Projects = ({
   bannerImage,
@@ -11,7 +12,7 @@ const Projects = ({
       description="A collection of my most recent various coding and motion design projects I've worked on."
       image={bannerImage}
     >
-      <div>Projects</div>
+      <Development title="Projects" />
     </Wrapper>
   );
 };

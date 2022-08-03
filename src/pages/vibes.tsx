@@ -1,23 +1,23 @@
 import { cda } from "@utils/contentful";
-import Wrapper from "../components/Wrapper";
 import { InferGetStaticPropsType } from "next";
 import Development from "../components/Development";
+import Wrapper from "../components/Wrapper";
 
-const Photography = ({
+const Vibes = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Wrapper
-      title="Photography"
-      description="A gallery of some of my favourite photos whilst out and about."
+      title="Vibes"
+      description="A collection of tweets, memes and random stuff I majorly vibed with."
       image={bannerImage}
     >
-      <Development title="Photography" />
+      <Development title="Vibes" />
     </Wrapper>
   );
 };
 
-export default Photography;
+export default Vibes;
 
 export const getStaticProps = async () => {
   const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
