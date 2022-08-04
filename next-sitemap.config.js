@@ -1,6 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
-const config = {
-  siteUrl: process.env.SITE_URL || "https://subaan.qasim.com",
+
+const sitemapConfig = {
+  siteUrl: process.env.SITE_URL || "https://subaanqasim.com",
   generateIndexSitemap: false,
   exclude: ["/admin"],
   generateRobotsTxt: true,
@@ -14,4 +15,4 @@ const config = {
   },
 };
 
-export default config;
+module.exports = sitemapConfig;
