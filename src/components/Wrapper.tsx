@@ -56,11 +56,11 @@ const Wrapper = ({
       <NextSeo
         title={title.includes("Subaan") ? title : `${title} | Subaan Qasim`}
         description={seoDescription}
-        canonical={`https://www.subaanqasim.com${router.asPath}`}
+        canonical={`https://subaanqasim.com${router.asPath}`}
         openGraph={{
           title: title.includes("Subaan") ? title : `${title} | Subaan Qasim`,
           description: seoDescription,
-          url: `https://www.subaanqasim.com${router.asPath}`,
+          url: `https://subaanqasim.com${router.asPath}`,
           locale: "en_GB",
           site_name: "Subaan Qasim",
           type: type,

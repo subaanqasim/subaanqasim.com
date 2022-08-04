@@ -47,7 +47,7 @@ const Home = ({
             <h1 className="mb-2">Subaan Qasim</h1>
 
             <h2 className="text-lg md:text-xl font-normal tracking-wide mb-10">
-              Medical student &{" "}
+              Medical student, podcaster &{" "}
               <span className="italic font-medium">(kinda)</span> full-stack
               developer.
             </h2>
@@ -81,27 +81,27 @@ const Home = ({
             </div>
           </div>
         </header>
-        <main id="work">
+        <main id="work" className="w-full">
           <h3 className="mb-4 text-2xl md:text-4xl">Featured Projects</h3>
 
           <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
             <FeaturedPost
               type="project"
-              title="Title For a Super Cool Project"
-              excerpt="A one line description about the project"
-              slug="1"
+              title="Coming Soon..."
+              excerpt="Development in progress 🔨"
+              // slug="#"
             />
             <FeaturedPost
               type="project"
-              title="Title For Another Super Cool Project"
-              excerpt="A one line description about the project. A one line description about the project"
-              slug="2"
+              title="Also Coming Soon..."
+              excerpt="Development still in progress for this one as well 🔨"
+              // slug="#"
             />
             <FeaturedPost
               type="project"
-              title="This is an Insanely Cool Project 🤧"
-              excerpt="A one line description about the project. A one line description about the project. A one line description about the project. A one line description about the project"
-              slug="3"
+              title="Guess What? Coming Soon... 🤧"
+              excerpt="I hate to break it to you, but this one is also being developed 🛠"
+              // slug="#"
             />
           </div>
 
@@ -111,21 +111,21 @@ const Home = ({
           <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
             <FeaturedPost
               type="article"
-              title="Definitely the Best Article on the Internet"
-              excerpt="A one line description about the article."
-              slug="1"
+              title="Coming soon..."
+              excerpt="Writing in progress ✍🏽"
+              // slug="#"
             />
             <FeaturedPost
               type="article"
-              title="This is a relatively long title for an article so I can test the text wrapping"
-              excerpt="A one line description about the article. A one line description about the project"
-              slug="2"
+              title="Hopefully Coming Soon Also..."
+              excerpt="Writing still in progress for this one as well ✍🏽"
+              // slug="#"
             />
             <FeaturedPost
               type="article"
-              title="Definitely the Second Best Article on the Internet"
-              excerpt="A one line description about the article. A one line description about the article. A one line description about the article. A one line description about the article. A"
-              slug="3"
+              title="Unfortunately, This One Is Also Coming Soon..."
+              excerpt="I hate to break it to you, but this one is also being written ✍🏽"
+              // slug="#"
             />
           </div>
 

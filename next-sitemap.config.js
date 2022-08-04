@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: process.env.SITE_URL || "https://www.subaan.qasim.com",
+  siteUrl: process.env.SITE_URL || "https://subaan.qasim.com",
   generateIndexSitemap: false,
   exclude: ["/admin"],
   generateRobotsTxt: true,

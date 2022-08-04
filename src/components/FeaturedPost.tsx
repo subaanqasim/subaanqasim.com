@@ -4,7 +4,7 @@ interface FeaturedPostProps {
   type: "project" | "article" | "shot";
   title: string;
   excerpt: string;
-  slug: string;
+  slug?: string;
 }
 
 const FeaturedPost = ({ type, title, excerpt, slug }: FeaturedPostProps) => {
@@ -12,7 +12,7 @@ const FeaturedPost = ({ type, title, excerpt, slug }: FeaturedPostProps) => {
 
   return (
     <>
-      <Link href={`/${urlBase}/${slug}`}>
+      <Link href={slug ? `/${urlBase}/${slug}` : "#"}>
         <a className="border-[3px] border-neutral-300 dark:border-neutral-600 rounded-lg p-4 w-full md:w-1/3 hocus:scale-[1.02] hocus:-translate-y-1 transition-all">
           <div className="flex flex-col justify-between h-full">
             <div>
@@ -38,7 +38,9 @@ const FeaturedPost = ({ type, title, excerpt, slug }: FeaturedPostProps) => {
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <span className="after:-mt-[0.13em] after:table">15 min</span>
+                <span className="after:-mt-[0.13em] after:table">
+                  &infin; min
+                </span>
               </div>
               {/* <div className="flex items-center">
               <svg
