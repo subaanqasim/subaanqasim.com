@@ -17,10 +17,11 @@
 
 # production
 /build
-/public/robots.txt
-/public/sitemap.xml
-/public/sw.js
-/public/workbox-*.js
+**/public/robots.txt
+**/public/sitemap.xml
+**/public/workbox-*.js
+**/public/sw.js
+**/public/fallback-*.js
 
 # misc
 .DS_Store
