@@ -66,7 +66,9 @@ const Wrapper = ({
           type: type,
           images: [
             {
-              url: image.fields.file!.url,
+              url: image.fields.file!.url.startsWith("//")
+                ? `https:${image.fields.file!.url}`
+                : image.fields.file!.url,
               width: image.fields.file!.details.image!.width,
               height: image.fields.file!.details.image!.height,
               alt: image.fields?.title,
@@ -96,7 +98,11 @@ const Wrapper = ({
           title={`${title} | Subaan Qasim`}
           description={seoDescription}
           url={`https://www.subaanqasim.com${router.asPath}`}
-          images={[image.fields.file!.url]}
+          images={[
+            image.fields.file!.url.startsWith("//")
+              ? `https:${image.fields.file!.url}`
+              : image.fields.file!.url,
+          ]}
           datePublished={datePublished!}
           dateModified={dateModified}
           authorName={{
