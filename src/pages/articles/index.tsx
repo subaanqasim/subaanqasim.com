@@ -9,13 +9,13 @@ const articles = [
     title: "I Hope I Actually End Up Writing Stuff This Time",
     excerpt:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    slug: "i-hope-i-actually-end-up-writing-stuff-this-time",
+    slug: "",
   },
   {
     title: "It's Pretty Hard to Think of Filler Content",
     excerpt:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    slug: "its-pretty-hard-to-think-of-filler-content",
+    slug: "",
   },
 ];
 
@@ -100,7 +100,7 @@ const Articles = ({
               <ArticlePost
                 title="This is Definitely Not a Featured Post"
                 excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                slug="1"
+                slug=""
               />
             </div>
           </>
