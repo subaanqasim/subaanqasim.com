@@ -11,6 +11,8 @@ const envSchema = z.object({
   CONTENTFUL_ACCESS_TOKEN: z.string(),
   CONTENTFUL_ADMIN_TOKEN: z.string(),
   CONTENTFUL_ENVIRONMENT: z.string(),
+  STRIPE_SECRET_KEY: z.string(),
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string(),
 });
 
 module.exports.envSchema = envSchema;
