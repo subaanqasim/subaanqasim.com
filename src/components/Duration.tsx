@@ -7,9 +7,7 @@ const starters = [
   { id: "once", title: "One-time" },
 ];
 
-const Duration = () => {
-  const [value, setValue] = useState(starters[0]!.title);
-
+const Duration = ({ value, onChange }: any) => {
   return (
     <>
       <legend className=" font-medium text-lg mt-4">
@@ -17,15 +15,15 @@ const Duration = () => {
       </legend>
       <RadioGroupPrimitive.Root
         aria-label="One-time or recurring?"
-        onValueChange={setValue}
         value={value}
+        onValueChange={onChange}
       >
         <div className="mt-3 space-y-3">
           {starters.map((option) => (
             <div key={option.id} className="flex items-center">
               <RadioGroupPrimitive.Item
                 id={option.id}
-                value={option.title}
+                value={option.id}
                 className={cx(
                   "peer relative w-4 h-4 rounded-full",
                   "border border-transparent text-white",

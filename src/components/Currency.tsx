@@ -7,9 +7,9 @@ import {
   ChevronUpIcon,
 } from "@radix-ui/react-icons";
 
-const Currency = () => {
+const Currency = ({ value, onChange }: any) => {
   return (
-    <SelectPrimitive.Root defaultValue="gbp" name="currency">
+    <SelectPrimitive.Root value={value} onValueChange={onChange}>
       <SelectPrimitive.Trigger asChild aria-label="Currency">
         <button className="flex items-center py-2 px-4 bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-r-md focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black">
           <SelectPrimitive.Value />

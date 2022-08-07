@@ -2,8 +2,34 @@ import * as PopoverPrimitive from "@radix-ui/react-popover";
 import cx from "classnames";
 import Currency from "./Currency";
 import Duration from "./Duration";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
+
+type FormData = {
+  amount: number;
+  currency: string;
+  duration: string;
+};
 
 const Donate = () => {
+  const { control, handleSubmit, register, watch } = useForm<FormData>({
+    defaultValues: {
+      amount: 5,
+      currency: "gbp",
+      duration: "monthly",
+    },
+  });
+
+  const onSubmit: SubmitHandler<FormData> = (data) =>
+    console.log("formData", data);
+
+  const inputAmount = watch("amount");
+
+  const inputCurrency = () => {
+    if (watch("currency") === "gbp") return "£";
+    if (watch("currency") === "usd") return "$";
+    if (watch("currency") === "eur") return "€";
+  };
+
   return (
     <div className="relative inline-block text-left hocus:scale-110 transition-transform ease-in-out">
       <PopoverPrimitive.Root>
@@ -28,16 +54,23 @@ const Donate = () => {
               Buy me a coffee (or two, or three 🥴)
             </p>
 
-            <form className="mt-4 space-y-2">
+            <form className="mt-4 space-y-2" onSubmit={handleSubmit(onSubmit)}>
               <fieldset>
                 <label htmlFor="amount" className="font-medium text-lg">
                   Amount
                 </label>
                 <div className="flex mt-1">
                   <input
+                    {...register("amount", {
+                      required: "This field is required",
+                      min: {
+                        value: 1,
+                        message: "Amount must be greater than 1.",
+                      },
+                    })}
                     id="amount"
                     type="number"
-                    defaultValue={5}
+                    step={1}
                     min={1}
                     className={cx(
                       "block w-full rounded-l-md py-2",
@@ -46,13 +79,29 @@ const Donate = () => {
                       "focus:outline-none focus-visible:ring-2   focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black",
                     )}
                   />
-                  <Currency />
+                  <Controller
+                    name="currency"
+                    control={control}
+                    rules={{ required: "Please select a valid currency" }}
+                    render={({ field: { value, onChange } }) => (
+                      <Currency value={value} onChange={onChange} />
+                    )}
+                  />
                 </div>
               </fieldset>
 
               <fieldset>
                 <div className="mt-4 mb-8">
-                  <Duration />
+                  <Controller
+                    name="duration"
+                    control={control}
+                    rules={{
+                      required: "Please select an option",
+                    }}
+                    render={({ field: { onChange, value } }) => (
+                      <Duration value={value} onChange={onChange} />
+                    )}
+                  />
                 </div>
               </fieldset>
 
@@ -60,7 +109,7 @@ const Donate = () => {
                 type="submit"
                 className="px-4 py-2 w-full bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 font-semibold rounded-md focus:outline-none focus-visible:ring-2   focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black hocus:scale-105 transition-transform duration-[250ms] ease-in-out"
               >
-                Tip £5
+                {`Tip ${inputCurrency()}${inputAmount}`}
               </button>
             </form>
 
