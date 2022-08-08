@@ -1,14 +1,14 @@
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import cx from "classnames";
 import Currency from "./Currency";
-import Duration from "./Duration";
+import ModeOfDonation from "./ModeOfDonation";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import getStripe from "@utils/getStripe";
 
 type FormData = {
   amount: string;
   currency: "gbp" | "usd" | "eur";
-  duration: "monthly" | "once";
+  mode: "monthly" | "once";
 };
 
 const Donate = () => {
@@ -16,7 +16,7 @@ const Donate = () => {
     defaultValues: {
       amount: "5",
       currency: "gbp",
-      duration: "once",
+      mode: "once",
     },
   });
 
@@ -29,7 +29,7 @@ const Donate = () => {
       body: JSON.stringify({
         amount: data.amount,
         currency: data.currency,
-        duration: data.duration,
+        mode: data.mode,
       }),
     });
 
@@ -119,13 +119,13 @@ const Donate = () => {
               <fieldset>
                 <div className="mt-4 mb-8">
                   <Controller
-                    name="duration"
+                    name="mode"
                     control={control}
                     rules={{
                       required: "Please select an option",
                     }}
                     render={({ field: { onChange, value } }) => (
-                      <Duration value={value} onChange={onChange} />
+                      <ModeOfDonation value={value} onChange={onChange} />
                     )}
                   />
                 </div>

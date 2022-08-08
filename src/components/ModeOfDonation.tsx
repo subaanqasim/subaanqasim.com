@@ -1,4 +1,3 @@
-import { useState } from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import cx from "classnames";
 
@@ -7,7 +6,7 @@ const starters = [
   { id: "once", title: "One-time", disabled: false },
 ];
 
-const Duration = ({ value, onChange }: any) => {
+const ModeOfDonation = ({ value, onChange }: any) => {
   return (
     <>
       <legend className=" font-medium text-lg mt-4">
@@ -54,4 +53,4 @@ const Duration = ({ value, onChange }: any) => {
   );
 };
 
-export default Duration;
+export default ModeOfDonation;

@@ -12,11 +12,11 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     try {
-      const { amount, currency, duration } = req.body;
+      const { amount, currency, mode } = req.body;
 
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create({
-        mode: duration === "once" ? "payment" : "subscription",
+        mode: mode === "once" ? "payment" : "subscription",
         success_url: `${req.headers.origin}/support?success=true`, // &session_id={CHECKOUT_SESSION_ID}
         cancel_url: `${req.headers.origin}/support?canceled=true`,
         line_items: [
