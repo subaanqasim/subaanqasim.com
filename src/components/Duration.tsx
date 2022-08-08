@@ -3,8 +3,8 @@ import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import cx from "classnames";
 
 const starters = [
-  { id: "monthly", title: "Monthly" },
-  { id: "once", title: "One-time" },
+  { id: "monthly", title: "Monthly (coming soon)", disabled: true },
+  { id: "once", title: "One-time", disabled: false },
 ];
 
 const Duration = ({ value, onChange }: any) => {
@@ -24,6 +24,7 @@ const Duration = ({ value, onChange }: any) => {
               <RadioGroupPrimitive.Item
                 id={option.id}
                 value={option.id}
+                disabled={option.disabled}
                 className={cx(
                   "peer relative w-4 h-4 rounded-full",
                   "border border-transparent text-white",
@@ -36,7 +37,13 @@ const Duration = ({ value, onChange }: any) => {
                   <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
                 </RadioGroupPrimitive.Indicator>
               </RadioGroupPrimitive.Item>
-              <label htmlFor={option.id} className="ml-2 block">
+              <label
+                htmlFor={option.id}
+                className={cx(
+                  "ml-2 block radix-disabled:text-red-500",
+                  option.disabled && "text-neutral-500",
+                )}
+              >
                 {option.title}
               </label>
             </div>

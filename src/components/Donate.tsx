@@ -3,24 +3,50 @@ import cx from "classnames";
 import Currency from "./Currency";
 import Duration from "./Duration";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import getStripe from "@utils/getStripe";
 
 type FormData = {
-  amount: number;
-  currency: string;
-  duration: string;
+  amount: string;
+  currency: "gbp" | "usd" | "eur";
+  duration: "monthly" | "once";
 };
 
 const Donate = () => {
   const { control, handleSubmit, register, watch } = useForm<FormData>({
     defaultValues: {
-      amount: 5,
+      amount: "5",
       currency: "gbp",
-      duration: "monthly",
+      duration: "once",
     },
   });
 
-  const onSubmit: SubmitHandler<FormData> = (data) =>
-    console.log("formData", data);
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    const response = await fetch("/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount: data.amount,
+        currency: data.currency,
+        duration: data.duration,
+      }),
+    });
+
+    const session = await response.json();
+
+    if (session.statusCode === 500) {
+      console.error(session.message);
+      return;
+    }
+
+    const stripe = await getStripe();
+    const { error } = await stripe!.redirectToCheckout({
+      sessionId: session.checkoutSessionId,
+    });
+
+    console.warn(error.message);
+  };
 
   const inputAmount = watch("amount");
 
