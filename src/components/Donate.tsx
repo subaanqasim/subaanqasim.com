@@ -67,8 +67,8 @@ const Donate = () => {
         </PopoverPrimitive.Trigger>
         <PopoverPrimitive.Portal>
           <PopoverPrimitive.Content
-            align="start"
-            sideOffset={4}
+            align="end"
+            sideOffset={32}
             className={cx(
               "radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
               "w-80 rounded-lg p-6 shadow-md",

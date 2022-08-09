@@ -115,7 +115,7 @@ const Wrapper = ({
       <div className="flex flex-col items-start justify-center w-full max-w-3xl mx-auto">
         {children}
       </div>
-      <div className="fixed bottom-8 left-8">
+      <div className="fixed bottom-8 right-8">
         <Donate />
       </div>
     </>
