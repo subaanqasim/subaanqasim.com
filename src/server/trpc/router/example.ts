@@ -10,6 +10,6 @@ export const exampleRouter = t.router({
       };
     }),
   getAll: t.procedure.query(({ ctx }) => {
-    return ctx.prisma.example.findMany();
+    return ctx.prisma.user.findMany();
   }),
 });
