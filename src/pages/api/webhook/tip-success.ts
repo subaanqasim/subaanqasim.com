@@ -3,6 +3,7 @@ import { buffer } from "micro";
 import Stripe from "stripe";
 import { prisma } from "../../../server/db/client";
 import { env } from "../../../server/env";
+import NextCors from "nextjs-cors";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
   apiVersion: "2022-08-01",
@@ -18,6 +19,11 @@ export const config = {
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  await NextCors(req, res, {
+    methods: ["POST", "HEAD"],
+    origin: "*",
+  });
+
   if (req.method === "POST") {
     const buf = await buffer(req);
     const sig = req.headers["stripe-signature"]!;
