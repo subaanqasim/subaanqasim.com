@@ -52,25 +52,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           },
         });
 
-        const protocol = req.headers["x-forwarded-proto"] || "http";
-        const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
-
-        const csrfTokenResponse = await fetch(`${baseUrl}/api/auth/csrf`);
-        const { csrfToken } = await csrfTokenResponse.json();
-
-        // console.log("BODY:", charge.billing_details.email, csrfToken);
-
-        await fetch(`${baseUrl}/api/auth/signin/email`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: charge.billing_details.email,
-            csrfToken: csrfToken,
-          }),
-        });
-
         res.status(200).send(`✅ Success!`);
       } else {
         console.warn(`Unhandled event type: ${event.type}`);
