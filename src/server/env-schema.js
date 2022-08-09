@@ -13,6 +13,12 @@ const envSchema = z.object({
   CONTENTFUL_ENVIRONMENT: z.string(),
   STRIPE_SECRET_KEY: z.string(),
   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string(),
+  STRIPE_WEBHOOK_SECRET: z.string(),
+  EMAIL_SERVER_USER: z.string(),
+  EMAIL_SERVER_PASSWORD: z.string(),
+  EMAIL_SERVER_HOST: z.string(),
+  EMAIL_SERVER_PORT: z.string(),
+  EMAIL_FROM: z.string(),
 });
 
 module.exports.envSchema = envSchema;

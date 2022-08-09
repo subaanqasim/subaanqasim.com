@@ -17,7 +17,7 @@ const ModeOfDonation = ({ value, onChange }: any) => {
         value={value}
         onValueChange={onChange}
       >
-        <div className="mt-3 space-y-3">
+        <div className="mt-1 space-y-2">
           {starters.map((option) => (
             <div key={option.id} className="flex items-center">
               <RadioGroupPrimitive.Item

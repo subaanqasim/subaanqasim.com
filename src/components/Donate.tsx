@@ -9,6 +9,7 @@ type FormData = {
   amount: string;
   currency: "gbp" | "usd" | "eur";
   mode: "monthly" | "once";
+  email: string;
 };
 
 const Donate = () => {
@@ -17,6 +18,7 @@ const Donate = () => {
       amount: "5",
       currency: "gbp",
       mode: "once",
+      email: "",
     },
   });
 
@@ -30,6 +32,7 @@ const Donate = () => {
         amount: data.amount,
         currency: data.currency,
         mode: data.mode,
+        email: data.email,
       }),
     });
 
@@ -80,7 +83,7 @@ const Donate = () => {
               Buy me a coffee (or two, or three 🥴)
             </p>
 
-            <form className="mt-4 space-y-2" onSubmit={handleSubmit(onSubmit)}>
+            <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
               <fieldset>
                 <label htmlFor="amount" className="font-medium text-lg">
                   Amount
@@ -117,7 +120,7 @@ const Donate = () => {
               </fieldset>
 
               <fieldset>
-                <div className="mt-4 mb-8">
+                <div className="mt-4 mb-4">
                   <Controller
                     name="mode"
                     control={control}
@@ -131,9 +134,28 @@ const Donate = () => {
                 </div>
               </fieldset>
 
+              <label htmlFor="email" className="font-medium text-lg">
+                Email
+              </label>
+              <div className="flex mt-1">
+                <input
+                  {...register("email", {
+                    required: "This field is required",
+                  })}
+                  id="email"
+                  type="email"
+                  className={cx(
+                    "block w-full rounded-md py-2",
+                    "text-center placeholder:text-neutral-500  dark:placeholder:text-neutral-600 bg-neutral-100",
+                    "border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900",
+                    "focus:outline-none focus-visible:ring-2   focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black",
+                  )}
+                />
+              </div>
+
               <button
                 type="submit"
-                className="px-4 py-2 w-full bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 font-semibold rounded-md focus:outline-none focus-visible:ring-2   focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black hocus:scale-105 transition-transform duration-[250ms] ease-in-out"
+                className="mt-8 px-4 py-2 w-full bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 font-semibold rounded-md focus:outline-none focus-visible:ring-2   focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black hocus:scale-105 transition-transform duration-[250ms] ease-in-out"
               >
                 {`Tip ${inputCurrency()}${inputAmount}`}
               </button>
