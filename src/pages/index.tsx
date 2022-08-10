@@ -4,6 +4,7 @@ import { InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import Image from "next/future/image";
 import FeaturedPost from "src/components/FeaturedPost";
+import Donate from "../components/Donate";
 
 const SeeMoreLink: React.FC<{ text: string; href: string }> = ({
   text,

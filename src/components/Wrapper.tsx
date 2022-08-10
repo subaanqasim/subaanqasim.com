@@ -1,6 +1,7 @@
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import type { Asset } from "contentful";
 import { useRouter } from "next/router";
+import Donate from "./Donate";
 
 interface CommonProps {
   title: string;
@@ -66,7 +67,9 @@ const Wrapper = ({
           type: type,
           images: [
             {
-              url: image.fields.file!.url,
+              url: image.fields.file!.url.startsWith("//")
+                ? `https:${image.fields.file!.url}`
+                : image.fields.file!.url,
               width: image.fields.file!.details.image!.width,
               height: image.fields.file!.details.image!.height,
               alt: image.fields?.title,
@@ -95,8 +98,12 @@ const Wrapper = ({
           type="Blog"
           title={`${title} | Subaan Qasim`}
           description={seoDescription}
-          url={`https://www.subaan.qasim.com${router.asPath}`}
-          images={[image.fields.file!.url]}
+          url={`https://www.subaanqasim.com${router.asPath}`}
+          images={[
+            image.fields.file!.url.startsWith("//")
+              ? `https:${image.fields.file!.url}`
+              : image.fields.file!.url,
+          ]}
           datePublished={datePublished!}
           dateModified={dateModified}
           authorName={{
@@ -107,6 +114,9 @@ const Wrapper = ({
       )}
       <div className="flex flex-col items-start justify-center w-full max-w-3xl mx-auto">
         {children}
+      </div>
+      <div className="fixed bottom-8 right-8">
+        <Donate />
       </div>
     </>
   );
