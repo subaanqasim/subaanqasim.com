@@ -7,6 +7,7 @@ import Image from "next/future/image";
 import FeaturedPost from "src/components/FeaturedPost";
 import { trpc } from "@utils/trpc";
 import { useRouter } from "next/router";
+import { getBannerImage } from "@utils/getBannerImage";
 
 const SeeMoreLink: React.FC<{ text: string; href: string }> = ({
   text,
@@ -155,7 +156,7 @@ const Home = ({
 export default Home;
 
 export const getStaticProps = async () => {
-  const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
+  const bannerImage = await getBannerImage();
   const profileImage = await cda.getAsset("3Cgp43AjBUNejadXB6C5hu");
 
   return {

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { cda } from "@utils/contentful";
 import Wrapper from "../components/Wrapper";
 import { InferGetStaticPropsType } from "next";
 import Development from "../components/Development";
 import { trpc } from "@utils/trpc";
 import { useRouter } from "next/router";
+import { getBannerImage } from "@utils/getBannerImage";
 
 const Photography = ({
   bannerImage,
@@ -31,7 +31,7 @@ const Photography = ({
 export default Photography;
 
 export const getStaticProps = async () => {
-  const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
+  const bannerImage = await getBannerImage();
 
   return {
     props: {

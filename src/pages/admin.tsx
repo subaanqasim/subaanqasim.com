@@ -1,7 +1,7 @@
 import Development from "../components/Development";
 import { InferGetStaticPropsType } from "next";
-import { cda } from "@utils/contentful";
 import Wrapper from "../components/Wrapper";
+import { getBannerImage } from "@utils/getBannerImage";
 
 const Admin = ({
   bannerImage,
@@ -16,7 +16,8 @@ const Admin = ({
 export default Admin;
 
 export const getStaticProps = async () => {
-  const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
+  const bannerImage = await getBannerImage();
+
   return {
     props: {
       bannerImage,

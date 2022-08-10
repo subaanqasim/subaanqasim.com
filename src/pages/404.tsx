@@ -1,11 +1,22 @@
-import { cda } from "@utils/contentful";
+import { useEffect } from "react";
+import { getBannerImage } from "@utils/getBannerImage";
+import { trpc } from "@utils/trpc";
 import { InferGetStaticPropsType } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Wrapper from "../components/Wrapper";
 
 const NotFound = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { pathname } = useRouter();
+  const { mutate: addView, data: updatedViews } =
+    trpc.proxy.views.addView.useMutation();
+
+  useEffect(() => {
+    addView({ path: pathname });
+  }, [pathname, addView]);
+
   return (
     <Wrapper title="404" noindex nofollow image={bannerImage}>
       <main className="flex flex-col items-center w-full text-center">
@@ -38,7 +49,7 @@ const NotFound = ({
 export default NotFound;
 
 export const getStaticProps = async () => {
-  const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
+  const bannerImage = await getBannerImage();
 
   return {
     props: {

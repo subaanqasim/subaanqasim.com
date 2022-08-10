@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { cda } from "@utils/contentful";
 import { InferGetStaticPropsType } from "next";
 import Wrapper from "../components/Wrapper";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import cx from "classnames";
 import { trpc } from "@utils/trpc";
+import { getBannerImage } from "@utils/getBannerImage";
 
 const Support = ({
   bannerImage,
@@ -93,7 +93,7 @@ const Support = ({
 export default Support;
 
 export const getStaticProps = async () => {
-  const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
+  const bannerImage = await getBannerImage();
 
   return {
     props: {
