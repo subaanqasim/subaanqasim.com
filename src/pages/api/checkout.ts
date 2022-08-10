@@ -27,10 +27,6 @@ export default async function handler(
         ? prevCustomer.stripeCID!
         : undefined;
 
-      console.log("EMAIL", req.body.email);
-      console.log("PREV CUSTOMER???", Boolean(prevCustomer));
-      console.log("STRIPE ID???", prevCustomerStripeID);
-
       const session = await stripe.checkout.sessions.create({
         mode: mode === "once" ? "payment" : "subscription",
         success_url: `${req.headers.origin}/support?success=true&email=${req.body.email}`, // &session_id={CHECKOUT_SESSION_ID}
