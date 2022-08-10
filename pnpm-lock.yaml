@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@next-auth/prisma-adapter': ^1.0.4
   '@next/env': ^12.2.3
-  '@prisma/client': ^4.2.0
+  '@prisma/client': ^4.2.1
   '@radix-ui/react-dropdown-menu': ^1.0.0
   '@radix-ui/react-icons': ^1.1.1
   '@radix-ui/react-navigation-menu': 1.0.0
@@ -53,9 +53,9 @@ specifiers:
   zod: ^3.17.10
 
 dependencies:
-  '@next-auth/prisma-adapter': 1.0.4_xlpsmq3shk7wlwuhy37x53s3wa
+  '@next-auth/prisma-adapter': 1.0.4_puzfr7ccxtaapqb63zqdca4iqm
   '@next/env': 12.2.3
-  '@prisma/client': 4.2.0_prisma@4.2.0
+  '@prisma/client': 4.2.1_prisma@4.2.0
   '@radix-ui/react-dropdown-menu': 1.0.0_bb2bxwco6ptpubzwpazr52qf6i
   '@radix-ui/react-icons': 1.1.1_react@18.2.0
   '@radix-ui/react-navigation-menu': 1.0.0_biqbaboplfbrettd7655fr4n2y
@@ -1359,13 +1359,13 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
-  /@next-auth/prisma-adapter/1.0.4_xlpsmq3shk7wlwuhy37x53s3wa:
+  /@next-auth/prisma-adapter/1.0.4_puzfr7ccxtaapqb63zqdca4iqm:
     resolution: {integrity: sha512-jIOM6CzCbl2/Mzbx9kb2IjtHoJOeRN9wtQgLk4EUm5bhneSVGv1rtz5TDskvp2UfCa+EK9nDmug+lje41z80Gg==}
     peerDependencies:
       '@prisma/client': '>=2.26.0 || >=3'
       next-auth: ^4
     dependencies:
-      '@prisma/client': 4.2.0_prisma@4.2.0
+      '@prisma/client': 4.2.1_prisma@4.2.0
       next-auth: 4.10.2_mnimnj2pdeccz5uivmdmoly3tq
     dev: false
 
@@ -1518,8 +1518,8 @@ packages:
     resolution: {integrity: sha512-MSAs9t3Go7GUkMhpKC44T58DJ5KGk2vBo+h1cqQeqlMfdGkxaVB78ZWpv9gYi/g2fa4sopag9gJsNvS8XGgWJA==}
     dev: false
 
-  /@prisma/client/4.2.0_prisma@4.2.0:
-    resolution: {integrity: sha512-Q/X8fi1UBufCrkdLk188sC/roiGxEm1V3qU4uEP5SyleO5n2A+FyC62S7+4I0hu57CU3c7Ls3YjqPiZyTHVGOw==}
+  /@prisma/client/4.2.1_prisma@4.2.0:
+    resolution: {integrity: sha512-PZBkY60+k5oix+e6IUfl3ub8TbRLNsPLdfWrdy2eh80WcHTaT+/UfvXf/B7gXedH7FRtbPFHZXk1hZenJiJZFQ==}
     engines: {node: '>=14.17'}
     requiresBuild: true
     peerDependencies:

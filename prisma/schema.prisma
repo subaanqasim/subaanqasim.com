@@ -65,3 +65,10 @@ model Message {
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model Views {
+  id           String  @id @default(cuid())
+  contentfulID String? @unique
+  path         String  @unique @db.VarChar(256)
+  count        Int     @default(1)
+}
