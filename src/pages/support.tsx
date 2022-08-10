@@ -1,22 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cda } from "@utils/contentful";
 import { InferGetStaticPropsType } from "next";
 import Wrapper from "../components/Wrapper";
-import Development from "../components/Development";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import cx from "classnames";
+import { trpc } from "@utils/trpc";
 
 const Support = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [inputEmail, setInputEmail] = useState("");
-  const { query } = useRouter();
+  const { query, pathname } = useRouter();
+  const { data: session } = useSession();
+
+  const { mutate: addView, data: updatedViews } =
+    trpc.proxy.views.addView.useMutation();
+
+  useEffect(() => {
+    addView({ path: pathname });
+  }, [pathname, addView]);
 
   const isSuccess = query.success === "true";
   const userEmail = query.email;
-
-  const { data: session } = useSession();
 
   return (
     <Wrapper

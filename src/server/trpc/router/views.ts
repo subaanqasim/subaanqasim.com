@@ -44,26 +44,33 @@ export const viewsRouter = t.router({
 
   addView: t.procedure
     .input(
-      z
-        .object({
-          contentfulID: z.string(),
-          path: z.string(),
-        })
-        .partial()
-        .superRefine((data, ctx) => {
-          if (!data.contentfulID && !data.path) {
-            ctx.addIssue({
-              code: z.ZodIssueCode.custom,
-              path: ["path"],
-              message: "path should be set if contentfulID isn't",
-            });
-          }
-        }),
+      z.object({
+        contentfulID: z.string().nullish(),
+        path: z.string(),
+      }),
     )
     .mutation(async ({ input: { contentfulID, path }, ctx }) => {
-      // if contentfulID
-      // upsert view by ID
-      // else
-      // upsert view by path
+      if (contentfulID) {
+        const updatedViews = await ctx.prisma.views.upsert({
+          where: { contentfulID },
+          create: { contentfulID, path },
+          update: {
+            path, // as might change path/slug after publishing
+            count: { increment: 1 },
+          },
+        });
+        return updatedViews; // updatedViews.count;
+      }
+
+      const updatedViews = await ctx.prisma.views.upsert({
+        where: { path },
+        create: { path },
+        update: {
+          path,
+          count: { increment: 1 },
+        },
+      });
+
+      return updatedViews; // updatedViews.count;
     }),
 });
