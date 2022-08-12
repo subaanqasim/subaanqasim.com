@@ -4,6 +4,7 @@ import Currency from "./Currency";
 import ModeOfDonation from "./ModeOfDonation";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import getStripe from "@utils/getStripe";
+import { trpc } from "@utils/trpc";
 
 type FormData = {
   amount: string;
@@ -22,33 +23,29 @@ const Donate = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
-    const response = await fetch("/api/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  const { mutate: createCheckout } =
+    trpc.proxy.stripe.createCheckoutSession.useMutation({
+      onSuccess: async ({ checkoutSessionId }) => {
+        const stripe = await getStripe();
+        const { error } = await stripe!.redirectToCheckout({
+          sessionId: checkoutSessionId,
+        });
+
+        console.error(error.message);
       },
-      body: JSON.stringify({
-        amount: data.amount,
-        currency: data.currency,
-        mode: data.mode,
-        email: data.email,
-      }),
+
+      onError: (error) => {
+        console.error(error);
+      },
     });
 
-    const session = await response.json();
-
-    if (session.statusCode === 500) {
-      console.error(session.message);
-      return;
-    }
-
-    const stripe = await getStripe();
-    const { error } = await stripe!.redirectToCheckout({
-      sessionId: session.checkoutSessionId,
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    createCheckout({
+      amount: data.amount,
+      currency: data.currency,
+      mode: data.mode,
+      email: data.email,
     });
-
-    console.warn(error.message);
   };
 
   const inputAmount = watch("amount");

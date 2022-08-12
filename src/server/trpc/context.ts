@@ -13,6 +13,7 @@ export const createContext = async (
   return {
     session,
     prisma,
+    req: opts.req,
   };
 };
 
