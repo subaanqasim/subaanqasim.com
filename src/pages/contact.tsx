@@ -63,8 +63,8 @@ const socials = [
   },
   {
     platform: "LinkedIn",
-    handle: "/u/subaan-qasim",
-    href: "https://linkedin.com/u/subaan-qasim",
+    handle: "/in/subaan-qasim",
+    href: "https://www.linkedin.com/in/subaan-qasim/",
     iconColour: "text-blue-500",
     buttonText: "Connect",
     icon: (
