@@ -4,6 +4,14 @@ import Wrapper from "../components/Wrapper";
 import { trpc } from "@utils/trpc";
 import { useRouter } from "next/router";
 import { getBannerImage } from "@utils/getBannerImage";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type FormData = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
 const SocialMediaCard: React.FC<{
   platform: string;
@@ -40,6 +48,26 @@ const Contact = ({
   useEffect(() => {
     addView({ path: pathname });
   }, [pathname, addView]);
+
+  const {
+    mutate: sendEmail,
+    isLoading,
+    isSuccess,
+    isError,
+  } = trpc.proxy.email.sendEmail.useMutation();
+
+  const { handleSubmit, register } = useForm<FormData>({
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    sendEmail({ ...data });
+  };
 
   return (
     <Wrapper
@@ -107,7 +135,57 @@ const Contact = ({
           />
         </div>
 
-        <div>Email</div>
+        <div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <label htmlFor="name" className="block mt-8">
+              Name
+            </label>
+            <input
+              {...register("name", { required: true })}
+              id="name"
+              type="text"
+              placeholder="Your name"
+              className="w-full"
+            />
+
+            <label htmlFor="email" className="block mt-8">
+              Email
+            </label>
+            <input
+              {...register("email", { required: true })}
+              id="email"
+              type="email"
+              placeholder="tim@apple.com"
+              className="w-full"
+            />
+
+            <label htmlFor="subject" className="block mt-8">
+              Subject
+            </label>
+            <input
+              {...register("subject", { required: true })}
+              id="subject"
+              type="text"
+              placeholder="Subject"
+              className="w-full"
+            />
+
+            <label htmlFor="message" className="block mt-8">
+              Message
+            </label>
+            <input
+              {...register("message", { required: true })}
+              id="message"
+              type="text"
+              placeholder="skrrrr"
+              className="w-full"
+            />
+
+            <button type="submit" className="button-primary">
+              Send
+            </button>
+          </form>
+        </div>
       </main>
     </Wrapper>
   );
