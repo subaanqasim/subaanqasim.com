@@ -7,6 +7,85 @@ import { getBannerImage } from "@utils/getBannerImage";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import SocialMediaCard from "../components/SocialMediaCard";
+
+const socials = [
+  {
+    platform: "Twitter",
+    handle: "@subaanqasim",
+    href: "https://twitter.com/subaanqasim",
+    iconColour: "text-teal-500",
+    buttonText: "Follow",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="48"
+        height="48"
+        viewBox="0 0 24 24"
+        strokeWidth="0.75"
+        stroke="currentColor"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"></path>
+      </svg>
+    ),
+  },
+  {
+    platform: "Instagram",
+    handle: "@subaanqasim",
+    href: "https://instagram.com/subaanqasim",
+    iconColour: "text-orange-600",
+    buttonText: "Follow",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="48"
+        height="48"
+        viewBox="0 0 24 24"
+        strokeWidth="0.75"
+        stroke="currentColor"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <rect x="4" y="4" width="16" height="16" rx="4"></rect>
+        <circle cx="12" cy="12" r="3"></circle>
+        <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
+      </svg>
+    ),
+  },
+  {
+    platform: "LinkedIn",
+    handle: "/u/subaan-qasim",
+    href: "https://linkedin.com/u/subaan-qasim",
+    iconColour: "text-blue-500",
+    buttonText: "Connect",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="48"
+        height="48"
+        viewBox="0 0 24 24"
+        strokeWidth="0.75"
+        stroke="currentColor"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+        <line x1="8" y1="11" x2="8" y2="16"></line>
+        <line x1="8" y1="8" x2="8" y2="8.01"></line>
+        <line x1="12" y1="16" x2="12" y2="11"></line>
+        <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+      </svg>
+    ),
+  },
+];
 
 type FormData = {
   name: string;
@@ -31,32 +110,6 @@ const formSchema = z.object({
     .string({ required_error: "Please enter your message" })
     .min(1, { message: "Message is required" }),
 });
-
-const SocialMediaCard: React.FC<{
-  platform: string;
-  handle: string;
-  href: string;
-  icon: JSX.IntrinsicElements["svg"];
-  iconColour: string;
-}> = ({ platform, handle, href, icon, iconColour }) => {
-  return (
-    <div className="bg-neutral-200 dark:bg-neutral-800 w-full flex flex-col items-center justify-center p-4 rounded-md">
-      <div className={iconColour}>
-        <>{icon}</>
-      </div>
-      <p className="text-xl mt-6">{platform}</p>
-      <p className="text-neutral-600 dark:text-neutral-400">{handle}</p>
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer nofollow noopener"
-        className="px-8 py-2 dark:bg-neutral-900 bg-neutral-50 rounded-md mt-6 hover:dark:text-orange-500 hover:text-orange-700 w-full text-center hover:scale-105 transition-all"
-      >
-        Follow
-      </a>
-    </div>
-  );
-};
 
 const Contact = ({
   bannerImage,
@@ -111,53 +164,17 @@ const Contact = ({
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row justify-between gap-4 max-w-xl mx-auto">
-          <SocialMediaCard
-            platform="Twitter"
-            handle="@subaanqasim"
-            href="https://twitter.com/subaanqasim"
-            iconColour="text-blue-500"
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                strokeWidth="0.75"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"></path>
-              </svg>
-            }
+          {socials.map((social) => (
+            <SocialMediaCard
+              key={social.platform}
+              platform={social.platform}
+              handle={social.handle}
+              href={social.href}
+              iconColour={social.iconColour}
+              buttonText={social.buttonText}
+              icon={social.icon}
           />
-
-          <SocialMediaCard
-            platform="Instagram"
-            handle="@subaanqasim"
-            href="https://instagram.com/subaanqasim"
-            iconColour="text-orange-600"
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                strokeWidth="0.75"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <rect x="4" y="4" width="16" height="16" rx="4"></rect>
-                <circle cx="12" cy="12" r="3"></circle>
-                <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
-              </svg>
-            }
-          />
+          ))}
         </div>
 
         <div>
