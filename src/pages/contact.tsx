@@ -5,6 +5,8 @@ import { trpc } from "@utils/trpc";
 import { useRouter } from "next/router";
 import { getBannerImage } from "@utils/getBannerImage";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 type FormData = {
   name: string;
@@ -12,6 +14,23 @@ type FormData = {
   subject: string;
   message: string;
 };
+
+const formSchema = z.object({
+  name: z
+    .string({ required_error: "Name is required" })
+    .min(1, "Name is required")
+    .max(50, { message: "Name must be less than 50 characters" }),
+  email: z
+    .string({ required_error: "Your email is required" })
+    .email({ message: "Invalid email address" }),
+  subject: z
+    .string({ required_error: "Subject required" })
+    .min(1, { message: "Subject is required" })
+    .max(256, { message: "Subject must be less than 256 characters" }),
+  message: z
+    .string({ required_error: "Please enter your message" })
+    .min(1, { message: "Message is required" }),
+});
 
 const SocialMediaCard: React.FC<{
   platform: string;
@@ -56,7 +75,13 @@ const Contact = ({
     isError,
   } = trpc.proxy.email.sendEmail.useMutation();
 
-  const { handleSubmit, register } = useForm<FormData>({
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isValid },
+  } = useForm<FormData>({
+    mode: "onTouched",
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -136,7 +161,7 @@ const Contact = ({
         </div>
 
         <div>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <label htmlFor="name" className="block mt-8">
               Name
             </label>
@@ -147,6 +172,7 @@ const Contact = ({
               placeholder="Your name"
               className="w-full"
             />
+            <p>{errors?.name?.message}</p>
 
             <label htmlFor="email" className="block mt-8">
               Email
@@ -158,6 +184,7 @@ const Contact = ({
               placeholder="tim@apple.com"
               className="w-full"
             />
+            <p>{errors?.email?.message}</p>
 
             <label htmlFor="subject" className="block mt-8">
               Subject
@@ -169,6 +196,7 @@ const Contact = ({
               placeholder="Subject"
               className="w-full"
             />
+            <p>{errors?.subject?.message}</p>
 
             <label htmlFor="message" className="block mt-8">
               Message
@@ -180,8 +208,13 @@ const Contact = ({
               placeholder="skrrrr"
               className="w-full"
             />
+            <p>{errors?.message?.message}</p>
 
-            <button type="submit" className="button-primary">
+            <button
+              type="submit"
+              disabled={!isValid || isLoading}
+              className="button-primary disabled:bg-neutral-300 text-neutral-600 dark:disabled:bg-neutral-600 dark:disabled:text-neutral-400 disabled:cursor-not-allowed"
+            >
               Send
             </button>
           </form>
