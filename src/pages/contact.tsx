@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { InferGetStaticPropsType } from "next";
 import Wrapper from "../components/Wrapper";
 import SocialMediaCard from "../components/SocialMediaCard";
+import EmailToast from "../components/EmailToast";
 import { trpc } from "@utils/trpc";
 import { useRouter } from "next/router";
 import { getBannerImage } from "@utils/getBannerImage";
@@ -9,6 +10,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import cx from "classnames";
+import { Provider as ToastProvider } from "@radix-ui/react-toast";
 
 const socials = [
   {
@@ -117,6 +119,7 @@ const Contact = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { pathname } = useRouter();
   const { mutate: addView } = trpc.proxy.views.addView.useMutation();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     addView({ path: pathname });
@@ -126,8 +129,18 @@ const Contact = ({
     mutate: sendEmail,
     isLoading,
     isSuccess,
-    isError,
-  } = trpc.proxy.email.sendEmail.useMutation();
+    status,
+  } = trpc.proxy.email.sendEmail.useMutation({
+    onSuccess: () => {
+      setOpen(true);
+    },
+    onError: () => {
+      setOpen(true);
+    },
+    onMutate: () => {
+      setOpen(true);
+    },
+  });
 
   const {
     handleSubmit,
@@ -135,7 +148,7 @@ const Contact = ({
     formState: { errors, isValid },
     reset,
   } = useForm<FormData>({
-    mode: "onTouched",
+    mode: "onChange",
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -156,146 +169,149 @@ const Contact = ({
   }, [reset, isSuccess]);
 
   return (
-    <Wrapper
-      title="Contact"
-      description="Get in touch with me via email or connect with me on social media."
-      image={bannerImage}
-    >
-      <header>
-        <h1>Contact</h1>
-      </header>
+    <ToastProvider>
+      <Wrapper
+        title="Contact"
+        description="Get in touch with me via email or connect with me on social media."
+        image={bannerImage}
+      >
+        <header>
+          <h1>Contact</h1>
+        </header>
 
-      <main>
-        <p className="text-lg mt-2 text-neutral-600 dark:text-neutral-300">
-          Got a question, idea, or just wanna chat? Get in touch via your
-          preferred avenue below.
-        </p>
+        <main>
+          <p className="text-lg mt-2 text-neutral-600 dark:text-neutral-300">
+            Got a question, idea, or just wanna chat? Get in touch via your
+            preferred avenue below.
+          </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row justify-between gap-4 max-w-xl mx-auto">
-          {socials.map((social) => (
-            <SocialMediaCard
-              key={social.platform}
-              platform={social.platform}
-              handle={social.handle}
-              href={social.href}
-              iconColour={social.iconColour}
-              buttonText={social.buttonText}
-              icon={social.icon}
-            />
-          ))}
-        </div>
-
-        <div className="max-w-xl mx-auto p-4 bg-neutral-100 dark:bg-neutral-800 mt-8 rounded-md">
-          <h2 className="mt-2 mb-8">Get in touch via email</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="relative z-0 mb-8 w-full group">
-              <input
-                {...register("name", { required: true })}
-                id="name"
-                type="text"
-                placeholder=" "
-                className={cx(
-                  errors.name?.message
-                    ? "border-red-600 dark:border-red-500"
-                    : "border-neutral-300 dark:border-neutral-600",
-                  "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
-                )}
+          <div className="mt-8 flex flex-col sm:flex-row justify-between gap-4 max-w-xl mx-auto">
+            {socials.map((social) => (
+              <SocialMediaCard
+                key={social.platform}
+                platform={social.platform}
+                handle={social.handle}
+                href={social.href}
+                iconColour={social.iconColour}
+                buttonText={social.buttonText}
+                icon={social.icon}
               />
-              <label
-                htmlFor="name"
-                className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+            ))}
+          </div>
+
+          <div className="max-w-xl mx-auto p-4 bg-neutral-100 dark:bg-neutral-800 mt-8 rounded-md">
+            <h2 className="mt-2 mb-8">Get in touch via email</h2>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="relative z-0 mb-8 w-full group">
+                <input
+                  {...register("name", { required: true })}
+                  id="name"
+                  type="text"
+                  placeholder=" "
+                  className={cx(
+                    errors.name?.message
+                      ? "border-red-600 dark:border-red-500"
+                      : "border-neutral-300 dark:border-neutral-600",
+                    "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                  )}
+                />
+                <label
+                  htmlFor="name"
+                  className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+                >
+                  Name<span className="text-red-500 font-medium">*</span>
+                </label>
+
+                <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                  {errors?.name?.message}
+                </p>
+              </div>
+
+              <div className="relative z-0 mb-8 w-full group">
+                <input
+                  {...register("email", { required: true })}
+                  id="email"
+                  type="email"
+                  placeholder=" "
+                  className={cx(
+                    errors.email?.message
+                      ? "border-red-600 dark:border-red-500"
+                      : "border-neutral-300 dark:border-neutral-600",
+                    "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                  )}
+                />
+                <label
+                  htmlFor="email"
+                  className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+                >
+                  Email<span className="text-red-500 font-medium">*</span>
+                </label>
+                <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                  {errors?.email?.message}
+                </p>
+              </div>
+
+              <div className="relative z-0 mb-8 w-full group">
+                <input
+                  {...register("subject", { required: true })}
+                  id="subject"
+                  type="text"
+                  placeholder=" "
+                  className={cx(
+                    errors.subject?.message
+                      ? "border-red-600 dark:border-red-500"
+                      : "border-neutral-300 dark:border-neutral-600",
+                    "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                  )}
+                />
+                <label
+                  htmlFor="subject"
+                  className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+                >
+                  Subject<span className="text-red-500 font-medium">*</span>
+                </label>
+                <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                  {errors?.subject?.message}
+                </p>
+              </div>
+
+              <div className="relative z-0 mb-8 w-full group">
+                <textarea
+                  {...register("message", { required: true })}
+                  id="message"
+                  placeholder=" "
+                  rows={5}
+                  className={cx(
+                    errors.message?.message
+                      ? "border-red-600 dark:border-red-500"
+                      : "border-neutral-300 dark:border-neutral-600",
+                    "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                  )}
+                />
+                <label
+                  htmlFor="message"
+                  className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+                >
+                  Message<span className="text-red-500 font-medium">*</span>
+                </label>
+                <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                  {errors?.message?.message}
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                disabled={!isValid || isLoading}
+                className="px-8 py-2 dark:bg-neutral-100 bg-neutral-800 text-neutral-100  dark:text-neutral-800 rounded-md mt-6 w-full text-center disabled:hocus:scale-100 hocus:scale-105 transition-all disabled:bg-neutral-300 dark:disabled:bg-neutral-600 disabled:text-neutral-500 dark:disabled:text-neutral-400 disabled:cursor-not-allowed focus:outline-none focus-visible:ring focus-visible:ring-amber-500 focus-visible:ring-opacity-75"
               >
-                Name<span className="text-red-500 font-medium">*</span>
-              </label>
-
-              <p className="text-red-600 dark:text-red-500 text-sm mt-1">
-                {errors?.name?.message}
-              </p>
-            </div>
-
-            <div className="relative z-0 mb-8 w-full group">
-              <input
-                {...register("email", { required: true })}
-                id="email"
-                type="email"
-                placeholder=" "
-                className={cx(
-                  errors.email?.message
-                    ? "border-red-600 dark:border-red-500"
-                    : "border-neutral-300 dark:border-neutral-600",
-                  "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
-                )}
-              />
-              <label
-                htmlFor="email"
-                className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
-              >
-                Email<span className="text-red-500 font-medium">*</span>
-              </label>
-              <p className="text-red-600 dark:text-red-500 text-sm mt-1">
-                {errors?.email?.message}
-              </p>
-            </div>
-
-            <div className="relative z-0 mb-8 w-full group">
-              <input
-                {...register("subject", { required: true })}
-                id="subject"
-                type="text"
-                placeholder=" "
-                className={cx(
-                  errors.subject?.message
-                    ? "border-red-600 dark:border-red-500"
-                    : "border-neutral-300 dark:border-neutral-600",
-                  "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
-                )}
-              />
-              <label
-                htmlFor="subject"
-                className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
-              >
-                Subject<span className="text-red-500 font-medium">*</span>
-              </label>
-              <p className="text-red-600 dark:text-red-500 text-sm mt-1">
-                {errors?.subject?.message}
-              </p>
-            </div>
-
-            <div className="relative z-0 mb-8 w-full group">
-              <textarea
-                {...register("message", { required: true })}
-                id="message"
-                placeholder=" "
-                rows={5}
-                className={cx(
-                  errors.message?.message
-                    ? "border-red-600 dark:border-red-500"
-                    : "border-neutral-300 dark:border-neutral-600",
-                  "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
-                )}
-              />
-              <label
-                htmlFor="message"
-                className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
-              >
-                Message<span className="text-red-500 font-medium">*</span>
-              </label>
-              <p className="text-red-600 dark:text-red-500 text-sm mt-1">
-                {errors?.message?.message}
-              </p>
-            </div>
-
-            <button
-              type="submit"
-              disabled={!isValid || isLoading}
-              className="px-8 py-2 dark:bg-neutral-100 bg-neutral-800 text-neutral-100  dark:text-neutral-800 rounded-md mt-6 w-full text-center disabled:hover:scale-100 hover:scale-105 transition-all disabled:bg-neutral-300 dark:disabled:bg-neutral-600 disabled:text-neutral-500 dark:disabled:text-neutral-400 disabled:cursor-not-allowed"
-            >
-              Send
-            </button>
-          </form>
-        </div>
-      </main>
-    </Wrapper>
+                Send
+              </button>
+            </form>
+          </div>
+          <EmailToast open={open} setOpen={setOpen} status={status} />
+        </main>
+      </Wrapper>
+    </ToastProvider>
   );
 };
 

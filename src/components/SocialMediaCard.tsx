@@ -26,7 +26,7 @@ const SocialMediaCard = ({
         href={href}
         target="_blank"
         rel="noreferrer nofollow noopener"
-        className="px-8 py-2 dark:bg-neutral-900 bg-neutral-200 rounded-md mt-6 hover:dark:text-orange-500 hover:text-orange-800 w-full text-center hover:scale-105 transition-all"
+        className="px-8 py-2 dark:bg-neutral-900 bg-neutral-200 rounded-md mt-6 hocus:dark:text-orange-500 hocus:text-orange-800 w-full text-center hocus:scale-105 transition-all"
       >
         {buttonText}
       </a>
