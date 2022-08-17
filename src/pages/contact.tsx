@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { InferGetStaticPropsType } from "next";
 import Wrapper from "../components/Wrapper";
+import SocialMediaCard from "../components/SocialMediaCard";
 import { trpc } from "@utils/trpc";
 import { useRouter } from "next/router";
 import { getBannerImage } from "@utils/getBannerImage";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import SocialMediaCard from "../components/SocialMediaCard";
+import cx from "classnames";
 
 const socials = [
   {
@@ -132,6 +133,7 @@ const Contact = ({
     handleSubmit,
     register,
     formState: { errors, isValid },
+    reset,
   } = useForm<FormData>({
     mode: "onTouched",
     resolver: zodResolver(formSchema),
@@ -146,6 +148,12 @@ const Contact = ({
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     sendEmail({ ...data });
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      reset();
+    }
+  }, [reset, isSuccess]);
 
   return (
     <Wrapper
@@ -173,64 +181,114 @@ const Contact = ({
               iconColour={social.iconColour}
               buttonText={social.buttonText}
               icon={social.icon}
-          />
+            />
           ))}
         </div>
 
-        <div>
-          <form onSubmit={handleSubmit(onSubmit)} noValidate>
-            <label htmlFor="name" className="block mt-8">
-              Name
-            </label>
-            <input
-              {...register("name", { required: true })}
-              id="name"
-              type="text"
-              placeholder="Your name"
-              className="w-full"
-            />
-            <p>{errors?.name?.message}</p>
+        <div className="max-w-xl mx-auto p-4 bg-neutral-100 dark:bg-neutral-800 mt-8 rounded-md">
+          <h2 className="mt-2 mb-8">Get in touch via email</h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="relative z-0 mb-8 w-full group">
+              <input
+                {...register("name", { required: true })}
+                id="name"
+                type="text"
+                placeholder=" "
+                className={cx(
+                  errors.name?.message
+                    ? "border-red-600 dark:border-red-500"
+                    : "border-neutral-300 dark:border-neutral-600",
+                  "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                )}
+              />
+              <label
+                htmlFor="name"
+                className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+              >
+                Name<span className="text-red-500 font-medium">*</span>
+              </label>
 
-            <label htmlFor="email" className="block mt-8">
-              Email
-            </label>
-            <input
-              {...register("email", { required: true })}
-              id="email"
-              type="email"
-              placeholder="tim@apple.com"
-              className="w-full"
-            />
-            <p>{errors?.email?.message}</p>
+              <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                {errors?.name?.message}
+              </p>
+            </div>
 
-            <label htmlFor="subject" className="block mt-8">
-              Subject
-            </label>
-            <input
-              {...register("subject", { required: true })}
-              id="subject"
-              type="text"
-              placeholder="Subject"
-              className="w-full"
-            />
-            <p>{errors?.subject?.message}</p>
+            <div className="relative z-0 mb-8 w-full group">
+              <input
+                {...register("email", { required: true })}
+                id="email"
+                type="email"
+                placeholder=" "
+                className={cx(
+                  errors.email?.message
+                    ? "border-red-600 dark:border-red-500"
+                    : "border-neutral-300 dark:border-neutral-600",
+                  "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                )}
+              />
+              <label
+                htmlFor="email"
+                className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+              >
+                Email<span className="text-red-500 font-medium">*</span>
+              </label>
+              <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                {errors?.email?.message}
+              </p>
+            </div>
 
-            <label htmlFor="message" className="block mt-8">
-              Message
-            </label>
-            <input
-              {...register("message", { required: true })}
-              id="message"
-              type="text"
-              placeholder="skrrrr"
-              className="w-full"
-            />
-            <p>{errors?.message?.message}</p>
+            <div className="relative z-0 mb-8 w-full group">
+              <input
+                {...register("subject", { required: true })}
+                id="subject"
+                type="text"
+                placeholder=" "
+                className={cx(
+                  errors.subject?.message
+                    ? "border-red-600 dark:border-red-500"
+                    : "border-neutral-300 dark:border-neutral-600",
+                  "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                )}
+              />
+              <label
+                htmlFor="subject"
+                className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+              >
+                Subject<span className="text-red-500 font-medium">*</span>
+              </label>
+              <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                {errors?.subject?.message}
+              </p>
+            </div>
+
+            <div className="relative z-0 mb-8 w-full group">
+              <textarea
+                {...register("message", { required: true })}
+                id="message"
+                placeholder=" "
+                rows={5}
+                className={cx(
+                  errors.message?.message
+                    ? "border-red-600 dark:border-red-500"
+                    : "border-neutral-300 dark:border-neutral-600",
+                  "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                )}
+              />
+              <label
+                htmlFor="message"
+                className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+              >
+                Message<span className="text-red-500 font-medium">*</span>
+              </label>
+              <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                {errors?.message?.message}
+              </p>
+            </div>
 
             <button
               type="submit"
               disabled={!isValid || isLoading}
-              className="button-primary disabled:bg-neutral-300 text-neutral-600 dark:disabled:bg-neutral-600 dark:disabled:text-neutral-400 disabled:cursor-not-allowed"
+              className="px-8 py-2 dark:bg-neutral-100 bg-neutral-800 text-neutral-100  dark:text-neutral-800 rounded-md mt-6 w-full text-center disabled:hover:scale-100 hover:scale-105 transition-all disabled:bg-neutral-300 dark:disabled:bg-neutral-600 disabled:text-neutral-500 dark:disabled:text-neutral-400 disabled:cursor-not-allowed"
             >
               Send
             </button>
