@@ -35,7 +35,7 @@ specifiers:
   micro: 9.4.1
   next: 12.2.5
   next-auth: 4.10.3
-  next-pwa: 5.5.4
+  next-pwa: 5.6.0
   next-seo: 5.5.0
   next-sitemap: 3.1.19
   next-themes: 0.2.0
@@ -43,6 +43,7 @@ specifiers:
   nodemailer: 6.7.8
   postcss: 8.4.16
   prettier: 2.7.1
+  prettier-plugin-tailwindcss: ^0.1.13
   prisma: 4.2.1
   react: 18.2.0
   react-dom: 18.2.0
@@ -78,7 +79,7 @@ dependencies:
   micro: 9.4.1
   next: 12.2.5_twoewwu6sg7cdf3ao6njtbftne
   next-auth: 4.10.3_br325yun545l5vwdnneu6tztxq
-  next-pwa: 5.5.4_ac5rnokcvlkvrycdj6o5wxczke
+  next-pwa: 5.6.0_ac5rnokcvlkvrycdj6o5wxczke
   next-seo: 5.5.0_3xcjr4wz26biff45sz3jtokgje
   next-sitemap: 3.1.19_gzpnnaylvtfluxe3m63vhk6hhm
   next-themes: 0.2.0_3xcjr4wz26biff45sz3jtokgje
@@ -106,6 +107,7 @@ devDependencies:
   eslint-config-prettier: 8.5.0_eslint@8.22.0
   postcss: 8.4.16
   prettier: 2.7.1
+  prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
   prisma: 4.2.1
   tailwindcss: 3.1.8
   typescript: 4.7.4
@@ -4415,8 +4417,8 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /next-pwa/5.5.4_ac5rnokcvlkvrycdj6o5wxczke:
-    resolution: {integrity: sha512-EgB2MQWGR8oZDzY6US+/D0LOCUhPZYCgeqRVBYDxQWNi0N6XfQOoZPw2COIrg/eMt/rB0M+/mquhAQACs5v4Ag==}
+  /next-pwa/5.6.0_ac5rnokcvlkvrycdj6o5wxczke:
+    resolution: {integrity: sha512-XV8g8C6B7UmViXU8askMEYhWwQ4qc/XqJGnexbLV68hzKaGHZDMtHsm2TNxFcbR7+ypVuth/wwpiIlMwpRJJ5A==}
     peerDependencies:
       next: '>=9.0.0'
     dependencies:
@@ -4876,6 +4878,15 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier-plugin-tailwindcss/0.1.13_prettier@2.7.1:
+    resolution: {integrity: sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==}
+    engines: {node: '>=12.17.0'}
+    peerDependencies:
+      prettier: '>=2.2.0'
+    dependencies:
+      prettier: 2.7.1
     dev: true
 
   /prettier/2.7.1:
