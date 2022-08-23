@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Wrapper from "../components/Wrapper";
 import { InferGetStaticPropsType } from "next";
-import Development from "../components/Development";
 import { useRouter } from "next/router";
 import { trpc } from "@utils/trpc";
 import { getBannerImage } from "@utils/getBannerImage";
