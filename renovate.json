@@ -1,4 +1,28 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"]
+  "extends": [
+    "config:base",
+    ":semanticCommitType(chore)",
+    ":pinAllExceptPeerDependencies"
+  ],
+  "separateMinorPatch": true,
+  "patch": {
+    "automerge": true
+  },
+  "pin": {
+    "automerge": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+
+  "packageRules": [
+    {
+      "extends": ["packages:linters", "packages:test"],
+      "matchPackagePrefixes": ["@types/"],
+      "matchPackagePatterns": ["prettier"],
+      "automerge": true
+    }
+  ]
 }
