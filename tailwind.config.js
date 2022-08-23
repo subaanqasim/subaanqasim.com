@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Articulat CF", ...fontFamily.sans],
+        sans: ["Articulat-CF", ...fontFamily.sans],
       },
       letterSpacing: {
         tight: "-0.03em",
