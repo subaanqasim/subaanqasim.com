@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+  @apply bg-neutral-800 text-neutral-200 dark:bg-neutral-200 dark:text-neutral-800;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -9,40 +13,48 @@
   }
 
   body {
-    @apply bg-neutral-50 dark:bg-neutral-900 text-base tracking-wide font-normal text-neutral-800 dark:text-neutral-100;
+    @apply bg-neutral-50 text-base font-normal tracking-wide text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100;
+  }
+
+  p {
+    @apply mt-6 leading-7 text-neutral-700 dark:text-neutral-300;
   }
 
   h1 {
-    @apply text-3xl md:text-5xl tracking-normal md:tracking-tight font-extrabold;
+    @apply text-3xl font-extrabold tracking-normal md:text-5xl md:tracking-tight;
   }
 
   h2 {
-    @apply text-2xl md:text-4xl tracking-normal md:tracking-tight font-extrabold;
+    @apply text-2xl font-extrabold tracking-normal md:text-4xl md:tracking-tight;
   }
 
   h3 {
-    @apply text-xl md:text-3xl tracking-normal md:tracking-tight font-bold;
+    @apply text-xl font-bold tracking-normal md:text-3xl md:tracking-tight;
   }
 
   h4 {
-    @apply text-lg md:text-2xl tracking-normal md:tracking-tight font-semibold;
+    @apply text-lg font-semibold tracking-normal md:text-2xl md:tracking-tight;
   }
 
   h5 {
-    @apply text-base md:text-xl tracking-normal font-semibold;
+    @apply text-base font-semibold tracking-normal md:text-xl;
   }
 
   h6 {
-    @apply text-base md:text-base tracking-normal font-medium;
+    @apply text-base font-medium tracking-normal md:text-base;
   }
 }
 
 @layer components {
   .button-primary {
-    @apply relative font-medium bg-neutral-100 dark:bg-neutral-900 text-orange-700  dark:text-orange-400 hocus:text-neutral-800 dark:hocus:text-neutral-200 transition duration-300 ease-[cubic-bezier(.5,0,.15,1)] px-8 py-1.5 rounded-lg  before:absolute before:-inset-1 before:bg-gradient-to-r before:from-amber-600 before:to-orange-700 before:blur before:opacity-75 before:-z-[1] before:hocus:opacity-100 before:transition before:ease-[cubic-bezier(.5,0,.15,1)] before:duration-500 before:animate-glow-tilt;
+    @apply relative rounded-lg bg-neutral-100 px-8 py-1.5  font-medium text-orange-700 transition duration-300 ease-[cubic-bezier(.5,0,.15,1)] before:absolute before:-inset-1 before:-z-[1] before:animate-glow-tilt  before:bg-gradient-to-r before:from-amber-600 before:to-orange-700 before:opacity-75 before:blur before:transition before:duration-500 before:ease-[cubic-bezier(.5,0,.15,1)] hocus:text-neutral-800 before:hocus:opacity-100 dark:bg-neutral-900 dark:text-orange-400 dark:hocus:text-neutral-200;
   }
 
   .button-secondary {
-    @apply relative font-medium bg-neutral-50 dark:bg-neutral-900 border border-neutral-400 dark:border-neutral-400 text-neutral-500 dark:text-neutral-400 px-8 py-1.5 rounded-lg hocus:text-neutral-800 dark:hocus:text-neutral-200 transition duration-300 ease-[cubic-bezier(.5,0,.15,1)] before:absolute before:-inset-1 before:bg-gradient-to-r before:from-amber-600 before:to-orange-700 before:blur before:opacity-0 before:-z-[1] before:hocus:opacity-100 before:transition before:ease-[cubic-bezier(.5,0,.15,1)] before:duration-500 before:animate-glow-tilt;
+    @apply relative rounded-lg border border-neutral-400 bg-neutral-50 px-8 py-1.5 font-medium text-neutral-500 transition duration-300 ease-[cubic-bezier(.5,0,.15,1)] before:absolute before:-inset-1 before:-z-[1] before:animate-glow-tilt before:bg-gradient-to-r before:from-amber-600 before:to-orange-700 before:opacity-0 before:blur before:transition before:duration-500 before:ease-[cubic-bezier(.5,0,.15,1)] hocus:text-neutral-800 before:hocus:opacity-100 dark:border-neutral-400 dark:bg-neutral-900 dark:text-neutral-400 dark:hocus:text-neutral-200;
+  }
+
+  .link {
+    @apply transform rounded-sm text-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 hocus:text-orange-500 hocus:underline dark:text-orange-400 dark:focus-visible:ring-offset-neutral-900 dark:hocus:text-orange-500;
   }
 }
