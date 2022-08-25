@@ -26,7 +26,7 @@ specifiers:
   autoprefixer: 10.4.8
   babel-loader: 8.2.5
   classnames: 2.3.1
-  contentful: 10.0.0-beta-v10.8
+  contentful: ^9.1.34
   contentful-management: 10.12.0
   contentful-typescript-codegen: 3.2.3
   eslint: 8.22.0
@@ -74,7 +74,7 @@ dependencies:
   '@trpc/react': 10.0.0-alpha.47_fwn5qzgoe4m43344jyxf3iwmeu
   '@trpc/server': 10.0.0-alpha.47
   classnames: 2.3.1
-  contentful: 10.0.0-beta-v10.8
+  contentful: 9.1.34
   contentful-management: 10.12.0
   micro: 9.4.1
   next: 12.2.5_twoewwu6sg7cdf3ao6njtbftne
@@ -1257,11 +1257,6 @@ packages:
       '@babel/helper-string-parser': 7.18.10
       '@babel/helper-validator-identifier': 7.18.6
       to-fast-properties: 2.0.0
-
-  /@contentful/rich-text-types/15.12.1:
-    resolution: {integrity: sha512-WQJic0fnAbTa8xzO3Z+aVqDmA5+JMNQlATQMVJ40GoOrnM8YoJZsKGf6xX/O6Y6Eq10T1LrpxIOslODFI9qFgg==}
-    engines: {node: '>=6.0.0'}
-    dev: false
 
   /@corex/deepmerge/4.0.29:
     resolution: {integrity: sha512-q/yVUnqckA8Do+EvAfpy7RLdumnBy9ZsducMUtZTvpdbJC7azEf1hGtnYYxm0QfphYxjwggv6XtH64prvS1W+A==}
@@ -2660,14 +2655,6 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axios/0.26.1:
-    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
-    dependencies:
-      follow-redirects: 1.15.1
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
   /axios/0.27.2:
     resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
@@ -2957,16 +2944,16 @@ packages:
       prettier: 2.7.1
     dev: true
 
-  /contentful/10.0.0-beta-v10.8:
-    resolution: {integrity: sha512-a5rTHVsinZgWGEgD21EC2InnLstSwIrw5bfNEALAof0ihWEnHDRKSMZrHo5ZskokAfKXIZiKgG7F3mBKSmU5aQ==}
+  /contentful/9.1.34:
+    resolution: {integrity: sha512-UlwDpCt9IS9ZK3OhE8enC2R4ZYp72GvH94cTpfIRWSst7dmctWQUY57z1UkMrzp8NT2/4b2CSxnGx5ev5bV3Sw==}
     engines: {node: '>=12'}
+    requiresBuild: true
     dependencies:
-      '@contentful/rich-text-types': 15.12.1
-      axios: 0.26.1
+      axios: 0.27.2
       contentful-resolve-response: 1.3.8
       contentful-sdk-core: 7.0.2
+      fast-copy: 2.1.3
       json-stringify-safe: 5.0.1
-      type-fest: 2.18.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -5655,11 +5642,6 @@ packages:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
     dev: true
-
-  /type-fest/2.18.0:
-    resolution: {integrity: sha512-pRS+/yrW5TjPPHNOvxhbNZexr2bS63WjrMU8a+VzEBhUi9Tz1pZeD+vQz3ut0svZ46P+SRqMEPnJmk2XnvNzTw==}
-    engines: {node: '>=12.20'}
-    dev: false
 
   /typescript/4.7.4:
     resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
