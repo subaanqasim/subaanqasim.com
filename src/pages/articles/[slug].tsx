@@ -2,19 +2,30 @@ import { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { cda } from "@utils/contentful";
 import type { IArticle } from "@utils/types/contentful";
-
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import Wrapper from "../../components/Wrapper";
 interface IParams extends ParsedUrlQuery {
   slug: string;
   nextArticle?: string;
   prevArticle?: string;
 }
 
-const Article = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Article = ({
+  article,
+  nextArticle,
+  prevArticle,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <>
+    <Wrapper
+      title={article.fields.title}
+      description={article.fields.excerpt}
+      image={article.fields.featuredImage}
+    >
       <h1>Article</h1>
-      <h2>{props.article?.fields.title}</h2>
-    </>
+      <h2>{article?.fields.title}</h2>
+      <MDXRemote {...article.content} />
+    </Wrapper>
   );
 };
 
@@ -68,10 +79,22 @@ export const getStaticProps = async (
     limit: 1,
   });
 
+  let body = article.fields.body;
+
+  // concat body2 if super long article as max 50k characters for one field in Contentful
+  if (article.fields.body2) {
+    body += article.fields.body2;
+  }
+
+  const content = await serialize(body);
+
   return {
     notFound,
     props: {
-      article,
+      article: {
+        ...article,
+        content,
+      },
       nextArticle: next.items[0] || null,
       prevArticle: prev.items[0] || null,
     },
