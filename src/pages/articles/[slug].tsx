@@ -1,10 +1,18 @@
 import { InferGetStaticPropsType, GetStaticPropsContext } from "next";
+import type { IArticle } from "@utils/types/contentful";
 import { ParsedUrlQuery } from "querystring";
 import { cda } from "@utils/contentful";
-import type { IArticle } from "@utils/types/contentful";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
 import Wrapper from "../../components/Wrapper";
+
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrism from "rehype-prism-plus";
+import rehypeCodeTitles from "rehype-code-titles";
+import rt from "reading-time";
+
 interface IParams extends ParsedUrlQuery {
   slug: string;
   nextArticle?: string;
@@ -22,9 +30,10 @@ const Article = ({
       description={article.fields.excerpt}
       image={article.fields.featuredImage}
     >
-      <h1>Article</h1>
-      <h2>{article?.fields.title}</h2>
-      <MDXRemote {...article.content} />
+      <h1>{article?.fields.title}</h1>
+      <main className="prose prose-neutral mx-auto mt-4 w-full dark:prose-invert">
+        <MDXRemote {...article.content} />
+      </main>
     </Wrapper>
   );
 };
@@ -86,7 +95,25 @@ export const getStaticProps = async (
     body += article.fields.body2;
   }
 
-  const content = await serialize(body);
+  const content = await serialize(body, {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+        rehypeSlug,
+        rehypeCodeTitles,
+        rehypePrism,
+        [
+          rehypeAutolinkHeadings,
+          {
+            properties: {
+              className: ["anchor-link"],
+            },
+          },
+        ],
+      ],
+      format: "mdx",
+    },
+  });
 
   return {
     notFound,
@@ -94,6 +121,7 @@ export const getStaticProps = async (
       article: {
         ...article,
         content,
+        readingTime: rt(article.fields.body).text,
       },
       nextArticle: next.items[0] || null,
       prevArticle: prev.items[0] || null,
