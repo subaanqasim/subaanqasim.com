@@ -10,7 +10,6 @@ interface IParams extends ParsedUrlQuery {
 }
 
 const Article = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(props);
   return (
     <>
       <h1>Article</h1>
