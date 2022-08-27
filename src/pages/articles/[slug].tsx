@@ -30,7 +30,7 @@ export const getStaticPaths = async () => {
   const paths = entries.items as IArticle[];
 
   return {
-    paths: paths.map((path, i) => ({
+    paths: paths.map((path) => ({
       params: {
         slug: path.fields.slug,
       },
@@ -52,14 +52,29 @@ export const getStaticProps = async (
   const article = entry.items[0] as IArticle;
   const notFound = !article ? true : false;
 
-  //TODO: Get title, number, for next and previous article
+  // Get next and previous article
+  const next = await cda.getEntries({
+    content_type: "article",
+    select: "fields.slug,fields.title",
+    order: "fields.datePublished",
+    "fields.datePublished[gt]": article.fields.datePublished,
+    limit: 1,
+  });
+
+  const prev = await cda.getEntries({
+    content_type: "article",
+    select: "fields.slug,fields.title",
+    order: "fields.datePublished",
+    "fields.datePublished[lt]": article.fields.datePublished,
+    limit: 1,
+  });
 
   return {
     notFound,
     props: {
       article,
-      // nextArticle:
-      // prevArticle:
+      nextArticle: next.items[0] || null,
+      prevArticle: prev.items[0] || null,
     },
   };
 };
