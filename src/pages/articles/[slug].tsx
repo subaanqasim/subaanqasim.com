@@ -25,7 +25,6 @@ const Article = ({
   nextArticle,
   prevArticle,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(article.content.compiledSource);
   return (
     <Wrapper
       title={article.fields.title}
