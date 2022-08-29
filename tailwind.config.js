@@ -29,7 +29,7 @@ module.exports = {
             a: {
               color: theme("colors.orange.700"),
               "&:hover": {
-                color: theme("colors.orange.500"),
+                color: theme("colors.cyan.600"),
               },
               code: { color: theme("colors.blue.400") },
             },
@@ -51,7 +51,7 @@ module.exports = {
             a: {
               color: theme("colors.orange.400"),
               "&:hover": {
-                color: theme("colors.blue.500"),
+                color: theme("colors.cyan.500"),
               },
               code: { color: theme("colors.blue.400") },
             },

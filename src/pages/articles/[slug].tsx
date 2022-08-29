@@ -12,6 +12,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrism from "rehype-prism-plus";
 import rehypeCodeTitles from "rehype-code-titles";
 import rt from "reading-time";
+import { components } from "../../components/MdxComponents";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -24,6 +25,7 @@ const Article = ({
   nextArticle,
   prevArticle,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log(article.content.compiledSource);
   return (
     <Wrapper
       title={article.fields.title}
@@ -32,7 +34,7 @@ const Article = ({
     >
       <h1>{article?.fields.title}</h1>
       <main className="prose prose-neutral mx-auto mt-4 w-full dark:prose-invert">
-        <MDXRemote {...article.content} />
+        <MDXRemote {...article.content} components={{ ...components } as any} />
       </main>
     </Wrapper>
   );
