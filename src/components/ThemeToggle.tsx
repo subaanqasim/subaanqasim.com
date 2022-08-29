@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
 const ThemeToggle = () => {
@@ -9,10 +9,24 @@ const ThemeToggle = () => {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    const onKeydown = (event: any) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === "j") {
+        setTheme(resolvedTheme === "dark" ? "light" : "dark");
+      }
+    };
+
+    window.addEventListener("keydown", onKeydown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeydown);
+    };
+  }, [resolvedTheme, setTheme]);
+
   return (
     <button
-      className="flex items-center justify-center w-8 h-8 rounded-lg bg-neutral-200/50 dark:bg-neutral-700/50 text-neutral-800 dark:text-neutral-100 origin-center hover:ring-2 ring-neutral-500 dark:ring-neutral-300 transition-all ease-[cubic-bezier(.5,0,.15,1)]"
-      aria-label="Toggle dark mode"
+      className="flex h-8 w-8 origin-center items-center justify-center rounded-lg bg-neutral-200/50 text-neutral-800 ring-neutral-500 transition-all ease-[cubic-bezier(.5,0,.15,1)] hover:ring-2 dark:bg-neutral-700/50 dark:text-neutral-100 dark:ring-neutral-300"
+      aria-label="Toggle theme"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
       {mounted && (
