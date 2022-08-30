@@ -23,23 +23,17 @@ const DynamicLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
 };
 
 const CustomImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-  const { src } = props;
-  const { data: assetMeta } = trpc.proxy.cms.getAssetMeta.useQuery({
-    src: src!,
-  });
+  const { src, alt, width, height } = props;
 
-  if (assetMeta) {
-    console.log("DATA???/", assetMeta);
-
-    return (
-      <Image
-        src={assetMeta.src}
-        alt={assetMeta.alt}
-        width={assetMeta.width}
-        height={assetMeta.height}
-      />
-    );
-  }
+  return (
+    <Image
+      src={src!}
+      alt={alt}
+      width={width}
+      height={height}
+      className="rounded-lg"
+    />
+  );
 };
 
 export const components = {

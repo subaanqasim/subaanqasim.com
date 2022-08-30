@@ -20,6 +20,7 @@ specifiers:
   '@trpc/next': 10.0.0-alpha.47
   '@trpc/react': 10.0.0-alpha.47
   '@trpc/server': 10.0.0-alpha.47
+  '@types/hast': ^2.3.4
   '@types/node': 18.7.6
   '@types/nodemailer': 6.4.5
   '@types/react': 18.0.17
@@ -61,6 +62,7 @@ specifiers:
   tailwindcss: 3.1.8
   tailwindcss-radix: 2.5.0
   typescript: 4.7.4
+  unist-util-visit: ^4.1.1
   zod: 3.18.0
 
 dependencies:
@@ -106,11 +108,13 @@ dependencies:
   stripe: 10.2.0
   superjson: 1.9.1
   tailwindcss-radix: 2.5.0
+  unist-util-visit: 4.1.1
   zod: 3.18.0
 
 devDependencies:
   '@tailwindcss/aspect-ratio': 0.4.0_tailwindcss@3.1.8
   '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.8
+  '@types/hast': 2.3.4
   '@types/node': 18.7.6
   '@types/nodemailer': 6.4.5
   '@types/react': 18.0.17
@@ -125,7 +129,7 @@ devDependencies:
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
   prisma: 4.2.1
-  tailwindcss: 3.1.8
+  tailwindcss: 3.1.8_postcss@8.4.16
   typescript: 4.7.4
 
 packages:
@@ -2176,7 +2180,7 @@ packages:
     peerDependencies:
       tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
     dependencies:
-      tailwindcss: 3.1.8
+      tailwindcss: 3.1.8_postcss@8.4.16
     dev: true
 
   /@tailwindcss/typography/0.5.4_tailwindcss@3.1.8:
@@ -2187,7 +2191,7 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.1.8
+      tailwindcss: 3.1.8_postcss@8.4.16
     dev: true
 
   /@tanstack/query-core/4.2.0:
@@ -2313,7 +2317,6 @@ packages:
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
     dependencies:
       '@types/unist': 2.0.6
-    dev: false
 
   /@types/js-yaml/4.0.5:
     resolution: {integrity: sha512-FhpRzf927MNQdRZP0J5DLIdTXhjLYzeUTmLAu69mnVksLH9CJY3IuSeEgbKUki7GQZm0WqDkGzyxju2EZGD2wA==}
@@ -2408,7 +2411,6 @@ packages:
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
-    dev: false
 
   /@types/use-sync-external-store/0.0.3:
     resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==}
@@ -6521,10 +6523,12 @@ packages:
     resolution: {integrity: sha512-vPIvolTmb0L6DlvIKBJRVGo+gB7ZU2jZbO8EpZw/5gBSTHx6PezRgQhR68kOuteh3F1q2PV3oBQgaIN4FxVmrw==}
     dev: false
 
-  /tailwindcss/3.1.8:
+  /tailwindcss/3.1.8_postcss@8.4.16:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3

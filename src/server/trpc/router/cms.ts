@@ -1,5 +1,4 @@
 import { t } from "../utils";
-import { z } from "zod";
 import { cda } from "../../../utils/contentful";
 
 export const cmsRouter = t.router({
@@ -24,21 +23,4 @@ export const cmsRouter = t.router({
 
     return projects.items;
   }),
-  getAssetMeta: t.procedure
-    .input(
-      z.object({
-        src: z.string(),
-      }),
-    )
-    .query(async ({ input }) => {
-      const id = input.src.split("/")[4];
-      const asset = await cda.getAsset(id!);
-
-      return {
-        width: asset.fields.file.details.image?.width,
-        height: asset.fields.file.details.image?.height,
-        src: `https:${asset.fields.file.url}`,
-        alt: asset.fields.title,
-      };
-    }),
 });

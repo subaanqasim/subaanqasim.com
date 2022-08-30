@@ -11,6 +11,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrism from "rehype-prism-plus";
 import rehypeCodeTitles from "rehype-code-titles";
+import rehypeImgCmsMeta from "@utils/rehype-image-cms-meta";
 import rt from "reading-time";
 import { components } from "../../components/MdxComponents";
 
@@ -32,6 +33,7 @@ const Article = ({
       image={article.fields.featuredImage}
     >
       <h1>{article?.fields.title}</h1>
+
       <main className="prose prose-neutral mx-auto mt-4 w-full dark:prose-invert">
         <MDXRemote {...article.content} components={{ ...components } as any} />
       </main>
@@ -100,6 +102,7 @@ export const getStaticProps = async (
     mdxOptions: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
+        rehypeImgCmsMeta,
         rehypeSlug,
         rehypeCodeTitles,
         rehypePrism,

@@ -53,11 +53,13 @@
     "stripe": "10.2.0",
     "superjson": "1.9.1",
     "tailwindcss-radix": "2.5.0",
+    "unist-util-visit": "^4.1.1",
     "zod": "3.18.0"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "0.4.0",
     "@tailwindcss/typography": "^0.5.4",
+    "@types/hast": "^2.3.4",
     "@types/node": "18.7.6",
     "@types/nodemailer": "6.4.5",
     "@types/react": "18.0.17",
