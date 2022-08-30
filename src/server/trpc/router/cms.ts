@@ -35,7 +35,7 @@ export const cmsRouter = t.router({
       const asset = await cda.getAsset(id!);
 
       return {
-        width: asset.fields.file.details.image?.height,
+        width: asset.fields.file.details.image?.width,
         height: asset.fields.file.details.image?.height,
         src: `https:${asset.fields.file.url}`,
         alt: asset.fields.title,
