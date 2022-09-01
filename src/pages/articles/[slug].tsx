@@ -31,6 +31,12 @@ const Article = ({
       title={article.fields.title}
       description={article.fields.excerpt}
       image={article.fields.featuredImage}
+      datePublished={article.fields.datePublished}
+      dateModified={article.sys.updatedAt}
+      authorName={article.fields.author.fields.name}
+      authorUrl={article.fields.author.fields.linkedin}
+      tags={article.fields.keywords}
+      type="article"
     >
       <h1>{article?.fields.title}</h1>
 
