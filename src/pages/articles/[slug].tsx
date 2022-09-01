@@ -14,6 +14,7 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypeImgCmsMeta from "@utils/rehype-image-cms-meta";
 import rt from "reading-time";
 import { components } from "../../components/MdxComponents";
+import ArticleLayout from "../../components/layouts/ArticleLayout";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -27,23 +28,11 @@ const Article = ({
   prevArticle,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper
-      title={article.fields.title}
-      description={article.fields.excerpt}
-      image={article.fields.featuredImage}
-      datePublished={article.fields.datePublished}
-      dateModified={article.sys.updatedAt}
-      authorName={article.fields.author.fields.name}
-      authorUrl={article.fields.author.fields.linkedin}
-      tags={article.fields.keywords}
-      type="article"
-    >
-      <h1>{article?.fields.title}</h1>
-
-      <main className="prose prose-base prose-neutral mx-auto mt-4 w-full prose-headings:relative dark:prose-invert">
+    <ArticleLayout {...article.fields} dateModified={article.sys.updatedAt}>
+      <div className="prose prose-base prose-neutral mx-auto mt-4 w-full prose-headings:relative dark:prose-invert">
         <MDXRemote {...article.content} components={{ ...components } as any} />
-      </main>
-    </Wrapper>
+      </div>
+    </ArticleLayout>
   );
 };
 
