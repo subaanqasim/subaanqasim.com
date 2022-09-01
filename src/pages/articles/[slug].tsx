@@ -34,7 +34,7 @@ const Article = ({
     >
       <h1>{article?.fields.title}</h1>
 
-      <main className="prose prose-neutral mx-auto mt-4 w-full dark:prose-invert">
+      <main className="prose prose-base prose-neutral mx-auto mt-4 w-full prose-headings:relative dark:prose-invert">
         <MDXRemote {...article.content} components={{ ...components } as any} />
       </main>
     </Wrapper>

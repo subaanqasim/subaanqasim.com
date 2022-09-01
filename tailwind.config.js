@@ -34,7 +34,6 @@ module.exports = {
               code: { color: theme("colors.blue.400") },
             },
             "h2,h3,h4,h5,h6": {
-              "scroll-margin-top": spacing[32],
               color: theme("colors.neutral.800"),
             },
             strong: {
@@ -57,7 +56,6 @@ module.exports = {
             },
             "h2,h3,h4,h5,h6": {
               color: theme("colors.neutral.100"),
-              "scroll-margin-top": spacing[32],
             },
             strong: {
               color: theme("colors.neutral.100"),

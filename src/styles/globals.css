@@ -58,7 +58,31 @@
     @apply transform rounded-sm text-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 hocus:text-orange-500 hocus:underline dark:text-orange-400 dark:focus-visible:ring-offset-neutral-900 dark:hocus:text-orange-500;
   }
 }
+/* all links */
+.prose a {
+  @apply transition-all;
+}
 
+/* Heading anchor links */
+.prose .anchor-link:before {
+  @apply text-neutral-400 dark:text-neutral-500;
+  content: "#";
+}
+
+.prose .anchor-link {
+  @apply invisible no-underline;
+  position: absolute;
+  left: -1em;
+  right: 0;
+}
+
+.anchor-link:hover {
+  @apply visible;
+}
+
+.prose *:hover > .anchor-link {
+  @apply visible;
+}
 /* prism theme */
 .rehype-code-title {
   @apply rounded-t-lg border border-neutral-300 bg-neutral-200 px-5 py-3 font-mono text-sm font-bold text-neutral-800 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200;
