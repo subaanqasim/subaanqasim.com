@@ -2,7 +2,6 @@ import { InferGetStaticPropsType, GetStaticPropsContext } from "next";
 import type { IArticle } from "@utils/types/contentful";
 import { ParsedUrlQuery } from "querystring";
 import { cda } from "@utils/contentful";
-import Wrapper from "../../components/Wrapper";
 
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
@@ -28,8 +27,14 @@ const Article = ({
   prevArticle,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <ArticleLayout {...article.fields} dateModified={article.sys.updatedAt}>
-      <div className="prose prose-base prose-neutral mx-auto mt-4 w-full prose-headings:relative dark:prose-invert">
+    <ArticleLayout
+      {...article.fields}
+      dateModified={article.sys.updatedAt}
+      nextArticle={nextArticle}
+      prevArticle={prevArticle}
+      readingTime={article.readingTime}
+    >
+      <div className="prose prose-base prose-neutral mx-auto w-full prose-headings:relative dark:prose-invert">
         <MDXRemote {...article.content} components={{ ...components } as any} />
       </div>
     </ArticleLayout>
