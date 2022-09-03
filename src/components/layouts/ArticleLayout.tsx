@@ -4,11 +4,14 @@ import Image from "next/future/image";
 import Wrapper from "../Wrapper";
 import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
 import cx from "classnames";
+import useMediaQuery from "@utils/useMediaQuery";
 
 import {
   Link2Icon,
   TwitterLogoIcon,
   LinkedInLogoIcon,
+  CalendarIcon,
+  TimerIcon,
 } from "@radix-ui/react-icons";
 import type { Sibling } from "../../pages/articles/[slug]";
 import Link from "next/link";
@@ -20,6 +23,22 @@ interface IArticleLayoutProps extends IArticleFields {
   nextArticle: Sibling | null;
   prevArticle: Sibling | null;
 }
+
+const ShareArticleLinks = () => {
+  return (
+    <div className="flex gap-2">
+      <div className="p-1">
+        <Link2Icon className="h-4 w-4" />
+      </div>
+      <div className="p-1">
+        <TwitterLogoIcon className="h-4 w-4" />
+      </div>
+      <div className="p-1">
+        <LinkedInLogoIcon className="h-4 w-4" />
+      </div>
+    </div>
+  );
+};
 
 const ArticleLayout = ({
   children,
@@ -42,6 +61,8 @@ const ArticleLayout = ({
     },
   );
 
+  const isDesktop = useMediaQuery("(min-width: 640px)");
+
   return (
     <Wrapper
       title={title}
@@ -58,59 +79,58 @@ const ArticleLayout = ({
         <article>
           <header>
             <h1>{title}</h1>
-            <div className="mt-4 flex items-center justify-between">
+            <div className="mt-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
               <div className="flex gap-4 text-sm">
                 {keywords.map((word) => (
                   <div
                     key={word}
-                    className="bg rounded-lg border border-neutral-200 bg-gradient-to-br from-neutral-100 to-stone-200 py-[6px] px-[12px] tracking-wide dark:border-neutral-700 dark:from-neutral-800 dark:to-stone-900
-"
+                    className="flex items-center justify-center rounded-lg border border-neutral-200 bg-gradient-to-br from-neutral-100 to-stone-200 py-[6px] px-[12px] text-center tracking-wide dark:border-neutral-700 dark:from-neutral-800 dark:to-stone-900 sm:text-left"
                   >
                     {word}
                   </div>
                 ))}
               </div>
-              <div className="flex gap-2">
-                <div className="p-1">
-                  <Link2Icon className="h-4 w-4" />
-                </div>
-                <div className="p-1">
-                  <TwitterLogoIcon className="h-4 w-4" />
-                </div>
-                <div className="p-1">
-                  <LinkedInLogoIcon className="h-4 w-4" />
-                </div>
-              </div>
+              {isDesktop && <ShareArticleLinks />}
             </div>
-            <div className="mt-6 flex justify-between text-sm tracking-wide">
+
+            <div className="mt-6 flex flex-col justify-center gap-6 text-sm tracking-wide sm:flex-row sm:items-center sm:justify-between sm:gap-4">
               <div className="flex items-center">
                 <Image
                   src={`https:${author.fields.headshot.fields.file.url}`}
                   alt={author.fields.headshot.fields.title}
-                  width={32}
-                  height={32}
-                  sizes="20vw"
-                  className="mr-2 h-8 w-8 rounded-full object-cover"
+                  width={48}
+                  height={48}
+                  sizes="64px"
+                  className="mr-2 h-12 w-12 rounded-full object-cover"
                   priority
                 />
+                <div className="flex flex-col items-start sm:flex-row sm:items-center">
+                  <div>{author.fields.name}</div>
 
-                <p className="text-neutral-500 dark:text-neutral-400">
-                  <span>{author.fields.name}</span>
-                  <span className="mx-2">•</span>
-                  <span>
-                    {new Date(datePublished).toLocaleDateString("en-GB", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </span>
-                  <span className="mx-2">•</span>
-                  <span>{readingTime}</span>
-                </p>
+                  <div className="flex gap-4 text-neutral-500 dark:text-neutral-400">
+                    <div className="flex items-center gap-2">
+                      <CalendarIcon className="ml-0 sm:ml-4" />
+                      {new Date(datePublished).toLocaleDateString("en-GB", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <TimerIcon />
+                      {readingTime}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p className="text-neutral-500 dark:text-neutral-400">
-                {`Last updated: ${lastUpdated ? lastUpdated : "---"}`}
-              </p>
+
+              <div className="ml-0 flex grow items-center justify-between gap-2 text-neutral-500 dark:text-neutral-400 sm:-ml-4">
+                <div className="ml-0 text-neutral-500 dark:text-neutral-400 sm:ml-auto">
+                  {`Last updated: ${lastUpdated ? lastUpdated : "---"}`}
+                </div>
+                {!isDesktop && <ShareArticleLinks />}
+              </div>
             </div>
           </header>
           <hr className="border-1 mt-6 mb-12 w-full border-neutral-300 dark:border-neutral-700" />

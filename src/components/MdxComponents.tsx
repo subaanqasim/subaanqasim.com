@@ -32,6 +32,7 @@ const CustomImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
       width={width}
       height={height}
       className="rounded-lg"
+      sizes="960px"
     />
   );
 };
