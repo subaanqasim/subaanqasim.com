@@ -21,6 +21,10 @@ interface IParams extends ParsedUrlQuery {
   prevArticle?: string;
 }
 
+export type Sibling = Pick<IArticle, "sys"> & {
+  fields: Pick<IArticle["fields"], "slug" | "title">;
+};
+
 const Article = ({
   article,
   nextArticle,
@@ -86,7 +90,7 @@ export const getStaticProps = async (
   const prev = await cda.getEntries({
     content_type: "article",
     select: "fields.slug,fields.title",
-    order: "fields.datePublished",
+    order: "-fields.datePublished",
     "fields.datePublished[lt]": article.fields.datePublished,
     limit: 1,
   });
@@ -127,8 +131,8 @@ export const getStaticProps = async (
         content,
         readingTime: rt(article.fields.body).text,
       },
-      nextArticle: next.items[0] || null,
-      prevArticle: prev.items[0] || null,
+      nextArticle: (next.items[0] as Sibling) || null,
+      prevArticle: (prev.items[0] as Sibling) || null,
     },
   };
 };

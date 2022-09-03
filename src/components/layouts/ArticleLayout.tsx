@@ -1,21 +1,24 @@
-import { IArticleFields } from "@utils/types/contentful";
-import Wrapper from "../Wrapper";
+import type { IArticleFields } from "@utils/types/contentful";
 import { formatDistance } from "date-fns";
-import { Entry } from "contentful";
 import Image from "next/future/image";
+import Wrapper from "../Wrapper";
+import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
+import cx from "classnames";
 
 import {
   Link2Icon,
   TwitterLogoIcon,
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
+import type { Sibling } from "../../pages/articles/[slug]";
+import Link from "next/link";
 
 interface IArticleLayoutProps extends IArticleFields {
   children: React.ReactNode;
   dateModified: string;
   readingTime: string;
-  nextArticle: Entry<unknown> | null;
-  prevArticle: Entry<unknown> | null;
+  nextArticle: Sibling | null;
+  prevArticle: Sibling | null;
 }
 
 const ArticleLayout = ({
@@ -38,9 +41,6 @@ const ArticleLayout = ({
       addSuffix: true,
     },
   );
-
-  console.log("next", nextArticle);
-  console.log("prev", prevArticle);
 
   return (
     <Wrapper
@@ -91,6 +91,7 @@ const ArticleLayout = ({
                   height={32}
                   sizes="20vw"
                   className="mr-2 h-8 w-8 rounded-full object-cover"
+                  priority
                 />
 
                 <p className="text-neutral-500 dark:text-neutral-400">
@@ -116,6 +117,45 @@ const ArticleLayout = ({
 
           {children}
         </article>
+
+        <div
+          className={cx(
+            "mt-10 flex flex-col-reverse gap-5 sm:flex-row",
+            prevArticle ? "justify-between" : "justify-end",
+          )}
+        >
+          {prevArticle && (
+            <Link href={`/articles/${prevArticle.fields.slug}`}>
+              <a className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]">
+                <ArrowLeftIcon className="h-5 w-5 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] group-hover:-translate-x-2" />
+                <div>
+                  <div className="text-right text-sm tracking-wide dark:text-neutral-400">
+                    Previous Article
+                  </div>
+                  <div className="mt-3 text-right font-medium tracking-wide">
+                    {prevArticle?.fields.title}
+                  </div>
+                </div>
+              </a>
+            </Link>
+          )}
+
+          {nextArticle && (
+            <Link href={`/articles/${nextArticle.fields.slug}`}>
+              <a className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]">
+                <div>
+                  <div className="text-sm tracking-wide dark:text-neutral-400">
+                    Next Article
+                  </div>
+                  <div className="mt-3 font-medium tracking-wide">
+                    {nextArticle?.fields.title}
+                  </div>
+                </div>
+                <ArrowRightIcon className="h-5 w-5 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] group-hover:translate-x-2" />
+              </a>
+            </Link>
+          )}
+        </div>
       </main>
     </Wrapper>
   );
