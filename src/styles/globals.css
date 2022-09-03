@@ -17,7 +17,7 @@
   }
 
   p {
-    @apply mt-6 leading-7 text-neutral-700 dark:text-neutral-300;
+    @apply leading-7 text-neutral-700 dark:text-neutral-300;
   }
 
   h1 {
