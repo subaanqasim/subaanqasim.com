@@ -1,12 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 
 const plugin = require("tailwindcss/plugin");
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily, screens } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
+    screens: {
+      xs: "512px",
+      ...screens,
+    },
     extend: {
       fontFamily: {
         sans: ["Articulat-CF", ...fontFamily.sans],
@@ -22,6 +26,51 @@ module.exports = {
         bold: 700,
         extraBold: 800,
       },
+
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme("colors.neutral.700"),
+            a: {
+              color: theme("colors.orange.700"),
+              "&:hover": {
+                color: theme("colors.cyan.600"),
+              },
+              code: { color: theme("colors.blue.400") },
+            },
+            "h2,h3,h4,h5,h6": {
+              color: theme("colors.neutral.800"),
+            },
+            strong: {
+              color: theme("colors.neutral.900"),
+            },
+            hr: {
+              borderColor: theme("colors.neutral.300"),
+            },
+          },
+        },
+        invert: {
+          css: {
+            color: theme("colors.neutral.300"),
+            a: {
+              color: theme("colors.orange.400"),
+              "&:hover": {
+                color: theme("colors.cyan.500"),
+              },
+              code: { color: theme("colors.blue.400") },
+            },
+            "h2,h3,h4,h5,h6": {
+              color: theme("colors.neutral.100"),
+            },
+            strong: {
+              color: theme("colors.neutral.100"),
+            },
+            hr: {
+              borderColor: theme("colors.neutral.700"),
+            },
+          },
+        },
+      }),
       keyframes: {
         // Navgiation menu
         "enter-from-right": {
@@ -133,6 +182,7 @@ module.exports = {
   plugins: [
     require("tailwindcss-radix")(),
     require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/typography"),
     plugin(function ({ addVariant }) {
       addVariant("hocus", ["&:hover", "&:focus"]);
     }),

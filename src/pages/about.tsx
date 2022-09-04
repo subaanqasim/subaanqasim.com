@@ -149,14 +149,14 @@ const About = ({
     <Wrapper title="About" image={bannerImage}>
       <main>
         <h1>About</h1>
-        <p>
+        <p className="mt-6">
           I&apos;m a 5th year medical student and self-taught software developer
           with experience developing websites and web applications. Currently,
           I&apos;m taking a break from my studies to explore opportunities in
           software development and the tech industry, particularly MedTech.
         </p>
 
-        <p>
+        <p className="mt-6">
           My relative expertise lies in producing full-stack applications with
           React, Next.js, Typescript, Javascript and Node.js. Whilst I&apos;m
           still rapidly expanding my skill set with those technologies, I&apos;m
@@ -170,7 +170,7 @@ const About = ({
           </span>
         </p>
 
-        <p>
+        <p className="mt-6">
           I&apos;m excited to be involved in building features end-to-end
           &mdash; planning, building, deploying, iterating &mdash; to improve
           the efficiency of processes and workflows without compromising
@@ -179,7 +179,7 @@ const About = ({
           world AI problems.
         </p>
 
-        <p>
+        <p className="mt-6">
           I also have a background in the creative industry, namely video
           editing,{" "}
           <Link href="/projects">

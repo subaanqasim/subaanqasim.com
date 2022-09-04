@@ -17,7 +17,7 @@
   }
 
   p {
-    @apply mt-6 leading-7 text-neutral-700 dark:text-neutral-300;
+    @apply leading-7 text-neutral-700 dark:text-neutral-300;
   }
 
   h1 {
@@ -57,4 +57,289 @@
   .link {
     @apply transform rounded-sm text-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 hocus:text-orange-500 hocus:underline dark:text-orange-400 dark:focus-visible:ring-offset-neutral-900 dark:hocus:text-orange-500;
   }
+}
+/* all links */
+.prose a {
+  @apply transition-all;
+}
+
+/* Heading anchor links */
+.prose .anchor-link:before {
+  @apply text-neutral-400 dark:text-neutral-500;
+  content: "#";
+}
+
+.prose .anchor-link {
+  @apply invisible no-underline;
+  position: absolute;
+  left: -1em;
+  right: 0;
+}
+
+.anchor-link:hover {
+  @apply visible;
+}
+
+.prose *:hover > .anchor-link {
+  @apply visible;
+}
+/* prism theme */
+.rehype-code-title {
+  @apply rounded-t-lg border border-neutral-300 bg-neutral-200 px-5 py-3 font-mono text-sm font-bold text-neutral-800 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  color: #eee;
+  background: #2f2f2f;
+  font-family: Roboto Mono, monospace;
+  font-size: 1em;
+  line-height: 1.5em;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+
+  @apply bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100;
+}
+
+code[class*="language-"]::-moz-selection,
+pre[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection,
+pre[class*="language-"] ::-moz-selection {
+  @apply bg-neutral-900 dark:bg-neutral-100;
+}
+
+code[class*="language-"]::selection,
+pre[class*="language-"]::selection,
+code[class*="language-"] ::selection,
+pre[class*="language-"] ::selection {
+  @apply bg-neutral-900 dark:bg-neutral-100;
+}
+
+:not(pre) > code[class*="language-"] {
+  white-space: normal;
+  padding: 0.1em;
+}
+
+pre[class*="language-"] {
+  overflow: auto;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  padding: 1.25em 1em;
+  @apply rounded-lg rounded-t-none border border-t-0 border-neutral-300 dark:border-neutral-700;
+}
+
+.language-css > code,
+.language-sass > code,
+.language-scss > code {
+  @apply text-[#f76d47] dark:text-[#fd9170];
+}
+
+[class*="language-"] .namespace {
+  opacity: 0.7;
+}
+
+.token.atrule {
+  @apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.attr-name {
+  @apply text-[#39adb5] dark:text-[#ffcb6b];
+}
+
+.token.attr-value {
+  @apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.attribute {
+  @apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.boolean {
+  @apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.builtin {
+  @apply text-[#39adb5] dark:text-[#ffcb6b];
+}
+
+.token.cdata {
+  @apply text-[#39adb5] dark:text-[#80cbc4];
+}
+
+.token.char {
+  @apply text-[#39adb5] dark:text-[#80cbc4];
+}
+
+.token.class {
+  @apply text-[#39adb5] dark:text-[#ffcb6b];
+}
+
+.token.class-name {
+  @apply text-[#6182b8] dark:text-[#f2ff00];
+}
+
+.token.comment {
+  @apply text-[#aabfc9] dark:text-[#616161];
+}
+
+.token.constant {
+  @apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.deleted {
+  @apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.doctype {
+  @apply text-[#aabfc9] dark:text-[#616161];
+}
+
+.token.entity {
+  @apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.function {
+  @apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.hexcode {
+  @apply text-[#f76d47] dark:text-[#f2ff00];
+}
+
+.token.id {
+  @apply font-bold text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.important {
+  @apply font-bold text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.inserted {
+  @apply text-[#39adb5] dark:text-[#80cbc4];
+}
+
+.token.keyword {
+  @apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.number {
+  @apply text-[#f76d47] dark:text-[#fd9170];
+}
+
+.token.operator {
+  @apply text-[#39adb5] dark:text-[#89ddff];
+}
+
+.token.prolog {
+  @apply text-[#aabfc9] dark:text-[#616161];
+}
+
+.token.property {
+  @apply text-[#39adb5] dark:text-[#80cbc4];
+}
+
+.token.pseudo-class {
+  @apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.pseudo-element {
+  @apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.punctuation {
+  @apply text-[#39adb5] dark:text-[#89ddff];
+}
+
+.token.regex {
+  @apply text-[#6182b8] dark:text-[#f2ff00];
+}
+
+.token.selector {
+  @apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.string {
+  @apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.symbol {
+  @apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.tag {
+  @apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.unit {
+  @apply text-[#f76d47] dark:text-[#fd9170];
+}
+
+.token.url {
+  @apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.variable {
+  @apply text-[#e53935] dark:text-[#ff6666];
+}
+
+/* prism plus styling (line numbers & highlighing) */
+pre {
+  overflow-x: auto;
+}
+
+/**
+ * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .code-highlight.
+ */
+.code-highlight {
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+.code-line {
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left: 4px solid rgba(0, 0, 0, 0); /* Set placeholder for highlight accent border color to transparent */
+}
+
+.code-line.inserted {
+  background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+  background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
+}
+
+.highlight-line {
+  margin-left: -16px;
+  margin-right: -16px;
+
+  @apply border-orange-500 bg-neutral-300/25 dark:border-l-orange-600 dark:bg-neutral-700/50;
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  content: attr(line);
+  @apply text-neutral-300 dark:text-neutral-600;
 }
