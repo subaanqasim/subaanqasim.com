@@ -129,7 +129,7 @@ export const getStaticProps = async (
       article: {
         ...article,
         content,
-        readingTime: rt(article.fields.body).text,
+        readingTime: rt(body).text,
       },
       nextArticle: (next.items[0] as Sibling) || null,
       prevArticle: (prev.items[0] as Sibling) || null,
