@@ -103,12 +103,15 @@ const Articles = ({
             <h2 className="mb-4">Featured</h2>
 
             <div className="flex flex-col gap-6">
-              <ArticlePost
+              {/* <ArticlePost
                 title="This is Definitely Not a Featured Post"
                 excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                 slug=""
                 readingTime="7 min read"
-              />
+              /> */}
+              <p className="text-center text-xl font-medium">
+                Nothing here... yet. Check back soon! 🔜
+              </p>
             </div>
           </>
         )}
@@ -117,8 +120,11 @@ const Articles = ({
 
         <div className="flex flex-col gap-6">
           {filteredArticles.length === 0 && (
+            // <p className="text-center text-2xl font-semibold">
+            //   No articles found 😢
+            // </p>
             <p className="text-center text-2xl font-semibold">
-              No articles found 😢
+              Intense writing in progress! 🥵
             </p>
           )}
 
