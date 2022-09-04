@@ -11,6 +11,8 @@ import useMediaQuery from "@utils/useMediaQuery";
 
 import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
 import AuthorHoverCard from "../AuthorHoverCard";
+import { trpc } from "@utils/trpc";
+import { useEffect } from "react";
 
 interface IArticleLayoutProps extends IArticleFields {
   children: React.ReactNode;
@@ -41,6 +43,14 @@ const ArticleLayout = ({
       addSuffix: true,
     },
   );
+
+  const { mutate: addView } = trpc.proxy.views.addView.useMutation();
+
+  useEffect(() => {
+    addView({
+      path: `/articles/${slug}`,
+    });
+  }, [addView, slug]);
 
   const isDesktop = useMediaQuery("(min-width: 640px)");
 
