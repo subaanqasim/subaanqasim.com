@@ -1,12 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 
 const plugin = require("tailwindcss/plugin");
-const { fontFamily, spacing } = require("tailwindcss/defaultTheme");
+const { fontFamily, screens } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
+    screens: {
+      xs: "512px",
+      ...screens,
+    },
     extend: {
       fontFamily: {
         sans: ["Articulat-CF", ...fontFamily.sans],
@@ -22,6 +26,7 @@ module.exports = {
         bold: 700,
         extraBold: 800,
       },
+
       typography: (theme) => ({
         DEFAULT: {
           css: {

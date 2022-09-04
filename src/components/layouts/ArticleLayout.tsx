@@ -10,6 +10,7 @@ import cx from "classnames";
 import useMediaQuery from "@utils/useMediaQuery";
 
 import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
+import AuthorHoverCard from "../AuthorHoverCard";
 
 interface IArticleLayoutProps extends IArticleFields {
   children: React.ReactNode;
@@ -75,15 +76,8 @@ const ArticleLayout = ({
 
             <div className="mt-6 flex flex-col justify-center gap-6 text-sm tracking-wide sm:flex-row sm:items-center sm:justify-between sm:gap-4">
               <div className="flex items-center">
-                <Image
-                  src={`https:${author.fields.headshot.fields.file.url}`}
-                  alt={author.fields.headshot.fields.title}
-                  width={48}
-                  height={48}
-                  sizes="64px"
-                  className="mr-2 h-12 w-12 rounded-full object-cover"
-                  priority
-                />
+                <AuthorHoverCard author={author} />
+
                 <div className="flex flex-col items-start sm:flex-row sm:items-center">
                   <div>{author.fields.name}</div>
 
