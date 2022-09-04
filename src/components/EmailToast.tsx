@@ -1,6 +1,5 @@
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import cx from "classnames";
-import React, { useEffect } from "react";
 
 type EmailToastProps = {
   open: boolean;
@@ -41,7 +40,7 @@ const EmailToast = ({ open, setOpen, status }: EmailToastProps) => {
         onOpenChange={setOpen}
         duration={6500}
         className={cx(
-          "z-50 fixed bottom-4 inset-x-4 w-auto md:bottom-4 md:right-4 md:left-auto md:top-auto md:w-full md:max-w-sm shadow-lg rounded-md",
+          "fixed inset-x-4 bottom-4 z-50 w-auto rounded-md shadow-lg md:bottom-4 md:right-4 md:left-auto md:top-auto md:w-full md:max-w-sm",
           "bg-white dark:bg-black",
           "radix-state-open:animate-toast-slide-in-bottom md:radix-state-open:animate-toast-slide-in-right",
           "radix-state-closed:animate-toast-hide",
@@ -53,8 +52,8 @@ const EmailToast = ({ open, setOpen, status }: EmailToastProps) => {
         )}
       >
         <div className="flex">
-          <div className="w-0 flex-1 flex items-center pl-5 py-4">
-            <div className="w-full radix">
+          <div className="flex w-0 flex-1 items-center py-4 pl-5">
+            <div className="radix w-full">
               <ToastPrimitive.Title className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
                 {info().title}
               </ToastPrimitive.Title>
@@ -64,9 +63,9 @@ const EmailToast = ({ open, setOpen, status }: EmailToastProps) => {
             </div>
           </div>
           <div className="flex">
-            <div className="flex flex-col px-3 py-2 space-y-1">
-              <div className="h-0 flex-1 flex">
-                <ToastPrimitive.Close className="w-full border border-transparent rounded-lg px-3 py-2 flex items-center justify-center text-sm font-medium text-neutral-700 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-900 focus:z-10 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-75">
+            <div className="flex flex-col space-y-1 px-3 py-2">
+              <div className="flex h-0 flex-1">
+                <ToastPrimitive.Close className="flex w-full items-center justify-center rounded-lg border border-transparent px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus:z-10 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-75 dark:text-neutral-100 dark:hover:bg-neutral-900">
                   Dismiss
                 </ToastPrimitive.Close>
               </div>
