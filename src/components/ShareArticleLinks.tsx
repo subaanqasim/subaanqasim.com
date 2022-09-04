@@ -23,14 +23,6 @@ const ShareArticleLinks = ({
     }, 2000);
   };
 
-  const handleTwitterShare = () => {
-    window.open(
-      `https://twitter.com/intent/tweet?text=${title}&url=https://subaanqasim.com/articles/${slug}`,
-      "",
-      "width=500,height=300",
-    );
-  };
-
   return (
     <div className="flex gap-2">
       <button
