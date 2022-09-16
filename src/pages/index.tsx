@@ -1,12 +1,9 @@
-import { useEffect } from "react";
 import Wrapper from "../components/Wrapper";
 import { cda } from "@utils/contentful";
 import { InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import Image from "next/future/image";
 import FeaturedPost from "src/components/FeaturedPost";
-import { trpc } from "@utils/trpc";
-import { useRouter } from "next/router";
 import { getBannerImage } from "@utils/getBannerImage";
 
 const SeeMoreLink: React.FC<{ text: string; href: string }> = ({
@@ -39,15 +36,6 @@ const Home = ({
   bannerImage,
   profileImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { pathname } = useRouter();
-
-  const { mutate: addView, data: updatedViews } =
-    trpc.views.addView.useMutation(); // TODO: add query invalidation
-
-  useEffect(() => {
-    addView({ path: pathname });
-  }, [pathname, addView]);
-
   return (
     <>
       <Wrapper

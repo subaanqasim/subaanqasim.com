@@ -1,16 +1,27 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import useMediaQuery from "@utils/useMediaQuery";
-import React from "react";
 import Footer from "../Footer";
 import MobileNavbar from "../MobileNavbar";
 import Navbar from "../Navbar";
+import { trpc } from "@utils/trpc";
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
+  const { pathname } = useRouter();
+
+  const { mutate: addView, data: updatedViews } =
+    trpc.views.addView.useMutation();
+
+  useEffect(() => {
+    addView({ path: pathname });
+  }, [pathname, addView]);
+
   return (
     <>
       {isDesktop ? <Navbar /> : <MobileNavbar />}
-      <div className="flex flex-col justify-center px-8 mt-40 mb-16">
+      <div className="mt-40 mb-16 flex flex-col justify-center px-8">
         {children}
       </div>
       <Footer />

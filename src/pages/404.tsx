@@ -1,22 +1,11 @@
-import { useEffect } from "react";
 import { getBannerImage } from "@utils/getBannerImage";
-import { trpc } from "@utils/trpc";
 import { InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Wrapper from "../components/Wrapper";
 
 const NotFound = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { pathname } = useRouter();
-  const { mutate: addView, data: updatedViews } =
-    trpc.views.addView.useMutation();
-
-  useEffect(() => {
-    addView({ path: pathname });
-  }, [pathname, addView]);
-
   return (
     <Wrapper title="404" noindex nofollow image={bannerImage}>
       <main className="flex w-full flex-col items-center text-center">
