@@ -44,7 +44,7 @@ const ArticleLayout = ({
     },
   );
 
-  const { mutate: addView } = trpc.proxy.views.addView.useMutation();
+  const { mutate: addView } = trpc.views.addView.useMutation();
 
   useEffect(() => {
     addView({

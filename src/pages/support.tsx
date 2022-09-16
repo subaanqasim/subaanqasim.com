@@ -15,7 +15,7 @@ const Support = ({
   const { data: session } = useSession();
 
   const { mutate: addView, data: updatedViews } =
-    trpc.proxy.views.addView.useMutation();
+    trpc.views.addView.useMutation();
 
   useEffect(() => {
     addView({ path: pathname });
@@ -35,7 +35,7 @@ const Support = ({
           <h1>Support</h1>
           {isSuccess && <h3 className="mt-12">thanks my dude 🥹</h3>}
           {!session && (
-            <p className="max-w-prose mt-3">
+            <p className="mt-3 max-w-prose">
               Sign in using the email you used to tip to leave a message!
               (entirely optional ofc)
             </p>
@@ -45,15 +45,15 @@ const Support = ({
 
       {!session && (
         <form
-          className="w-full mt-10"
+          className="mt-10 w-full"
           onSubmit={(e) => {
             e.preventDefault();
             signIn("email", { email: userEmail ? userEmail : inputEmail });
           }}
         >
           {!userEmail && (
-            <div className="max-w-sm mx-auto">
-              <label htmlFor="email" className="font-medium text-lg">
+            <div className="mx-auto max-w-sm">
+              <label htmlFor="email" className="text-lg font-medium">
                 Email
               </label>
               <input
@@ -64,15 +64,15 @@ const Support = ({
                 onChange={(e) => setInputEmail(e.target.value)}
                 placeholder="tim@apple.com"
                 className={cx(
-                  "block w-full rounded-md py-2 px-4 mt-1",
-                  "placeholder:text-neutral-500 dark:placeholder:text-neutral-600 bg-neutral-100",
+                  "mt-1 block w-full rounded-md py-2 px-4",
+                  "bg-neutral-100 placeholder:text-neutral-500 dark:placeholder:text-neutral-600",
                   "border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900",
                   "focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black",
                 )}
               />
             </div>
           )}
-          <div className="max-w-sm mx-auto mt-4">
+          <div className="mx-auto mt-4 max-w-sm">
             <button className="button-primary w-full" type="submit">
               Sign in with email
             </button>
@@ -80,10 +80,10 @@ const Support = ({
         </form>
       )}
 
-      <p className="text-neutral-700 dark:text-neutral-300 mt-24 mx-auto text-center font-semibold">
+      <p className="mx-auto mt-24 text-center font-semibold text-neutral-700 dark:text-neutral-300">
         Message board functionality coming soon!!
       </p>
-      <p className="text-neutral-500 dark:text-neutral-400 mt-4 mx-auto text-center">
+      <p className="mx-auto mt-4 text-center text-neutral-500 dark:text-neutral-400">
         ur support is unbeaten 👉🏽👈🏽
       </p>
     </Wrapper>
