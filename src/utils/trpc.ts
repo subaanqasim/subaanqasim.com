@@ -1,7 +1,8 @@
 // src/utils/trpc.ts
-import { setupTRPC } from "@trpc/next";
-import type { inferProcedureInput, inferProcedureOutput } from "@trpc/server";
+import { createTRPCNext } from "@trpc/next";
+// import type { inferProcedureInput, inferProcedureOutput } from "@trpc/server";
 import type { AppRouter } from "../server/trpc/router";
+import { httpBatchLink, loggerLink } from "@trpc/client";
 import superjson from "superjson";
 
 const getBaseUrl = () => {
@@ -11,11 +12,19 @@ const getBaseUrl = () => {
   return `http://localhost:${process.env.PORT ?? 3000}`; // dev SSR should use localhost
 };
 
-export const trpc = setupTRPC<AppRouter>({
+export const trpc = createTRPCNext<AppRouter>({
   config() {
     return {
-      url: `${getBaseUrl()}/api/trpc`,
+      // url: `${getBaseUrl()}/api/trpc`,
       transformer: superjson,
+      links: [
+        loggerLink({
+          enabled: () => process.env.NODE_ENV === "development",
+        }),
+        httpBatchLink({
+          url: `${getBaseUrl()}/api/trpc`,
+        }),
+      ],
     };
   },
   ssr: false,
@@ -25,18 +34,10 @@ export const trpc = setupTRPC<AppRouter>({
  * This is a helper method to infer the output of a query resolver
  * @example type HelloOutput = inferQueryOutput<'hello'>
  */
-export type inferQueryOutput<
-  TRouteKey extends keyof AppRouter["_def"]["queries"],
-> = inferProcedureOutput<AppRouter["_def"]["queries"][TRouteKey]>;
+// export type inferOutputs<
+//   TRouteKey extends keyof AppRouter["_def"]["procedures"],
+// > = inferProcedureOutput<AppRouter["_def"]["procedures"][TRouteKey]>;
 
-export type inferQueryInput<
-  TRouteKey extends keyof AppRouter["_def"]["queries"],
-> = inferProcedureInput<AppRouter["_def"]["queries"][TRouteKey]>;
-
-export type inferMutationOutput<
-  TRouteKey extends keyof AppRouter["_def"]["mutations"],
-> = inferProcedureOutput<AppRouter["_def"]["mutations"][TRouteKey]>;
-
-export type inferMutationInput<
-  TRouteKey extends keyof AppRouter["_def"]["mutations"],
-> = inferProcedureInput<AppRouter["_def"]["mutations"][TRouteKey]>;
+// export type inferInputs<
+//   TRouteKey extends keyof AppRouter["_def"]["procedures"],
+// > = inferProcedureInput<AppRouter["_def"]["procedures"][TRouteKey]>;

@@ -42,7 +42,7 @@ const Home = ({
   const { pathname } = useRouter();
 
   const { mutate: addView, data: updatedViews } =
-    trpc.proxy.views.addView.useMutation(); // TODO: add query invalidation
+    trpc.views.addView.useMutation(); // TODO: add query invalidation
 
   useEffect(() => {
     addView({ path: pathname });

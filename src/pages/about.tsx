@@ -139,7 +139,7 @@ const About = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { pathname } = useRouter();
   const { mutate: addView, data: updatedViews } =
-    trpc.proxy.views.addView.useMutation();
+    trpc.views.addView.useMutation();
 
   useEffect(() => {
     addView({ path: pathname });

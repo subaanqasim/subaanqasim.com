@@ -118,7 +118,7 @@ const Contact = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { pathname } = useRouter();
-  const { mutate: addView } = trpc.proxy.views.addView.useMutation();
+  const { mutate: addView } = trpc.views.addView.useMutation();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -130,7 +130,7 @@ const Contact = ({
     isLoading,
     isSuccess,
     status,
-  } = trpc.proxy.email.sendEmail.useMutation({
+  } = trpc.email.sendEmail.useMutation({
     onSuccess: () => {
       setOpen(true);
     },
@@ -180,12 +180,12 @@ const Contact = ({
         </header>
 
         <main>
-          <p className="text-lg mt-2 text-neutral-600 dark:text-neutral-300">
+          <p className="mt-2 text-lg text-neutral-600 dark:text-neutral-300">
             Got a question, idea, or just wanna chat? Get in touch via your
             preferred avenue below.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row justify-between gap-4 max-w-xl mx-auto">
+          <div className="mx-auto mt-8 flex max-w-xl flex-col justify-between gap-4 sm:flex-row">
             {socials.map((social) => (
               <SocialMediaCard
                 key={social.platform}
@@ -199,10 +199,10 @@ const Contact = ({
             ))}
           </div>
 
-          <div className="max-w-xl mx-auto p-4 bg-neutral-100 dark:bg-neutral-800 mt-8 rounded-md">
+          <div className="mx-auto mt-8 max-w-xl rounded-md bg-neutral-100 p-4 dark:bg-neutral-800">
             <h2 className="mt-2 mb-8">Get in touch via email</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="relative z-0 mb-8 w-full group">
+              <div className="group relative z-0 mb-8 w-full">
                 <input
                   {...register("name", { required: true })}
                   id="name"
@@ -212,22 +212,22 @@ const Contact = ({
                     errors.name?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
-                    "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                    "peer block w-full rounded-md border-[1px] bg-transparent py-2 px-4 text-neutral-900  focus:border-amber-500 focus:outline-none focus:ring-0 dark:text-neutral-100 dark:focus:border-amber-500 ",
                   )}
                 />
                 <label
                   htmlFor="name"
-                  className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+                  className="absolute left-0 top-2 -z-10 origin-[0] -translate-y-9 scale-75 transform text-xl text-neutral-500 duration-300 peer-placeholder-shown:left-4 peer-placeholder-shown:translate-y-0 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:font-medium peer-focus:text-orange-500 dark:text-neutral-300 dark:peer-focus:text-amber-500"
                 >
-                  Name<span className="text-red-500 font-medium">*</span>
+                  Name<span className="font-medium text-red-500">*</span>
                 </label>
 
-                <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                <p className="mt-1 text-sm text-red-600 dark:text-red-500">
                   {errors?.name?.message}
                 </p>
               </div>
 
-              <div className="relative z-0 mb-8 w-full group">
+              <div className="group relative z-0 mb-8 w-full">
                 <input
                   {...register("email", { required: true })}
                   id="email"
@@ -237,21 +237,21 @@ const Contact = ({
                     errors.email?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
-                    "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                    "peer block w-full rounded-md border-[1px] bg-transparent py-2 px-4 text-neutral-900  focus:border-amber-500 focus:outline-none focus:ring-0 dark:text-neutral-100 dark:focus:border-amber-500 ",
                   )}
                 />
                 <label
                   htmlFor="email"
-                  className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+                  className="absolute left-0 top-2 -z-10 origin-[0] -translate-y-9 scale-75 transform text-xl text-neutral-500 duration-300 peer-placeholder-shown:left-4 peer-placeholder-shown:translate-y-0 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:font-medium peer-focus:text-orange-500 dark:text-neutral-300 dark:peer-focus:text-amber-500"
                 >
-                  Email<span className="text-red-500 font-medium">*</span>
+                  Email<span className="font-medium text-red-500">*</span>
                 </label>
-                <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                <p className="mt-1 text-sm text-red-600 dark:text-red-500">
                   {errors?.email?.message}
                 </p>
               </div>
 
-              <div className="relative z-0 mb-8 w-full group">
+              <div className="group relative z-0 mb-8 w-full">
                 <input
                   {...register("subject", { required: true })}
                   id="subject"
@@ -261,21 +261,21 @@ const Contact = ({
                     errors.subject?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
-                    "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                    "peer block w-full rounded-md border-[1px] bg-transparent py-2 px-4 text-neutral-900  focus:border-amber-500 focus:outline-none focus:ring-0 dark:text-neutral-100 dark:focus:border-amber-500 ",
                   )}
                 />
                 <label
                   htmlFor="subject"
-                  className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+                  className="absolute left-0 top-2 -z-10 origin-[0] -translate-y-9 scale-75 transform text-xl text-neutral-500 duration-300 peer-placeholder-shown:left-4 peer-placeholder-shown:translate-y-0 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:font-medium peer-focus:text-orange-500 dark:text-neutral-300 dark:peer-focus:text-amber-500"
                 >
-                  Subject<span className="text-red-500 font-medium">*</span>
+                  Subject<span className="font-medium text-red-500">*</span>
                 </label>
-                <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                <p className="mt-1 text-sm text-red-600 dark:text-red-500">
                   {errors?.subject?.message}
                 </p>
               </div>
 
-              <div className="relative z-0 mb-8 w-full group">
+              <div className="group relative z-0 mb-8 w-full">
                 <textarea
                   {...register("message", { required: true })}
                   id="message"
@@ -285,16 +285,16 @@ const Contact = ({
                     errors.message?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
-                    "block py-2 px-4 w-full text-neutral-900 bg-transparent border-[1px] rounded-md dark:text-neutral-100  dark:focus:border-amber-500 focus:outline-none focus:ring-0 focus:border-amber-500 peer ",
+                    "peer block w-full rounded-md border-[1px] bg-transparent py-2 px-4 text-neutral-900  focus:border-amber-500 focus:outline-none focus:ring-0 dark:text-neutral-100 dark:focus:border-amber-500 ",
                   )}
                 />
                 <label
                   htmlFor="message"
-                  className="peer-focus:font-medium absolute left-0 text-xl text-neutral-500 dark:text-neutral-300 duration-300 transform -translate-y-9 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 dark:peer-focus:text-amber-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:left-4 peer-focus:-translate-y-8"
+                  className="absolute left-0 top-2 -z-10 origin-[0] -translate-y-9 scale-75 transform text-xl text-neutral-500 duration-300 peer-placeholder-shown:left-4 peer-placeholder-shown:translate-y-0 peer-focus:left-0 peer-focus:-translate-y-8 peer-focus:font-medium peer-focus:text-orange-500 dark:text-neutral-300 dark:peer-focus:text-amber-500"
                 >
-                  Message<span className="text-red-500 font-medium">*</span>
+                  Message<span className="font-medium text-red-500">*</span>
                 </label>
-                <p className="text-red-600 dark:text-red-500 text-sm mt-1">
+                <p className="mt-1 text-sm text-red-600 dark:text-red-500">
                   {errors?.message?.message}
                 </p>
               </div>
@@ -302,7 +302,7 @@ const Contact = ({
               <button
                 type="submit"
                 disabled={!isValid || isLoading}
-                className="px-8 py-2 dark:bg-neutral-100 bg-neutral-800 text-neutral-100  dark:text-neutral-800 rounded-md mt-6 w-full text-center disabled:hocus:scale-100 hocus:scale-105 transition-all disabled:bg-neutral-300 dark:disabled:bg-neutral-600 disabled:text-neutral-500 dark:disabled:text-neutral-400 disabled:cursor-not-allowed focus:outline-none focus-visible:ring focus-visible:ring-amber-500 focus-visible:ring-opacity-75"
+                className="mt-6 w-full rounded-md bg-neutral-800 px-8  py-2 text-center text-neutral-100 transition-all focus:outline-none focus-visible:ring focus-visible:ring-amber-500 focus-visible:ring-opacity-75 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500 hocus:scale-105 disabled:hocus:scale-100 dark:bg-neutral-100 dark:text-neutral-800 dark:disabled:bg-neutral-600 dark:disabled:text-neutral-400"
               >
                 Send
               </button>

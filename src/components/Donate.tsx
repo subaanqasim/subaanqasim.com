@@ -24,7 +24,7 @@ const Donate = () => {
   });
 
   const { mutate: createCheckout } =
-    trpc.proxy.stripe.createCheckoutSession.useMutation({
+    trpc.stripe.createCheckoutSession.useMutation({
       onSuccess: async ({ checkoutSessionId }) => {
         const stripe = await getStripe();
         const { error } = await stripe!.redirectToCheckout({
@@ -57,7 +57,7 @@ const Donate = () => {
   };
 
   return (
-    <div className="relative inline-block text-left hocus:scale-110 transition-transform ease-in-out">
+    <div className="relative inline-block text-left transition-transform ease-in-out hocus:scale-110">
       <PopoverPrimitive.Root>
         <PopoverPrimitive.Trigger asChild>
           <button className="button-primary px-4">💸</button>
@@ -67,7 +67,7 @@ const Donate = () => {
             align="end"
             sideOffset={32}
             className={cx(
-              "radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
+              "radix-side-bottom:animate-slide-down radix-side-top:animate-slide-up",
               "w-80 rounded-lg p-6 shadow-md",
               "bg-white dark:bg-black",
             )}
@@ -82,10 +82,10 @@ const Donate = () => {
 
             <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
               <fieldset>
-                <label htmlFor="amount" className="font-medium text-lg">
+                <label htmlFor="amount" className="text-lg font-medium">
                   Amount
                 </label>
-                <div className="flex mt-1">
+                <div className="mt-1 flex">
                   <input
                     {...register("amount", {
                       required: "This field is required",
@@ -100,7 +100,7 @@ const Donate = () => {
                     min={1}
                     className={cx(
                       "block w-full rounded-l-md py-2",
-                      "text-center placeholder:text-neutral-500  dark:placeholder:text-neutral-600 bg-neutral-100",
+                      "bg-neutral-100 text-center  placeholder:text-neutral-500 dark:placeholder:text-neutral-600",
                       "border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900",
                       "focus:outline-none focus-visible:ring-2   focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black",
                     )}
@@ -131,10 +131,10 @@ const Donate = () => {
                 </div>
               </fieldset>
 
-              <label htmlFor="email" className="font-medium text-lg">
+              <label htmlFor="email" className="text-lg font-medium">
                 Email
               </label>
-              <div className="flex mt-1">
+              <div className="mt-1 flex">
                 <input
                   {...register("email", {
                     required: "This field is required",
@@ -143,7 +143,7 @@ const Donate = () => {
                   type="email"
                   className={cx(
                     "block w-full rounded-md py-2",
-                    "text-center placeholder:text-neutral-500  dark:placeholder:text-neutral-600 bg-neutral-100",
+                    "bg-neutral-100 text-center  placeholder:text-neutral-500 dark:placeholder:text-neutral-600",
                     "border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900",
                     "focus:outline-none focus-visible:ring-2   focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black",
                   )}
@@ -152,7 +152,7 @@ const Donate = () => {
 
               <button
                 type="submit"
-                className="mt-8 px-4 py-2 w-full bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 font-semibold rounded-md focus:outline-none focus-visible:ring-2   focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black hocus:scale-105 transition-transform duration-[250ms] ease-in-out"
+                className="mt-8 w-full rounded-md bg-neutral-900 px-4 py-2 font-semibold text-neutral-100 transition-transform duration-[250ms] ease-in-out focus:outline-none   focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-white hocus:scale-105 dark:bg-neutral-100 dark:text-neutral-900 dark:focus-visible:ring-offset-black"
               >
                 {`Tip ${inputCurrency()}${inputAmount}`}
               </button>
@@ -161,7 +161,7 @@ const Donate = () => {
             <PopoverPrimitive.Close
               className={cx(
                 "absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1",
-                "focus:outline-none focus-visible:ring-2 ring-offset-2 dark:focus-visible:ring-offset-black focus-visible:ring-offset-white focus-visible:ring-orange-500 focus-visible:ring-opacity-75",
+                "ring-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black",
               )}
             >
               <svg

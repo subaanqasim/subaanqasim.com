@@ -11,7 +11,7 @@ const NotFound = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { pathname } = useRouter();
   const { mutate: addView, data: updatedViews } =
-    trpc.proxy.views.addView.useMutation();
+    trpc.views.addView.useMutation();
 
   useEffect(() => {
     addView({ path: pathname });
@@ -19,12 +19,12 @@ const NotFound = ({
 
   return (
     <Wrapper title="404" noindex nofollow image={bannerImage}>
-      <main className="flex flex-col items-center w-full text-center">
+      <main className="flex w-full flex-col items-center text-center">
         <h1>420 - Page is too cool for you 🥵</h1>
         <div className="mt-8 text-xl font-bold">
           Trying to access this page will have dire consequences.
         </div>
-        <div className="flex flex-col items-center mt-12 text-neutral-500 dark:text-neutral-400">
+        <div className="mt-12 flex flex-col items-center text-neutral-500 dark:text-neutral-400">
           <p className=" max-w-prose">
             Jk. The page you are trying to open does not exist. You may have
             mistyped the address, or the page has been moved to another URL.
@@ -32,13 +32,13 @@ const NotFound = ({
           <p className="mt-4">
             If you think this is a mistake{" "}
             <Link href="/contact">
-              <a className="text-orange-700 dark:text-orange-500 hocus:underline hocus:text-orange-900 dark:hocus:text-orange-300 transition-all  decoration-2">
+              <a className="text-orange-700 decoration-2 transition-all hocus:text-orange-900 hocus:underline dark:text-orange-500  dark:hocus:text-orange-300">
                 please get in touch.
               </a>
             </Link>
           </p>
           <Link href="/">
-            <a className="mt-16 button-primary py-5">Return to safety</a>
+            <a className="button-primary mt-16 py-5">Return to safety</a>
           </Link>
         </div>
       </main>
