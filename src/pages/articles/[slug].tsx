@@ -1,7 +1,8 @@
-import { InferGetStaticPropsType, GetStaticPropsContext } from "next";
+import { GetStaticPropsContext } from "next";
 import type { IArticle } from "@utils/types/contentful";
 import { ParsedUrlQuery } from "querystring";
 import { cda } from "@utils/contentful";
+import InferNextPropsType from "infer-next-props-type";
 
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
@@ -29,7 +30,7 @@ const Article = ({
   article,
   nextArticle,
   prevArticle,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferNextPropsType<typeof getStaticProps>) => {
   return (
     <ArticleLayout
       {...article.fields}
@@ -76,7 +77,12 @@ export const getStaticProps = async (
   });
 
   const article = entry.items[0] as IArticle;
-  const notFound = !article ? true : false;
+
+  if (!article) {
+    return {
+      notFound: true,
+    };
+  }
 
   // Get next and previous article
   const next = await cda.getEntries({
@@ -124,7 +130,6 @@ export const getStaticProps = async (
   });
 
   return {
-    notFound,
     props: {
       article: {
         ...article,
