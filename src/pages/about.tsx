@@ -1,8 +1,5 @@
-import { useEffect } from "react";
 import Wrapper from "../components/Wrapper";
 import { InferGetStaticPropsType } from "next";
-import { useRouter } from "next/router";
-import { trpc } from "@utils/trpc";
 import { getBannerImage } from "@utils/getBannerImage";
 import Link from "next/link";
 import SocialMediaCard from "../components/SocialMediaCard";
@@ -137,14 +134,6 @@ const socials = [
 const About = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { pathname } = useRouter();
-  const { mutate: addView, data: updatedViews } =
-    trpc.views.addView.useMutation();
-
-  useEffect(() => {
-    addView({ path: pathname });
-  }, [pathname, addView]);
-
   return (
     <Wrapper title="About" image={bannerImage}>
       <main>

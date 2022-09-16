@@ -1,10 +1,8 @@
 import { cda } from "@utils/contentful";
 import { getBannerImage } from "@utils/getBannerImage";
-import { trpc } from "@utils/trpc";
 import { IArticle } from "@utils/types/contentful";
 import { InferGetStaticPropsType } from "next";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import rt from "reading-time";
 import ArticlePost from "../../components/ArticlePost";
 import Wrapper from "../../components/Wrapper";
@@ -21,14 +19,6 @@ const Articles = ({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [search, setSearch] = useState("");
-
-  const { pathname } = useRouter();
-  const { mutate: addView, data: updatedViews } =
-    trpc.views.addView.useMutation();
-
-  useEffect(() => {
-    addView({ path: pathname });
-  }, [pathname, addView]);
 
   const filteredArticles = articles.filter(
     (article) =>

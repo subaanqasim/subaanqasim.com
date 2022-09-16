@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-import { trpc } from "@utils/trpc";
 import { InferGetStaticPropsType } from "next";
-import { useRouter } from "next/router";
 import Development from "../components/Development";
 import Wrapper from "../components/Wrapper";
 import { getBannerImage } from "@utils/getBannerImage";
@@ -9,14 +6,6 @@ import { getBannerImage } from "@utils/getBannerImage";
 const Vibes = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { pathname } = useRouter();
-  const { mutate: addView, data: updatedViews } =
-    trpc.views.addView.useMutation();
-
-  useEffect(() => {
-    addView({ path: pathname });
-  }, [pathname, addView]);
-
   return (
     <Wrapper
       title="Vibes"

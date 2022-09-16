@@ -2,7 +2,6 @@ import type { IArticleFields } from "@utils/types/contentful";
 import type { Sibling } from "../../pages/articles/[slug]";
 import Link from "next/link";
 import { formatDistance } from "date-fns";
-import Image from "next/future/image";
 import Wrapper from "../Wrapper";
 import ShareArticleLinks from "../ShareArticleLinks";
 import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
@@ -11,8 +10,6 @@ import useMediaQuery from "@utils/useMediaQuery";
 
 import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
 import AuthorHoverCard from "../AuthorHoverCard";
-import { trpc } from "@utils/trpc";
-import { useEffect } from "react";
 
 interface IArticleLayoutProps extends IArticleFields {
   children: React.ReactNode;
@@ -43,14 +40,6 @@ const ArticleLayout = ({
       addSuffix: true,
     },
   );
-
-  const { mutate: addView } = trpc.views.addView.useMutation();
-
-  useEffect(() => {
-    addView({
-      path: `/articles/${slug}`,
-    });
-  }, [addView, slug]);
 
   const isDesktop = useMediaQuery("(min-width: 640px)");
 

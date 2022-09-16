@@ -1,22 +1,11 @@
-import { useEffect } from "react";
 import { InferGetStaticPropsType } from "next";
 import Wrapper from "../components/Wrapper";
 import Development from "../components/Development";
-import { useRouter } from "next/router";
-import { trpc } from "@utils/trpc";
 import { getBannerImage } from "@utils/getBannerImage";
 
 const Brain = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { pathname } = useRouter();
-  const { mutate: addView, data: updatedViews } =
-    trpc.views.addView.useMutation();
-
-  useEffect(() => {
-    addView({ path: pathname });
-  }, [pathname, addView]);
-
   return (
     <Wrapper
       title="Brain"

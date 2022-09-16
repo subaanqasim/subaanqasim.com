@@ -4,7 +4,6 @@ import Wrapper from "../components/Wrapper";
 import SocialMediaCard from "../components/SocialMediaCard";
 import EmailToast from "../components/EmailToast";
 import { trpc } from "@utils/trpc";
-import { useRouter } from "next/router";
 import { getBannerImage } from "@utils/getBannerImage";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
@@ -117,13 +116,7 @@ const formSchema = z.object({
 const Contact = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { pathname } = useRouter();
-  const { mutate: addView } = trpc.views.addView.useMutation();
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    addView({ path: pathname });
-  }, [pathname, addView]);
 
   const {
     mutate: sendEmail,
