@@ -6,7 +6,7 @@ const runtimeCaching = require("next-pwa/cache");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  experimental: { images: { allowFutureImage: true } },
+  // experimental: { images: { allowFutureImage: true } },
   images: {
     domains: ["images.ctfassets.net"],
   },

@@ -28,7 +28,7 @@ const CustomImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
   return (
     <Image
       src={src!}
-      alt={alt}
+      alt={alt ?? ""}
       width={width}
       height={height}
       className="rounded-lg"
