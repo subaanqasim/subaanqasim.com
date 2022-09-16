@@ -37,7 +37,7 @@ specifiers:
   eslint: 8.23.1
   eslint-config-next: 12.3.0
   eslint-config-prettier: 8.5.0
-  infer-next-props-type: ^0.0.4
+  infer-next-props-type: 0.0.4
   micro: 9.4.1
   next: 12.3.0
   next-auth: 4.10.3
