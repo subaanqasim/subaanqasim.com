@@ -37,7 +37,7 @@ specifiers:
   eslint: 8.23.1
   eslint-config-next: 12.3.0
   eslint-config-prettier: 8.5.0
-  infer-next-props-type: 0.0.4
+  infer-next-props-type: 0.0.5
   micro: 9.4.1
   next: 12.3.0
   next-auth: 4.10.3
@@ -132,7 +132,7 @@ devDependencies:
   eslint: 8.23.1
   eslint-config-next: 12.3.0_irgkl5vooow2ydyo6aokmferha
   eslint-config-prettier: 8.5.0_eslint@8.23.1
-  infer-next-props-type: 0.0.4
+  infer-next-props-type: 0.0.5
   postcss: 8.4.16
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
@@ -2318,12 +2318,12 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.6
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
 
   /@types/eslint/8.4.6:
     resolution: {integrity: sha512-/fqTbjxyFUaYNO7VcW5g+4npmqVACz1bB7RTHYuLj+PRjw9hrCwrUXVQFpChUS0JsyEFvMZ7U/PfmvWgxJhI9g==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
 
   /@types/estree-jsx/1.0.0:
@@ -2341,7 +2341,6 @@ packages:
 
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-    dev: false
 
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
@@ -4224,8 +4223,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /infer-next-props-type/0.0.4:
-    resolution: {integrity: sha512-2Da2QS/W3FvRCwxHGEoYSE/o4ETLN/BXTzj64g67KNyyGHfAV/YYEq9tDB20wooyQRZBF9/FGxvcEo45MtVZjg==}
+  /infer-next-props-type/0.0.5:
+    resolution: {integrity: sha512-UC+veUywRMWGgsG3QxmUbWeEEozTkhM+i7zndvg9XE66pwqUfF9Buo/dX3dx71je/T6H9/O0BqQiAsxCVjjwVA==}
     dev: true
 
   /inflight/1.0.6:
