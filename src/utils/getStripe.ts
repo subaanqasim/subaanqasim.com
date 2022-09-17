@@ -1,4 +1,5 @@
-import { Stripe, loadStripe } from "@stripe/stripe-js";
+import { Stripe } from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js/pure";
 
 /**
  * This is a singleton to ensure we only instantiate Stripe once.
