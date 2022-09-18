@@ -17,7 +17,7 @@ specifiers:
   '@stripe/stripe-js': 1.36.0
   '@tailwindcss/aspect-ratio': 0.4.2
   '@tailwindcss/typography': 0.5.7
-  '@tanstack/react-query': 4.3.7
+  '@tanstack/react-query': 4.3.8
   '@trpc/client': 10.0.0-proxy-alpha.77
   '@trpc/next': 10.0.0-proxy-alpha.77
   '@trpc/react': 10.0.0-proxy-alpha.77
@@ -83,10 +83,10 @@ dependencies:
   '@radix-ui/react-select': 1.0.0_7ey2zzynotv32rpkwno45fsx4e
   '@radix-ui/react-toast': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@stripe/stripe-js': 1.36.0
-  '@tanstack/react-query': 4.3.7_biqbaboplfbrettd7655fr4n2y
+  '@tanstack/react-query': 4.3.8_biqbaboplfbrettd7655fr4n2y
   '@trpc/client': 10.0.0-proxy-alpha.77_z46ecnesyweucispw22q4sghgy
-  '@trpc/next': 10.0.0-proxy-alpha.77_ladhfs5vgtwy2chfyerdu5im2a
-  '@trpc/react': 10.0.0-proxy-alpha.77_hoqm7dvv5r3zinhyfb4bbesi6i
+  '@trpc/next': 10.0.0-proxy-alpha.77_kmq6hsqhc7qvd7nrg5ilggc6dm
+  '@trpc/react': 10.0.0-proxy-alpha.77_mbiku3odbjsphqz542dagvwrym
   '@trpc/server': 10.0.0-proxy-alpha.77
   classnames: 2.3.2
   contentful: 9.2.4
@@ -2231,12 +2231,12 @@ packages:
       tailwindcss: 3.1.8_postcss@8.4.16
     dev: true
 
-  /@tanstack/query-core/4.3.7:
-    resolution: {integrity: sha512-lCoAYhcx8i/o4lCQa06kbg5zqtnRnXp0tOYIm7NcSh6M9QLUcKO6UPoS+T9XwteLYnKcGHa3j3MGnin18fSPHA==}
+  /@tanstack/query-core/4.3.8:
+    resolution: {integrity: sha512-AEUWtCNBIImFZ9tMt/P8V86kIhMHpfoJqAI1auGOLR8Wzeq7Ymiue789PJG0rKYcyViUicBZeHjggMqyEQVMfQ==}
     dev: false
 
-  /@tanstack/react-query/4.3.7_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-aoJs8WXHUILQyEjFwNxDfV9smOTD2kBYeXnN2e7UCQqSfL0k5ZqDK9+zQG8vxiC9ZDBnC3xuoSQG24lYIfiOzA==}
+  /@tanstack/react-query/4.3.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-iR1mzhjD5nNhywW8o7FfT4Q4PjFSnfUQk2CRyOToojNiNygM82e22RcmPfLu1z+O+Pl6cMOD0D8NwdNpPZghnw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2247,7 +2247,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 4.3.7
+      '@tanstack/query-core': 4.3.8
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
@@ -2261,7 +2261,7 @@ packages:
       '@trpc/server': 10.0.0-proxy-alpha.77
     dev: false
 
-  /@trpc/next/10.0.0-proxy-alpha.77_ladhfs5vgtwy2chfyerdu5im2a:
+  /@trpc/next/10.0.0-proxy-alpha.77_kmq6hsqhc7qvd7nrg5ilggc6dm:
     resolution: {integrity: sha512-mUlJ3aEqEj+T24Yxp9G0Ysp++YzIXu2jZLTxg9y5GOtrekfKh4K7ABdOPkuHCl6Ef5dJvBtM5z/OwjR8jq6xfg==}
     peerDependencies:
       '@tanstack/react-query': ^4.0.10
@@ -2272,9 +2272,9 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': 4.3.7_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.3.8_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.0.0-proxy-alpha.77_z46ecnesyweucispw22q4sghgy
-      '@trpc/react': 10.0.0-proxy-alpha.77_hoqm7dvv5r3zinhyfb4bbesi6i
+      '@trpc/react': 10.0.0-proxy-alpha.77_mbiku3odbjsphqz542dagvwrym
       '@trpc/server': 10.0.0-proxy-alpha.77
       next: 12.3.0_ir3quccc6i62x6qn6jjhyjjiey
       react: 18.2.0
@@ -2282,7 +2282,7 @@ packages:
       react-ssr-prepass: 1.5.0_react@18.2.0
     dev: false
 
-  /@trpc/react/10.0.0-proxy-alpha.77_hoqm7dvv5r3zinhyfb4bbesi6i:
+  /@trpc/react/10.0.0-proxy-alpha.77_mbiku3odbjsphqz542dagvwrym:
     resolution: {integrity: sha512-aBdxq+nMcZMWZGa93yVdXXw8VP94LLZtscIQI28cqk3GDUs8jq80ZZih+PYoNeXizvSTYRkwfodQnx9KONoJkg==}
     peerDependencies:
       '@tanstack/react-query': ^4.0.10
@@ -2291,7 +2291,7 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': 4.3.7_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.3.8_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.0.0-proxy-alpha.77_z46ecnesyweucispw22q4sghgy
       '@trpc/server': 10.0.0-proxy-alpha.77
       react: 18.2.0
@@ -3478,7 +3478,7 @@ packages:
       eslint: 8.23.1
       eslint-import-resolver-node: 0.3.6
       eslint-import-resolver-typescript: 2.7.1_hdzsmr7kawaomymueo2tso6fjq
-      eslint-plugin-import: 2.26.0_6r44hdgvdiqbnekattsi42eeia
+      eslint-plugin-import: 2.26.0_eslint@8.23.1
       eslint-plugin-jsx-a11y: 6.6.1_eslint@8.23.1
       eslint-plugin-react: 7.31.8_eslint@8.23.1
       eslint-plugin-react-hooks: 4.6.0_eslint@8.23.1
@@ -3515,7 +3515,7 @@ packages:
     dependencies:
       debug: 4.3.4
       eslint: 8.23.1
-      eslint-plugin-import: 2.26.0_6r44hdgvdiqbnekattsi42eeia
+      eslint-plugin-import: 2.26.0_eslint@8.23.1
       glob: 7.2.3
       is-glob: 4.0.3
       resolve: 1.22.1
@@ -3524,7 +3524,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-module-utils/2.7.4_ssuof5somrshypivkj4dxrg5tm:
+  /eslint-module-utils/2.7.4_oxfrjumrtiktpkw7r2zaom7f74:
     resolution: {integrity: sha512-j4GT+rqzCoRKHwURX7pddtIPGySnX9Si/cgMI5ztrcqOPtk5dDEeZ34CQVPphnqkJytlc97Vuk05Um2mJ3gEQA==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -3545,16 +3545,14 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.37.0_irgkl5vooow2ydyo6aokmferha
       debug: 3.2.7
       eslint: 8.23.1
       eslint-import-resolver-node: 0.3.6
-      eslint-import-resolver-typescript: 2.7.1_hdzsmr7kawaomymueo2tso6fjq
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /eslint-plugin-import/2.26.0_6r44hdgvdiqbnekattsi42eeia:
+  /eslint-plugin-import/2.26.0_eslint@8.23.1:
     resolution: {integrity: sha512-hYfi3FXaM8WPLf4S1cikh/r4IxnO6zrhZbEGz2b660EJRbuxgpDS5gkCuYgGWg2xxh2rBuIr4Pvhve/7c31koA==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -3564,14 +3562,13 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.37.0_irgkl5vooow2ydyo6aokmferha
       array-includes: 3.1.5
       array.prototype.flat: 1.3.0
       debug: 2.6.9
       doctrine: 2.1.0
       eslint: 8.23.1
       eslint-import-resolver-node: 0.3.6
-      eslint-module-utils: 2.7.4_ssuof5somrshypivkj4dxrg5tm
+      eslint-module-utils: 2.7.4_oxfrjumrtiktpkw7r2zaom7f74
       has: 1.0.3
       is-core-module: 2.10.0
       is-glob: 4.0.3
