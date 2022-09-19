@@ -17,7 +17,7 @@ specifiers:
   '@stripe/stripe-js': 1.36.0
   '@tailwindcss/aspect-ratio': 0.4.2
   '@tailwindcss/typography': 0.5.7
-  '@tanstack/react-query': 4.3.8
+  '@tanstack/react-query': 4.3.9
   '@trpc/client': 10.0.0-proxy-alpha.77
   '@trpc/next': 10.0.0-proxy-alpha.77
   '@trpc/react': 10.0.0-proxy-alpha.77
@@ -83,10 +83,10 @@ dependencies:
   '@radix-ui/react-select': 1.0.0_7ey2zzynotv32rpkwno45fsx4e
   '@radix-ui/react-toast': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@stripe/stripe-js': 1.36.0
-  '@tanstack/react-query': 4.3.8_biqbaboplfbrettd7655fr4n2y
+  '@tanstack/react-query': 4.3.9_biqbaboplfbrettd7655fr4n2y
   '@trpc/client': 10.0.0-proxy-alpha.77_z46ecnesyweucispw22q4sghgy
-  '@trpc/next': 10.0.0-proxy-alpha.77_kmq6hsqhc7qvd7nrg5ilggc6dm
-  '@trpc/react': 10.0.0-proxy-alpha.77_mbiku3odbjsphqz542dagvwrym
+  '@trpc/next': 10.0.0-proxy-alpha.77_sxhgzfscbwb7t7cpnha52m6jwe
+  '@trpc/react': 10.0.0-proxy-alpha.77_ug6iztnfiuibmmp4qthtrnontu
   '@trpc/server': 10.0.0-proxy-alpha.77
   classnames: 2.3.2
   contentful: 9.2.4
@@ -2235,8 +2235,8 @@ packages:
     resolution: {integrity: sha512-AEUWtCNBIImFZ9tMt/P8V86kIhMHpfoJqAI1auGOLR8Wzeq7Ymiue789PJG0rKYcyViUicBZeHjggMqyEQVMfQ==}
     dev: false
 
-  /@tanstack/react-query/4.3.8_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-iR1mzhjD5nNhywW8o7FfT4Q4PjFSnfUQk2CRyOToojNiNygM82e22RcmPfLu1z+O+Pl6cMOD0D8NwdNpPZghnw==}
+  /@tanstack/react-query/4.3.9_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-odfDW6WiSntCsCh+HFeJtUys3UnVOjfJMhykAtGtYvcklMyyDmCv9BVBt5KlSpbk/qW3kURPFCDapO+BFUlCwg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2261,7 +2261,7 @@ packages:
       '@trpc/server': 10.0.0-proxy-alpha.77
     dev: false
 
-  /@trpc/next/10.0.0-proxy-alpha.77_kmq6hsqhc7qvd7nrg5ilggc6dm:
+  /@trpc/next/10.0.0-proxy-alpha.77_sxhgzfscbwb7t7cpnha52m6jwe:
     resolution: {integrity: sha512-mUlJ3aEqEj+T24Yxp9G0Ysp++YzIXu2jZLTxg9y5GOtrekfKh4K7ABdOPkuHCl6Ef5dJvBtM5z/OwjR8jq6xfg==}
     peerDependencies:
       '@tanstack/react-query': ^4.0.10
@@ -2272,9 +2272,9 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': 4.3.8_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.3.9_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.0.0-proxy-alpha.77_z46ecnesyweucispw22q4sghgy
-      '@trpc/react': 10.0.0-proxy-alpha.77_mbiku3odbjsphqz542dagvwrym
+      '@trpc/react': 10.0.0-proxy-alpha.77_ug6iztnfiuibmmp4qthtrnontu
       '@trpc/server': 10.0.0-proxy-alpha.77
       next: 12.3.0_ir3quccc6i62x6qn6jjhyjjiey
       react: 18.2.0
@@ -2282,7 +2282,7 @@ packages:
       react-ssr-prepass: 1.5.0_react@18.2.0
     dev: false
 
-  /@trpc/react/10.0.0-proxy-alpha.77_mbiku3odbjsphqz542dagvwrym:
+  /@trpc/react/10.0.0-proxy-alpha.77_ug6iztnfiuibmmp4qthtrnontu:
     resolution: {integrity: sha512-aBdxq+nMcZMWZGa93yVdXXw8VP94LLZtscIQI28cqk3GDUs8jq80ZZih+PYoNeXizvSTYRkwfodQnx9KONoJkg==}
     peerDependencies:
       '@tanstack/react-query': ^4.0.10
@@ -2291,7 +2291,7 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': 4.3.8_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.3.9_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.0.0-proxy-alpha.77_z46ecnesyweucispw22q4sghgy
       '@trpc/server': 10.0.0-proxy-alpha.77
       react: 18.2.0
@@ -2318,12 +2318,12 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.6
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
 
   /@types/eslint/8.4.6:
     resolution: {integrity: sha512-/fqTbjxyFUaYNO7VcW5g+4npmqVACz1bB7RTHYuLj+PRjw9hrCwrUXVQFpChUS0JsyEFvMZ7U/PfmvWgxJhI9g==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
 
   /@types/estree-jsx/1.0.0:
@@ -2341,7 +2341,6 @@ packages:
 
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-    dev: false
 
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
