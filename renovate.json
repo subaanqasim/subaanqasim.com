@@ -5,13 +5,6 @@
     ":semanticCommitType(chore)",
     ":pinAllExceptPeerDependencies"
   ],
-  "separateMinorPatch": true,
-  "patch": {
-    "automerge": true
-  },
-  "pin": {
-    "automerge": true
-  },
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true
@@ -22,6 +15,7 @@
       "extends": ["packages:linters", "packages:test"],
       "matchPackagePrefixes": ["@types/"],
       "matchPackagePatterns": ["prettier"],
+      "matchDepTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
   ]
