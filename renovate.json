@@ -12,9 +12,6 @@
 
   "packageRules": [
     {
-      "extends": ["packages:linters", "packages:test"],
-      "matchPackagePrefixes": ["@types/"],
-      "matchPackagePatterns": ["prettier"],
       "matchDepTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
