@@ -1,20 +1,18 @@
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
-import type { AppType } from "next/dist/shared/lib/utils";
 import { trpc } from "../utils/trpc";
 import { ThemeProvider } from "next-themes";
 import MainLayout from "../components/layouts/MainLayout";
-import type { AppProps } from "next/app";
+import type { AppType } from "next/app";
+import type { Session } from "next-auth";
 
-type customAppProps = {
-  Component: AppProps["Component"];
-  pageProps: any;
-};
-
-const MyApp: AppType = ({ Component, pageProps }: customAppProps) => {
+const MyApp: AppType<{ session: Session | null }> = ({
+  Component,
+  pageProps: { session, ...pageProps },
+}) => {
   return (
     <ThemeProvider attribute="class">
-      <SessionProvider session={pageProps.session}>
+      <SessionProvider session={session}>
         <MainLayout>
           <Component {...pageProps} />
         </MainLayout>
