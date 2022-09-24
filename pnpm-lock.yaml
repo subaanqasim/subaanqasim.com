@@ -30,7 +30,7 @@ specifiers:
   autoprefixer: 10.4.12
   babel-loader: 8.2.5
   classnames: 2.3.2
-  contentful: 9.2.4
+  contentful: 9.2.5
   contentful-management: 10.14.0
   contentful-typescript-codegen: 3.2.3
   date-fns: 2.29.3
@@ -89,7 +89,7 @@ dependencies:
   '@trpc/react': 10.0.0-proxy-beta.0_hzsqh3uk7flklt5dhnhkb3peey
   '@trpc/server': 10.0.0-proxy-beta.0
   classnames: 2.3.2
-  contentful: 9.2.4
+  contentful: 9.2.5
   contentful-management: 10.14.0
   date-fns: 2.29.3
   micro: 9.4.1
@@ -3139,8 +3139,8 @@ packages:
       prettier: 2.7.1
     dev: true
 
-  /contentful/9.2.4:
-    resolution: {integrity: sha512-9PXfzVMjTfOxjOOtwp0rw9OBdEFL1MRniELJhri2ax0NiOPFenblpBxRtWKahjXR8IeWxmQPoLjgVmwtAmqaMA==}
+  /contentful/9.2.5:
+    resolution: {integrity: sha512-BXDmO5oWubZsKVHcXxPBCEcAH6bhtgfav3uMXCS7NBtSmFVSiAFbJjR/yJyLs7fNHJP9Ktq2F7qAznwwnyOTjQ==}
     engines: {node: '>=12'}
     requiresBuild: true
     dependencies:
