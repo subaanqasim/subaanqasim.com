@@ -1,18 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":semanticCommitType(chore)",
-    ":pinAllExceptPeerDependencies"
-  ],
+  "extends": ["config:base", ":pinAllExceptPeerDependencies"],
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true
   },
-
   "packageRules": [
     {
-      "matchDepTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
   ]
