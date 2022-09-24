@@ -61,7 +61,7 @@ specifiers:
   rehype-prism-plus: 1.5.0
   rehype-slug: 5.0.1
   remark-gfm: 3.0.1
-  stripe: 10.10.0
+  stripe: 10.11.0
   superjson: 1.10.0
   tailwindcss: 3.1.8
   tailwindcss-radix: 2.6.0
@@ -111,7 +111,7 @@ dependencies:
   rehype-prism-plus: 1.5.0
   rehype-slug: 5.0.1
   remark-gfm: 3.0.1
-  stripe: 10.10.0
+  stripe: 10.11.0
   superjson: 1.10.0
   tailwindcss-radix: 2.6.0
   unist-util-visit: 4.1.1
@@ -6500,8 +6500,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /stripe/10.10.0:
-    resolution: {integrity: sha512-CINNkuDEmF1rsHoTKS39iZ641NFONKZKllUioeQkRpz7qYPJayp7Xl/V30vbM2n5CTJo3X0FmZ2CychThfPTDA==}
+  /stripe/10.11.0:
+    resolution: {integrity: sha512-uBkaxrz/nPTENY46HJDjUjhanl2oScUxOJjU8bvmXn1i1NJAjaFcW0Y+NKGODDqTtNF6d+DOc5iB54A0OdPsWQ==}
     engines: {node: ^8.1 || >=10.*}
     dependencies:
       '@types/node': 18.7.18
