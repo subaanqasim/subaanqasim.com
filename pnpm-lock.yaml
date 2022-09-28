@@ -47,7 +47,7 @@ specifiers:
   next-sitemap: 3.1.23
   next-themes: 0.2.1
   nextjs-cors: 2.1.1
-  nodemailer: 6.7.8
+  nodemailer: 6.8.0
   postcss: 8.4.16
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.13
@@ -94,14 +94,14 @@ dependencies:
   date-fns: 2.29.3
   micro: 9.4.1
   next: 12.3.1_6tziyx3dehkoeijunclpkpolha
-  next-auth: 4.12.2_dbvwomqggpr34agl77wnoezghu
+  next-auth: 4.12.2_pvhs6umhoiyo7cgwjp6cvqsra4
   next-mdx-remote: 4.1.0_biqbaboplfbrettd7655fr4n2y
   next-pwa: 5.6.0_r4fnhujxxwelquxkfzi3g5np24
   next-seo: 5.5.0_azq6kxkn3od7qdylwkyksrwopy
   next-sitemap: 3.1.23_mna6xsgplvxkrmeg4ftolwenke
   next-themes: 0.2.1_azq6kxkn3od7qdylwkyksrwopy
   nextjs-cors: 2.1.1_next@12.3.1
-  nodemailer: 6.7.8
+  nodemailer: 6.8.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.36.1_react@18.2.0
@@ -1443,7 +1443,7 @@ packages:
       next-auth: ^4
     dependencies:
       '@prisma/client': 4.4.0_prisma@4.4.0
-      next-auth: 4.12.2_dbvwomqggpr34agl77wnoezghu
+      next-auth: 4.12.2_pvhs6umhoiyo7cgwjp6cvqsra4
     dev: false
 
   /@next/env/12.3.1:
@@ -5296,7 +5296,7 @@ packages:
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  /next-auth/4.12.2_dbvwomqggpr34agl77wnoezghu:
+  /next-auth/4.12.2_pvhs6umhoiyo7cgwjp6cvqsra4:
     resolution: {integrity: sha512-B25iFUIKYa2pRMWRFPIQWv84WJydqIsv6EbriNuzqNSZnxnlmpsrmJrTeMMLf+9a3qf9FG8enxDmDntmwnBkDQ==}
     engines: {node: ^12.19.0 || ^14.15.0 || ^16.13.0}
     peerDependencies:
@@ -5313,7 +5313,7 @@ packages:
       cookie: 0.5.0
       jose: 4.9.3
       next: 12.3.1_6tziyx3dehkoeijunclpkpolha
-      nodemailer: 6.7.8
+      nodemailer: 6.8.0
       oauth: 0.9.15
       openid-client: 5.1.9
       preact: 10.11.0
@@ -5457,8 +5457,8 @@ packages:
   /node-releases/2.0.6:
     resolution: {integrity: sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==}
 
-  /nodemailer/6.7.8:
-    resolution: {integrity: sha512-2zaTFGqZixVmTxpJRCFC+Vk5eGRd/fYtvIR+dl5u9QXLTQWGIf48x/JXvo58g9sa0bU6To04XUv554Paykum3g==}
+  /nodemailer/6.8.0:
+    resolution: {integrity: sha512-EjYvSmHzekz6VNkNd12aUqAco+bOkRe3Of5jVhltqKhEsjw/y0PYPJfp83+s9Wzh1dspYAkUW/YNQ350NATbSQ==}
     engines: {node: '>=6.0.0'}
     dev: false
 
