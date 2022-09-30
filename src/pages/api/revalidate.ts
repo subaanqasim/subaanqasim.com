@@ -21,32 +21,41 @@ export default async function handler(
     const entry = await cma.entry.get({ entryId: id });
 
     const type = entry.sys.contentType.sys.id;
-    const slug = entry.fields.slug["en-GB"];
+    const slug = entry.fields.slug["en-GB"] as string;
 
     const next = await cma.entry.getMany({
       query: {
-        content_type: type,
-        select: "fields.slug",
+        content_type: "article",
+        select: "fields.slug,fields.datePublished",
         order: "fields.datePublished",
-        "fields.datePublished[gt]": entry.fields.datePublished,
+        "fields.datePublished[gt]": entry.fields.datePublished["en-GB"],
         limit: 1,
       },
     });
 
     const prev = await cma.entry.getMany({
       query: {
-        content_type: type,
-        select: "fields.slug",
+        content_type: "article",
+        select: "fields.slug,fields.datePublished",
         order: "-fields.datePublished",
-        "fields.datePublished[lt]": entry.fields.datePublished,
+        "fields.datePublished[lt]": entry.fields.datePublished["en-GB"],
         limit: 1,
       },
     });
 
-    console.log("DO WE GOT NEXT???", next.items);
-    console.log("DO WE GOT PREV???", prev.items);
-
+    // revalidate updated entry
     await res.revalidate(`/${type}s/${slug}`);
+
+    // revalidate next/prev entries to update their sibling entry links
+    if (next.items[0]) {
+      await res.revalidate(`/${type}s/${next.items[0].fields.slug["en-GB"]}`);
+    }
+
+    if (prev.items[0]) {
+      await res.revalidate(`/${type}s/${prev.items[0].fields.slug["en-GB"]}`);
+    }
+
+    // revalidate list page
     await res.revalidate(`/${type}s`);
 
     return res.json({ revalidated: true });
