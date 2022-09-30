@@ -24,22 +24,27 @@ export default async function handler(
     const slug = entry.fields.slug["en-GB"];
 
     const next = await cma.entry.getMany({
-      content_type: type,
-      select: "fields.slug",
-      order: "fields.datePublished",
-      "fields.datePublished[gt]": entry.fields.datePublished,
-      limit: 1,
-    });
-    const prev = await cma.entry.getMany({
-      content_type: type,
-      select: "fields.slug",
-      order: "-fields.datePublished",
-      "fields.datePublished[lt]": entry.fields.datePublished,
-      limit: 1,
+      query: {
+        content_type: type,
+        select: "fields.slug",
+        order: "fields.datePublished",
+        "fields.datePublished[gt]": entry.fields.datePublished,
+        limit: 1,
+      },
     });
 
-    console.log("DO WE GOT NEXT???", next);
-    console.log("DO WE GOT PREV???", prev);
+    const prev = await cma.entry.getMany({
+      query: {
+        content_type: type,
+        select: "fields.slug",
+        order: "-fields.datePublished",
+        "fields.datePublished[lt]": entry.fields.datePublished,
+        limit: 1,
+      },
+    });
+
+    console.log("DO WE GOT NEXT???", next.items[0]);
+    console.log("DO WE GOT PREV???", prev.items[0]);
 
     await res.revalidate(`/${type}s/${slug}`);
     await res.revalidate(`/${type}s`);
