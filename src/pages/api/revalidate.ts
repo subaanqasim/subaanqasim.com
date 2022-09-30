@@ -17,7 +17,6 @@ export default async function handler(
   try {
     // get slug by id from management api (as management api can read unpublished content)
     const id = req.body.entryId;
-    console.log("DO WE GOT ID?????", id);
 
     const entry = await cma.entry.get({ entryId: id });
 
@@ -25,6 +24,8 @@ export default async function handler(
     const slug = entry.fields.slug["en-GB"];
 
     await res.revalidate(`/${type}s/${slug}`);
+    await res.revalidate(`/${type}s`);
+
     return res.json({ revalidated: true });
   } catch (err) {
     // If there was an error, Next.js will continue
