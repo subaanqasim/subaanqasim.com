@@ -43,8 +43,8 @@ export default async function handler(
       },
     });
 
-    console.log("DO WE GOT NEXT???", next.items[0]);
-    console.log("DO WE GOT PREV???", prev.items[0]);
+    console.log("DO WE GOT NEXT???", next.items);
+    console.log("DO WE GOT PREV???", prev.items);
 
     await res.revalidate(`/${type}s/${slug}`);
     await res.revalidate(`/${type}s`);
