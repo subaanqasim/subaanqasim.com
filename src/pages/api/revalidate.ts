@@ -23,6 +23,24 @@ export default async function handler(
     const type = entry.sys.contentType.sys.id;
     const slug = entry.fields.slug["en-GB"];
 
+    const next = await cma.entry.getMany({
+      content_type: type,
+      select: "fields.slug",
+      order: "fields.datePublished",
+      "fields.datePublished[gt]": entry.fields.datePublished,
+      limit: 1,
+    });
+    const prev = await cma.entry.getMany({
+      content_type: type,
+      select: "fields.slug",
+      order: "-fields.datePublished",
+      "fields.datePublished[lt]": entry.fields.datePublished,
+      limit: 1,
+    });
+
+    console.log("DO WE GOT NEXT???", next);
+    console.log("DO WE GOT PREV???", prev);
+
     await res.revalidate(`/${type}s/${slug}`);
     await res.revalidate(`/${type}s`);
 
