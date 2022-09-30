@@ -140,6 +140,6 @@ export interface IProject extends Entry<IProjectFields> {
 
 export type CONTENT_TYPE = "article" | "author" | "project";
 
-export type LOCALE_CODE = "en-US";
+export type LOCALE_CODE = "en-GB";
 
-export type CONTENTFUL_DEFAULT_LOCALE_CODE = "en-US";
+export type CONTENTFUL_DEFAULT_LOCALE_CODE = "en-GB";
