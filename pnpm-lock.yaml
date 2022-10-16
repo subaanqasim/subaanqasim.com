@@ -37,7 +37,7 @@ specifiers:
   eslint: 8.25.0
   eslint-config-next: 12.3.1
   eslint-config-prettier: 8.5.0
-  infer-next-props-type: 0.0.5
+  infer-next-props-type: 0.1.0
   micro: 9.4.1
   next: 12.3.1
   next-auth: 4.14.0
@@ -132,7 +132,7 @@ devDependencies:
   eslint: 8.25.0
   eslint-config-next: 12.3.1_z4bbprzjrhnsfa24uvmcbu7f5q
   eslint-config-prettier: 8.5.0_eslint@8.25.0
-  infer-next-props-type: 0.0.5
+  infer-next-props-type: 0.1.0
   postcss: 8.4.18
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
@@ -4216,8 +4216,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /infer-next-props-type/0.0.5:
-    resolution: {integrity: sha512-UC+veUywRMWGgsG3QxmUbWeEEozTkhM+i7zndvg9XE66pwqUfF9Buo/dX3dx71je/T6H9/O0BqQiAsxCVjjwVA==}
+  /infer-next-props-type/0.1.0:
+    resolution: {integrity: sha512-mcd1A2hqDzeWi3u8TxoIUqsTCbcAxdzlrGWnIac9hqcJsTDQVnM4vpET9moqmlH/Q3vstB2hZXG51j+DjUz34w==}
     dev: true
 
   /inflight/1.0.6:
