@@ -12,7 +12,7 @@ specifiers:
   '@radix-ui/react-navigation-menu': 1.1.1
   '@radix-ui/react-popover': 1.0.2
   '@radix-ui/react-radio-group': 1.1.0
-  '@radix-ui/react-select': 1.0.0
+  '@radix-ui/react-select': 1.1.1
   '@radix-ui/react-toast': 1.0.0
   '@stripe/stripe-js': 1.41.0
   '@tailwindcss/aspect-ratio': 0.4.2
@@ -80,7 +80,7 @@ dependencies:
   '@radix-ui/react-navigation-menu': 1.1.1_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-popover': 1.0.2_rj7ozvcq3uehdlnj3cbwzbi5ce
   '@radix-ui/react-radio-group': 1.1.0_biqbaboplfbrettd7655fr4n2y
-  '@radix-ui/react-select': 1.0.0_rj7ozvcq3uehdlnj3cbwzbi5ce
+  '@radix-ui/react-select': 1.1.1_rj7ozvcq3uehdlnj3cbwzbi5ce
   '@radix-ui/react-toast': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@stripe/stripe-js': 1.41.0
   '@tanstack/react-query': 4.12.0_biqbaboplfbrettd7655fr4n2y
@@ -1835,21 +1835,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@radix-ui/react-label/1.0.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-k+EbxeRaVbSJ4oaR9eUYuC0cDIGRB4TAPhilbFCIMpP9pXFNcyQPQUvRaVOQBrviuArYM80xh0BQR/0y3kjUdQ==}
-    peerDependencies:
-      react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^16.8 || ^17.0 || ^18.0
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
-      '@radix-ui/react-context': 1.0.0_react@18.2.0
-      '@radix-ui/react-id': 1.0.0_react@18.2.0
-      '@radix-ui/react-primitive': 1.0.0_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
   /@radix-ui/react-menu/1.0.0_rj7ozvcq3uehdlnj3cbwzbi5ce:
     resolution: {integrity: sha512-icW4C64T6nHh3Z4Q1fxO1RlSShouFF4UpUmPV8FLaJZfphDljannKErDuALDx4ClRLihAPZ9i+PrLNPoWS2DMA==}
     peerDependencies:
@@ -2100,8 +2085,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@radix-ui/react-select/1.0.0_rj7ozvcq3uehdlnj3cbwzbi5ce:
-    resolution: {integrity: sha512-GfbVBxx7JPvytNT+0XYCFCOImEMmpl0Vg7hhifLaLV7p5zRottFMgQ7qrrxw8v6B8buKXz41kWYMrdRrWqsZaQ==}
+  /@radix-ui/react-select/1.1.1_rj7ozvcq3uehdlnj3cbwzbi5ce:
+    resolution: {integrity: sha512-kvdEho5Yvf2HBaqVCQEJftpXE0zAR5ctMWzijoNhcifF7B09z4xgDyYsAgkwe40/S/8B1mEalG6cjmbkoWcpXw==}
     peerDependencies:
       react: ^16.8 || ^17.0 || ^18.0
       react-dom: ^16.8 || ^17.0 || ^18.0
@@ -2109,27 +2094,26 @@ packages:
       '@babel/runtime': 7.19.4
       '@radix-ui/number': 1.0.0
       '@radix-ui/primitive': 1.0.0
-      '@radix-ui/react-collection': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-collection': 1.0.1_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
       '@radix-ui/react-context': 1.0.0_react@18.2.0
       '@radix-ui/react-direction': 1.0.0_react@18.2.0
-      '@radix-ui/react-dismissable-layer': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-dismissable-layer': 1.0.2_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-focus-guards': 1.0.0_react@18.2.0
-      '@radix-ui/react-focus-scope': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-focus-scope': 1.0.1_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-id': 1.0.0_react@18.2.0
-      '@radix-ui/react-label': 1.0.0_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-portal': 1.0.0_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-primitive': 1.0.0_biqbaboplfbrettd7655fr4n2y
-      '@radix-ui/react-slot': 1.0.0_react@18.2.0
+      '@radix-ui/react-portal': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-primitive': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-slot': 1.0.1_react@18.2.0
       '@radix-ui/react-use-callback-ref': 1.0.0_react@18.2.0
       '@radix-ui/react-use-controllable-state': 1.0.0_react@18.2.0
       '@radix-ui/react-use-layout-effect': 1.0.0_react@18.2.0
       '@radix-ui/react-use-previous': 1.0.0_react@18.2.0
-      '@radix-ui/react-visually-hidden': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-visually-hidden': 1.0.1_biqbaboplfbrettd7655fr4n2y
       aria-hidden: 1.2.1_iapumuv4e6jcjznwuxpf4tt22e
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-remove-scroll: 2.5.4_iapumuv4e6jcjznwuxpf4tt22e
+      react-remove-scroll: 2.5.5_iapumuv4e6jcjznwuxpf4tt22e
     transitivePeerDependencies:
       - '@types/react'
     dev: false
