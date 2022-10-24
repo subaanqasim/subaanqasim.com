@@ -26,7 +26,7 @@ specifiers:
   '@types/node': 18.7.18
   '@types/nodemailer': 6.4.6
   '@types/react': 18.0.22
-  '@types/react-dom': 18.0.6
+  '@types/react-dom': 18.0.7
   autoprefixer: 10.4.12
   babel-loader: 8.2.5
   classnames: 2.3.2
@@ -125,7 +125,7 @@ devDependencies:
   '@types/node': 18.7.18
   '@types/nodemailer': 6.4.6
   '@types/react': 18.0.22
-  '@types/react-dom': 18.0.6
+  '@types/react-dom': 18.0.7
   autoprefixer: 10.4.12_postcss@8.4.18
   babel-loader: 8.2.5_6zc4kxld457avlfyhj3lzsljlm
   contentful-typescript-codegen: 3.2.3_prettier@2.7.1
@@ -2550,8 +2550,8 @@ packages:
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  /@types/react-dom/18.0.6:
-    resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
+  /@types/react-dom/18.0.7:
+    resolution: {integrity: sha512-HaXc+BbqAZE1RdsK3tC8SbkFy6UL2xF76lT9rQs5JkPrJg3rWA3Ou/Lhw3YJQzEDkBpmJ79nBsfnd05WrBd2QQ==}
     dependencies:
       '@types/react': 18.0.22
     dev: true
