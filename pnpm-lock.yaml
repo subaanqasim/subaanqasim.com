@@ -14,7 +14,7 @@ specifiers:
   '@radix-ui/react-radio-group': 1.1.0
   '@radix-ui/react-select': 1.1.1
   '@radix-ui/react-toast': 1.1.1
-  '@stripe/stripe-js': 1.42.0
+  '@stripe/stripe-js': 1.42.1
   '@tailwindcss/aspect-ratio': 0.4.2
   '@tailwindcss/typography': 0.5.7
   '@tanstack/react-query': 4.13.5
@@ -82,7 +82,7 @@ dependencies:
   '@radix-ui/react-radio-group': 1.1.0_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-select': 1.1.1_knhnagtyfncgg2hpin7s37uixq
   '@radix-ui/react-toast': 1.1.1_biqbaboplfbrettd7655fr4n2y
-  '@stripe/stripe-js': 1.42.0
+  '@stripe/stripe-js': 1.42.1
   '@tanstack/react-query': 4.13.5_biqbaboplfbrettd7655fr4n2y
   '@trpc/client': 10.0.0-rc.2_@trpc+server@10.0.0-rc.2
   '@trpc/next': 10.0.0-rc.2_rqam3setruslahlbmwiztleldi
@@ -2311,8 +2311,8 @@ packages:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
     dev: true
 
-  /@stripe/stripe-js/1.42.0:
-    resolution: {integrity: sha512-ZaQpZo5PRv/mN6157OywMW4fc7FIS+eI/tS12I1gU9MdvnL8fzFktuAU/g9FyUOL22E4t9hF1tsfLQAZcQDokQ==}
+  /@stripe/stripe-js/1.42.1:
+    resolution: {integrity: sha512-5H7P7rVNDMdiJCUKsKXRUyr6IjZ4/9f8FB62NCa5O4rDftRfs4u2dPjjHs/tIs4OLeBB6oSzJIkE7cPr4ykPHg==}
     dev: false
 
   /@surma/rollup-plugin-off-main-thread/2.2.3:
