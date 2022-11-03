@@ -28,7 +28,7 @@ specifiers:
   '@types/react': 18.0.24
   '@types/react-dom': 18.0.8
   autoprefixer: 10.4.13
-  babel-loader: 8.2.5
+  babel-loader: 8.3.0
   classnames: 2.3.2
   contentful: 9.2.9
   contentful-management: 10.19.1
@@ -127,7 +127,7 @@ devDependencies:
   '@types/react': 18.0.24
   '@types/react-dom': 18.0.8
   autoprefixer: 10.4.13_postcss@8.4.18
-  babel-loader: 8.2.5_6zc4kxld457avlfyhj3lzsljlm
+  babel-loader: 8.3.0_6zc4kxld457avlfyhj3lzsljlm
   contentful-typescript-codegen: 3.2.3_prettier@2.7.1
   eslint: 8.26.0
   eslint-config-next: 12.3.2_wyqvi574yv7oiwfeinomdzmc3m
@@ -2966,8 +2966,8 @@ packages:
     resolution: {integrity: sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==}
     dev: true
 
-  /babel-loader/8.2.5_6zc4kxld457avlfyhj3lzsljlm:
-    resolution: {integrity: sha512-OSiFfH89LrEMiWd4pLNqGz4CwJDtbs2ZVc+iGu2HrkRfPxId9F2anQj38IxWpmRfsUY0aBZYi1EFcd3mhtRMLQ==}
+  /babel-loader/8.3.0_6zc4kxld457avlfyhj3lzsljlm:
+    resolution: {integrity: sha512-H8SvsMF+m9t15HNLMipppzkC+Y2Yq+v3SonZyU70RBL/h1gxPkH08Ot8pEE9Z4Kd+czyWJClmFS8qzIP9OZ04Q==}
     engines: {node: '>= 8.9'}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -5467,7 +5467,7 @@ packages:
     peerDependencies:
       next: '>=9.0.0'
     dependencies:
-      babel-loader: 8.2.5_6zc4kxld457avlfyhj3lzsljlm
+      babel-loader: 8.3.0_6zc4kxld457avlfyhj3lzsljlm
       clean-webpack-plugin: 4.0.0_webpack@5.74.0
       globby: 11.1.0
       next: 12.3.2_qtpcxnaaarbm4ws7ughq6oxfve
