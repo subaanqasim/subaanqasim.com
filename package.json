@@ -61,7 +61,7 @@
   "devDependencies": {
     "@babel/core": "7.20.2",
     "@tailwindcss/aspect-ratio": "0.4.2",
-    "@tailwindcss/typography": "0.5.7",
+    "@tailwindcss/typography": "0.5.8",
     "@types/hast": "2.3.4",
     "@types/node": "18.11.9",
     "@types/nodemailer": "6.4.6",

@@ -16,7 +16,7 @@ specifiers:
   '@radix-ui/react-toast': 1.1.1
   '@stripe/stripe-js': 1.42.1
   '@tailwindcss/aspect-ratio': 0.4.2
-  '@tailwindcss/typography': 0.5.7
+  '@tailwindcss/typography': 0.5.8
   '@tanstack/react-query': 4.14.5
   '@trpc/client': 10.0.0-rc.6
   '@trpc/next': 10.0.0-rc.6
@@ -120,7 +120,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.20.2
   '@tailwindcss/aspect-ratio': 0.4.2_tailwindcss@3.2.2
-  '@tailwindcss/typography': 0.5.7_tailwindcss@3.2.2
+  '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.2
   '@types/hast': 2.3.4
   '@types/node': 18.11.9
   '@types/nodemailer': 6.4.6
@@ -2338,8 +2338,8 @@ packages:
       tailwindcss: 3.2.2_postcss@8.4.18
     dev: true
 
-  /@tailwindcss/typography/0.5.7_tailwindcss@3.2.2:
-    resolution: {integrity: sha512-JTTSTrgZfp6Ki4svhPA4mkd9nmQ/j9EfE7SbHJ1cLtthKkpW2OxsFXzSmxbhYbEkfNIyAyhle5p4SYyKRbz/jg==}
+  /@tailwindcss/typography/0.5.8_tailwindcss@3.2.2:
+    resolution: {integrity: sha512-xGQEp8KXN8Sd8m6R4xYmwxghmswrd0cPnNI2Lc6fmrC3OojysTBJJGSIVwPV56q4t6THFUK3HJ0EaWwpglSxWw==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
     dependencies:
