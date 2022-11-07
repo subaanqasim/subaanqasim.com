@@ -41,7 +41,7 @@ specifiers:
   micro: 9.4.1
   next: 12.3.2
   next-auth: 4.16.3
-  next-mdx-remote: 4.1.0
+  next-mdx-remote: 4.2.0
   next-pwa: 5.6.0
   next-seo: 5.14.0
   next-sitemap: 3.1.30
@@ -95,7 +95,7 @@ dependencies:
   micro: 9.4.1
   next: 12.3.2_mqvh5p7ejg4taogoj6tpk3gd5a
   next-auth: 4.16.3_3mt3fwlt3eotach64gqpsnxqee
-  next-mdx-remote: 4.1.0_biqbaboplfbrettd7655fr4n2y
+  next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
   next-pwa: 5.6.0_77y2yexfqpvl6nntpsl6epatpm
   next-seo: 5.14.0_o3dmoitd6lovh72xiz6lllvwai
   next-sitemap: 3.1.30_us5jojdyjjwvps4i2w5h6k4jfq
@@ -5445,8 +5445,8 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /next-mdx-remote/4.1.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-ZdL5AFJcEqvInGkYYRKda930D6AJt1GOLX/OXFE/vTwaqV/Mw+l3/njZ4kWqvYSAkl89Z6W7WZrTtN0fd0XwPg==}
+  /next-mdx-remote/4.2.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-X5RhD7f7b78pH2abbuusObSGgII5l54OdusS/2iXljN7WN1cel6ToLlZeCZcyxx9cR4wmBGQYGongIttDYNmAA==}
     engines: {node: '>=14', npm: '>=7'}
     peerDependencies:
       react: '>=16.x <=18.x'
