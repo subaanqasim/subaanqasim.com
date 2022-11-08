@@ -46,7 +46,7 @@ specifiers:
   next-seo: 5.14.0
   next-sitemap: 3.1.30
   next-themes: 0.2.1
-  nextjs-cors: 2.1.1
+  nextjs-cors: 2.1.2
   nodemailer: 6.8.0
   postcss: 8.4.18
   prettier: 2.7.1
@@ -100,7 +100,7 @@ dependencies:
   next-seo: 5.14.0_o3dmoitd6lovh72xiz6lllvwai
   next-sitemap: 3.1.30_us5jojdyjjwvps4i2w5h6k4jfq
   next-themes: 0.2.1_o3dmoitd6lovh72xiz6lllvwai
-  nextjs-cors: 2.1.1_next@12.3.2
+  nextjs-cors: 2.1.2_next@12.3.2
   nodemailer: 6.8.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -5567,10 +5567,10 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /nextjs-cors/2.1.1_next@12.3.2:
-    resolution: {integrity: sha512-HxE4w4Wng5VdTtnn0DWPphuWKwd1Ty+lpyTZ/sQGgaNnd5demYMchKf+W1LtI8YFYxu2HnRb3MrxERRV0QKLKA==}
+  /nextjs-cors/2.1.2_next@12.3.2:
+    resolution: {integrity: sha512-2yOVivaaf2ILe4f/qY32hnj3oC77VCOsUQJQfhVMGsXE/YMEWUY2zy78sH9FKUCM7eG42/l3pDofIzMD781XGA==}
     peerDependencies:
-      next: ^8.1.1-canary.54 || ^9.0.0 || ^10.0.0-0 || ^11.0.0 || ^12.0.0
+      next: ^8.1.1-canary.54 || ^9.0.0 || ^10.0.0-0 || ^11.0.0 || ^12.0.0 || ^13.0.0
     dependencies:
       cors: 2.8.5
       next: 12.3.2_mqvh5p7ejg4taogoj6tpk3gd5a
