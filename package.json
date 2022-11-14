@@ -68,7 +68,7 @@
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
     "autoprefixer": "10.4.13",
-    "babel-loader": "8.3.0",
+    "babel-loader": "9.1.0",
     "contentful-typescript-codegen": "3.2.3",
     "eslint": "8.27.0",
     "eslint-config-next": "12.3.3",
