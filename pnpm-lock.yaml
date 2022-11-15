@@ -12,7 +12,7 @@ specifiers:
   '@radix-ui/react-navigation-menu': 1.1.1
   '@radix-ui/react-popover': 1.0.2
   '@radix-ui/react-radio-group': 1.1.0
-  '@radix-ui/react-select': 1.1.1
+  '@radix-ui/react-select': 1.1.2
   '@radix-ui/react-toast': 1.1.1
   '@stripe/stripe-js': 1.44.1
   '@tailwindcss/aspect-ratio': 0.4.2
@@ -80,7 +80,7 @@ dependencies:
   '@radix-ui/react-navigation-menu': 1.1.1_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-popover': 1.0.2_2zx2umvpluuhvlq44va5bta2da
   '@radix-ui/react-radio-group': 1.1.0_biqbaboplfbrettd7655fr4n2y
-  '@radix-ui/react-select': 1.1.1_2zx2umvpluuhvlq44va5bta2da
+  '@radix-ui/react-select': 1.1.2_2zx2umvpluuhvlq44va5bta2da
   '@radix-ui/react-toast': 1.1.1_biqbaboplfbrettd7655fr4n2y
   '@stripe/stripe-js': 1.44.1
   '@tanstack/react-query': 4.16.1_biqbaboplfbrettd7655fr4n2y
@@ -2082,8 +2082,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@radix-ui/react-select/1.1.1_2zx2umvpluuhvlq44va5bta2da:
-    resolution: {integrity: sha512-kvdEho5Yvf2HBaqVCQEJftpXE0zAR5ctMWzijoNhcifF7B09z4xgDyYsAgkwe40/S/8B1mEalG6cjmbkoWcpXw==}
+  /@radix-ui/react-select/1.1.2_2zx2umvpluuhvlq44va5bta2da:
+    resolution: {integrity: sha512-pQmfz7T6oR5m27E3NgKOo6DLs5U1qMZaUcfTENXZnNPeyyRN8pEb6Z+xXE6zomP5sg9pgLOtir4R2Q3f2kkF9w==}
     peerDependencies:
       react: ^16.8 || ^17.0 || ^18.0
       react-dom: ^16.8 || ^17.0 || ^18.0
