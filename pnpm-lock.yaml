@@ -54,7 +54,7 @@ specifiers:
   prisma: 4.6.1
   react: 18.2.0
   react-dom: 18.2.0
-  react-hook-form: 7.39.5
+  react-hook-form: 7.39.6
   reading-time: 1.5.0
   rehype-autolink-headings: 6.1.1
   rehype-code-titles: 1.1.0
@@ -70,7 +70,7 @@ specifiers:
   zod: 3.19.1
 
 dependencies:
-  '@hookform/resolvers': 2.9.10_react-hook-form@7.39.5
+  '@hookform/resolvers': 2.9.10_react-hook-form@7.39.6
   '@next-auth/prisma-adapter': 1.0.5_o53gfpk3vz2btjrokqfjjwwn3m
   '@next/env': 12.3.4
   '@prisma/client': 4.6.1_prisma@4.6.1
@@ -104,7 +104,7 @@ dependencies:
   nodemailer: 6.8.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-hook-form: 7.39.5_react@18.2.0
+  react-hook-form: 7.39.6_react@18.2.0
   reading-time: 1.5.0
   rehype-autolink-headings: 6.1.1
   rehype-code-titles: 1.1.0
@@ -1329,12 +1329,12 @@ packages:
       - '@types/react'
     dev: false
 
-  /@hookform/resolvers/2.9.10_react-hook-form@7.39.5:
+  /@hookform/resolvers/2.9.10_react-hook-form@7.39.6:
     resolution: {integrity: sha512-JIL1DgJIlH9yuxcNGtyhsWX/PgNltz+5Gr6+8SX9fhXc/hPbEIk6wPI82nhgvp3uUb6ZfAM5mqg/x7KR7NAb+A==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.39.5_react@18.2.0
+      react-hook-form: 7.39.6_react@18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.7:
@@ -6068,8 +6068,8 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-  /react-hook-form/7.39.5_react@18.2.0:
-    resolution: {integrity: sha512-OE0HKyz5IPc6svN2wd+e+evidZrw4O4WZWAWYzQVZuHi+hYnHFSLnxOq0ddjbdmaLIsLHut/ab7j72y2QT3+KA==}
+  /react-hook-form/7.39.6_react@18.2.0:
+    resolution: {integrity: sha512-f6bghLpUm1nfUtuJ09Zsaz2AkuHAGghngYAsKFGarFpi/NQl6JcGQ/ETc34tvLtjVo6hSLYw+/4dgBt0X54Jvw==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
