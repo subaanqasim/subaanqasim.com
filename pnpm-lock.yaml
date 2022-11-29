@@ -31,7 +31,7 @@ specifiers:
   babel-loader: 8.3.0
   classnames: 2.3.2
   contentful: 9.2.13
-  contentful-management: 10.21.4
+  contentful-management: 10.21.5
   contentful-typescript-codegen: 3.3.0
   date-fns: 2.29.3
   eslint: 8.28.0
@@ -90,7 +90,7 @@ dependencies:
   '@trpc/server': 10.4.1
   classnames: 2.3.2
   contentful: 9.2.13
-  contentful-management: 10.21.4
+  contentful-management: 10.21.5
   date-fns: 2.29.3
   micro: 9.4.1
   next: 12.3.4_672uxklweod7ene3nqtsh262ca
@@ -3230,8 +3230,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /contentful-management/10.21.4:
-    resolution: {integrity: sha512-bTtZBDxyXMeeBadKIINWQ6dZeBuGeQc7JsTi/2vFwFMrp8E5JoOSLHl0dv4FtfRU5VXR4kqgKHaQUfzOzS5dkQ==}
+  /contentful-management/10.21.5:
+    resolution: {integrity: sha512-+8CbMjeAhyB/uWw1DNQX0MKf48rtKRe5FHNQeE7ZXQQhaaSuDGfP3UmimBSe3KYOfaGXUT/UCXYwTqoDpjz2gw==}
     engines: {node: '>=14'}
     dependencies:
       '@types/json-patch': 0.0.30
