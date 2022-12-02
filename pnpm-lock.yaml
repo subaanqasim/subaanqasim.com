@@ -17,7 +17,7 @@ specifiers:
   '@stripe/stripe-js': 1.45.0
   '@tailwindcss/aspect-ratio': 0.4.2
   '@tailwindcss/typography': 0.5.8
-  '@tanstack/react-query': 4.18.0
+  '@tanstack/react-query': 4.19.0
   '@trpc/client': 10.4.2
   '@trpc/next': 10.4.2
   '@trpc/react': 10.0.0-proxy-beta.20
@@ -83,10 +83,10 @@ dependencies:
   '@radix-ui/react-select': 1.1.2_2zx2umvpluuhvlq44va5bta2da
   '@radix-ui/react-toast': 1.1.2_biqbaboplfbrettd7655fr4n2y
   '@stripe/stripe-js': 1.45.0
-  '@tanstack/react-query': 4.18.0_biqbaboplfbrettd7655fr4n2y
+  '@tanstack/react-query': 4.19.0_biqbaboplfbrettd7655fr4n2y
   '@trpc/client': 10.4.2_@trpc+server@10.4.2
-  '@trpc/next': 10.4.2_jw2xiplwib2q5xjq7xkq6qrvha
-  '@trpc/react': 10.0.0-proxy-beta.20_6ndg2fges7kes3fsblwtjti6p4
+  '@trpc/next': 10.4.2_6ugmfvrfoxdome7peo475upcgy
+  '@trpc/react': 10.0.0-proxy-beta.20_yizyvx5vkdbtksk5zhgjdfntnm
   '@trpc/server': 10.4.2
   classnames: 2.3.2
   contentful: 9.2.14
@@ -2350,12 +2350,12 @@ packages:
       tailwindcss: 3.2.4_postcss@8.4.19
     dev: true
 
-  /@tanstack/query-core/4.18.0:
-    resolution: {integrity: sha512-PP4mG8MD08sq64RZCqMfXMYfaj7+Oulwg7xZ/fJoEOdTZNcPIgaOkHajZvUBsNLbi/0ViMvJB4cFkL2Jg2WPbw==}
+  /@tanstack/query-core/4.19.0:
+    resolution: {integrity: sha512-q+4GvS05nG2UXDE4ng0NU5SQNhT+VqhRTLNVtgVw1tIKJfG3CyYQpP/JwAdzMB7NEqC8L5oo9NAaORxEQN53dg==}
     dev: false
 
-  /@tanstack/react-query/4.18.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-s1kdbGMdVcfUIllzsHUqVUdktBT5uuIRgnvrqFNLjl9TSOXEoBSDrhjsGjao0INQZv8cMpQlgOh3YH9YtN6cKw==}
+  /@tanstack/react-query/4.19.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-gP4kmfQ3BvCYxTxA/3Xf0P24iNgW539Thk89KzP7X+i+EvFiWhEUMl1NtuI87bFrVEBHs+1ColFNimDidBh/Ww==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2366,7 +2366,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 4.18.0
+      '@tanstack/query-core': 4.19.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
@@ -2380,7 +2380,7 @@ packages:
       '@trpc/server': 10.4.2
     dev: false
 
-  /@trpc/next/10.4.2_jw2xiplwib2q5xjq7xkq6qrvha:
+  /@trpc/next/10.4.2_6ugmfvrfoxdome7peo475upcgy:
     resolution: {integrity: sha512-vTPQxqyrbi1qerMZKunW5wkMlzNJ6xl8l+2NB6B6veBdWHhs39kgVbP8cOrnPug37xIAJcHNPhkqzKtj1knowg==}
     peerDependencies:
       '@tanstack/react-query': ^4.3.8
@@ -2391,9 +2391,9 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': 4.18.0_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.19.0_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.4.2_@trpc+server@10.4.2
-      '@trpc/react-query': 10.4.1_6ndg2fges7kes3fsblwtjti6p4
+      '@trpc/react-query': 10.4.1_yizyvx5vkdbtksk5zhgjdfntnm
       '@trpc/server': 10.4.2
       next: 12.3.4_672uxklweod7ene3nqtsh262ca
       react: 18.2.0
@@ -2401,7 +2401,7 @@ packages:
       react-ssr-prepass: 1.5.0_react@18.2.0
     dev: false
 
-  /@trpc/react-query/10.4.1_6ndg2fges7kes3fsblwtjti6p4:
+  /@trpc/react-query/10.4.1_yizyvx5vkdbtksk5zhgjdfntnm:
     resolution: {integrity: sha512-VwzJAvRnDKSh2Cl6+EHT4JHEmlatcdnqmYVuEC6sU612ILn2KAV16S2a6AN/LgUDWG6lPVNGqtK9FHsQuhFvKg==}
     peerDependencies:
       '@tanstack/react-query': ^4.3.8
@@ -2410,14 +2410,14 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': 4.18.0_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.19.0_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.4.2_@trpc+server@10.4.2
       '@trpc/server': 10.4.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@trpc/react/10.0.0-proxy-beta.20_6ndg2fges7kes3fsblwtjti6p4:
+  /@trpc/react/10.0.0-proxy-beta.20_yizyvx5vkdbtksk5zhgjdfntnm:
     resolution: {integrity: sha512-axuy3Nf71j6vVQFhc7ATSOW4gMTL92RSMTA0p93dNoNQpKqADGjjB1bFUqAmCeAjy441s+h9tqhj3g14sQ/NmA==}
     peerDependencies:
       '@tanstack/react-query': ^4.3.8
@@ -2426,7 +2426,7 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': 4.18.0_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-query': 4.19.0_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.4.2_@trpc+server@10.4.2
       '@trpc/server': 10.4.2
       react: 18.2.0
