@@ -31,7 +31,7 @@ specifiers:
   babel-loader: 8.3.0
   classnames: 2.3.2
   contentful: 9.2.14
-  contentful-management: 10.21.5
+  contentful-management: 10.21.6
   contentful-typescript-codegen: 3.3.0
   date-fns: 2.29.3
   eslint: 8.29.0
@@ -90,7 +90,7 @@ dependencies:
   '@trpc/server': 10.4.3
   classnames: 2.3.2
   contentful: 9.2.14
-  contentful-management: 10.21.5
+  contentful-management: 10.21.6
   date-fns: 2.29.3
   micro: 9.4.1
   next: 12.3.4_672uxklweod7ene3nqtsh262ca
@@ -2453,12 +2453,12 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.10
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
 
   /@types/eslint/8.4.10:
     resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
 
   /@types/estree-jsx/1.0.0:
@@ -2476,7 +2476,6 @@ packages:
 
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-    dev: false
 
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
@@ -3231,8 +3230,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /contentful-management/10.21.5:
-    resolution: {integrity: sha512-+8CbMjeAhyB/uWw1DNQX0MKf48rtKRe5FHNQeE7ZXQQhaaSuDGfP3UmimBSe3KYOfaGXUT/UCXYwTqoDpjz2gw==}
+  /contentful-management/10.21.6:
+    resolution: {integrity: sha512-RMx/BXwoXWujpDl2840qQ5oYp3kDzNILNISJzmgOioaHBwEbJGWgSUCYwgF76PatYqQYbpnk3/tCRKL1iAmVMg==}
     engines: {node: '>=14'}
     dependencies:
       '@types/json-patch': 0.0.30
