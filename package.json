@@ -74,7 +74,7 @@
     "eslint-config-next": "12.3.4",
     "eslint-config-prettier": "8.5.0",
     "infer-next-props-type": "0.1.0",
-    "postcss": "8.4.19",
+    "postcss": "8.4.20",
     "prettier": "2.8.1",
     "prettier-plugin-tailwindcss": "0.2.1",
     "prisma": "4.7.1",
