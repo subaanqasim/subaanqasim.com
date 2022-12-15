@@ -32,7 +32,7 @@ specifiers:
   classnames: 2.3.2
   contentful: 9.2.14
   contentful-management: 10.24.0
-  contentful-typescript-codegen: 3.3.0
+  contentful-typescript-codegen: 3.4.0
   date-fns: 2.29.3
   eslint: 8.29.0
   eslint-config-next: 12.3.4
@@ -128,7 +128,7 @@ devDependencies:
   '@types/react-dom': 18.0.9
   autoprefixer: 10.4.13_postcss@8.4.20
   babel-loader: 8.3.0_ztqwsvkb6z73luspkai6ilstpu
-  contentful-typescript-codegen: 3.3.0_prettier@2.8.1
+  contentful-typescript-codegen: 3.4.0_prettier@2.8.1
   eslint: 8.29.0
   eslint-config-next: 12.3.4_ha6vam6werchizxrnqvarmz2zu
   eslint-config-prettier: 8.5.0_eslint@8.29.0
@@ -3261,12 +3261,16 @@ packages:
       qs: 6.11.0
     dev: false
 
-  /contentful-typescript-codegen/3.3.0_prettier@2.8.1:
-    resolution: {integrity: sha512-zyOZl2VFDNEO3IHs5GtMAUh5NtW0qjr9NqFz6EyXLskUxH+WRtyjSwEEFOcyqhWPV8cnxRVta62iI4uZb/OxQg==}
+  /contentful-typescript-codegen/3.4.0_prettier@2.8.1:
+    resolution: {integrity: sha512-SLNd7UxD/EfH0GA/R6mB51kLyntEySWTl5og7bSKNsvQeYfDbHq74V5PDDZyb0smquG7uv98aAIOreTa8bSuhA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
     peerDependencies:
       prettier: '>= 1'
+      ts-node: '>= 9.0.0'
+    peerDependenciesMeta:
+      ts-node:
+        optional: true
     dependencies:
       fs-extra: 9.1.0
       lodash: 4.17.21
