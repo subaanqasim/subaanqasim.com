@@ -70,7 +70,7 @@
     "autoprefixer": "10.4.13",
     "babel-loader": "8.3.0",
     "contentful-typescript-codegen": "3.4.0",
-    "eslint": "8.29.0",
+    "eslint": "8.30.0",
     "eslint-config-next": "12.3.4",
     "eslint-config-prettier": "8.5.0",
     "infer-next-props-type": "0.1.0",
