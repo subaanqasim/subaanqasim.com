@@ -3,12 +3,15 @@
   "extends": ["config:base", ":pinAllExceptPeerDependencies"],
   "lockFileMaintenance": {
     "enabled": true,
-    "automerge": true
+    "automerge": true,
+    "automergeType": "branch"
   },
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
-  ]
+  ],
+  "schedule": ["every weekend"],
+  "prConcurrentLimit": 5
 }
