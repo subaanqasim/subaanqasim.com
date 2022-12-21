@@ -1,5 +1,5 @@
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import cx from "classnames";
+import cn from "classnames";
 import Currency from "./Currency";
 import ModeOfDonation from "./ModeOfDonation";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
@@ -66,7 +66,7 @@ const Donate = () => {
           <PopoverPrimitive.Content
             align="end"
             sideOffset={32}
-            className={cx(
+            className={cn(
               "radix-side-bottom:animate-slide-down radix-side-top:animate-slide-up",
               "w-80 rounded-lg p-6 shadow-md",
               "bg-white dark:bg-black",
@@ -98,7 +98,7 @@ const Donate = () => {
                     type="number"
                     step={1}
                     min={1}
-                    className={cx(
+                    className={cn(
                       "block w-full rounded-l-md py-2",
                       "bg-neutral-100 text-center  placeholder:text-neutral-500 dark:placeholder:text-neutral-600",
                       "border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900",
@@ -141,7 +141,7 @@ const Donate = () => {
                   })}
                   id="email"
                   type="email"
-                  className={cx(
+                  className={cn(
                     "block w-full rounded-md py-2",
                     "bg-neutral-100 text-center  placeholder:text-neutral-500 dark:placeholder:text-neutral-600",
                     "border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900",
@@ -159,7 +159,7 @@ const Donate = () => {
             </form>
 
             <PopoverPrimitive.Close
-              className={cx(
+              className={cn(
                 "absolute top-3.5 right-3.5 inline-flex items-center justify-center rounded-full p-1",
                 "ring-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black",
               )}

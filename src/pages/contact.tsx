@@ -8,7 +8,7 @@ import { getBannerImage } from "@utils/getBannerImage";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import cx from "classnames";
+import cn from "classnames";
 import { Provider as ToastProvider } from "@radix-ui/react-toast";
 
 const socials = [
@@ -55,7 +55,7 @@ const socials = [
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <rect x="4" y="4" width="16" height="16" rx="4"></rect>
-        <circle cx="12" cy="12" r="3"></circle>
+        <circle cn="12" cy="12" r="3"></circle>
         <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
       </svg>
     ),
@@ -201,7 +201,7 @@ const Contact = ({
                   id="name"
                   type="text"
                   placeholder=" "
-                  className={cx(
+                  className={cn(
                     errors.name?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
@@ -226,7 +226,7 @@ const Contact = ({
                   id="email"
                   type="email"
                   placeholder=" "
-                  className={cx(
+                  className={cn(
                     errors.email?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
@@ -250,7 +250,7 @@ const Contact = ({
                   id="subject"
                   type="text"
                   placeholder=" "
-                  className={cx(
+                  className={cn(
                     errors.subject?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
@@ -274,7 +274,7 @@ const Contact = ({
                   id="message"
                   placeholder=" "
                   rows={5}
-                  className={cx(
+                  className={cn(
                     errors.message?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",

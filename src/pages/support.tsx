@@ -3,7 +3,7 @@ import { InferGetStaticPropsType } from "next";
 import Wrapper from "../components/Wrapper";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
-import cx from "classnames";
+import cn from "classnames";
 import { getBannerImage } from "@utils/getBannerImage";
 
 const Support = ({
@@ -55,7 +55,7 @@ const Support = ({
                 value={inputEmail}
                 onChange={(e) => setInputEmail(e.target.value)}
                 placeholder="tim@apple.com"
-                className={cx(
+                className={cn(
                   "mt-1 block w-full rounded-md py-2 px-4",
                   "bg-neutral-100 placeholder:text-neutral-500 dark:placeholder:text-neutral-600",
                   "border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-900",

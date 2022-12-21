@@ -5,7 +5,7 @@ import { formatDistance } from "date-fns";
 import Wrapper from "../Wrapper";
 import ShareArticleLinks from "../ShareArticleLinks";
 import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
-import cx from "classnames";
+import cn from "classnames";
 import useMediaQuery from "@utils/useMediaQuery";
 
 import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
@@ -114,7 +114,7 @@ const ArticleLayout = ({
         </article>
 
         <div
-          className={cx(
+          className={cn(
             "mt-10 flex flex-col-reverse gap-5 sm:flex-row",
             prevArticle ? "justify-between" : "justify-end",
           )}

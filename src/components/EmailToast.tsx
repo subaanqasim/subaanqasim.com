@@ -1,5 +1,5 @@
 import * as ToastPrimitive from "@radix-ui/react-toast";
-import cx from "classnames";
+import cn from "classnames";
 
 type EmailToastProps = {
   open: boolean;
@@ -39,7 +39,7 @@ const EmailToast = ({ open, setOpen, status }: EmailToastProps) => {
         open={open}
         onOpenChange={setOpen}
         duration={6500}
-        className={cx(
+        className={cn(
           "fixed inset-x-4 bottom-4 z-50 w-auto rounded-md shadow-lg md:bottom-4 md:right-4 md:left-auto md:top-auto md:w-full md:max-w-sm",
           "bg-white dark:bg-black",
           "radix-state-open:animate-toast-slide-in-bottom md:radix-state-open:animate-toast-slide-in-right",

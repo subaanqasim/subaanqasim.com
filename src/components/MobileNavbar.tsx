@@ -8,7 +8,7 @@ import {
   PersonIcon,
   HamburgerMenuIcon,
 } from "@radix-ui/react-icons";
-import cx from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { ReactNode } from "react";
@@ -62,12 +62,12 @@ const MobileNavbar = () => {
         document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }))
       }
       onCheckedChange={() => push(href)}
-      className={cx(
-        "radix-state-checked:bg-neutral-200 dark:radix-state-checked:bg-neutral-600 rounded-md",
+      className={cn(
+        "rounded-md radix-state-checked:bg-neutral-200 dark:radix-state-checked:bg-neutral-600",
       )}
     >
       <Link href={href}>
-        <a className="flex items-center text-neutral-900 dark:text-neutral-100 focus:bg-neutral-50 dark:focus:bg-neutral-900 cursor-pointer select-none rounded-md px-2 py-2 text-xs">
+        <a className="flex cursor-pointer select-none items-center rounded-md px-2 py-2 text-xs text-neutral-900 focus:bg-neutral-50 dark:text-neutral-100 dark:focus:bg-neutral-900">
           <span className="text-neutral-500  dark:text-neutral-400 ">
             {icon}
           </span>
@@ -91,11 +91,11 @@ const MobileNavbar = () => {
   );
 
   return (
-    <div className="flex flex-col items-center px-8 fixed top-0 left-0 right-0 z-[1000]">
-      <nav className="flex justify-between max-w-3xl w-full mt-8 mb-16 rounded-lg bg-neutral-50/75 dark:bg-neutral-800/75 p-2 shadow-lg backdrop-blur-[6px]">
+    <div className="fixed top-0 left-0 right-0 z-[1000] flex flex-col items-center px-8">
+      <nav className="mt-8 mb-16 flex w-full max-w-3xl justify-between rounded-lg bg-neutral-50/75 p-2 shadow-lg backdrop-blur-[6px] dark:bg-neutral-800/75">
         <DropdownMenuPrimitive.Root>
-          <DropdownMenuPrimitive.Trigger className="p-2 rounded-sm cursor-pointer hover:scale-[1.05] transform-gpu transition-all duration-100 ease-in-out">
-            <HamburgerMenuIcon className="w-5 h-5" />
+          <DropdownMenuPrimitive.Trigger className="transform-gpu cursor-pointer rounded-sm p-2 transition-all duration-100 ease-in-out hover:scale-[1.05]">
+            <HamburgerMenuIcon className="h-5 w-5" />
           </DropdownMenuPrimitive.Trigger>
 
           <DropdownMenuPrimitive.Content
@@ -103,8 +103,8 @@ const MobileNavbar = () => {
             side="bottom"
             sideOffset={-16}
             alignOffset={-40}
-            className={cx(
-              "radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
+            className={cn(
+              "radix-side-bottom:animate-slide-down radix-side-top:animate-slide-up",
               "w-48 rounded-lg px-1.5 py-1 shadow-md md:w-56",
               "bg-neutral-50 dark:bg-neutral-800",
             )}

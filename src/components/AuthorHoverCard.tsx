@@ -1,7 +1,7 @@
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import Image from "next/future/image";
 import { IAuthor } from "@utils/types/contentful";
-import cx from "classnames";
+import cn from "classnames";
 import {
   TwitterLogoIcon,
   LinkedInLogoIcon,
@@ -27,7 +27,7 @@ const AuthorHoverCard = ({ author }: { author: IAuthor }) => {
         align="center"
         sideOffset={4}
         collisionPadding={32}
-        className={cx(
+        className={cn(
           "radix-side-bottom:animate-slide-down radix-side-top:animate-slide-up",
           "max-w-[330px] rounded-lg p-4 xs:max-w-md sm:max-w-lg md:max-w-xl",
           "bg-white/60 shadow-lg backdrop-blur-[6px] dark:bg-neutral-800/60 dark:shadow-md",
