@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Footer from "../Footer";
 import { trpc } from "@utils/trpc";
-import Nav from "../NewNavbar";
+import Nav from "../Navbar";
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { pathname } = useRouter();
