@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { useRouter } from "next/router";
-import { CloseIcon, ChevronDownIcon, MoonIcon, SunIcon, Logo } from "./Icons";
+import { CloseIcon, ChevronDownIcon, Logo } from "./Icons";
 import { clamp } from "@utils/clamp";
 import Link, { LinkProps } from "next/link";
 import cn from "classnames";
 import { Container } from "./Container";
+import ThemeToggle from "./ThemeToggle";
 
 type Position = "absolute" | "fixed" | "relative" | "static" | "sticky";
 
@@ -131,57 +132,22 @@ function DesktopNavigation(
   );
 }
 
-function ModeToggle() {
-  function disableTransitionsTemporarily() {
-    document.documentElement.classList.add("[&_*]:!transition-none");
-    window.setTimeout(() => {
-      document.documentElement.classList.remove("[&_*]:!transition-none");
-    }, 0);
-  }
-
-  function toggleMode() {
-    disableTransitionsTemporarily();
-
-    let darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    let isSystemDarkMode = darkModeMediaQuery.matches;
-    let isDarkMode = document.documentElement.classList.toggle("dark");
-
-    if (isDarkMode === isSystemDarkMode) {
-      delete window.localStorage.isDarkMode;
-    } else {
-      window.localStorage.isDarkMode = isDarkMode;
-    }
-  }
-
-  return (
-    <button
-      type="button"
-      aria-label="Toggle dark mode"
-      className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
-      onClick={toggleMode}
-    >
-      <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
-      <MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500" />
-    </button>
-  );
-}
-
-function AvatarContainer({
-  className,
-  ...props
-}: {
-  className?: string;
-} & JSX.IntrinsicElements["div"]) {
-  return (
-    <div
-      className={cn(
-        className,
-        "h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10",
-      )}
-      {...props}
-    />
-  );
-}
+// function AvatarContainer({
+//   className,
+//   ...props
+// }: {
+//   className?: string;
+// } & JSX.IntrinsicElements["div"]) {
+//   return (
+//     <div
+//       className={cn(
+//         className,
+//         "h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10",
+//       )}
+//       {...props}
+//     />
+//   );
+// }
 
 function Avatar({
   large = false,
@@ -321,7 +287,10 @@ export default function Nav() {
   return (
     <>
       <header
-        className="after:contents-[''] pointer-events-none relative z-50 flex flex-col after:absolute after:inset-0 after:-bottom-6 after:bg-neutral-900/20 after:backdrop-blur-[2px]"
+        className={cn(
+          "pointer-events-none relative z-50 flex flex-col",
+          "after:contents-[''] after:absolute after:inset-0 after:-bottom-6 after:bg-white/20 after:backdrop-blur-[2px] dark:after:bg-neutral-900/20",
+        )}
         style={{
           height: "var(--header-height)",
           marginBottom: "var(--header-mb)",
@@ -380,9 +349,10 @@ export default function Nav() {
                 <MobileNavigation className="pointer-events-auto md:hidden" />
                 <DesktopNavigation className="pointer-events-auto hidden md:block" />
               </div>
-              <div className="flex justify-end md:flex-1">
+              <div className="flex items-center justify-end md:flex-1">
                 <div className="pointer-events-auto">
-                  <ModeToggle />
+                  {/* <ModeToggle /> */}
+                  <ThemeToggle />
                 </div>
               </div>
             </div>
