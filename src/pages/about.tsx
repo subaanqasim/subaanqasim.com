@@ -150,8 +150,8 @@ const About = ({
           React, Next.js, Typescript, Javascript and Node.js. Whilst I&apos;m
           still rapidly expanding my skill set with those technologies, I&apos;m
           currently focusing on Data Science to effectively incorporate AI/ML in{" "}
-          <Link href="/projects">
-            <a className="link">the projects I&apos;m working on</a>
+          <Link href="/projects" className="link">
+            the projects I&apos;m working on
           </Link>
           .{" "}
           <span className="font-medium italic">
@@ -171,12 +171,12 @@ const About = ({
         <p className="mt-6">
           I also have a background in the creative industry, namely video
           editing,{" "}
-          <Link href="/projects">
-            <a className="link">motion design</a>
+          <Link href="/projects" className="link">
+            motion design
           </Link>{" "}
           and{" "}
-          <Link href="/photography">
-            <a className="link">photography</a>
+          <Link href="/photography" className="link">
+            photography
           </Link>
           . I have many years of experience freelancing and teaching these
           domains. I mostly use the entire Adobe Creative Suite, in particular
@@ -220,10 +220,12 @@ const About = ({
             <p className="text-neutral-600 dark:text-neutral-400">
               I don&apos;t even know
             </p>
-            <Link href="/contact">
-              <a className="mt-6 w-full rounded-md bg-neutral-200 px-8 py-2 text-center transition-all hocus:scale-105 hocus:text-orange-800 dark:bg-neutral-900 hocus:dark:text-orange-500">
+            <Link
+              href="/contact"
+              className="mt-6 w-full rounded-md bg-neutral-200 px-8 py-2 text-center transition-all hocus:scale-105 hocus:text-orange-800 dark:bg-neutral-900 hocus:dark:text-orange-500">
+              
                 Get in touch
-              </a>
+              
             </Link>
           </div>
         </div>

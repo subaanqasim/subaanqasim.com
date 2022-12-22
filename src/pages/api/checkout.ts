@@ -4,7 +4,7 @@ import { env } from "../../server/env";
 import { prisma } from "../../server/db/client";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
-  apiVersion: "2022-08-01",
+  apiVersion: "2022-11-15",
 });
 
 export default async function handler(

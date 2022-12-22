@@ -63,11 +63,14 @@ const footerLinks = footerData.map((group) => {
       return <ExternalLink key={label} label={label} href={href} />;
     }
     return (
-      <Link key={label} href={href}>
-        <a className="text-neutral-400 hover:text-neutral-600 hover:-translate-y-0.5 transition ease-in-out transform-gpu">
-          {label}
-        </a>
-      </Link>
+      (<Link
+        key={label}
+        href={href}
+        className="text-neutral-400 hover:text-neutral-600 hover:-translate-y-0.5 transition ease-in-out transform-gpu">
+
+        {label}
+
+      </Link>)
     );
   });
 

@@ -5,7 +5,7 @@ import Stripe from "stripe";
 import { env } from "../../env";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
-  apiVersion: "2022-08-01",
+  apiVersion: "2022-11-15",
 });
 
 export const stripeRouter = t.router({

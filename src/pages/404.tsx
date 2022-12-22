@@ -20,14 +20,16 @@ const NotFound = ({
           </p>
           <p className="mt-4">
             If you think this is a mistake{" "}
-            <Link href="/contact">
-              <a className="text-orange-700 decoration-2 transition-all hocus:text-orange-900 hocus:underline dark:text-orange-500  dark:hocus:text-orange-300">
+            <Link
+              href="/contact"
+              className="text-orange-700 decoration-2 transition-all hocus:text-orange-900 hocus:underline dark:text-orange-500  dark:hocus:text-orange-300">
+              
                 please get in touch.
-              </a>
+              
             </Link>
           </p>
-          <Link href="/">
-            <a className="button-primary mt-16 py-5">Return to safety</a>
+          <Link href="/" className="button-primary mt-16 py-5">
+            Return to safety
           </Link>
         </div>
       </main>

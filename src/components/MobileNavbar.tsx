@@ -66,16 +66,18 @@ const MobileNavbar = () => {
         "rounded-md radix-state-checked:bg-neutral-200 dark:radix-state-checked:bg-neutral-600",
       )}
     >
-      <Link href={href}>
-        <a className="flex cursor-pointer select-none items-center rounded-md px-2 py-2 text-xs text-neutral-900 focus:bg-neutral-50 dark:text-neutral-100 dark:focus:bg-neutral-900">
-          <span className="text-neutral-500  dark:text-neutral-400 ">
-            {icon}
-          </span>
-          <span className="flex-grow">{label}</span>
-          <DropdownMenuPrimitive.ItemIndicator>
-            <CheckIcon className="h-3.5 w-3.5" />
-          </DropdownMenuPrimitive.ItemIndicator>
-        </a>
+      <Link
+        href={href}
+        className="flex cursor-pointer select-none items-center rounded-md px-2 py-2 text-xs text-neutral-900 focus:bg-neutral-50 dark:text-neutral-100 dark:focus:bg-neutral-900">
+
+        <span className="text-neutral-500  dark:text-neutral-400 ">
+          {icon}
+        </span>
+        <span className="flex-grow">{label}</span>
+        <DropdownMenuPrimitive.ItemIndicator>
+          <CheckIcon className="h-3.5 w-3.5" />
+        </DropdownMenuPrimitive.ItemIndicator>
+
       </Link>
     </DropdownMenuPrimitive.CheckboxItem>
   );

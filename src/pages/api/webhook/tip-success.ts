@@ -6,7 +6,7 @@ import { env } from "../../../server/env";
 // import NextCors from "nextjs-cors";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
-  apiVersion: "2022-08-01",
+  apiVersion: "2022-11-15",
 });
 
 const whSecret = env.STRIPE_WEBHOOK_SECRET;
