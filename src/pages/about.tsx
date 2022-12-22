@@ -1,5 +1,5 @@
 import Wrapper from "../components/Wrapper";
-import { InferGetStaticPropsType } from "next";
+import { type InferGetStaticPropsType } from "next";
 import { getBannerImage } from "@utils/getBannerImage";
 import Link from "next/link";
 import SocialMediaCard from "../components/SocialMediaCard";
@@ -48,7 +48,7 @@ const socials = [
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <rect x="4" y="4" width="16" height="16" rx="4"></rect>
-        <circle cn="12" cy="12" r="3"></circle>
+        <circle cy="12" r="3"></circle>
         <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
       </svg>
     ),
@@ -222,10 +222,9 @@ const About = ({
             </p>
             <Link
               href="/contact"
-              className="mt-6 w-full rounded-md bg-neutral-200 px-8 py-2 text-center transition-all hocus:scale-105 hocus:text-orange-800 dark:bg-neutral-900 hocus:dark:text-orange-500">
-              
-                Get in touch
-              
+              className="mt-6 w-full rounded-md bg-neutral-200 px-8 py-2 text-center transition-all hocus:scale-105 hocus:text-orange-800 dark:bg-neutral-900 hocus:dark:text-orange-500"
+            >
+              Get in touch
             </Link>
           </div>
         </div>

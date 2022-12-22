@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { type NextApiRequest, type NextApiResponse } from "next";
 import Stripe from "stripe";
 import { env } from "../../server/env";
 import { prisma } from "../../server/db/client";

@@ -1,4 +1,4 @@
-import { InferGetStaticPropsType } from "next";
+import { type InferGetStaticPropsType } from "next";
 import Wrapper from "../components/Wrapper";
 import Development from "../components/Development";
 import { getBannerImage } from "@utils/getBannerImage";

@@ -1,5 +1,5 @@
 import { getBannerImage } from "@utils/getBannerImage";
-import { InferGetStaticPropsType } from "next";
+import { type InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import Wrapper from "../components/Wrapper";
 
@@ -22,10 +22,9 @@ const NotFound = ({
             If you think this is a mistake{" "}
             <Link
               href="/contact"
-              className="text-orange-700 decoration-2 transition-all hocus:text-orange-900 hocus:underline dark:text-orange-500  dark:hocus:text-orange-300">
-              
-                please get in touch.
-              
+              className="text-orange-700 decoration-2 transition-all hocus:text-orange-900 hocus:underline dark:text-orange-500  dark:hocus:text-orange-300"
+            >
+              please get in touch.
             </Link>
           </p>
           <Link href="/" className="button-primary mt-16 py-5">

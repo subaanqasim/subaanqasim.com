@@ -1,6 +1,6 @@
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import Image from "next/image";
-import { IAuthor } from "@utils/types/contentful";
+import { type IAuthor } from "@utils/types/contentful";
 import cn from "classnames";
 import {
   TwitterLogoIcon,

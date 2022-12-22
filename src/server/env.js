@@ -3,6 +3,7 @@
  * This file is included in `/next.config.js` which ensures the app isn't built with invalid env vars.
  * It has to be a `.js`-file to be imported there.
  */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { envSchema } = require("./env-schema");
 
 const env = envSchema.safeParse(process.env);

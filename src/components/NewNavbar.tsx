@@ -3,7 +3,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { useRouter } from "next/router";
 import { CloseIcon, ChevronDownIcon, Logo } from "./Icons";
 import { clamp } from "@utils/clamp";
-import Link, { LinkProps } from "next/link";
+import Link, { type LinkProps } from "next/link";
 import cn from "classnames";
 import { Container } from "./Container";
 import ThemeToggle from "./ThemeToggle";
@@ -89,7 +89,7 @@ function NavItem({
   href: string;
   children: React.ReactNode;
 }) {
-  let isActive = useRouter().pathname === href;
+  const isActive = useRouter().pathname === href;
 
   return (
     <li>
@@ -175,15 +175,15 @@ function Avatar({
 }
 
 export default function Nav() {
-  let isHomePage = useRouter().pathname === "/";
+  const isHomePage = useRouter().pathname === "/";
 
-  let headerRef = useRef<HTMLDivElement>(null);
-  let avatarRef = useRef<HTMLDivElement>(null);
-  let isInitial = useRef(true);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const avatarRef = useRef<HTMLDivElement>(null);
+  const isInitial = useRef(true);
 
   useEffect(() => {
-    let downDelay = avatarRef.current?.offsetTop ?? 0;
-    let upDelay = 64;
+    const downDelay = avatarRef.current?.offsetTop ?? 0;
+    const upDelay = 64;
 
     function setProperty(property: string, value: string) {
       document.documentElement.style.setProperty(property, value);
@@ -194,8 +194,8 @@ export default function Nav() {
     }
 
     function updateHeaderStyles() {
-      let { top, height } = headerRef.current!.getBoundingClientRect();
-      let scrollY = clamp(
+      const { top, height } = headerRef.current!.getBoundingClientRect();
+      const scrollY = clamp(
         window.scrollY,
         0,
         document.body.scrollHeight - window.innerHeight,
@@ -211,7 +211,7 @@ export default function Nav() {
         setProperty("--header-height", `${downDelay + height}px`);
         setProperty("--header-mb", `${-downDelay}px`);
       } else if (top + height < -upDelay) {
-        let offset = Math.max(height, scrollY - upDelay);
+        const offset = Math.max(height, scrollY - upDelay);
         setProperty("--header-height", `${offset}px`);
         setProperty("--header-mb", `${height - offset}px`);
       } else if (top === 0) {
@@ -235,12 +235,12 @@ export default function Nav() {
         return;
       }
 
-      let fromScale = 1;
-      let toScale = 36 / 64;
-      let fromX = 0;
-      let toX = 2 / 16;
+      const fromScale = 1;
+      const toScale = 36 / 64;
+      const fromX = 0;
+      const toX = 2 / 16;
 
-      let scrollY = downDelay - window.scrollY;
+      const scrollY = downDelay - window.scrollY;
 
       let scale = (scrollY * (fromScale - toScale)) / downDelay + toScale;
       scale = clamp(scale, fromScale, toScale);
@@ -253,9 +253,9 @@ export default function Nav() {
         `translate3d(${x}rem, 0, 0) scale(${scale})`,
       );
 
-      let borderScale = 1 / (toScale / scale);
-      let borderX = (-toX + x) * borderScale;
-      let borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
+      const borderScale = 1 / (toScale / scale);
+      const borderX = (-toX + x) * borderScale;
+      const borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
 
       setProperty("--avatar-border-transform", borderTransform);
       setProperty(

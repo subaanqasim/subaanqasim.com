@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { InferGetStaticPropsType } from "next";
+import { type InferGetStaticPropsType } from "next";
 import Wrapper from "../components/Wrapper";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
@@ -10,7 +10,7 @@ const Support = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [inputEmail, setInputEmail] = useState("");
-  const { query, pathname } = useRouter();
+  const { query } = useRouter();
   const { data: session } = useSession();
 
   const isSuccess = query.success === "true";

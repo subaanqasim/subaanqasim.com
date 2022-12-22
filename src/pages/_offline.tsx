@@ -1,5 +1,5 @@
 import { cda } from "@utils/contentful";
-import { InferGetStaticPropsType } from "next";
+import { type InferGetStaticPropsType } from "next";
 import Wrapper from "../components/Wrapper";
 
 const Offline = ({

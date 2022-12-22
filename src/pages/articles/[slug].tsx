@@ -1,8 +1,8 @@
-import { GetStaticPropsContext } from "next";
-import type { IArticle } from "@utils/types/contentful";
-import { ParsedUrlQuery } from "querystring";
+import { type GetStaticPropsContext } from "next";
+import { type IArticle } from "@utils/types/contentful";
+import { type ParsedUrlQuery } from "querystring";
 import { cda } from "@utils/contentful";
-import InferNextPropsType from "infer-next-props-type";
+import type InferNextPropsType from "infer-next-props-type";
 
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";

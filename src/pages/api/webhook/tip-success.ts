@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { type NextApiRequest, type NextApiResponse } from "next";
 import { buffer } from "micro";
 import Stripe from "stripe";
 import { prisma } from "../../../server/db/client";

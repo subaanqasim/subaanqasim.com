@@ -2,7 +2,7 @@ import * as PopoverPrimitive from "@radix-ui/react-popover";
 import cn from "classnames";
 import Currency from "./Currency";
 import ModeOfDonation from "./ModeOfDonation";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import getStripe from "@utils/getStripe";
 import { trpc } from "@utils/trpc";
 

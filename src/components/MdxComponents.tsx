@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { trpc } from "@utils/trpc";
 
 const DynamicLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const { href, children } = props;

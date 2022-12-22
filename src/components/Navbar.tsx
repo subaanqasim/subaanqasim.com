@@ -3,8 +3,7 @@ import Link from "next/link";
 import cn from "classnames";
 import { useRouter } from "next/router";
 import ThemeToggle from "./ThemeToggle";
-import { Popover, Transition } from "@headlessui/react";
-import { CloseIcon, ChevronDownIcon, MoonIcon, SunIcon, Logo } from "./Icons";
+import { Logo } from "./Icons";
 
 const navData = [
   { label: "Home", href: "/" },

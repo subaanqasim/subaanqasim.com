@@ -2,7 +2,7 @@ import NextAuth, { type NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import EmailProvider from "next-auth/providers/email";
 import { createTransport } from "nodemailer";
-import { Theme } from "next-auth";
+import { type Theme } from "next-auth";
 
 // Prisma adapter for NextAuth
 import { PrismaAdapter } from "@next-auth/prisma-adapter";

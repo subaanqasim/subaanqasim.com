@@ -1,7 +1,7 @@
 import { cda } from "@utils/contentful";
 import { getBannerImage } from "@utils/getBannerImage";
-import { IArticle } from "@utils/types/contentful";
-import { InferGetStaticPropsType } from "next";
+import { type IArticle } from "@utils/types/contentful";
+import { type InferGetStaticPropsType } from "next";
 import { useState } from "react";
 import rt from "reading-time";
 import ArticlePost from "../../components/ArticlePost";

@@ -1,5 +1,5 @@
 import { visit } from "unist-util-visit";
-import { Element } from "hast";
+import { type Element } from "hast";
 import { cda } from "@utils/contentful";
 
 // Need to nest the functions as the `visitor` function is not async -> so required to await the getAsset method
