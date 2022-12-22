@@ -46,7 +46,7 @@ const CustomLink = ({
   // TODO: add active styling to active sublink somehow
 
   return (
-    <Link href={href} passHref legacyBehavior>
+    <Link href={href} passHref>
       <NavigationMenuPrimitive.Link
         active={isActive}
         className={cn(

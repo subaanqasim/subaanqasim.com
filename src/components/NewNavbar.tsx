@@ -5,7 +5,6 @@ import { CloseIcon, ChevronDownIcon, MoonIcon, SunIcon, Logo } from "./Icons";
 import { clamp } from "@utils/clamp";
 import Link, { LinkProps } from "next/link";
 import cn from "classnames";
-import Image from "next/image";
 import { Container } from "./Container";
 
 type Position = "absolute" | "fixed" | "relative" | "static" | "sticky";
@@ -102,12 +101,12 @@ function NavItem({
             : "hover:text-teal-500 dark:hover:text-teal-400",
         )}
       >
-
-        {children}
-        {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0" />
-        )}
-
+        <>
+          {children}
+          {isActive && (
+            <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0" />
+          )}
+        </>
       </Link>
     </li>
   );
@@ -201,19 +200,10 @@ function Avatar({
       aria-label="Home"
       className={cn(className, "pointer-events-auto")}
       style={style}
-      legacyBehavior>
-      {/* <Image
-        src={avatarImage}
-        src={"/hi"}
-        alt=""
-        sizes={large ? "4rem" : "2.25rem"}
-        className={cn(
-          "rounded-full bg-zinc-100 object-cover dark:bg-zinc-800",
-          large ? "h-16 w-16" : "h-9 w-9",
-        )}
-        priority
-      /> */}
-      <div></div>
+    >
+      <div className={cn(large ? "h-16 w-16" : "h-9 w-9")}>
+        <Logo className="h-16 w-auto" />
+      </div>
     </Link>
   );
 }
@@ -331,7 +321,7 @@ export default function Nav() {
   return (
     <>
       <header
-        className="pointer-events-none relative z-50 flex flex-col"
+        className="after:contents-[''] pointer-events-none relative z-50 flex flex-col after:absolute after:inset-0 after:-bottom-6 after:bg-neutral-900/20 after:backdrop-blur-[2px]"
         style={{
           height: "var(--header-height)",
           marginBottom: "var(--header-mb)",
@@ -344,7 +334,7 @@ export default function Nav() {
               className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"
             />
             <Container
-              className="top-0 order-last -mb-3 pt-3"
+              className="top-0 z-10 order-last -mb-3 pt-3"
               style={{ position: "var(--header-position)" as Position }}
             >
               <div
@@ -352,13 +342,13 @@ export default function Nav() {
                 style={{ position: "var(--header-inner-position)" as Position }}
               >
                 <div className="relative">
-                  <AvatarContainer
+                  {/* <AvatarContainer
                     className="absolute left-0 top-3 origin-left transition-opacity"
                     style={{
                       opacity: "var(--avatar-border-opacity, 0)",
                       transform: "var(--avatar-border-transform)",
                     }}
-                  />
+                  /> */}
                   <Avatar
                     large
                     className="block h-16 w-16 origin-left"
@@ -381,9 +371,9 @@ export default function Nav() {
             <div className="relative flex gap-4">
               <div className="flex flex-1">
                 {!isHomePage && (
-                  <AvatarContainer>
-                    <Avatar />
-                  </AvatarContainer>
+                  // <AvatarContainer>
+                  <Avatar />
+                  // </AvatarContainer>
                 )}
               </div>
               <div className="flex flex-1 justify-end md:justify-center">
