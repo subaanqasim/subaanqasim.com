@@ -157,6 +157,8 @@ export default function Home({
               ,{" "}
               <a
                 href="https://gettingit.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="decoration underline decoration-amber-500 transition-colors hocus:text-amber-500"
               >
                 podcaster
