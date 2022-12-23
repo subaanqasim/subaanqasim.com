@@ -12,6 +12,9 @@ import {
   LinkedInIcon,
   GitHubIcon,
 } from "@components/Icons";
+import cn from "classnames";
+import { type AssetCollection } from "contentful";
+import { useEffect, useRef, useState } from "react";
 
 function SeeMoreLink({ text, href }: { text: string; href: string }) {
   return (
@@ -47,9 +50,91 @@ function SocialLink({ icon: Icon, ...props }: any) {
   );
 }
 
+function Photos({ photos }: { photos: AssetCollection }) {
+  const rotations = [
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "rotate-2",
+    "-rotate-2",
+  ];
+
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const [length, setLength] = useState(0);
+  const duration = `${length * 25}ms`;
+
+  useEffect(() => {
+    const resizeObserver = new window.ResizeObserver(() => {
+      setLength(marqueeRef.current?.offsetWidth ?? 0);
+    });
+
+    if (marqueeRef.current) {
+      resizeObserver.observe(marqueeRef.current);
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  return (
+    <div className="w-full overflow-hidden py-2">
+      <div
+        ref={marqueeRef}
+        className="animate-horizontal-scroll"
+        style={
+          { "--horizontal-scroll-duration": duration } as React.CSSProperties
+        }
+      >
+        <div className="-my-4 flex justify-center gap-5  py-4 sm:gap-8">
+          {photos.items.map((image, i) => (
+            <div
+              key={image.fields.title}
+              className={cn(
+                "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
+                rotations[i % rotations.length],
+              )}
+            >
+              <Image
+                src={`https:${image.fields.file.url}`}
+                alt={image.fields.description ?? ""}
+                width={image.fields.file.details.image?.width}
+                height={image.fields.file.details.image?.height}
+                sizes="(min-width: 640px) 18rem, 11rem"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home({
   bannerImage,
   profileImage,
+  photos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -107,7 +192,7 @@ export default function Home({
             </div>
           </div>
           <Image
-            src={`https:${profileImage.fields.file!.url}`}
+            src={`https:${profileImage.fields.file.url}`}
             width={profileImage.fields.file?.details.image?.width}
             height={profileImage.fields.file?.details.image?.height}
             alt="Subaan Qasim"
@@ -116,7 +201,12 @@ export default function Home({
             className="aspect-[4/5] rounded-lg object-cover max-lg:hidden lg:w-64 xl:w-80"
           />
         </div>
-        {/* <div className="mb-20 flex w-full flex-col-reverse justify-between gap-8 sm:flex-row">
+      </Container>
+      <div className="mt-32 sm:mt-48">
+        <Photos photos={photos} />
+      </div>
+
+      {/* <div className="mb-20 flex w-full flex-col-reverse justify-between gap-8 sm:flex-row">
           <div className="flex max-w-[500px] flex-col">
             <h1 className="mb-2">Subaan Qasim</h1>
 
@@ -155,6 +245,8 @@ export default function Home({
             </div>
           </div>
         </div> */}
+
+      <Container>
         <div id="work" className="mt-12  w-full">
           <h3 className="mb-4 text-2xl md:text-4xl">Featured Projects</h3>
 
@@ -218,10 +310,15 @@ export const getStaticProps = async () => {
   const bannerImage = await getBannerImage();
   const profileImage = await cda.getAsset("3Cgp43AjBUNejadXB6C5hu");
 
+  const photos = await cda.getAssets({
+    "metadata.tags.sys.id[all]": "photography",
+  });
+
   return {
     props: {
       bannerImage,
       profileImage,
+      photos,
     },
   };
 };

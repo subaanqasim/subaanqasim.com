@@ -165,6 +165,15 @@ module.exports = {
             transform: `translateX(calc(100% + 1rem))`,
           },
         },
+        // Homepage scrolling carousel
+        "horizontal-scroll": {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
+        },
       },
       animation: {
         // Navgiation menu
@@ -189,6 +198,9 @@ module.exports = {
         "toast-slide-in-bottom":
           "toast-slide-in-bottom 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         "toast-swipe-out": "toast-swipe-out 100ms ease-out forwards",
+        // Homepage scrolling carousel
+        "horizontal-scroll":
+          "horizontal-scroll var(--horizontal-scroll-duration) linear infinite",
       },
     },
   },
