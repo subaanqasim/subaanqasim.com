@@ -2,7 +2,10 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html
+      lang="en"
+      style={{ scrollBehavior: "smooth", scrollPaddingTop: "120px" }}
+    >
       <Head>
         <link rel="stylesheet" href="https://use.typekit.net/zqu1jvs.css" />
         <link rel="manifest" href="/static/subaanqasim.webmanifest" />
@@ -40,7 +43,7 @@ export default function Document() {
           name="robots"
         />
       </Head>
-      <body className="flex h-full flex-col bg-neutral-50 dark:bg-black">
+      <body className="flex h-full flex-col bg-neutral-50 text-base font-normal tracking-wide text-neutral-800 dark:bg-black dark:text-neutral-100">
         <Main />
         <NextScript />
       </body>

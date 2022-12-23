@@ -7,15 +7,14 @@
 }
 
 @layer base {
+  /*
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
   }
+  */
 
-  body {
-    @apply bg-neutral-50 text-base font-normal tracking-wide text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100;
-  }
-
+  /*
   p {
     @apply leading-7 text-neutral-700 dark:text-neutral-300;
   }
@@ -43,6 +42,7 @@
   h6 {
     @apply text-base font-medium tracking-normal md:text-base;
   }
+*/
 }
 
 @layer components {

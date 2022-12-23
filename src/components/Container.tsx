@@ -37,7 +37,7 @@ InnerContainer.displayName = "InnerContainer";
 type ContainerCompProps = {
   children: React.ReactNode;
   className?: string;
-  style: React.CSSProperties;
+  style?: React.CSSProperties;
 } & JSX.IntrinsicElements["div"];
 
 export const ContainerComp = forwardRef<HTMLDivElement, ContainerCompProps>(
