@@ -15,6 +15,7 @@ import {
 import cn from "classnames";
 import { type AssetCollection } from "contentful";
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 
 function SeeMoreLink({ text, href }: { text: string; href: string }) {
   return (
@@ -98,7 +99,7 @@ function Photos({ photos }: { photos: AssetCollection }) {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden py-2">
+    <div className="w-full overflow-hidden py-6">
       <div
         ref={marqueeRef}
         className="animate-horizontal-scroll"
@@ -122,6 +123,7 @@ function Photos({ photos }: { photos: AssetCollection }) {
                 height={image.fields.file.details.image?.height}
                 sizes="(min-width: 640px) 18rem, 11rem"
                 className="absolute inset-0 h-full w-full object-cover"
+                priority
               />
             </div>
           ))}
@@ -136,6 +138,8 @@ export default function Home({
   profileImage,
   photos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { resolvedTheme } = useTheme();
+
   return (
     <>
       <Seo
@@ -202,7 +206,15 @@ export default function Home({
           />
         </div>
       </Container>
-      <div className="mt-32 sm:mt-48">
+      <div className="relative mt-32 sm:mt-48">
+        <span className="marquee-masked-blur absolute inset-0 z-[10]" />
+        <span
+          className={cn(
+            resolvedTheme === "dark"
+              ? "absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(0,0,0,0.85)0%,rgba(0,0,0,0)35%,rgba(0,0,0,0)65%,rgba(0,0,0,0.85)100%)]"
+              : "absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(250,250,250,0.7)0%,rgba(250,250,250,0)35%,rgba(250,250,250,0)65%,rgba(250,250,250,0.7)100%)]",
+          )}
+        />
         <Photos photos={photos} />
       </div>
 

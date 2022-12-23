@@ -69,7 +69,7 @@ const Donate = () => {
             className={cn(
               "radix-side-bottom:animate-slide-down radix-side-top:animate-slide-up",
               "w-80 rounded-lg p-6 shadow-md",
-              "bg-white dark:bg-black",
+              "z-50 bg-white dark:bg-black",
             )}
           >
             <PopoverPrimitive.Arrow className="fill-current text-white dark:text-neutral-800" />

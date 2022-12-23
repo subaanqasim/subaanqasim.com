@@ -58,6 +58,25 @@
     @apply transform rounded-sm text-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 hocus:text-orange-500 hocus:underline dark:text-orange-400 dark:focus-visible:ring-offset-neutral-900 dark:hocus:text-orange-500;
   }
 }
+
+.marquee-masked-blur {
+  backdrop-filter: blur(8px);
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
 /* all links */
 .prose a {
   @apply transition-all;

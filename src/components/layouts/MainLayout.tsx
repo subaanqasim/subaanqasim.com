@@ -19,7 +19,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <Nav />
       <main>{children}</main>
       <Footer />
-      <div className="fixed bottom-8 right-8">
+      <div className="fixed bottom-8 right-8 z-50">
         <Donate />
       </div>
     </>
