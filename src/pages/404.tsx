@@ -1,13 +1,14 @@
 import { getBannerImage } from "@utils/getBannerImage";
 import { type InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import Wrapper from "../components/Wrapper";
+import Seo from "../components/Seo";
 
 const NotFound = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper title="404" noindex nofollow image={bannerImage}>
+    <>
+      <Seo title="404" noindex nofollow image={bannerImage} />
       <main className="flex w-full flex-col items-center text-center">
         <h1>420 - Page is too cool for you 🥵</h1>
         <div className="mt-8 text-xl font-bold">
@@ -32,7 +33,7 @@ const NotFound = ({
           </Link>
         </div>
       </main>
-    </Wrapper>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import { type InferGetStaticPropsType } from "next";
-import Wrapper from "../components/Wrapper";
+import Seo from "../components/Seo";
 import Development from "../components/Development";
 import { getBannerImage } from "@utils/getBannerImage";
 
@@ -7,13 +7,14 @@ const Privacy = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper
-      title="Privacy"
-      description="Privacy policy for subaanqasim.com."
-      image={bannerImage}
-    >
+    <>
+      <Seo
+        title="Privacy"
+        description="Privacy policy for subaanqasim.com."
+        image={bannerImage}
+      />
       <Development title="Privacy" />
-    </Wrapper>
+    </>
   );
 };
 

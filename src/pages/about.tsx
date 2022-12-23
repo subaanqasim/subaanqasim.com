@@ -1,4 +1,4 @@
-import Wrapper from "../components/Wrapper";
+import Seo from "../components/Seo";
 import { type InferGetStaticPropsType } from "next";
 import { getBannerImage } from "@utils/getBannerImage";
 import Link from "next/link";
@@ -135,7 +135,8 @@ const About = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper title="About" image={bannerImage}>
+    <>
+      <Seo title="About" image={bannerImage} />
       <main>
         <h1>About</h1>
         <p className="mt-6">
@@ -229,7 +230,7 @@ const About = ({
           </div>
         </div>
       </main>
-    </Wrapper>
+    </>
   );
 };
 

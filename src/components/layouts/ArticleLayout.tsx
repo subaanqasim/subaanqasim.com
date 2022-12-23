@@ -2,7 +2,7 @@ import type { IArticleFields } from "@utils/types/contentful";
 import type { Sibling } from "../../pages/articles/[slug]";
 import Link from "next/link";
 import { formatDistance } from "date-fns";
-import Wrapper from "../Wrapper";
+import Seo from "../Seo";
 import ShareArticleLinks from "../ShareArticleLinks";
 import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
 import cn from "classnames";
@@ -44,17 +44,18 @@ const ArticleLayout = ({
   const isDesktop = useMediaQuery("(min-width: 640px)");
 
   return (
-    <Wrapper
-      title={title}
-      description={excerpt}
-      image={featuredImage}
-      datePublished={datePublished}
-      dateModified={dateModified}
-      authorName={author.fields.name}
-      authorUrl={author.fields.linkedin}
-      tags={keywords}
-      type="article"
-    >
+    <>
+      <Seo
+        title={title}
+        description={excerpt}
+        image={featuredImage}
+        datePublished={datePublished}
+        dateModified={dateModified}
+        authorName={author.fields.name}
+        authorUrl={author.fields.linkedin}
+        tags={keywords}
+        type="article"
+      />
       <main className="w-full">
         <article>
           <header>
@@ -120,10 +121,10 @@ const ArticleLayout = ({
           )}
         >
           {prevArticle && (
-            (<Link
+            <Link
               href={`/articles/${prevArticle.fields.slug}`}
-              className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]">
-
+              className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]"
+            >
               <ArrowLeftIcon className="h-5 w-5 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] group-hover:-translate-x-2" />
               <div>
                 <div className="text-right text-sm tracking-wide dark:text-neutral-400">
@@ -134,15 +135,14 @@ const ArticleLayout = ({
                   {prevArticle?.fields.title}
                 </div>
               </div>
-
-            </Link>)
+            </Link>
           )}
 
           {nextArticle && (
-            (<Link
+            <Link
               href={`/articles/${nextArticle.fields.slug}`}
-              className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]">
-
+              className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]"
+            >
               <div>
                 <div className="text-sm tracking-wide dark:text-neutral-400">
                   Next Article
@@ -152,12 +152,11 @@ const ArticleLayout = ({
                 </div>
               </div>
               <ArrowRightIcon className="h-5 w-5 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] group-hover:translate-x-2" />
-
-            </Link>)
+            </Link>
           )}
         </div>
       </main>
-    </Wrapper>
+    </>
   );
 };
 

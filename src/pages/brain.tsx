@@ -1,5 +1,5 @@
 import { type InferGetStaticPropsType } from "next";
-import Wrapper from "../components/Wrapper";
+import Seo from "../components/Seo";
 import Development from "../components/Development";
 import { getBannerImage } from "@utils/getBannerImage";
 
@@ -7,13 +7,14 @@ const Brain = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper
-      title="Brain"
-      description="All of my notes, thoughts and ideas from my Obsidian.md vault."
-      image={bannerImage}
-    >
+    <>
+      <Seo
+        title="Brain"
+        description="All of my notes, thoughts and ideas from my Obsidian.md vault."
+        image={bannerImage}
+      />
       <Development title="Brain" />
-    </Wrapper>
+    </>
   );
 };
 

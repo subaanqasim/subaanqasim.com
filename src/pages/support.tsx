@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { type InferGetStaticPropsType } from "next";
-import Wrapper from "../components/Wrapper";
+import Seo from "../components/Seo";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import cn from "classnames";
@@ -17,11 +17,12 @@ const Support = ({
   const userEmail = query.email;
 
   return (
-    <Wrapper
-      title="Support"
-      description="Kind words from donations and supporters."
-      image={bannerImage}
-    >
+    <>
+      <Seo
+        title="Support"
+        description="Kind words from donations and supporters."
+        image={bannerImage}
+      />
       <>
         <header>
           <h1>Support</h1>
@@ -78,7 +79,7 @@ const Support = ({
       <p className="mx-auto mt-4 text-center text-neutral-500 dark:text-neutral-400">
         ur support is unbeaten 👉🏽👈🏽
       </p>
-    </Wrapper>
+    </>
   );
 };
 

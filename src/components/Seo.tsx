@@ -1,7 +1,6 @@
-import { NextSeo, ArticleJsonLd } from "next-seo";
 import type { Asset } from "contentful";
+import { ArticleJsonLd, NextSeo } from "next-seo";
 import { useRouter } from "next/router";
-import Donate from "./Donate";
 
 interface CommonProps {
   title: string;
@@ -9,7 +8,6 @@ interface CommonProps {
   image: Asset;
   noindex?: boolean;
   nofollow?: boolean;
-  children?: React.ReactNode;
 }
 
 type ConditionalProps =
@@ -32,13 +30,12 @@ type ConditionalProps =
 
 type SeoProps = CommonProps & ConditionalProps;
 
-const Wrapper = ({
+const Seo = ({
   title,
   description,
   image,
   noindex,
   nofollow,
-  children,
   type,
   datePublished,
   dateModified,
@@ -112,14 +109,8 @@ const Wrapper = ({
           }}
         />
       )}
-      <div className="flex flex-col items-start justify-center w-full max-w-3xl mx-auto">
-        {children}
-      </div>
-      <div className="fixed bottom-8 right-8">
-        <Donate />
-      </div>
     </>
   );
 };
 
-export default Wrapper;
+export default Seo;

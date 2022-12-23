@@ -5,7 +5,7 @@ import { type InferGetStaticPropsType } from "next";
 import { useState } from "react";
 import rt from "reading-time";
 import ArticlePost from "../../components/ArticlePost";
-import Wrapper from "../../components/Wrapper";
+import Seo from "../../components/Seo";
 
 type Articles = (Pick<IArticle, "fields"> & {
   fields: Pick<
@@ -27,11 +27,12 @@ const Articles = ({
   );
 
   return (
-    <Wrapper
-      title="Articles"
-      description="Thoughts and unadulterated streams of consciousness about Medicine, tech and life."
-      image={bannerImage}
-    >
+    <>
+      <Seo
+        title="Articles"
+        description="Thoughts and unadulterated streams of consciousness about Medicine, tech and life."
+        image={bannerImage}
+      />
       <header>
         <h1>Articles</h1>
         <p className="mt-4 max-w-md text-neutral-500 dark:text-neutral-400 ">
@@ -129,7 +130,7 @@ const Articles = ({
           ))}
         </div>
       </main>
-    </Wrapper>
+    </>
   );
 };
 

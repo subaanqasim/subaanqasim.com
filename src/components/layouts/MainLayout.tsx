@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Footer from "../Footer";
 import { trpc } from "@utils/trpc";
 import Nav from "../Navbar";
+import Donate from "@components/Donate";
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { pathname } = useRouter();
@@ -18,6 +19,9 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <Nav />
       <main>{children}</main>
       <Footer />
+      <div className="fixed bottom-8 right-8">
+        <Donate />
+      </div>
     </>
   );
 };
