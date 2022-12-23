@@ -40,7 +40,7 @@ export default function Document() {
           name="robots"
         />
       </Head>
-      <body>
+      <body className="flex h-full flex-col bg-neutral-50 dark:bg-black">
         <Main />
         <NextScript />
       </body>

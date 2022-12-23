@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('tailwindcss').Config} */
 
 const plugin = require("tailwindcss/plugin");
@@ -187,4 +188,7 @@ module.exports = {
       addVariant("hocus", ["&:hover", "&:focus"]);
     }),
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 };

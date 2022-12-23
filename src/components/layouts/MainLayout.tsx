@@ -16,9 +16,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <>
       <Nav />
-      <div className="mt-40 mb-16 flex flex-col justify-center px-8">
-        {children}
-      </div>
+      <main>{children}</main>
       <Footer />
     </>
   );
