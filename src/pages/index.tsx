@@ -204,7 +204,7 @@ export default function Home({
             alt="Subaan Qasim"
             sizes="(min-width: 1280px) 320px, (min-width: 1024px) 250px, 0px"
             priority
-            className="aspect-[4/5] rounded-lg object-cover max-lg:hidden lg:w-64 xl:w-80"
+            className="aspect-[4/5] rounded-xl object-cover max-lg:hidden lg:w-64 xl:w-80"
           />
         </div>
       </Container>
