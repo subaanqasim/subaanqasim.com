@@ -192,9 +192,6 @@ module.exports = {
       },
     },
   },
-  corePlugins: {
-    aspectRatio: false,
-  },
   plugins: [
     require("tailwindcss-radix")(),
     require("@tailwindcss/aspect-ratio"),

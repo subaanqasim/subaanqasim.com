@@ -59,51 +59,62 @@ export default function Home({
         type="website"
       />
       <Container className="mt-9">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            <span className="bg-gradient-to-br from-orange-500 to-rose-500 bg-clip-text text-transparent">
-              Medical student
-            </span>
-            ,{" "}
-            <a
-              href="https://gettingit.co.uk"
-              className="decoration underline decoration-amber-500 transition-colors hocus:text-amber-500"
-            >
-              podcaster
-            </a>{" "}
-            &{" "}
-            <span className="bg-gradient-to-br from-teal-500 to-blue-500 bg-clip-text text-transparent">
-              full-stack engineer.
-            </span>
-          </h1>
-          <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
-            I’m Subaan, a medical student and tech enthusiast based in London.
-            <br />
-            Welcome to my section of the internet where I post my projects,
-            thoughts and unadulterated streams of consciousness.
-          </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://twitter.com/subaanqasim"
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
-            />
-            <SocialLink
-              href="https://instagram.com/subaanqasim"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="https://github.com/subaanqasim"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://linkedin.com/in/subaan-qasim/"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
+        <div className="flex justify-between gap-8">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              <span className="bg-gradient-to-br from-orange-500 to-rose-500 bg-clip-text text-transparent">
+                Medical student
+              </span>
+              ,{" "}
+              <a
+                href="https://gettingit.co.uk"
+                className="decoration underline decoration-amber-500 transition-colors hocus:text-amber-500"
+              >
+                podcaster
+              </a>{" "}
+              & <br className="max-xs:hidden" />
+              <span className="bg-gradient-to-br from-teal-500 to-blue-500 bg-clip-text text-transparent">
+                full-stack engineer.
+              </span>
+            </h1>
+            <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
+              I’m Subaan, a medical student and tech enthusiast based in London.
+              <br />
+              Welcome to my section of the internet where I post my projects,
+              thoughts and unadulterated streams of consciousness.
+            </p>
+            <div className="mt-6 flex gap-6">
+              <SocialLink
+                href="https://twitter.com/subaanqasim"
+                aria-label="Follow on Twitter"
+                icon={TwitterIcon}
+              />
+              <SocialLink
+                href="https://instagram.com/subaanqasim"
+                aria-label="Follow on Instagram"
+                icon={InstagramIcon}
+              />
+              <SocialLink
+                href="https://github.com/subaanqasim"
+                aria-label="Follow on GitHub"
+                icon={GitHubIcon}
+              />
+              <SocialLink
+                href="https://linkedin.com/in/subaan-qasim/"
+                aria-label="Follow on LinkedIn"
+                icon={LinkedInIcon}
+              />
+            </div>
           </div>
+          <Image
+            src={`https:${profileImage.fields.file!.url}`}
+            width={profileImage.fields.file?.details.image?.width}
+            height={profileImage.fields.file?.details.image?.height}
+            alt="Subaan Qasim"
+            sizes="(min-width: 1280px) 320px, (min-width: 1024px) 250px, 0px"
+            priority
+            className="aspect-[4/5] rounded-lg object-cover max-lg:hidden lg:w-64 xl:w-80"
+          />
         </div>
         {/* <div className="mb-20 flex w-full flex-col-reverse justify-between gap-8 sm:flex-row">
           <div className="flex max-w-[500px] flex-col">
