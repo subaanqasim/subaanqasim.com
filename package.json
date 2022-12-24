@@ -23,6 +23,7 @@
     "@radix-ui/react-radio-group": "1.1.0",
     "@radix-ui/react-select": "1.1.2",
     "@radix-ui/react-toast": "1.1.2",
+    "@react-spring/web": "^9.6.1",
     "@stripe/stripe-js": "1.46.0",
     "@tanstack/react-query": "4.20.4",
     "@trpc/client": "10.6.0",

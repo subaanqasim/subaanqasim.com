@@ -1,22 +1,24 @@
-import Seo from "../components/Seo";
-import { cda } from "@utils/contentful";
-import { type InferGetStaticPropsType } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import FeaturedPost from "src/components/FeaturedPost";
-import { getBannerImage } from "@utils/getBannerImage";
+import Bounce from "@components/Bounce";
 import { Container } from "@components/Container";
 import {
-  TwitterIcon,
+  GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
-  GitHubIcon,
+  TwitterIcon,
 } from "@components/Icons";
+import { cda } from "@utils/contentful";
+import { getBannerImage } from "@utils/getBannerImage";
+import { useHasMounted } from "@utils/hooks";
+import { random } from "@utils/random";
 import cn from "classnames";
 import { type AssetCollection } from "contentful";
-import { useEffect, useRef, useState } from "react";
+import { type InferGetStaticPropsType } from "next";
 import { useTheme } from "next-themes";
-import { useHasMounted } from "@utils/hooks";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import FeaturedPost from "src/components/FeaturedPost";
+import Seo from "../components/Seo";
 
 function SeeMoreLink({ text, href }: { text: string; href: string }) {
   return (
@@ -44,11 +46,26 @@ function SeeMoreLink({ text, href }: { text: string; href: string }) {
   );
 }
 
-function SocialLink({ icon: Icon, ...props }: any) {
+function SocialLink({
+  icon: Icon,
+  ...props
+}: {
+  icon: typeof TwitterIcon;
+} & JSX.IntrinsicElements["a"]) {
+  const num = random(7, 25);
+  const positiveOrNegativeNum = Math.random() < 0.5 ? num : -num;
+
   return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-neutral-500 transition group-hover:fill-neutral-600 dark:fill-neutral-400 dark:group-hover:fill-neutral-300" />
-    </Link>
+    <Bounce method="hover" bounceConfig={{ rotation: positiveOrNegativeNum }}>
+      <a
+        {...props}
+        className="group -m-1 flex items-center p-1"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon className="h-6 w-6 fill-neutral-500 transition group-hover:fill-neutral-600 dark:fill-neutral-400 dark:group-hover:fill-neutral-300" />
+      </a>
+    </Bounce>
   );
 }
 
