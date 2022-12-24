@@ -24,7 +24,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   const previousPathname = usePrevious(router.pathname);
 
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" disableTransitionOnChange>
       <SessionProvider session={session}>
         <div className="fixed inset-0 flex justify-center sm:px-8">
           <div className="flex w-full max-w-7xl lg:px-8">
