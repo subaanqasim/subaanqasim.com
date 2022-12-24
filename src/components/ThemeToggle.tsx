@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon } from "./Icons";
 import { useBounce, useHasMounted } from "@utils/hooks";
@@ -8,7 +8,7 @@ export default function ThemeToggle() {
   const hasMounted = useHasMounted();
   const { resolvedTheme, setTheme } = useTheme();
 
-  const { appliedStyle, trigger } = useBounce({
+  const { style, trigger } = useBounce({
     scale: 0.9,
     rotation: resolvedTheme === "dark" ? 8 : -8,
   });
@@ -29,7 +29,7 @@ export default function ThemeToggle() {
 
   return (
     <animated.div
-      style={appliedStyle}
+      style={style}
       onMouseDown={trigger}
       className="hover:scale-110"
     >

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useSpring } from "@react-spring/web";
-import { usePrefersReducedMotion } from "@utils/hooks";
+// import { usePrefersReducedMotion } from "@utils/hooks";
 
 export type BounceParams = {
   x?: number;
@@ -25,12 +25,12 @@ export function useBounce({
     friction: 10,
   },
 }: BounceParams = {}) {
-  const prefersReducedMotion = usePrefersReducedMotion();
+  // const prefersReducedMotion = usePrefersReducedMotion();
 
   const [isTouched, setIsTouched] = useState(false);
 
   const style = useSpring({
-    backfaceVisibility: "hidden",
+    backfaceVisibility: "hidden" as const,
     transform: isTouched
       ? `translate(${x}px, ${y}px)
          rotate(${rotation}deg)
@@ -58,7 +58,7 @@ export function useBounce({
     setIsTouched(true);
   }, []);
 
-  const appliedStyle = prefersReducedMotion ? {} : style;
+  // const appliedStyle = prefersReducedMotion ? {} : style;
 
-  return { appliedStyle, trigger };
+  return { style, trigger };
 }

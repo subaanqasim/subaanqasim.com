@@ -12,11 +12,11 @@ export default function Bounce({
   method,
   bounceConfig,
 }: BounceProps) {
-  const { appliedStyle, trigger } = useBounce(bounceConfig);
+  const { style, trigger } = useBounce(bounceConfig);
 
   return (
     <animated.div
-      style={appliedStyle}
+      style={style}
       onMouseEnter={method === "hover" ? trigger : undefined}
       onMouseDown={method === "click" ? trigger : undefined}
     >
