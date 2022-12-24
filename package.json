@@ -33,7 +33,7 @@
     "contentful": "9.2.14",
     "contentful-management": "10.25.0",
     "date-fns": "2.29.3",
-    "micro": "9.4.1",
+    "micro": "10.0.1",
     "next": "12.3.4",
     "next-auth": "4.18.6",
     "next-mdx-remote": "4.2.0",

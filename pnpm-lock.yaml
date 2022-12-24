@@ -38,7 +38,7 @@ specifiers:
   eslint-config-next: 12.3.4
   eslint-config-prettier: 8.5.0
   infer-next-props-type: 0.1.0
-  micro: 9.4.1
+  micro: 10.0.1
   next: 12.3.4
   next-auth: 4.18.6
   next-mdx-remote: 4.2.0
@@ -92,7 +92,7 @@ dependencies:
   contentful: 9.2.14
   contentful-management: 10.25.0
   date-fns: 2.29.3
-  micro: 9.4.1
+  micro: 10.0.1
   next: 12.3.4_7xlrwlvvs7cv2obrs6a5y6oxxq
   next-auth: 4.18.6_yf65tufcydtjhosqidyiv3tiou
   next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
@@ -5034,9 +5034,9 @@ packages:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
 
-  /micro/9.4.1:
-    resolution: {integrity: sha512-Lpjcbp6Y9GJIfewxDfTmu9eW0rt0MGo+Gs1d3yJLFa7mhErtKkCngGhDbA/O1gqUjEwsHh+jWPg8BJ0Bx4AgFA==}
-    engines: {node: '>= 8.0.0'}
+  /micro/10.0.1:
+    resolution: {integrity: sha512-9uwZSsUrqf6+4FLLpiPj5TRWQv5w5uJrJwsx1LR/TjqvQmKC1XnGQ9OHrFwR3cbZ46YqPqxO/XJCOpWnqMPw2Q==}
+    engines: {node: '>= 16.0.0'}
     hasBin: true
     dependencies:
       arg: 4.1.0
