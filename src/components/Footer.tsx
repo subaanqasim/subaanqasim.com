@@ -1,17 +1,8 @@
 import Link from "next/link";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Container } from "./Container";
 
-interface Links {
-  label: string;
-  href: string;
-}
-
-interface FooterData {
-  title: string;
-  links: Links[];
-}
-
-const footerData: FooterData[] = [
+const footerData = [
   {
     title: "Pages",
     links: [
@@ -45,12 +36,12 @@ const footerData: FooterData[] = [
   },
 ];
 
-const ExternalLink = ({ label, href }: Links) => (
+const ExternalLink = ({ label, href }: { label: string; href: string }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-neutral-400 hover:text-neutral-600 hover:-translate-y-0.5 transition ease-in-out transform-gpu"
+    className="transform-gpu text-neutral-400 transition ease-in-out hover:-translate-y-0.5 hover:text-neutral-600"
   >
     {label}
   </a>
@@ -63,21 +54,20 @@ const footerLinks = footerData.map((group) => {
       return <ExternalLink key={label} label={label} href={href} />;
     }
     return (
-      (<Link
+      <Link
         key={label}
         href={href}
-        className="text-neutral-400 hover:text-neutral-600 hover:-translate-y-0.5 transition ease-in-out transform-gpu">
-
+        className="transform-gpu text-neutral-400 transition ease-in-out hover:-translate-y-0.5 hover:text-neutral-600"
+      >
         {label}
-
-      </Link>)
+      </Link>
     );
   });
 
   return (
     <div
       key={group.title}
-      className="flex flex-col space-y-4 items-center sm:items-stretch mx-auto"
+      className="mx-auto flex flex-col items-center space-y-4 sm:items-stretch"
     >
       <div className="-mb-2.5 font-semibold">{group.title}</div>
       {links}
@@ -85,33 +75,30 @@ const footerLinks = footerData.map((group) => {
   );
 });
 
-const Footer = () => {
+export default function Footer() {
   return (
     <>
-      <footer className="flex flex-col justify-center px-8">
-        <div className="max-w-3xl w-full mx-auto">
-          <hr className="w-full border-1 border-neutral-300 dark:border-neutral-700 mb-8" />
-          <div className="w-full  mx-auto grid grid-cols-1 gap-4 sm:grid-cols-3 mb-8 ">
-            {footerLinks}
+      <footer className="mt-32 flex flex-col justify-center">
+        <Container>
+          <div className="border-t border-neutral-300 pt-10 pb-16 dark:border-neutral-700">
+            <div className="mx-auto grid w-full grid-cols-1 gap-4 border-b border-neutral-300 pb-8 dark:border-neutral-700 sm:grid-cols-3">
+              {footerLinks}
+            </div>
+            <div className="flex justify-between gap-4 pt-8 text-sm text-neutral-500 dark:text-neutral-500">
+              <p>© Subaan Qasim. All rights reserved.</p>
+              <a
+                href="https://www.github.com/subaanqasim/subaanqasim.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex transform-gpu items-center transition ease-in-out hover:-translate-y-0.5 hover:text-neutral-600 dark:hover:text-neutral-400"
+              >
+                <GitHubLogoIcon className="mr-1.5 inline-block h-3.5 w-3.5" />
+                View on GitHub
+              </a>
+            </div>
           </div>
-          <hr className="w-full border-1 border-neutral-300 dark:border-neutral-700 mb-8" />
-          <div className="flex justify-between gap-4 mb-16 text-sm text-neutral-400 dark:text-neutral-500">
-            <p>© Subaan Qasim. All rights reserved.</p>
-            <a
-              href="https://www.github.com/subaanqasim/subaanqasim.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:-translate-y-0.5 hover:text-neutral-600 dark:hover:text-neutral-400 transition ease-in-out transform-gpu flex items-center"
-            >
-              <GitHubLogoIcon className="w-3.5 h-3.5 inline-block mr-1.5" />
-              View on GitHub
-              {/* <ExternalLinkIcon className="w-3.5 h-3.5 inline-block ml-1" /> */}
-            </a>
-          </div>
-        </div>
+        </Container>
       </footer>
     </>
   );
-};
-
-export default Footer;
+}
