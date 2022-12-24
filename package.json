@@ -66,7 +66,7 @@
     "@types/node": "18.11.17",
     "@types/nodemailer": "6.4.7",
     "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.9",
+    "@types/react-dom": "18.0.10",
     "autoprefixer": "10.4.13",
     "babel-loader": "8.3.0",
     "contentful-typescript-codegen": "3.4.0",
