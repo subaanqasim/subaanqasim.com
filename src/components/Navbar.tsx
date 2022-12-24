@@ -23,7 +23,7 @@ function MobileNavigation(props: any) {
 
   return (
     <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+      <Popover.Button className="group flex items-center rounded-full bg-white/50 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-neutral-800/50 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
         Menu
         <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
       </Popover.Button>
@@ -50,7 +50,7 @@ function MobileNavigation(props: any) {
         >
           <Popover.Panel
             focus
-            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
+            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-neutral-900/80 dark:ring-zinc-800"
           >
             {({ close }) => (
               <>
@@ -103,7 +103,7 @@ function DesktopNavigation(props: JSX.IntrinsicElements["nav"]) {
 
   return (
     <nav {...props}>
-      <div className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+      <div className="flex rounded-full bg-white/50 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-neutral-800/50 dark:text-zinc-200 dark:ring-white/10">
         {navItems.map((item) => (
           <Link
             key={item.href}
@@ -128,24 +128,7 @@ function DesktopNavigation(props: JSX.IntrinsicElements["nav"]) {
   );
 }
 
-// function AvatarContainer({
-//   className,
-//   ...props
-// }: {
-//   className?: string;
-// } & JSX.IntrinsicElements["div"]) {
-//   return (
-//     <div
-//       className={cn(
-//         className,
-//         "h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10",
-//       )}
-//       {...props}
-//     />
-//   );
-// }
-
-function Avatar({
+function LogoAvatar({
   large = false,
   className,
   style,
@@ -163,7 +146,15 @@ function Avatar({
       className={cn(className, "pointer-events-auto")}
       style={style}
     >
-      <div className={cn(large ? "h-16 w-16" : "h-9 w-9")}>
+      <div
+        className={cn(
+          "relative",
+          large
+            ? "h-16 w-16 before:-inset-y-4 before:-inset-x-5"
+            : "h-9 w-9 before:-inset-y-2 before:-inset-x-3",
+          "before:absolute before:z-[-1] before:rounded-full before:bg-neutral-50/50 before:backdrop-blur before:dark:bg-black/50 ",
+        )}
+      >
         <Logo />
       </div>
     </Link>
@@ -307,17 +298,12 @@ export default function Nav() {
                 style={{ position: "var(--header-inner-position)" as Position }}
               >
                 <div className="relative">
-                  {/* <AvatarContainer
-                    className="absolute left-0 top-3 origin-left transition-opacity"
-                    style={{
-                      opacity: "var(--avatar-border-opacity, 0)",
-                      transform: "var(--avatar-border-transform)",
-                    }}
-                  /> */}
-                  <Avatar
+                  <LogoAvatar
                     large
                     className="block h-16 w-16 origin-left"
-                    style={{ transform: "var(--avatar-image-transform)" }}
+                    style={{
+                      transform: "var(--avatar-image-transform)",
+                    }}
                   />
                 </div>
               </div>
@@ -334,12 +320,8 @@ export default function Nav() {
             style={{ position: "var(--header-inner-position)" as Position }}
           >
             <div className="relative flex gap-4">
-              <div className="flex flex-1">
-                {!isHomePage && (
-                  // <AvatarContainer>
-                  <Avatar />
-                  // </AvatarContainer>
-                )}
+              <div className="flex flex-1 items-center">
+                {!isHomePage && <LogoAvatar />}
               </div>
               <div className="flex flex-1 justify-end md:justify-center">
                 <MobileNavigation className="pointer-events-auto md:hidden" />
