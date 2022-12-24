@@ -6,7 +6,7 @@ import Seo from "../Seo";
 import ShareArticleLinks from "../ShareArticleLinks";
 import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
 import cn from "classnames";
-import useMediaQuery from "@utils/useMediaQuery";
+import { useMediaQuery } from "@utils/hooks";
 
 import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
 import AuthorHoverCard from "../AuthorHoverCard";
