@@ -218,8 +218,6 @@ export const getStaticProps = async () => {
     "metadata.tags.sys.id[all]": "photography",
   });
 
-  console.log(items[0]);
-
   return {
     props: {
       bannerImage,
