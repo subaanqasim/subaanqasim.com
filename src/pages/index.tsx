@@ -1,7 +1,6 @@
 import Bounce from "@components/Bounce";
 import { Card } from "@components/Card";
 import { Container } from "@components/Container";
-import FeaturedPost from "@components/FeaturedPost";
 import {
   GitHubIcon,
   InstagramIcon,
