@@ -33,6 +33,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.47.0
   autoprefixer: 10.4.13
   babel-loader: 9.1.0
+  class-variance-authority: ^0.4.0
   classnames: 2.3.2
   contentful: 9.2.14
   contentful-management: 10.25.0
@@ -96,6 +97,7 @@ dependencies:
   '@trpc/next': 10.6.0_wwo3ofp5elrju5zvl65jn6mjpm
   '@trpc/react-query': 10.6.0_jvy7igwpe5g26kdgldbjgphyd4
   '@trpc/server': 10.6.0
+  class-variance-authority: 0.4.0_typescript@4.9.4
   classnames: 2.3.2
   contentful: 9.2.14
   contentful-management: 10.25.0
@@ -3199,6 +3201,17 @@ packages:
   /chrome-trace-event/1.0.3:
     resolution: {integrity: sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg==}
     engines: {node: '>=6.0'}
+
+  /class-variance-authority/0.4.0_typescript@4.9.4:
+    resolution: {integrity: sha512-74enNN8O9ZNieycac/y8FxqgyzZhZbxmCitAtAeUrLPlxjSd5zA7LfpprmxEcOmQBnaGs5hYhiSGnJ0mqrtBLQ==}
+    peerDependencies:
+      typescript: '>= 4.5.5 < 5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      typescript: 4.9.4
+    dev: false
 
   /classnames/2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
@@ -7061,7 +7074,6 @@ packages:
     resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}

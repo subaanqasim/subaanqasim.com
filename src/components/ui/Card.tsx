@@ -2,42 +2,7 @@ import Link, { type LinkProps } from "next/link";
 import cn from "classnames";
 import { ChevronRightIcon } from "@components/common";
 import React from "react";
-
-type Colours =
-  | "neutral"
-  | "gray"
-  | "neutral"
-  | "neutral"
-  | "neutral"
-  | "red"
-  | "orange"
-  | "amber"
-  | "yellow"
-  | "lime"
-  | "green"
-  | "emerald"
-  | "teal"
-  | "cyan"
-  | "sky"
-  | "blue"
-  | "indigo"
-  | "violet"
-  | "purple"
-  | "fuchsia"
-  | "pink"
-  | "rose";
-
-type AsProp<C extends React.ElementType> = {
-  as?: C;
-};
-
-type PropsToOmit<C extends React.ElementType, P> = keyof (AsProp<C> & P);
-
-type PolymorphicProps<
-  C extends React.ElementType,
-  CustomProps = object,
-> = React.PropsWithChildren<CustomProps & AsProp<C>> &
-  Omit<React.ComponentPropsWithoutRef<C>, PropsToOmit<C, CustomProps>>;
+import type { Colours, PolymorphicProps } from "@utils/types/ui";
 
 type CardProps = {
   hoverColour?: Colours;
