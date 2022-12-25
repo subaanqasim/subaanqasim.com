@@ -1,118 +1,23 @@
-import Bounce from "@components/Bounce";
-import { Card } from "@components/ui/Card";
 import {
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
-  TwitterIcon,
   SEO,
+  TwitterIcon,
 } from "@components/common";
-import { Container } from "@components/ui";
-import Newsletter from "@components/Newsletter";
-import PhotoMarquee from "@components/home/PhotoMarquee";
 import {
-  CalendarDaysIcon,
-  ClockIcon,
-  EyeIcon,
-} from "@heroicons/react/24/outline";
+  PhotoMarquee,
+  SocialLink,
+  ArticleCard,
+  SeeMoreLink,
+} from "@components/home";
+import Newsletter from "@components/Newsletter";
+import { Container } from "@components/ui";
 import { cda } from "@utils/contentful";
-import { formatDate } from "@utils/formatDate";
 import { getBannerImage } from "@utils/getBannerImage";
-import { random } from "@utils/random";
 import { type IArticle } from "@utils/types/contentful";
 import { type InferGetStaticPropsType } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import rt from "reading-time";
-
-function SeeMoreLink({ text, href }: { text: string; href: string }) {
-  return (
-    <Link
-      href={href}
-      className="group mt-12 inline-flex items-center transition-all hover:text-neutral-500 dark:hover:text-neutral-400"
-    >
-      {text}
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="ml-2 transition-transform duration-[400ms] ease-[cubic-bezier(.5,0,.15,1)] group-hover:translate-x-2"
-      >
-        <path
-          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
-          fill="currentColor"
-          fillRule="evenodd"
-          clipRule="evenodd"
-        ></path>
-      </svg>
-    </Link>
-  );
-}
-
-function SocialLink({
-  icon: Icon,
-  ...props
-}: {
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
-} & JSX.IntrinsicElements["a"]) {
-  const num = random(7, 25);
-  const positiveOrNegativeNum = Math.random() < 0.5 ? num : -num;
-
-  return (
-    <Bounce method="hover" bounceConfig={{ rotation: positiveOrNegativeNum }}>
-      <a
-        {...props}
-        className="group -m-1 flex items-center p-1"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Icon className="h-6 w-6 fill-neutral-500 transition group-hover:fill-neutral-600 dark:fill-neutral-400 dark:group-hover:fill-neutral-300" />
-      </a>
-    </Bounce>
-  );
-}
-
-function ArticleCard({ articleData }: { articleData: IArticle }) {
-  const article = articleData.fields;
-  const readingTime = rt(article.body + article.body2);
-  const roundedMins = Math.round(readingTime.minutes);
-  // if 0, return 1 (so 1min is minimum)
-  const minutes = roundedMins === 0 ? 1 : roundedMins;
-
-  return (
-    <Card as="article">
-      <Card.Title as="h3" href={`/articles/${article.slug}`}>
-        {article.title}
-      </Card.Title>
-      <Card.Eyebrow as="div" decorate className="gap-3">
-        <div className="flex items-center">
-          <CalendarDaysIcon className="mr-1 h-4 w-4" aria-hidden="true" />
-          <time dateTime={article.datePublished}>
-            {formatDate(article.datePublished)}
-          </time>
-        </div>
-        /
-        <div className="flex items-center">
-          <ClockIcon className="mr-1 h-4 w-4" />
-          <span
-            aria-label={`${minutes} ${minutes > 1 ? "minutes" : "minute"} read`}
-          >
-            {`${minutes} min`}
-          </span>
-        </div>
-        /
-        <div className="flex items-center">
-          <EyeIcon className="mr-1 h-4 w-4" />
-          <span aria-label={`9999 views`}>9999</span>
-        </div>
-      </Card.Eyebrow>
-      <Card.Description>{article.excerpt}</Card.Description>
-      <Card.Cta className="lg:ml-auto">Read article</Card.Cta>
-    </Card>
-  );
-}
 
 export default function Home({
   bannerImage,
