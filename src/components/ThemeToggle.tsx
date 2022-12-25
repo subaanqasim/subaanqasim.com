@@ -34,7 +34,7 @@ export default function ThemeToggle() {
       className="hover:scale-110"
     >
       <button
-        className="group rounded-full bg-white/50 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition hover:scale-110 dark:bg-neutral-800/50 dark:ring-white/10 dark:hover:ring-white/20"
+        className="group rounded-full bg-white/50 px-3 py-2 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur transition hover:scale-110 dark:bg-neutral-800/50 dark:ring-white/10 dark:hover:ring-white/20"
         aria-label="Toggle theme"
         onClick={() => {
           setTheme(resolvedTheme === "dark" ? "light" : "dark");
@@ -42,8 +42,8 @@ export default function ThemeToggle() {
       >
         {hasMounted && (
           <>
-            <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
-            <MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500" />
+            <SunIcon className="h-6 w-6 fill-neutral-100 stroke-neutral-500 transition group-hover:fill-neutral-200 group-hover:stroke-neutral-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
+            <MoonIcon className="hidden h-6 w-6 fill-neutral-700 stroke-neutral-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-neutral-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500" />
           </>
         )}
       </button>

@@ -66,7 +66,7 @@ const ArticleLayout = ({
                 {keywords.map((word) => (
                   <div
                     key={word}
-                    className="flex items-center justify-center rounded-lg border border-neutral-200 bg-gradient-to-br from-neutral-100 to-stone-200 py-[6px] px-[12px] text-center dark:border-neutral-700 dark:from-neutral-800 dark:to-stone-900 sm:text-left"
+                    className="flex items-center justify-center rounded-lg border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 py-[6px] px-[12px] text-center dark:border-neutral-700 dark:from-neutral-800 dark:to-neutral-900 sm:text-left"
                   >
                     {word}
                   </div>

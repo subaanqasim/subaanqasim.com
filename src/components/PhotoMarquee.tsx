@@ -80,7 +80,7 @@ export default function PhotoMarquee({ photos }: { photos: AssetCollection }) {
               <div
                 key={image.fields.title}
                 className={cn(
-                  "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
+                  "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 sm:w-72 sm:rounded-2xl",
                   rotations[i % rotations.length],
                 )}
               >

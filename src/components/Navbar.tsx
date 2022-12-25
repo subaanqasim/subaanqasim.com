@@ -23,9 +23,9 @@ function MobileNavigation(props: any) {
 
   return (
     <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full bg-white/50 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-neutral-800/50 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+      <Popover.Button className="group flex items-center rounded-full bg-white/50 px-4 py-2 text-sm font-medium text-neutral-800 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur dark:bg-neutral-800/50 dark:text-neutral-200 dark:ring-white/10 dark:hover:ring-white/20">
         Menu
-        <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
+        <ChevronDownIcon className="ml-3 h-auto w-2 stroke-neutral-500 group-hover:stroke-neutral-700 dark:group-hover:stroke-neutral-400" />
       </Popover.Button>
       <Transition.Root>
         <Transition.Child
@@ -37,7 +37,7 @@ function MobileNavigation(props: any) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Popover.Overlay className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80" />
+          <Popover.Overlay className="fixed inset-0 z-50 bg-neutral-800/40 backdrop-blur-sm dark:bg-black/80" />
         </Transition.Child>
         <Transition.Child
           as={Fragment}
@@ -50,7 +50,7 @@ function MobileNavigation(props: any) {
         >
           <Popover.Panel
             focus
-            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-neutral-900/80 dark:ring-zinc-800"
+            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-neutral-900/5 dark:bg-neutral-900/80 dark:ring-neutral-800"
           >
             {({ close }) => (
               <>
@@ -61,14 +61,14 @@ function MobileNavigation(props: any) {
                     aria-label="Close menu"
                     className="-m-1 p-1"
                   >
-                    <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
+                    <CloseIcon className="h-6 w-6 text-neutral-500 dark:text-neutral-400" />
                   </button>
-                  <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                  <h2 className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                     Navigation
                   </h2>
                 </div>
                 <nav className="mt-6">
-                  <div className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+                  <div className="-my-2 divide-y divide-neutral-100 text-base text-neutral-800 dark:divide-neutral-100/5 dark:text-neutral-300">
                     {navItems.map((item) => (
                       <Link
                         key={item.href}
@@ -103,7 +103,7 @@ function DesktopNavigation(props: JSX.IntrinsicElements["nav"]) {
 
   return (
     <nav {...props}>
-      <div className="flex rounded-full bg-white/50 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-neutral-800/50 dark:text-zinc-200 dark:ring-white/10">
+      <div className="flex rounded-full bg-white/50 px-3 text-sm font-medium text-neutral-800 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur dark:bg-neutral-800/50 dark:text-neutral-200 dark:ring-white/10">
         {navItems.map((item) => (
           <Link
             key={item.href}

@@ -130,7 +130,7 @@ export default function Home({
       <Container className="mt-9">
         <div className="flex justify-between gap-8">
           <div className="max-w-2xl">
-            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            <h1 className="text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-5xl">
               <span className="bg-gradient-to-br from-orange-500 to-rose-500 bg-clip-text text-transparent">
                 Medical student
               </span>
