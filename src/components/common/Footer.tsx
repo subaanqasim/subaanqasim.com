@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Container } from "./Container";
+import { Container } from "../ui/Container";
 
 const footerData = [
   {

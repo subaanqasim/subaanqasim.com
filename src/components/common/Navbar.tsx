@@ -5,7 +5,7 @@ import { CloseIcon, ChevronDownIcon, Logo } from "./Icons";
 import { clamp } from "@utils/clamp";
 import Link, { type LinkProps } from "next/link";
 import cn from "classnames";
-import { Container } from "./Container";
+import { Container } from "../ui/Container";
 import ThemeToggle from "./ThemeToggle";
 
 type Position = "absolute" | "fixed" | "relative" | "static" | "sticky";

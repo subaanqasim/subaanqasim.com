@@ -1,13 +1,13 @@
 import Bounce from "@components/Bounce";
-import { Card } from "@components/Card";
+import { Card } from "@components/ui/Card";
 import {
-  Container,
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
   SEO,
 } from "@components/common";
+import { Container } from "@components/ui";
 import Newsletter from "@components/Newsletter";
 import PhotoMarquee from "@components/home/PhotoMarquee";
 import {
