@@ -1,15 +1,15 @@
 import Bounce from "@components/Bounce";
 import { Card } from "@components/Card";
-import { Container } from "@components/Container";
 import {
+  Container,
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
-} from "@components/Icons";
+  SEO,
+} from "@components/common";
 import Newsletter from "@components/Newsletter";
-import PhotoMarquee from "@components/PhotoMarquee";
-import Seo from "@components/Seo";
+import PhotoMarquee from "@components/home/PhotoMarquee";
 import {
   CalendarDaysIcon,
   ClockIcon,
@@ -122,7 +122,7 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <Seo
+      <SEO
         title="Subaan Qasim | Medical Student & Software Developer"
         image={bannerImage}
         type="website"

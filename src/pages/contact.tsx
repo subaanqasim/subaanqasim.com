@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { type InferGetStaticPropsType } from "next";
-import Seo from "../components/Seo";
+import { SEO } from "@components/common";
 import SocialMediaCard from "../components/SocialMediaCard";
 import EmailToast from "../components/EmailToast";
 import { trpc } from "@utils/trpc";
@@ -163,7 +163,7 @@ const Contact = ({
 
   return (
     <ToastProvider>
-      <Seo
+      <SEO
         title="Contact"
         description="Get in touch with me via email or connect with me on social media."
         image={bannerImage}

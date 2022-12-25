@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import Footer from "../Footer";
+import { Donate } from "@components/donate";
 import { trpc } from "@utils/trpc";
-import Nav from "../Navbar";
-import Donate from "@components/Donate";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import Footer from "./Footer";
+import Nav from "./Navbar";
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { pathname } = useRouter();

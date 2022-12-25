@@ -2,14 +2,14 @@ import type { IArticleFields } from "@utils/types/contentful";
 import type { Sibling } from "../../pages/articles/[slug]";
 import Link from "next/link";
 import { formatDistance } from "date-fns";
-import Seo from "../Seo";
-import ShareArticleLinks from "../ShareArticleLinks";
+import Seo from "../common/SEO";
+import ShareArticleLinks from "./ShareArticleLinks";
 import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
 import cn from "classnames";
 import { useMediaQuery } from "@utils/hooks";
 
 import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
-import AuthorHoverCard from "../AuthorHoverCard";
+import AuthorHoverCard from "./AuthorHoverCard";
 import { formatDate } from "@utils/formatDate";
 
 interface IArticleLayoutProps extends IArticleFields {

@@ -1,4 +1,4 @@
-import Seo from "../components/Seo";
+import Seo from "../components/common/SEO";
 import { type InferGetStaticPropsType } from "next";
 import { getBannerImage } from "@utils/getBannerImage";
 import Link from "next/link";

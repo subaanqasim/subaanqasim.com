@@ -1,11 +1,11 @@
+import { ArticlePost } from "@components/article";
+import { SEO } from "@components/common";
 import { cda } from "@utils/contentful";
 import { getBannerImage } from "@utils/getBannerImage";
 import { type IArticle } from "@utils/types/contentful";
 import { type InferGetStaticPropsType } from "next";
 import { useState } from "react";
 import rt from "reading-time";
-import ArticlePost from "../../components/ArticlePost";
-import Seo from "../../components/Seo";
 
 export type Article = Pick<IArticle, "fields"> & {
   fields: Pick<
@@ -28,7 +28,7 @@ const Articles = ({
 
   return (
     <>
-      <Seo
+      <SEO
         title="Articles"
         description="Thoughts and unadulterated streams of consciousness about Medicine, tech and life."
         image={bannerImage}

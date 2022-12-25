@@ -30,7 +30,7 @@ type ConditionalProps =
 
 type SeoProps = CommonProps & ConditionalProps;
 
-const Seo = ({
+const SEO = ({
   title,
   description,
   image,
@@ -113,4 +113,4 @@ const Seo = ({
   );
 };
 
-export default Seo;
+export default SEO;

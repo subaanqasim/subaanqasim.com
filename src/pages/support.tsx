@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { type InferGetStaticPropsType } from "next";
-import Seo from "../components/Seo";
+import { SEO } from "@components/common";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import cn from "classnames";
@@ -18,7 +18,7 @@ const Support = ({
 
   return (
     <>
-      <Seo
+      <SEO
         title="Support"
         description="Kind words from donations and supporters."
         image={bannerImage}

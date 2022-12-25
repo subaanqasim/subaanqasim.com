@@ -1,6 +1,6 @@
 import Link, { type LinkProps } from "next/link";
 import cn from "classnames";
-import { ChevronRightIcon } from "@components/Icons";
+import { ChevronRightIcon } from "@components/common";
 import React from "react";
 
 type Colours =

@@ -1,14 +1,14 @@
 import { getBannerImage } from "@utils/getBannerImage";
 import { type InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import Seo from "../components/Seo";
+import { SEO } from "@components/common";
 
 const NotFound = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <Seo title="404" noindex nofollow image={bannerImage} />
+      <SEO title="404" noindex nofollow image={bannerImage} />
       <main className="flex w-full flex-col items-center text-center">
         <h1>420 - Page is too cool for you 🥵</h1>
         <div className="mt-8 text-xl font-bold">

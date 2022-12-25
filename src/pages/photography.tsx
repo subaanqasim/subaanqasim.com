@@ -1,4 +1,4 @@
-import Seo from "../components/Seo";
+import { SEO } from "@components/common";
 import { type InferGetStaticPropsType } from "next";
 import Development from "../components/Development";
 import { getBannerImage } from "@utils/getBannerImage";
@@ -8,7 +8,7 @@ const Photography = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <Seo
+      <SEO
         title="Photography"
         description="A gallery of some of my favourite photos whilst out and about."
         image={bannerImage}

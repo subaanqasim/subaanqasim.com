@@ -1,6 +1,6 @@
 import Development from "../components/Development";
 import { type InferGetStaticPropsType } from "next";
-import Seo from "../components/Seo";
+import { SEO } from "@components/common";
 import { getBannerImage } from "@utils/getBannerImage";
 
 const Admin = ({
@@ -8,7 +8,7 @@ const Admin = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <Seo title="Admin" image={bannerImage} nofollow noindex />
+      <SEO title="Admin" image={bannerImage} nofollow noindex />
       <Development title="Admin" />
     </>
   );

@@ -13,8 +13,8 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeImgCmsMeta from "@utils/rehype-image-cms-meta";
 import rt from "reading-time";
-import { components } from "../../components/MdxComponents";
-import ArticleLayout from "../../components/layouts/ArticleLayout";
+import { components } from "@components/article";
+import { ArticleLayout } from "@components/article";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;

@@ -1,6 +1,6 @@
 import { type InferGetStaticPropsType } from "next";
 import Development from "../components/Development";
-import Seo from "../components/Seo";
+import Seo from "../components/common/SEO";
 import { getBannerImage } from "@utils/getBannerImage";
 
 const Vibes = ({

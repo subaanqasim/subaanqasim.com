@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 import { ThemeProvider } from "next-themes";
-import MainLayout from "@components/layouts/MainLayout";
+import { MainLayout } from "@components/common";
 import type { AppType } from "next/app";
 import type { Session } from "next-auth";
 import "focus-visible";
