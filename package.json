@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
+    "@heroicons/react": "^2.0.13",
     "@hookform/resolvers": "2.9.10",
     "@next-auth/prisma-adapter": "1.0.5",
     "@next/env": "13.0.7",

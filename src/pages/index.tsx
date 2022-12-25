@@ -1,30 +1,35 @@
 import Bounce from "@components/Bounce";
+import { Card } from "@components/Card";
 import { Container } from "@components/Container";
+import FeaturedPost from "@components/FeaturedPost";
 import {
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
 } from "@components/Icons";
+import PhotoMarquee from "@components/PhotoMarquee";
+import Seo from "@components/Seo";
 import { cda } from "@utils/contentful";
+import { formatDate } from "@utils/formatDate";
 import { getBannerImage } from "@utils/getBannerImage";
-import { useHasMounted } from "@utils/hooks";
 import { random } from "@utils/random";
-import cn from "classnames";
-import { type AssetCollection } from "contentful";
 import { type InferGetStaticPropsType } from "next";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import FeaturedPost from "src/components/FeaturedPost";
-import Seo from "../components/Seo";
+import {
+  CalendarDaysIcon,
+  ClockIcon,
+  EyeIcon,
+} from "@heroicons/react/24/outline";
+import rt from "reading-time";
+import { type IArticle } from "@utils/types/contentful";
 
 function SeeMoreLink({ text, href }: { text: string; href: string }) {
   return (
     <Link
       href={href}
-      className="group inline-flex items-center transition-all hover:text-neutral-500 dark:hover:text-neutral-400"
+      className="group mt-12 inline-flex items-center transition-all hover:text-neutral-500 dark:hover:text-neutral-400"
     >
       {text}
       <svg
@@ -50,7 +55,7 @@ function SocialLink({
   icon: Icon,
   ...props
 }: {
-  icon: typeof TwitterIcon;
+  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
 } & JSX.IntrinsicElements["a"]) {
   const num = random(7, 25);
   const positiveOrNegativeNum = Math.random() < 0.5 ? num : -num;
@@ -69,100 +74,43 @@ function SocialLink({
   );
 }
 
-function Photos({ photos }: { photos: AssetCollection }) {
-  const rotations = [
-    "rotate-2",
-    "-rotate-2",
-    "rotate-2",
-    "rotate-2",
-    "-rotate-2",
-    "rotate-2",
-    "-rotate-2",
-    "rotate-2",
-    "rotate-2",
-    "-rotate-2",
-    "rotate-2",
-    "-rotate-2",
-    "rotate-2",
-    "rotate-2",
-    "-rotate-2",
-    "rotate-2",
-    "-rotate-2",
-    "rotate-2",
-    "rotate-2",
-    "-rotate-2",
-    "rotate-2",
-    "-rotate-2",
-    "rotate-2",
-    "rotate-2",
-    "-rotate-2",
-  ];
-
-  const hasMounted = useHasMounted();
-  const { resolvedTheme } = useTheme();
-  const marqueeRef = useRef<HTMLDivElement>(null);
-  const [length, setLength] = useState(0);
-  const duration = `${length * 25}ms`;
-
-  useEffect(() => {
-    const resizeObserver = new window.ResizeObserver(() => {
-      setLength(marqueeRef.current?.offsetWidth ?? 0);
-    });
-
-    if (marqueeRef.current) {
-      resizeObserver.observe(marqueeRef.current);
-    }
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, []);
+function ArticleCard({ articleData }: { articleData: IArticle }) {
+  const article = articleData.fields;
+  const readingTime = rt(article.body + article.body2);
+  const roundedMins = Math.round(readingTime.minutes);
+  // if 0, return 1 (so 1min is minimum)
+  const minutes = roundedMins === 0 ? 1 : roundedMins;
 
   return (
-    <>
-      <span className="marquee-masked-blur absolute inset-0 z-[10]" />
-      {hasMounted && (
-        <span
-          className={cn(
-            "animate-fade-in",
-            resolvedTheme === "dark"
-              ? "absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(0,0,0,1)0%,rgba(0,0,0,0)35%,rgba(0,0,0,0)65%,rgba(0,0,0,1)100%)]"
-              : "absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(250,250,250,1)0%,rgba(250,250,250,0)35%,rgba(250,250,250,0)65%,rgba(250,250,250,1)100%)]",
-          )}
-        />
-      )}
-      <div className="w-full overflow-hidden py-6">
-        <div
-          ref={marqueeRef}
-          className="animate-horizontal-scroll"
-          style={
-            { "--horizontal-scroll-duration": duration } as React.CSSProperties
-          }
-        >
-          <div className="-my-4 flex justify-center gap-5  py-4 sm:gap-8">
-            {photos.items.map((image, i) => (
-              <div
-                key={image.fields.title}
-                className={cn(
-                  "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
-                  rotations[i % rotations.length],
-                )}
-              >
-                <Image
-                  src={`https:${image.fields.file.url}`}
-                  alt={image.fields.description ?? ""}
-                  width={image.fields.file.details.image?.width}
-                  height={image.fields.file.details.image?.height}
-                  sizes="(min-width: 640px) 18rem, 11rem"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  priority
-                />
-              </div>
-            ))}
-          </div>
+    <Card as="article">
+      <Card.Title as="h3" href={`/articles/${article.slug}`}>
+        {article.title}
+      </Card.Title>
+      <Card.Eyebrow as="div" decorate className="gap-3">
+        <div className="flex items-center">
+          <CalendarDaysIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+          <time dateTime={article.datePublished}>
+            {formatDate(article.datePublished)}
+          </time>
         </div>
-      </div>
-    </>
+        /
+        <div className="flex items-center">
+          <ClockIcon className="mr-1 h-4 w-4" />
+          <span
+            aria-label={`${minutes} ${minutes > 1 ? "minutes" : "minute"} read`}
+          >
+            {`${minutes} min`}
+          </span>
+        </div>
+        /
+        <div className="flex items-center">
+          <EyeIcon className="mr-1 h-4 w-4" />
+          <span aria-label={`9999 views`}>9999</span>
+        </div>
+      </Card.Eyebrow>
+      <Card.Description>{article.excerpt}</Card.Description>
+      <Card.Cta className="lg:ml-auto">Read article</Card.Cta>
+    </Card>
   );
 }
 
@@ -170,6 +118,7 @@ export default function Home({
   bannerImage,
   profileImage,
   photos,
+  articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -240,104 +189,18 @@ export default function Home({
         </div>
       </Container>
       <div className="relative mt-32 sm:mt-48">
-        <Photos photos={photos} />
+        <PhotoMarquee photos={photos} />
       </div>
 
-      {/* <div className="mb-20 flex w-full flex-col-reverse justify-between gap-8 sm:flex-row">
-          <div className="flex max-w-[500px] flex-col">
-            <h1 className="mb-2">Subaan Qasim</h1>
-
-            <h2 className="mb-10 text-lg font-normal tracking-wide md:text-xl">
-              Medical student, podcaster &{" "}
-              <span className="font-medium italic">(kinda)</span> full-stack
-              developer.
-            </h2>
-
-            <p className="mb-8 text-neutral-500 dark:text-neutral-400 sm:mb-5">
-              Posting projects, thoughts and unadulterated streams of
-              consciousness on my section of the internet.
-            </p>
-
-            <div className="mt-auto flex gap-5">
-              <Link href="#work" scroll={false} className="button-primary">
-                My work
-              </Link>
-              <Link href="/about" className="button-secondary">
-                About me
-              </Link>
-            </div>
-          </div>
-
-          <div className="w-[150px] sm:min-w-[30%]">
-            <div className="aspect-w-1 aspect-h-1 relative before:absolute before:-inset-1 before:-z-[1] before:animate-glow-tilt before:rounded-full before:bg-gradient-to-r before:from-teal-600 before:to-emerald-600 before:opacity-40 before:blur before:transition before:duration-500 before:ease-[cubic-bezier(.5,0,.15,1)] before:hocus:opacity-80 sm:aspect-w-4 sm:aspect-h-5 sm:before:rounded-none">
-              <Image
-                src={`https:${profileImage.fields.file!.url}`}
-                width={profileImage.fields.file?.details.image?.width}
-                height={profileImage.fields.file?.details.image?.height}
-                alt="Subaan Qasim"
-                sizes="30vw"
-                priority
-                className="rounded-full object-cover sm:rounded-md"
-              />
-            </div>
-          </div>
-        </div> */}
-
-      <Container>
-        <div id="work" className="mt-12  w-full">
-          <h3 className="mb-4 text-2xl md:text-4xl">Featured Projects</h3>
-
-          <div className="mb-8 flex flex-col justify-between gap-8 md:flex-row">
-            <FeaturedPost
-              type="project"
-              title="Coming Soon..."
-              excerpt="Development in progress 🔨"
-              // slug="#"
-            />
-            <FeaturedPost
-              type="project"
-              title="Also Coming Soon..."
-              excerpt="Development still in progress for this one as well 🔨"
-              // slug="#"
-            />
-            <FeaturedPost
-              type="project"
-              title="Guess What? Coming Soon... 🤧"
-              excerpt="I hate to break it to you, but this one is also being developed 🛠"
-              // slug="#"
-            />
-          </div>
-
-          <SeeMoreLink text="See more projects" href="/projects" />
-
-          <h3 className="mb-4 mt-16 text-2xl md:text-4xl">Featured Articles</h3>
-          <div className="mb-8 flex flex-col justify-between gap-8 md:flex-row">
-            <FeaturedPost
-              type="article"
-              title="Coming soon..."
-              excerpt="Writing in progress ✍🏽"
-              // slug="#"
-            />
-            <FeaturedPost
-              type="article"
-              title="Hopefully Coming Soon Also..."
-              excerpt="Writing still in progress for this one as well ✍🏽"
-              // slug="#"
-            />
-            <FeaturedPost
-              type="article"
-              title="Unfortunately, This One Is Also Coming Soon..."
-              excerpt="I hate to break it to you, but this one is also being written ✍🏽"
-              // slug="#"
-            />
-          </div>
-
-          <SeeMoreLink text="Read all articles" href="/articles" />
-
-          <h3 className="mb-4 mt-16 text-2xl md:text-4xl">Favourite Shots</h3>
-
-          <SeeMoreLink text="View all photos" href="/photography" />
+      <Container className="md:28 mt-24" id="work">
+        <h2 className="text-3xl font-bold md:text-5xl">Featured Articles</h2>
+        <div className="mt-12 flex flex-col gap-16">
+          {articles.map((article) => (
+            <ArticleCard key={article.fields.slug} articleData={article} />
+          ))}
         </div>
+
+        <SeeMoreLink text="Read all articles" href="/articles" />
       </Container>
     </>
   );
@@ -347,15 +210,23 @@ export const getStaticProps = async () => {
   const bannerImage = await getBannerImage();
   const profileImage = await cda.getAsset("3Cgp43AjBUNejadXB6C5hu");
 
+  const { items } = await cda.getEntries({
+    content_type: "article",
+    order: "-fields.datePublished",
+  });
+
   const photos = await cda.getAssets({
     "metadata.tags.sys.id[all]": "photography",
   });
+
+  console.log(items[0]);
 
   return {
     props: {
       bannerImage,
       profileImage,
       photos,
+      articles: items as IArticle[],
     },
   };
 };

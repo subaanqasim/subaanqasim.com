@@ -10,6 +10,7 @@ import { useMediaQuery } from "@utils/hooks";
 
 import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
 import AuthorHoverCard from "../AuthorHoverCard";
+import { formatDate } from "@utils/formatDate";
 
 interface IArticleLayoutProps extends IArticleFields {
   children: React.ReactNode;
@@ -84,11 +85,7 @@ const ArticleLayout = ({
                   <div className="flex gap-4 text-neutral-500 dark:text-neutral-400">
                     <div className="flex items-center gap-2">
                       <CalendarIcon className="ml-0 sm:ml-4" />
-                      {new Date(datePublished).toLocaleDateString("en-GB", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
+                      {formatDate(datePublished)}
                     </div>
 
                     <div className="flex items-center gap-2">

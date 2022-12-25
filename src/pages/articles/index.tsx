@@ -7,12 +7,12 @@ import rt from "reading-time";
 import ArticlePost from "../../components/ArticlePost";
 import Seo from "../../components/Seo";
 
-type Articles = (Pick<IArticle, "fields"> & {
+export type Article = Pick<IArticle, "fields"> & {
   fields: Pick<
     IArticle["fields"],
     "title" | "slug" | "excerpt" | "body" | "body2"
   >;
-})[];
+};
 
 const Articles = ({
   bannerImage,
@@ -148,7 +148,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       bannerImage,
-      articles: items as Articles,
+      articles: items as Article[],
     },
   };
 };
