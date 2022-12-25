@@ -129,11 +129,13 @@ export default function Home({
       <Container className="mt-9">
         <div className="flex justify-between gap-8">
           <div className="max-w-2xl">
+            {/* <Balancer ratio={0.2}> */}
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               <span className="bg-gradient-to-br from-orange-500 to-rose-500 bg-clip-text text-transparent">
                 Medical student
               </span>
               ,{" "}
+              <br className="hidden min-[692px]:block min-[735px]:hidden min-[1069px]:block min-[1115px]:hidden" />
               <a
                 href="https://gettingit.co.uk"
                 target="_blank"
@@ -147,6 +149,12 @@ export default function Home({
                 full-stack engineer.
               </span>
             </h1>
+            {/* </Balancer> */}
+            {/* <Balancer ratio={0.2}>
+              <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                Medical student, podcaster & full-stack engineer.
+              </h1>
+            </Balancer> */}
             <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
               I’m Subaan, a medical student and tech enthusiast based in London.
               <br />
