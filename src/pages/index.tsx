@@ -7,22 +7,23 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from "@components/Icons";
+import Newsletter from "@components/Newsletter";
 import PhotoMarquee from "@components/PhotoMarquee";
 import Seo from "@components/Seo";
-import { cda } from "@utils/contentful";
-import { formatDate } from "@utils/formatDate";
-import { getBannerImage } from "@utils/getBannerImage";
-import { random } from "@utils/random";
-import { type InferGetStaticPropsType } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import {
   CalendarDaysIcon,
   ClockIcon,
   EyeIcon,
 } from "@heroicons/react/24/outline";
-import rt from "reading-time";
+import { cda } from "@utils/contentful";
+import { formatDate } from "@utils/formatDate";
+import { getBannerImage } from "@utils/getBannerImage";
+import { random } from "@utils/random";
 import { type IArticle } from "@utils/types/contentful";
+import { type InferGetStaticPropsType } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import rt from "reading-time";
 
 function SeeMoreLink({ text, href }: { text: string; href: string }) {
   return (
@@ -129,7 +130,6 @@ export default function Home({
       <Container className="mt-9">
         <div className="flex justify-between gap-8">
           <div className="max-w-2xl">
-            {/* <Balancer ratio={0.2}> */}
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               <span className="bg-gradient-to-br from-orange-500 to-rose-500 bg-clip-text text-transparent">
                 Medical student
@@ -149,12 +149,6 @@ export default function Home({
                 full-stack engineer.
               </span>
             </h1>
-            {/* </Balancer> */}
-            {/* <Balancer ratio={0.2}>
-              <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                Medical student, podcaster & full-stack engineer.
-              </h1>
-            </Balancer> */}
             <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
               I’m Subaan, a medical student and tech enthusiast based in London.
               <br />
@@ -200,11 +194,20 @@ export default function Home({
       </div>
 
       <Container className="md:28 mt-24" id="work">
-        <h2 className="text-3xl font-bold md:text-5xl">Featured Articles</h2>
-        <div className="mt-12 flex flex-col gap-16">
-          {articles.map((article) => (
-            <ArticleCard key={article.fields.slug} articleData={article} />
-          ))}
+        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+          <div>
+            <h2 className="text-3xl font-bold md:text-5xl">
+              Featured Articles
+            </h2>
+            <div className="mt-12 flex flex-col gap-16">
+              {articles.map((article) => (
+                <ArticleCard key={article.fields.slug} articleData={article} />
+              ))}
+            </div>
+          </div>
+          <div className="space-y-10 lg:ml-16 xl:ml-24">
+            <Newsletter />
+          </div>
         </div>
 
         <SeeMoreLink text="Read all articles" href="/articles" />
