@@ -34,7 +34,7 @@ export default function ThemeToggle() {
       className="hover:scale-110"
     >
       <button
-        className="group rounded-full bg-white px-3 py-2 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur transition hover:scale-110 dark:bg-neutral-900 dark:ring-white/10 dark:hover:ring-white/20"
+        className="group rounded-full bg-white/50 px-3 py-2 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur transition hover:scale-110 dark:bg-neutral-800/50 dark:ring-white/10 dark:hover:ring-white/20"
         aria-label="Toggle theme"
         onClick={() => {
           setTheme(resolvedTheme === "dark" ? "light" : "dark");
