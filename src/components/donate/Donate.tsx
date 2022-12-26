@@ -5,6 +5,7 @@ import ModeOfDonation from "./ModeOfDonation";
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import getStripe from "@utils/getStripe";
 import { trpc } from "@utils/trpc";
+import { Button } from "@components/ui";
 
 type FormData = {
   amount: string;
@@ -60,7 +61,9 @@ const Donate = () => {
     <div className="relative inline-block text-left transition-transform ease-in-out hocus:scale-110">
       <PopoverPrimitive.Root>
         <PopoverPrimitive.Trigger asChild>
-          <button className="button-primary px-4">💸</button>
+          <Button variant="tertiary" size="small">
+            💸
+          </Button>
         </PopoverPrimitive.Trigger>
         <PopoverPrimitive.Portal>
           <PopoverPrimitive.Content

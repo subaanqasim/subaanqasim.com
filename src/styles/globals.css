@@ -56,14 +56,6 @@
 }
 
 @layer components {
-  .button-primary {
-    @apply relative rounded-lg bg-neutral-100 px-8 py-1.5  font-medium text-orange-700 transition duration-300 ease-[cubic-bezier(.5,0,.15,1)] before:absolute before:-inset-1 before:-z-[1] before:animate-glow-tilt  before:bg-gradient-to-r before:from-amber-600 before:to-orange-700 before:opacity-75 before:blur before:transition before:duration-500 before:ease-[cubic-bezier(.5,0,.15,1)] hocus:text-neutral-800 before:hocus:opacity-100 dark:bg-neutral-900 dark:text-orange-400 dark:hocus:text-neutral-200;
-  }
-
-  .button-secondary {
-    @apply relative rounded-lg border border-neutral-400 bg-neutral-50 px-8 py-1.5 font-medium text-neutral-500 transition duration-300 ease-[cubic-bezier(.5,0,.15,1)] before:absolute before:-inset-1 before:-z-[1] before:animate-glow-tilt before:bg-gradient-to-r before:from-amber-600 before:to-orange-700 before:opacity-0 before:blur before:transition before:duration-500 before:ease-[cubic-bezier(.5,0,.15,1)] hocus:text-neutral-800 before:hocus:opacity-100 dark:border-neutral-400 dark:bg-neutral-900 dark:text-neutral-400 dark:hocus:text-neutral-200;
-  }
-
   .link {
     @apply transform rounded-sm text-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 hocus:text-orange-500 hocus:underline dark:text-orange-400 dark:focus-visible:ring-offset-neutral-900 dark:hocus:text-orange-500;
   }

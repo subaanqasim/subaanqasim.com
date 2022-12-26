@@ -2,6 +2,7 @@ import { getBannerImage } from "@utils/getBannerImage";
 import { type InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { SEO } from "@components/common";
+import { Button } from "@components/ui";
 
 const NotFound = ({
   bannerImage,
@@ -28,11 +29,17 @@ const NotFound = ({
               please get in touch.
             </Link>
           </p>
-          <Link href="/" className="button-primary mt-16 py-5">
-            Return to safety
-          </Link>
         </div>
       </main>
+      <Button
+        as={"button"}
+        // href="/"
+        variant="primary"
+        size="large"
+        className="mx-auto mt-16 max-w-xs"
+      >
+        Return to safety
+      </Button>
     </>
   );
 };

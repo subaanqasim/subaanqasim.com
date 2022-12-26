@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import cn from "classnames";
 import { getBannerImage } from "@utils/getBannerImage";
+import { Button } from "@components/ui";
 
 const Support = ({
   bannerImage,
@@ -66,9 +67,9 @@ const Support = ({
             </div>
           )}
           <div className="mx-auto mt-4 max-w-sm">
-            <button className="button-primary w-full" type="submit">
+            <Button variant="primary" glowColour="orange-yellow" type="submit">
               Sign in with email
-            </button>
+            </Button>
           </div>
         </form>
       )}
