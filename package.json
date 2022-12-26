@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
-    "contentful-types": "contentful-typescript-codegen --output ./src/utils/types/contentful.d.ts"
+    "contentful-types": "contentful-typescript-codegen --output ./src/utils/types/contentful.d.ts",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\" && prisma format",
+    "clean": "rm -rf .next node_modules",
+    "reset": "pnpm clean && pnpm i"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
