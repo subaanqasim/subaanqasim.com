@@ -5,19 +5,16 @@ import {
   SEO,
   TwitterIcon,
 } from "@components/common";
-import {
-  PhotoMarquee,
-  SocialLink,
-  ArticleCard,
-  SeeMoreLink,
-} from "@components/home";
+import { PhotoMarquee, SocialLink, ArticleCard } from "@components/home";
 import Newsletter from "@components/Newsletter";
-import { Container } from "@components/ui";
+import { Button, Container } from "@components/ui";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { cda } from "@utils/contentful";
 import { getBannerImage } from "@utils/getBannerImage";
 import { type IArticle } from "@utils/types/contentful";
 import { type InferGetStaticPropsType } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home({
   bannerImage,
@@ -82,6 +79,27 @@ export default function Home({
                 icon={LinkedInIcon}
               />
             </div>
+            <div className="mt-12 flex w-full flex-col items-center gap-6 xs:max-w-sm xs:flex-row">
+              <Button
+                as="a"
+                href="#work"
+                variant="primary"
+                glowColour="cyan-blue"
+                size="large"
+                className="w-full"
+              >
+                My Work
+              </Button>
+              <Button
+                as={Link}
+                href="/about"
+                variant="secondary"
+                size="large"
+                className="w-full"
+              >
+                About Me
+              </Button>
+            </div>
           </div>
           <Image
             src={`https:${profileImage.fields.file.url}`}
@@ -90,7 +108,7 @@ export default function Home({
             alt="Subaan Qasim"
             sizes="(min-width: 1280px) 320px, (min-width: 1024px) 250px, 0px"
             priority
-            className="aspect-[4/5] rounded-xl object-cover max-lg:hidden lg:w-64 xl:w-80"
+            className="aspect-[4/5] h-full rounded-xl object-cover max-lg:hidden lg:max-w-[250px] xl:max-w-xs"
           />
         </div>
       </Container>
@@ -98,7 +116,7 @@ export default function Home({
         <PhotoMarquee photos={photos} />
       </div>
 
-      <Container className="md:28 mt-24" id="work">
+      <Container className="mt-24 md:mt-28" id="work">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div>
             <h2 className="text-3xl font-bold md:text-5xl">
@@ -109,13 +127,16 @@ export default function Home({
                 <ArticleCard key={article.fields.slug} articleData={article} />
               ))}
             </div>
+            <Button variant="tertiary" size="small" className="mt-12">
+              Read all articles
+              <ArrowRightIcon className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+            </Button>
           </div>
+
           <div className="space-y-10 lg:ml-16 xl:ml-24">
             <Newsletter />
           </div>
         </div>
-
-        <SeeMoreLink text="Read all articles" href="/articles" />
       </Container>
     </>
   );

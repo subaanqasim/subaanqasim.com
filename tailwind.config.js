@@ -43,6 +43,15 @@ module.exports = {
         extraBold: 800,
       },
 
+      backgroundImage: {
+        "button-gradient-pink-purple":
+          "linear-gradient(165deg, #ff0080, #7928ca)",
+        "button-gradient-orange-yellow":
+          "linear-gradient(165deg, #ff4d4d, #f9cb28)",
+        "button-gradient-cyan-blue":
+          "linear-gradient(165deg, #00dfd8, #007cf0)",
+      },
+
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -96,6 +105,11 @@ module.exports = {
           "0%": { opacity: 1 },
           "100%": { opacity: 0 },
         },
+        // "gradient-rotate": {
+        //   to: {
+        //     "--gradient-angle": "360deg",
+        //   },
+        // },
         // Dropdown menu
         "scale-in": {
           "0%": { opacity: 0, transform: "scale(0)" },
@@ -153,6 +167,7 @@ module.exports = {
       animation: {
         "fade-in": "fade-in 850ms cubic-bezier(0, 0, 0, 1)",
         "fade-out": "fade-out 850ms cubic-bezier(0, 0, 0, 1)",
+        "gradient-rotate": "gradient-rotate 6s linear infinite",
         // Dropdown menu
         "scale-in": "scale-in 0.2s ease-in-out",
         "slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",

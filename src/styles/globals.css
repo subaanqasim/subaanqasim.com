@@ -6,6 +6,16 @@
   @apply bg-neutral-800 text-neutral-200 dark:bg-neutral-200 dark:text-neutral-800;
 }
 
+/*
+@supports (background: paint(something)) {
+  @property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+}
+*/
+
 @layer base {
   /*
   html {
