@@ -15,7 +15,7 @@ export default function Newsletter() {
         Get notified when I publish something... so not very often 🤧 &mdash;
         Unsubscribe at any time.
       </p>
-      <div className="mt-6 flex">
+      <div className="mt-6 flex flex-col gap-4 xs:flex-row lg:flex-col">
         <input
           type="email"
           placeholder="Email address"
@@ -28,7 +28,6 @@ export default function Newsletter() {
           size="medium"
           glowColour="pink-purple"
           type="submit"
-          className="ml-4"
         >
           Join
         </Button>
