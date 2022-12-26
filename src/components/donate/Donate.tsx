@@ -60,8 +60,8 @@ const Donate = () => {
   return (
     <div className="relative inline-block text-left transition-transform ease-in-out hocus:scale-110">
       <PopoverPrimitive.Root>
-        <PopoverPrimitive.Trigger asChild>
-          <Button variant="tertiary" size="small">
+        <PopoverPrimitive.Trigger>
+          <Button as="div" variant="tertiary" size="small">
             💸
           </Button>
         </PopoverPrimitive.Trigger>
