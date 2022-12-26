@@ -143,7 +143,7 @@ function LogoAvatar({
       {...props}
       href="/"
       aria-label="Home"
-      className={cn(className, "pointer-events-auto")}
+      className={cn(className, "pointer-events-auto transform-gpu")}
       style={style}
     >
       <div
@@ -239,16 +239,6 @@ export default function Nav() {
         "--avatar-image-transform",
         `translate3d(${x}rem, 0, 0) scale(${scale})`,
       );
-
-      const borderScale = 1 / (toScale / scale);
-      const borderX = (-toX + x) * borderScale;
-      const borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
-
-      setProperty("--avatar-border-transform", borderTransform);
-      setProperty(
-        "--avatar-border-opacity",
-        (scale === toScale ? 1 : 0).toString(),
-      );
     }
 
     function updateStyles() {
@@ -274,10 +264,7 @@ export default function Nav() {
   return (
     <>
       <header
-        className={cn(
-          "pointer-events-none relative z-50 flex flex-col",
-          // "after:contents-[''] after:absolute after:inset-0 after:-bottom-6 after:bg-white/20 after:backdrop-blur-[2px] dark:after:bg-neutral-900/20",
-        )}
+        className={cn("pointer-events-none relative z-50 flex flex-col")}
         style={{
           height: "var(--header-height)",
           marginBottom: "var(--header-mb)",
