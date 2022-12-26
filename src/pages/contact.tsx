@@ -16,7 +16,7 @@ const socials = [
     platform: "Twitter",
     handle: "@subaanqasim",
     href: "https://twitter.com/subaanqasim",
-    iconColour: "text-teal-500",
+    iconColour: "text-cyan-500",
     buttonText: "Follow",
     icon: (
       <svg

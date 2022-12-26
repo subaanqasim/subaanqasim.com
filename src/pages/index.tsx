@@ -47,7 +47,7 @@ export default function Home({
                 podcaster
               </a>{" "}
               & <br className="max-xs:hidden" />
-              <span className="bg-gradient-to-br from-teal-500 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-br from-cyan-500 to-blue-500 bg-clip-text text-transparent">
                 full-stack engineer.
               </span>
             </h1>

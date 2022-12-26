@@ -101,7 +101,7 @@ Card.Cta = function CardCta({ children, className }: CardCtaProps) {
       aria-hidden="true"
       className={cn(
         className,
-        "relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500",
+        "relative z-10 mt-4 flex items-center text-sm font-medium text-cyan-500",
       )}
     >
       {children}
