@@ -103,7 +103,7 @@ function DesktopNavigation(props: JSX.IntrinsicElements["nav"]) {
 
   return (
     <nav {...props}>
-      <div className="flex rounded-full bg-white/50 px-3 text-sm font-medium text-neutral-800 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur dark:bg-neutral-800/50 dark:text-neutral-200 dark:ring-white/10">
+      <div className="flex rounded-full bg-white px-3 text-sm font-medium text-neutral-800 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 dark:bg-neutral-900 dark:text-neutral-200 dark:ring-white/10">
         {navItems.map((item) => (
           <Link
             key={item.href}
