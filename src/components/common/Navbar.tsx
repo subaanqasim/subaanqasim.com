@@ -152,7 +152,7 @@ function LogoAvatar({
           large
             ? "h-16 w-16 before:-inset-y-4 before:-inset-x-5"
             : "h-9 w-9 before:-inset-y-2 before:-inset-x-3",
-          "before:absolute before:z-[-1] before:rounded-full before:bg-neutral-50/50 before:backdrop-blur before:dark:bg-black/50 ",
+          "before:absolute before:z-[-1] before:rounded-full before:bg-neutral-50/50 before:backdrop-blur before:dark:bg-black/25 ",
         )}
       >
         <Logo />
