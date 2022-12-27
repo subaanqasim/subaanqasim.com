@@ -1,14 +1,14 @@
-import { type InferGetStaticPropsType } from "next";
-import Development from "../components/Development";
-import Seo from "../components/common/SEO";
+import { SEO } from "@components/common";
+import Development from "@components/Development";
 import { getBannerImage } from "@utils/getBannerImage";
+import { type InferGetStaticPropsType } from "next";
 
 const Vibes = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <Seo
+      <SEO
         title="Vibes"
         description="A collection of tweets, memes and random stuff I majorly vibed with."
         image={bannerImage}
