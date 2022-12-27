@@ -59,6 +59,10 @@
   .link {
     @apply transform rounded-sm text-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 hocus:text-orange-500 hocus:underline dark:text-orange-400 dark:focus-visible:ring-offset-neutral-900 dark:hocus:text-orange-500;
   }
+
+  .demarcated-section {
+    @apply rounded-2xl border border-neutral-200 p-6 shadow-lg shadow-neutral-800/5  dark:border-neutral-700/70 dark:shadow-neutral-100/5;
+  }
 }
 
 .marquee-masked-blur {

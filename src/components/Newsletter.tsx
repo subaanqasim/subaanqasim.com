@@ -3,10 +3,7 @@ import { Button } from "@components/ui";
 
 export default function Newsletter() {
   return (
-    <form
-      action="#"
-      className="rounded-2xl border border-neutral-200 p-6 shadow-lg shadow-neutral-800/5  dark:border-neutral-700/70 dark:shadow-neutral-100/5"
-    >
+    <form action="#" className="demarcated-section">
       <h2 className="flex text-sm font-semibold text-neutral-900 dark:text-neutral-100">
         <EnvelopeIcon className="h-6 w-6 flex-none fill-neutral-200/20 stroke-neutral-400 dark:fill-neutral-100/10 dark:stroke-neutral-500" />
         <span className="ml-3">Stay up to date</span>
