@@ -1,8 +1,9 @@
-import Seo from "../components/common/SEO";
-import { type InferGetStaticPropsType } from "next";
+import { SEO } from "@components/common";
+import SocialMediaCard from "@components/SocialMediaCard";
+import { Container } from "@components/ui";
 import { getBannerImage } from "@utils/getBannerImage";
+import { type InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import SocialMediaCard from "../components/SocialMediaCard";
 
 const socials = [
   {
@@ -136,100 +137,104 @@ const About = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <Seo title="About" image={bannerImage} />
-      <main>
-        <h1>About</h1>
-        <p className="mt-6">
-          I&apos;m a 5th year medical student and self-taught software developer
-          with experience developing websites and web applications. Currently,
-          I&apos;m taking a break from my studies to explore opportunities in
-          software development and the tech industry, particularly MedTech.
-        </p>
+      <SEO title="About" image={bannerImage} />
+      <Container className="mt-16 sm:mt-32">
+        <main>
+          <h1>About</h1>
+          <p className="mt-6">
+            I&apos;m a 5th year medical student and self-taught software
+            developer with experience developing websites and web applications.
+            Currently, I&apos;m taking a break from my studies to explore
+            opportunities in software development and the tech industry,
+            particularly MedTech.
+          </p>
 
-        <p className="mt-6">
-          My relative expertise lies in producing full-stack applications with
-          React, Next.js, Typescript, Javascript and Node.js. Whilst I&apos;m
-          still rapidly expanding my skill set with those technologies, I&apos;m
-          currently focusing on Data Science to effectively incorporate AI/ML in{" "}
-          <Link href="/projects" className="link">
-            the projects I&apos;m working on
-          </Link>
-          .{" "}
-          <span className="font-medium italic">
-            So basically, I&apos;m a wannabe Applied Scientist??
-          </span>
-        </p>
-
-        <p className="mt-6">
-          I&apos;m excited to be involved in building features end-to-end
-          &mdash; planning, building, deploying, iterating &mdash; to improve
-          the efficiency of processes and workflows without compromising
-          quality. In the long term, I see myself deep-diving into AI and ML to
-          improve my working knowledge and ultimately create solutions for real
-          world AI problems.
-        </p>
-
-        <p className="mt-6">
-          I also have a background in the creative industry, namely video
-          editing,{" "}
-          <Link href="/projects" className="link">
-            motion design
-          </Link>{" "}
-          and{" "}
-          <Link href="/photography" className="link">
-            photography
-          </Link>
-          . I have many years of experience freelancing and teaching these
-          domains. I mostly use the entire Adobe Creative Suite, in particular
-          After Effects, Premiere Pro, Audition and Lightroom. Design-wise,
-          I&apos;m currently spending my time with UI/UX design to harmonise my
-          software development with my motion design background to deliver
-          refreshing micro-animations to the frontend.
-        </p>
-
-        <h2 className="mt-10">Social & Links</h2>
-        <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-3">
-          {socials.map((social) => (
-            <div key={social.platform}>
-              <SocialMediaCard
-                platform={social.platform}
-                handle={social.handle}
-                href={social.href}
-                iconColour={social.iconColour}
-                buttonText={social.buttonText}
-                icon={social.icon}
-              />
-            </div>
-          ))}
-          <div className="flex w-full flex-col items-center justify-center rounded-md bg-neutral-100 p-4 dark:bg-neutral-800">
-            <div className="text-red-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                strokeWidth="0.75"
-                stroke="currentColor"
-                fill="none"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                <polyline points="3 7 12 13 21 7"></polyline>
-              </svg>
-            </div>
-            <p className="mt-6 text-xl">Email</p>
-            <p className="text-neutral-600 dark:text-neutral-400">
-              I don&apos;t even know
-            </p>
-            <Link
-              href="/contact"
-              className="mt-6 w-full rounded-md bg-neutral-200 px-8 py-2 text-center transition-all hocus:scale-105 hocus:text-orange-800 dark:bg-neutral-900 hocus:dark:text-orange-500"
-            >
-              Get in touch
+          <p className="mt-6">
+            My relative expertise lies in producing full-stack applications with
+            React, Next.js, Typescript, Javascript and Node.js. Whilst I&apos;m
+            still rapidly expanding my skill set with those technologies,
+            I&apos;m currently focusing on Data Science to effectively
+            incorporate AI/ML in{" "}
+            <Link href="/projects" className="link">
+              the projects I&apos;m working on
             </Link>
+            .{" "}
+            <span className="font-medium italic">
+              So basically, I&apos;m a wannabe Applied Scientist??
+            </span>
+          </p>
+
+          <p className="mt-6">
+            I&apos;m excited to be involved in building features end-to-end
+            &mdash; planning, building, deploying, iterating &mdash; to improve
+            the efficiency of processes and workflows without compromising
+            quality. In the long term, I see myself deep-diving into AI and ML
+            to improve my working knowledge and ultimately create solutions for
+            real world AI problems.
+          </p>
+
+          <p className="mt-6">
+            I also have a background in the creative industry, namely video
+            editing,{" "}
+            <Link href="/projects" className="link">
+              motion design
+            </Link>{" "}
+            and{" "}
+            <Link href="/photography" className="link">
+              photography
+            </Link>
+            . I have many years of experience freelancing and teaching these
+            domains. I mostly use the entire Adobe Creative Suite, in particular
+            After Effects, Premiere Pro, Audition and Lightroom. Design-wise,
+            I&apos;m currently spending my time with UI/UX design to harmonise
+            my software development with my motion design background to deliver
+            refreshing micro-animations to the frontend.
+          </p>
+
+          <h2 className="mt-10">Social & Links</h2>
+          <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-3">
+            {socials.map((social) => (
+              <div key={social.platform}>
+                <SocialMediaCard
+                  platform={social.platform}
+                  handle={social.handle}
+                  href={social.href}
+                  iconColour={social.iconColour}
+                  buttonText={social.buttonText}
+                  icon={social.icon}
+                />
+              </div>
+            ))}
+            <div className="flex w-full flex-col items-center justify-center rounded-md bg-neutral-100 p-4 dark:bg-neutral-800">
+              <div className="text-red-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  strokeWidth="0.75"
+                  stroke="currentColor"
+                  fill="none"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <polyline points="3 7 12 13 21 7"></polyline>
+                </svg>
+              </div>
+              <p className="mt-6 text-xl">Email</p>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                I don&apos;t even know
+              </p>
+              <Link
+                href="/contact"
+                className="mt-6 w-full rounded-md bg-neutral-200 px-8 py-2 text-center transition-all hocus:scale-105 hocus:text-orange-800 dark:bg-neutral-900 hocus:dark:text-orange-500"
+              >
+                Get in touch
+              </Link>
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </Container>
     </>
   );
 };

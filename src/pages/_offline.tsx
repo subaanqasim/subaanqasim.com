@@ -1,6 +1,7 @@
+import { SEO } from "@components/common";
+import { Container } from "@components/ui";
 import { cda } from "@utils/contentful";
 import { type InferGetStaticPropsType } from "next";
-import { SEO } from "../components/common";
 
 const Offline = ({
   bannerImage,
@@ -8,11 +9,13 @@ const Offline = ({
   return (
     <>
       <SEO title="Offline" image={bannerImage} nofollow noindex />
-      <h1>Offline</h1>
-      <p>
-        Oops, it seems that you&apos;re offline. Please ensure a stable internet
-        connection and try reloading the page again!
-      </p>
+      <Container className="mt-16 sm:mt-32">
+        <h1>Offline</h1>
+        <p>
+          Oops, it seems that you&apos;re offline. Please ensure a stable
+          internet connection and try reloading the page again!
+        </p>
+      </Container>
     </>
   );
 };

@@ -15,6 +15,7 @@ import rehypeImgCmsMeta from "@utils/rehype-image-cms-meta";
 import rt from "reading-time";
 import { components } from "@components/article";
 import { ArticleLayout } from "@components/article";
+import { Container } from "@components/ui";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -32,17 +33,22 @@ const Article = ({
   prevArticle,
 }: InferNextPropsType<typeof getStaticProps>) => {
   return (
-    <ArticleLayout
-      {...article.fields}
-      dateModified={article.sys.updatedAt}
-      nextArticle={nextArticle}
-      prevArticle={prevArticle}
-      readingTime={article.readingTime}
-    >
-      <div className="prose prose-base prose-neutral mx-auto w-full prose-headings:relative dark:prose-invert">
-        <MDXRemote {...article.content} components={{ ...components } as any} />
-      </div>
-    </ArticleLayout>
+    <Container>
+      <ArticleLayout
+        {...article.fields}
+        dateModified={article.sys.updatedAt}
+        nextArticle={nextArticle}
+        prevArticle={prevArticle}
+        readingTime={article.readingTime}
+      >
+        <div className="prose prose-base prose-neutral mx-auto w-full prose-headings:relative dark:prose-invert">
+          <MDXRemote
+            {...article.content}
+            components={{ ...components } as any}
+          />
+        </div>
+      </ArticleLayout>
+    </Container>
   );
 };
 

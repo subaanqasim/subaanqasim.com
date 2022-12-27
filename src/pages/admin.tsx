@@ -1,4 +1,4 @@
-import Development from "../components/Development";
+import Development from "@components/Development";
 import { type InferGetStaticPropsType } from "next";
 import { SEO } from "@components/common";
 import { getBannerImage } from "@utils/getBannerImage";
