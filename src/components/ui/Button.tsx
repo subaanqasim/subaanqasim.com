@@ -19,6 +19,11 @@ const buttonStyles = cva(
         medium: "px-5 py-2 text-base",
         large: "px-3 text-base h-12 w-full",
       },
+      state: {
+        active: "",
+        disabled: "cursor-not-allowed",
+        loading: "",
+      },
     },
 
     compoundVariants: [],
@@ -26,6 +31,7 @@ const buttonStyles = cva(
     defaultVariants: {
       variant: "primary",
       size: "large",
+      state: "active",
     },
   },
 );
@@ -33,8 +39,8 @@ const buttonStyles = cva(
 type ButtonVariantProps = VariantProps<typeof buttonStyles>;
 
 interface ButtonProps
-  extends Omit<ButtonVariantProps, "variant">,
-    Required<Pick<ButtonVariantProps, "variant">> {
+  extends Omit<ButtonVariantProps, "variant" | "size">,
+    Required<Pick<ButtonVariantProps, "variant" | "size">> {
   glowColour?: "pink-purple" | "orange-yellow" | "cyan-blue";
 }
 
@@ -44,6 +50,7 @@ export default function Button<C extends React.ElementType = "button">({
   variant,
   className,
   size,
+  state,
   glowColour = "cyan-blue",
   ...props
 }: PolymorphicProps<C, ButtonProps>) {
@@ -69,7 +76,10 @@ export default function Button<C extends React.ElementType = "button">({
           )}
         />
       )}
-      <Component {...props} className={cn(buttonStyles({ variant, size }))}>
+      <Component
+        {...props}
+        className={cn(buttonStyles({ variant, size, state }))}
+      >
         {children}
       </Component>
     </div>

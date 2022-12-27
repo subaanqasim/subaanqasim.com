@@ -25,6 +25,7 @@ const Development: React.FC<{ title: string }> = ({ title }) => {
       <Button
         as={Link}
         variant="primary"
+        size="large"
         glowColour="pink-purple"
         href="/"
         className="mx-auto max-w-xs"

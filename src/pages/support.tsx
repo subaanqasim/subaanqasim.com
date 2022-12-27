@@ -69,6 +69,7 @@ const Support = ({
             <div className="mx-auto mt-4 max-w-sm">
               <Button
                 variant="primary"
+                size="large"
                 glowColour="orange-yellow"
                 type="submit"
               >

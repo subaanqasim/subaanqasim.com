@@ -5,7 +5,12 @@ import {
   SEO,
   TwitterIcon,
 } from "@components/common";
-import { PhotoMarquee, SocialLink, ArticleCard } from "@components/home";
+import {
+  ArticleCard,
+  BrainPreview,
+  PhotoMarquee,
+  SocialLink,
+} from "@components/home";
 import Newsletter from "@components/Newsletter";
 import { Button, Container } from "@components/ui";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
@@ -141,6 +146,7 @@ export default function Home({
 
           <div className="space-y-10 lg:ml-16 xl:ml-24">
             <Newsletter />
+            <BrainPreview />
           </div>
         </div>
       </Container>

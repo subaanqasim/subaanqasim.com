@@ -105,6 +105,12 @@ module.exports = {
           "0%": { opacity: 1 },
           "100%": { opacity: 0 },
         },
+        "ping-small": {
+          "75%, 100%": {
+            transform: "scale(1.1)",
+            opacity: 0,
+          },
+        },
         // "gradient-rotate": {
         //   to: {
         //     "--gradient-angle": "360deg",
@@ -167,7 +173,8 @@ module.exports = {
       animation: {
         "fade-in": "fade-in 850ms cubic-bezier(0, 0, 0, 1)",
         "fade-out": "fade-out 850ms cubic-bezier(0, 0, 0, 1)",
-        "gradient-rotate": "gradient-rotate 6s linear infinite",
+        "ping-small": "ping-small 2s cubic-bezier(0, 0, 0.2, 1) infinite",
+        // "gradient-rotate": "gradient-rotate 6s linear infinite",
         // Dropdown menu
         "scale-in": "scale-in 0.2s ease-in-out",
         "slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
