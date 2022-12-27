@@ -127,7 +127,13 @@ export default function Home({
                 <ArticleCard key={article.fields.slug} articleData={article} />
               ))}
             </div>
-            <Button variant="tertiary" size="small" className="mt-12">
+            <Button
+              as={Link}
+              href="/articles"
+              variant="tertiary"
+              size="small"
+              className="mt-12"
+            >
               Read all articles
               <ArrowRightIcon className="h-3 w-3 transition-transform group-hover:translate-x-1" />
             </Button>
