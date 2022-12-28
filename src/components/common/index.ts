@@ -5,3 +5,4 @@ export * from "./Icons";
 export { default as MainLayout } from "./MainLayout";
 export { default as MobileNavBar } from "./MobileNavbar";
 export { default as ThemeToggle } from "./ThemeToggle";
+export { default as SimpleLayout } from "./SimpleLayout";

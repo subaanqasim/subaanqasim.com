@@ -12,97 +12,16 @@ import {
   SocialLink,
 } from "@components/home";
 import Newsletter from "@components/Newsletter";
-import ProjectCard from "@components/project/ProjectCard";
-import { Button, Container, type GridPatternProps } from "@components/ui";
-import {
-  ArrowRightIcon,
-  ChatBubbleOvalLeftIcon,
-  EnvelopeIcon,
-  UserIcon,
-  UsersIcon,
-} from "@heroicons/react/24/outline";
+import { ProjectCard } from "@components/project";
+import { Button, Container } from "@components/ui";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { cda } from "@utils/contentful";
 import { getBannerImage } from "@utils/getBannerImage";
 import { type IArticle } from "@utils/types/contentful";
 import { type InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-export type Project = {
-  slug: string;
-  name: string;
-  description: string;
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
-  pattern: GridPatternProps;
-};
-
-const projects: Project[] = [
-  {
-    slug: "project-1",
-    name: "Project 1",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis quidem, iusto dolorem reiciendis ducimus ullam.",
-    icon: UserIcon,
-    pattern: {
-      y: 16,
-      x: "50%",
-      width: 72,
-      height: 56,
-      squares: [
-        [0, 1],
-        [1, 3],
-      ],
-    },
-  },
-  {
-    slug: "project-2",
-    name: "Project 2",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis quidem, iusto dolorem reiciendis ducimus ullam.",
-    icon: ChatBubbleOvalLeftIcon,
-    pattern: {
-      y: -6,
-      x: "50%",
-      width: 72,
-      height: 56,
-      squares: [
-        [-1, 2],
-        [1, 3],
-      ],
-    },
-  },
-  {
-    slug: "project-3",
-    name: "Project 3",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis quidem, iusto dolorem reiciendis ducimus ullam.",
-    icon: EnvelopeIcon,
-    pattern: {
-      y: 32,
-      x: "50%",
-      width: 72,
-      height: 56,
-      squares: [
-        [0, 2],
-        [1, 4],
-      ],
-    },
-  },
-  {
-    slug: "project-4",
-    name: "Project 4",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis quidem, iusto dolorem reiciendis ducimus ullam.",
-    icon: UsersIcon,
-    pattern: {
-      y: 22,
-      x: "50%",
-      width: 72,
-      height: 56,
-      squares: [[0, 1]],
-    },
-  },
-];
+import { projects } from "./projects";
 
 export default function Home({
   bannerImage,

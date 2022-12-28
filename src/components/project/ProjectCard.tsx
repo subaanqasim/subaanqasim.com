@@ -1,7 +1,8 @@
 import { GridPattern } from "@components/ui";
+import { type PolymorphicProps } from "@utils/types/ui";
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { type Project } from "src/pages/index";
+import React, { useMemo, useState } from "react";
+import { type Project } from "../../pages/projects";
 
 function ProjectIcon({
   icon: Icon,
@@ -56,7 +57,14 @@ function ProjectCardPattern({
   );
 }
 
-export default function ProjectCard({ project }: { project: Project }) {
+type ProjectCardProps = {
+  project: Project;
+};
+
+export default function ProjectCard<C extends React.ElementType = "div">({
+  project,
+  as,
+}: PolymorphicProps<C, ProjectCardProps>) {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
 
@@ -70,8 +78,10 @@ export default function ProjectCard({ project }: { project: Project }) {
     setMouseY(clientY - top);
   };
 
+  const Component = as || "div";
+
   return (
-    <div
+    <Component
       key={project.slug}
       onMouseMove={onMouseMove}
       className="group relative flex rounded-2xl bg-neutral-100/50 shadow-md shadow-neutral-900/5 transition-shadow hover:shadow-lg hover:shadow-neutral-900/5 dark:bg-neutral-900/50 dark:shadow-neutral-100/5 dark:hover:shadow-neutral-100/5"
@@ -94,6 +104,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
       </div>
-    </div>
+    </Component>
   );
 }
