@@ -1,5 +1,5 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
-import { env } from "../../server/env";
+import { env } from "@env/server.mjs";
 import { cma } from "../../utils/contentful";
 
 export default async function handler(

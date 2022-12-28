@@ -1,7 +1,7 @@
 import { t } from "../utils";
 import { z } from "zod";
 import { createTransport } from "nodemailer";
-import { env } from "../../env";
+import { env } from "@env/server.mjs";
 
 export const emailRouter = t.router({
   sendEmail: t.procedure

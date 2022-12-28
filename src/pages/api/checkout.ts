@@ -1,6 +1,6 @@
 import { type NextApiRequest, type NextApiResponse } from "next";
 import Stripe from "stripe";
-import { env } from "../../server/env";
+import { env } from "@env/server.mjs";
 import { prisma } from "../../server/db/client";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY, {

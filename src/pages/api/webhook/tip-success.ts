@@ -2,7 +2,7 @@ import { type NextApiRequest, type NextApiResponse } from "next";
 import { buffer } from "micro";
 import Stripe from "stripe";
 import { prisma } from "../../../server/db/client";
-import { env } from "../../../server/env";
+import { env } from "@env/server.mjs";
 // import NextCors from "nextjs-cors";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
