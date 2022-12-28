@@ -16,6 +16,9 @@ const nextConfig = {
   images: {
     domains: ["images.ctfassets.net"],
   },
+  experimental: {
+    appDir: true,
+  },
 };
 
 const withPWA = pwa({

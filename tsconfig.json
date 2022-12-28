@@ -20,7 +20,12 @@
       "@utils/*": ["./src/utils/*"],
       "@components/*": ["./src/components/*"],
       "@env/*": ["./src/env/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -29,7 +34,8 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.cjs",
-    "**/*.mjs"
+    "**/*.mjs",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

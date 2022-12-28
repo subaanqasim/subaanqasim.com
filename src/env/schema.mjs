@@ -20,21 +20,32 @@ export const serverSchema = z.object({
     // VERCEL_URL doesn't include `https` so it cant be validated as a URL
     process.env.VERCEL ? z.string() : z.string().url(),
   ),
+  // Github auth
   GITHUB_CLIENT_ID: z.string(),
   GITHUB_CLIENT_SECRET: z.string(),
+
+  // Contentful
   CONTENTFUL_SPACE_ID: z.string(),
   CONTENTFUL_ACCESS_TOKEN: z.string(),
   CONTENTFUL_ADMIN_TOKEN: z.string(),
   CONTENTFUL_ENVIRONMENT: z.string(),
   CONTENTFUL_HOST: z.string(),
+  REVALIDATE_SECRET: z.string(),
+
+  // Stripe
   STRIPE_SECRET_KEY: z.string(),
   STRIPE_WEBHOOK_SECRET: z.string(),
+
+  // Email
   EMAIL_SERVER_USER: z.string(),
   EMAIL_SERVER_PASSWORD: z.string(),
   EMAIL_SERVER_HOST: z.string(),
   EMAIL_SERVER_PORT: z.string(),
   EMAIL_FROM: z.string(),
-  REVALIDATE_SECRET: z.string(),
+
+  // Sanity
+  SANITY_EDITOR_TOKEN: z.string(),
+  SANITY_VIEWER_TOKEN: z.string(),
 });
 
 /**
@@ -43,9 +54,12 @@ export const serverSchema = z.object({
  * To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 export const clientSchema = z.object({
+  // Stripe
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string(),
+
+  // Sanity
   NEXT_PUBLIC_SANITY_PROJECT_ID: z.string(),
   NEXT_PUBLIC_SANITY_DATASET: z.string(),
-  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string(),
 });
 
 /**
