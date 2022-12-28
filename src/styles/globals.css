@@ -61,7 +61,7 @@
   }
 
   .demarcated-section {
-    @apply rounded-2xl border border-neutral-200 p-6 shadow-lg shadow-neutral-800/5  dark:border-neutral-700/70 dark:shadow-neutral-100/5;
+    @apply rounded-2xl border border-neutral-200 p-6 shadow-lg shadow-neutral-900/5  dark:border-neutral-700/70 dark:shadow-neutral-100/5;
   }
 }
 

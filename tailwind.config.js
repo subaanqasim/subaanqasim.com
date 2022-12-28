@@ -52,6 +52,13 @@ module.exports = {
           "linear-gradient(165deg, #00dfd8, #007cf0)",
       },
 
+      opacity: {
+        1: "0.01",
+        2.5: "0.025",
+        7.5: "0.075",
+        15: "0.15",
+      },
+
       typography: (theme) => ({
         DEFAULT: {
           css: {
