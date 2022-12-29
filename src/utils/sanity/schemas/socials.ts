@@ -9,28 +9,41 @@ export default defineType({
       name: "twitter",
       title: "Twitter",
       type: "url",
-      validation: (rule) => rule.uri({ scheme: ["https"] }).required(),
+      validation: (rule) => rule.uri({ scheme: ["https"] }),
     }),
 
     defineField({
       name: "instagram",
       title: "Instagram",
       type: "url",
-      validation: (rule) => rule.uri({ scheme: ["https"] }).required(),
+      validation: (rule) => rule.uri({ scheme: ["https"] }),
     }),
 
     defineField({
       name: "linkedIn",
       title: "LinkedIn",
       type: "url",
-      validation: (rule) => rule.uri({ scheme: ["https"] }).required(),
+      validation: (rule) => rule.uri({ scheme: ["https"] }),
     }),
 
     defineField({
       name: "github",
       title: "GitHub",
       type: "url",
-      validation: (rule) => rule.uri({ scheme: ["https"] }).required(),
+      validation: (rule) => rule.uri({ scheme: ["https"] }),
+    }),
+
+    defineField({
+      name: "email",
+      title: "Email",
+      type: "email",
+    }),
+
+    defineField({
+      name: "website",
+      title: "Website",
+      type: "url",
+      validation: (rule) => rule.uri({ scheme: ["https"] }),
     }),
   ],
 });

@@ -32,6 +32,12 @@ export default defineType({
     }),
 
     defineField({
+      name: "socials",
+      title: "Socials",
+      type: "socials",
+    }),
+
+    defineField({
       name: "featureImage",
       title: "Feature Image",
       type: "image",
