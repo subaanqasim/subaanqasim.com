@@ -108,7 +108,7 @@ export const articleBaseSchema = sanityDocumentSchema.extend({
   _type: z.literal("article"),
   title: z.string(),
   slug: slugSchema,
-  publishedAt: z.string().datetime(),
+  datePublished: z.string().datetime(),
   featureImage: sanityImageSchema,
   author: authorSchema,
   tags: z.array(z.string()),
@@ -121,7 +121,7 @@ const projectBaseSchema = sanityDocumentSchema.extend({
   _type: z.literal("project"),
   title: z.string(),
   slug: slugSchema,
-  publishedAt: z.string().datetime(),
+  datePublished: z.string().datetime(),
   featureImage: sanityImageSchema,
   logo: sanityImageSchema,
   author: authorSchema,
@@ -132,13 +132,13 @@ const projectBaseSchema = sanityDocumentSchema.extend({
 export type ProjectBaseType = z.infer<typeof projectBaseSchema>;
 
 export const articleSchema = articleBaseSchema.extend({
-  relatedArticles: z.array(articleBaseSchema).optional(),
-  relatedProjects: z.array(projectBaseSchema),
+  relatedArticles: z.array(articleBaseSchema).nullish(),
+  relatedProjects: z.array(projectBaseSchema).nullish(),
 });
 export type ArticleType = z.infer<typeof articleSchema>;
 
 export const projectSchema = projectBaseSchema.extend({
-  relatedProjects: z.array(projectBaseSchema).optional(),
-  relatedArticles: z.array(articleBaseSchema),
+  relatedProjects: z.array(projectBaseSchema.omit({})).nullish(),
+  relatedArticles: z.array(articleBaseSchema).nullish(),
 });
 export type ProjectType = z.infer<typeof projectSchema>;

@@ -1,19 +1,14 @@
 import { ArticlePost } from "@components/article";
 import { SEO } from "@components/common";
 import { Container } from "@components/ui";
-import { cda } from "@utils/contentful";
 import { getBannerImage } from "@utils/getBannerImage";
-import { type IArticle } from "@utils/types/contentful";
+import { allArticlesQuery } from "@utils/sanity/queries";
+import { getClient } from "@utils/sanity/sanity-server";
+import { articleSchema } from "@utils/sanity/schema-types";
 import { type InferGetStaticPropsType } from "next";
 import { useState } from "react";
 import rt from "reading-time";
-
-export type Article = Pick<IArticle, "fields"> & {
-  fields: Pick<
-    IArticle["fields"],
-    "title" | "slug" | "excerpt" | "body" | "body2"
-  >;
-};
+import { ZodError } from "zod";
 
 const Articles = ({
   bannerImage,
@@ -23,8 +18,8 @@ const Articles = ({
 
   const filteredArticles = articles.filter(
     (article) =>
-      article.fields.title.toLowerCase().includes(search.toLowerCase()) ||
-      article.fields.excerpt.toLowerCase().includes(search.toLowerCase()),
+      article.title.toLowerCase().includes(search.toLowerCase()) ||
+      article.excerpt.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -96,12 +91,6 @@ const Articles = ({
               <h2 className="mb-4">Featured</h2>
 
               <div className="flex flex-col gap-6">
-                {/* <ArticlePost
-                title="This is Definitely Not a Featured Post"
-                excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                slug=""
-                readingTime="7 min read"
-              /> */}
                 <p className="text-center text-xl font-medium">
                   Nothing here... yet. Check back soon! 🔜
                 </p>
@@ -123,13 +112,11 @@ const Articles = ({
 
             {filteredArticles.map((article) => (
               <ArticlePost
-                key={article.fields.title}
-                title={article.fields.title}
-                excerpt={article.fields.excerpt}
-                slug={article.fields.slug}
-                readingTime={
-                  rt(article.fields.body + article.fields.body2).text
-                }
+                key={article.title}
+                title={article.title}
+                excerpt={article.excerpt}
+                slug={article.slug.current}
+                readingTime={article.readingTime}
               />
             ))}
           </div>
@@ -141,19 +128,36 @@ const Articles = ({
 
 export default Articles;
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ preview = false }) => {
   const bannerImage = await getBannerImage();
 
-  const { items } = await cda.getEntries({
-    content_type: "article",
-    order: "-fields.datePublished",
-    select: "fields.title,fields.slug,fields.excerpt,fields.body,fields.body2",
-  });
+  const articleData = await getClient(preview).fetch(allArticlesQuery);
 
-  return {
-    props: {
-      bannerImage,
-      articles: items as Article[],
-    },
-  };
+  try {
+    const articles = articleSchema
+      .pick({
+        content: true,
+        excerpt: true,
+        slug: true,
+        title: true,
+      })
+      .array()
+      .parse(articleData);
+
+    const articlesWithReadingTime = articles.map((article) => ({
+      ...article,
+      readingTime: rt(article.content).text,
+    }));
+
+    return {
+      props: {
+        bannerImage,
+        articles: articlesWithReadingTime,
+      },
+    };
+  } catch (error) {
+    if (error instanceof ZodError) {
+      console.error(error.format());
+    } else console.error(error);
+  }
 };

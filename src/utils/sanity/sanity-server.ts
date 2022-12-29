@@ -7,7 +7,10 @@ import { env } from "@env/server.mjs";
 import { createClient } from "next-sanity";
 import { sanityConfig } from "./sanity-client-config";
 
-export const sanityClient = createClient(sanityConfig);
+export const sanityClient = createClient({
+  ...sanityConfig,
+  token: env.SANITY_VIEWER_TOKEN,
+});
 
 export const previewClient = createClient({
   ...sanityConfig,
