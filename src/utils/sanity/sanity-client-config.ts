@@ -6,5 +6,5 @@ export const sanityConfig: ClientConfig = {
   dataset: env.NEXT_PUBLIC_SANITY_DATASET || "production",
   projectId: env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   useCdn: serverEnv.NODE_ENV !== "production",
-  apiVersion: "2022-12-29",
+  apiVersion: env.NEXT_PUBLIC_SANITY_API_VERSION,
 };

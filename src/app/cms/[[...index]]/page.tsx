@@ -1,7 +1,7 @@
 "use client";
 
 import { NextStudio } from "next-sanity/studio";
-import config from "../../../../sanity.config";
+import config from "@utils/sanity/sanity.config";
 
 export default function StudioPage() {
   //  Supports the same props as `import {Studio} from 'sanity'`, `config` is required
