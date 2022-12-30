@@ -21,7 +21,8 @@ const AuthorHoverCard = ({ author }: { author: AuthorType }) => {
           height={48}
           sizes="96px"
           className="mr-2 h-8 w-8 rounded-full object-cover"
-          priority
+          placeholder="blur"
+          blurDataURL={author.headshot.asset.metadata.lqip}
         />
       </HoverCardPrimitive.Trigger>
       <HoverCardPrimitive.Content
