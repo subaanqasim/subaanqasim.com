@@ -1,5 +1,5 @@
 import { ArticleLayout, components } from "@components/article";
-import { Container } from "@components/ui";
+import { getReadingTime } from "@utils/reading-time";
 import rehypeImgCmsMeta from "@utils/rehype-image-cms-meta";
 import {
   allArticlesSlugQuery,
@@ -18,7 +18,6 @@ import type {
 } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import rt from "reading-time";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
@@ -32,21 +31,16 @@ export default function ArticlePage({
   prevArticle,
 }: InferNextPropsType<typeof getStaticProps>) {
   return (
-    <Container>
-      <ArticleLayout
-        {...article}
-        nextArticle={nextArticle}
-        prevArticle={prevArticle}
-        readingTime={article.readingTime}
-      >
-        <div className="prose prose-base prose-neutral mx-auto w-full prose-headings:relative dark:prose-invert">
-          <MDXRemote
-            {...article.content}
-            components={{ ...components } as any}
-          />
-        </div>
-      </ArticleLayout>
-    </Container>
+    <ArticleLayout
+      article={article}
+      nextArticle={nextArticle}
+      prevArticle={prevArticle}
+      readingTime={article.readingTime}
+    >
+      <div className="prose prose-base prose-neutral mx-auto w-full prose-headings:relative dark:prose-invert">
+        <MDXRemote {...article.content} components={{ ...components } as any} />
+      </div>
+    </ArticleLayout>
   );
 }
 
@@ -106,7 +100,7 @@ export const getStaticProps = (async ({
         article: {
           ...article,
           content,
-          readingTime: rt(article.content).text,
+          readingTime: getReadingTime(article.content),
         },
         nextArticle: next ?? null,
         prevArticle: previous ?? null,
@@ -114,7 +108,7 @@ export const getStaticProps = (async ({
     };
   } catch (error) {
     if (error instanceof ZodError) {
-      console.error(error);
+      console.error(error.format());
     } else {
       console.error(error);
     }

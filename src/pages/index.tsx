@@ -17,8 +17,11 @@ import { Button, Container } from "@components/ui";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { cda } from "@utils/contentful";
 import { getBannerImage } from "@utils/getBannerImage";
-import { type IArticle } from "@utils/types/contentful";
-import { type InferGetStaticPropsType } from "next";
+import { getReadingTime } from "@utils/reading-time";
+import { allArticlesQuery } from "@utils/sanity/queries";
+import { getClient } from "@utils/sanity/sanity-server";
+import { articleInListSchema } from "@utils/sanity/schema-types";
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "./projects";
@@ -131,7 +134,7 @@ export default function Home({
             </h2>
             <div className="mt-12 flex flex-col gap-16">
               {articles.map((article) => (
-                <ArticleCard key={article.fields.slug} articleData={article} />
+                <ArticleCard key={article._id} articleData={article} />
               ))}
             </div>
             <Button
@@ -175,25 +178,28 @@ export default function Home({
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async ({ preview = false }) => {
   const bannerImage = await getBannerImage();
   const profileImage = await cda.getAsset("3Cgp43AjBUNejadXB6C5hu");
-
-  const { items } = await cda.getEntries({
-    content_type: "article",
-    order: "-fields.datePublished",
-  });
-
   const photos = await cda.getAssets({
     "metadata.tags.sys.id[all]": "photography",
   });
+
+  const articleData = await getClient(preview).fetch(allArticlesQuery);
+
+  const articles = articleInListSchema.array().parse(articleData);
+
+  const articlesWithReadingTime = articles.map((article) => ({
+    ...article,
+    readingTime: getReadingTime(article.content),
+  }));
 
   return {
     props: {
       bannerImage,
       profileImage,
       photos,
-      articles: items as IArticle[],
+      articles: articlesWithReadingTime,
     },
   };
-};
+}) satisfies GetStaticProps;

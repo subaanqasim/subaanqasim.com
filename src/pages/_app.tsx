@@ -1,28 +1,16 @@
-import "../styles/globals.css";
-import { SessionProvider } from "next-auth/react";
-import { trpc } from "../utils/trpc";
-import { ThemeProvider } from "next-themes";
 import { MainLayout } from "@components/common";
-import type { AppType } from "next/app";
-import type { Session } from "next-auth";
 import "focus-visible";
-import { useEffect, useRef } from "react";
-
-const usePrevious = (value: string) => {
-  const ref = useRef<string>();
-
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
-};
+import type { Session } from "next-auth";
+import { SessionProvider } from "next-auth/react";
+import { ThemeProvider } from "next-themes";
+import type { AppType } from "next/app";
+import "../styles/globals.css";
+import { trpc } from "../utils/trpc";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
-  router,
 }) => {
-  const previousPathname = usePrevious(router.pathname);
-
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange>
       <SessionProvider session={session}>
@@ -33,7 +21,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         </div>
         <div className="relative">
           <MainLayout>
-            <Component previousPathname={previousPathname} {...pageProps} />
+            <Component {...pageProps} />
           </MainLayout>
         </div>
       </SessionProvider>

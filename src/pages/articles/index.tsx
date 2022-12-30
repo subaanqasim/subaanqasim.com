@@ -2,12 +2,12 @@ import { ArticlePost } from "@components/article";
 import { SEO } from "@components/common";
 import { Container } from "@components/ui";
 import { getBannerImage } from "@utils/getBannerImage";
+import { getReadingTime } from "@utils/reading-time";
 import { allArticlesQuery } from "@utils/sanity/queries";
 import { getClient } from "@utils/sanity/sanity-server";
 import { articleSchema } from "@utils/sanity/schema-types";
 import { type InferGetStaticPropsType } from "next";
 import { useState } from "react";
-import rt from "reading-time";
 import { ZodError } from "zod";
 
 export default function Articles({
@@ -112,7 +112,7 @@ export default function Articles({
 
             {filteredArticles.map((article) => (
               <ArticlePost
-                key={article.title}
+                key={article._id}
                 title={article.title}
                 excerpt={article.excerpt}
                 slug={article.slug.current}
@@ -138,13 +138,15 @@ export const getStaticProps = async ({ preview = false }) => {
         excerpt: true,
         slug: true,
         title: true,
+        _id: true,
+        datePublished: true,
       })
       .array()
       .parse(articleData);
 
     const articlesWithReadingTime = articles.map((article) => ({
       ...article,
-      readingTime: rt(article.content).text,
+      readingTime: getReadingTime(article.content),
     }));
 
     return {

@@ -1,10 +1,11 @@
+import { type ReadingTime } from "@utils/reading-time";
 import Link from "next/link";
 
 interface ArticlePostProps {
   title: string;
   excerpt: string;
   slug: string;
-  readingTime: string;
+  readingTime: ReadingTime;
 }
 
 const ArticlePost = ({
@@ -23,7 +24,9 @@ const ArticlePost = ({
           {title}
         </h3>
 
-        <p className=" text-neutral-500 dark:text-neutral-500">{readingTime}</p>
+        <p className=" text-neutral-500 dark:text-neutral-500">
+          {readingTime.words}
+        </p>
       </div>
       <p className="mt-1 text-neutral-600 transition-all duration-[250ms] ease-[cubic-bezier(0.5,0,0.15,1)] group-hover:text-neutral-900 dark:text-neutral-400 dark:group-hover:text-neutral-100">
         {excerpt}

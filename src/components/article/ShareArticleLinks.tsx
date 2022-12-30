@@ -17,7 +17,9 @@ const ShareArticleLinks = ({
 
   const handleCopyToClipboard = () => {
     navigator.clipboard.writeText(`https://subaanqasim.com/articles/${slug}`);
+
     setCopied(true);
+
     setTimeout(() => {
       setCopied(false);
     }, 2000);

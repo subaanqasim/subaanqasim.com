@@ -39,10 +39,12 @@ const relatedProjectsDestructure = groq`
 
 export const allArticlesQuery = groq`
   *[_type == "article"] | order(datePublished desc) {
+    _id,
     title,
     slug,
     excerpt,
-    content
+    content,
+    datePublished,
   }
 `;
 

@@ -1,165 +1,75 @@
-import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
-import { useMediaQuery } from "@utils/hooks";
+import { SEO } from "@components/common";
+import { Container } from "@components/ui";
+import { ArrowLeftIcon } from "@radix-ui/react-icons";
+import { type ReadingTime } from "@utils/reading-time";
 import type {
   ArticleType,
   SiblingArticleType,
 } from "@utils/sanity/schema-types";
-import cn from "classnames";
-import { formatDistance } from "date-fns";
-import Link from "next/link";
-import Seo from "../common/SEO";
-import ShareArticleLinks from "./ShareArticleLinks";
+import { useRouter } from "next/router";
+import ArticleHeader from "./ArticleHeader";
+import Prose from "./Prose";
+import SiblingLinks from "./SiblingLinks";
 
-import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
-import { formatDate } from "@utils/formatDate";
-import AuthorHoverCard from "./AuthorHoverCard";
-
-interface IArticleLayoutProps extends Omit<ArticleType, "content"> {
+type ArticleLayoutProps = {
   children: React.ReactNode;
-  readingTime: string;
+  readingTime: ReadingTime;
   nextArticle: SiblingArticleType;
   prevArticle: SiblingArticleType;
-}
+  article: Omit<ArticleType, "content">;
+};
 
-const ArticleLayout = ({
+export default function ArticleLayout({
   children,
-  title,
-  author,
-  _updatedAt,
-  datePublished,
-  excerpt,
-  featureImage,
-  tags,
-  slug,
   nextArticle,
   prevArticle,
   readingTime,
-}: IArticleLayoutProps) => {
-  const lastUpdated = formatDistance(
-    new Date(datePublished),
-    new Date(_updatedAt),
-    {
-      addSuffix: true,
-    },
-  );
-
-  const isDesktop = useMediaQuery("(min-width: 640px)");
+  article,
+}: ArticleLayoutProps) {
+  const router = useRouter();
 
   return (
     <>
-      <Seo
-        title={title}
-        description={excerpt}
-        image={featureImage}
-        datePublished={datePublished}
-        dateModified={_updatedAt}
-        authorName={author.name}
-        authorUrl={author.socials.website ?? "https://subaanqasim.com"}
-        tags={tags}
+      <SEO
+        title={article.title}
+        description={article.excerpt}
+        image={article.featureImage}
+        datePublished={article.datePublished}
+        dateModified={article._updatedAt}
+        authorName={article.author.name}
+        authorUrl={article.author.socials.website ?? "https://subaanqasim.com"}
+        tags={article.tags}
         type="article"
       />
-      <main className="w-full">
-        <article>
-          <header>
-            <h1>{title}</h1>
-            <div className="mt-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-              <div className="flex gap-4 text-xs tracking-wide">
-                {tags.map((word) => (
-                  <div
-                    key={word}
-                    className="flex items-center justify-center rounded-lg border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 py-[6px] px-[12px] text-center dark:border-neutral-700 dark:from-neutral-800 dark:to-neutral-900 sm:text-left"
-                  >
-                    {word}
-                  </div>
-                ))}
-              </div>
-              {isDesktop && (
-                <ShareArticleLinks title={title} slug={slug.current} />
-              )}
+      <Container className="mt-16 lg:mt-32">
+        <div className="w-full">
+          <div className="xl:relative">
+            <div className="mx-auto max-w-2xl">
+              <button
+                type="button"
+                onClick={() => router.push("/articles")}
+                aria-label="Go back to articles"
+                className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-neutral-800/5 ring-1 ring-neutral-900/5 transition dark:border dark:border-neutral-700/50 dark:bg-neutral-800 dark:ring-0 dark:ring-white/10 dark:hover:border-neutral-700 dark:hover:ring-white/20 lg:absolute lg:-left-5 lg:mb-0 lg:-mt-2 xl:-top-1.5 xl:left-0 xl:mt-0"
+              >
+                <ArrowLeftIcon className="h-4 w-4 stroke-neutral-500 transition group-hover:stroke-neutral-700 dark:stroke-neutral-500 dark:group-hover:stroke-neutral-400" />
+              </button>
+
+              <article>
+                <ArticleHeader
+                  title={article.title}
+                  datePublished={article.datePublished}
+                  updatedAt={article._updatedAt}
+                  readingTime={readingTime}
+                  author={article.author}
+                  slug={article.slug.current}
+                />
+                <Prose className="mt-8">{children}</Prose>
+              </article>
             </div>
-
-            <div className="mt-6 flex flex-col justify-center gap-6 text-sm tracking-wide sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-              <div className="flex items-center">
-                <AuthorHoverCard author={author} />
-
-                <div className="flex flex-col items-start sm:flex-row sm:items-center">
-                  <div>{author.name}</div>
-
-                  <div className="flex gap-4 text-neutral-500 dark:text-neutral-400">
-                    <div className="flex items-center gap-2">
-                      <CalendarIcon className="ml-0 sm:ml-4" />
-                      {formatDate(datePublished)}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <TimerIcon />
-                      {readingTime}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="ml-0 flex grow items-center justify-between gap-2 text-neutral-500 dark:text-neutral-400 sm:-ml-4">
-                <div className="ml-0 text-neutral-500 dark:text-neutral-400 sm:ml-auto">
-                  {`Last updated: ${lastUpdated ? lastUpdated : "---"}`}
-                </div>
-
-                {!isDesktop && (
-                  <ShareArticleLinks title={title} slug={slug.current} />
-                )}
-              </div>
-            </div>
-          </header>
-
-          <hr className="border-1 mt-6 mb-12 w-full border-neutral-300 dark:border-neutral-700" />
-
-          {children}
-        </article>
-
-        <div
-          className={cn(
-            "mt-10 flex flex-col-reverse gap-5 sm:flex-row",
-            prevArticle ? "justify-between" : "justify-end",
-          )}
-        >
-          {prevArticle && (
-            <Link
-              href={`/articles/${prevArticle.slug.current}`}
-              className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]"
-            >
-              <ArrowLeftIcon className="h-5 w-5 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] group-hover:-translate-x-2" />
-              <div>
-                <div className="text-right text-sm tracking-wide dark:text-neutral-400">
-                  Previous Article
-                </div>
-
-                <div className="mt-3 text-right font-medium tracking-wide">
-                  {prevArticle.title}
-                </div>
-              </div>
-            </Link>
-          )}
-
-          {nextArticle && (
-            <Link
-              href={`/articles/${nextArticle.slug.current}`}
-              className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]"
-            >
-              <div>
-                <div className="text-sm tracking-wide dark:text-neutral-400">
-                  Next Article
-                </div>
-                <div className="mt-3 font-medium tracking-wide">
-                  {nextArticle.title}
-                </div>
-              </div>
-              <ArrowRightIcon className="h-5 w-5 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] group-hover:translate-x-2" />
-            </Link>
-          )}
+          </div>
+          <SiblingLinks nextArticle={nextArticle} prevArticle={prevArticle} />
         </div>
-      </main>
+      </Container>
     </>
   );
-};
-
-export default ArticleLayout;
+}

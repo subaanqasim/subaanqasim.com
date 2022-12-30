@@ -20,7 +20,7 @@ const AuthorHoverCard = ({ author }: { author: AuthorType }) => {
           width={48}
           height={48}
           sizes="96px"
-          className="mr-2 h-12 w-12 rounded-full object-cover"
+          className="mr-2 h-8 w-8 rounded-full object-cover"
           priority
         />
       </HoverCardPrimitive.Trigger>

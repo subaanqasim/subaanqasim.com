@@ -154,3 +154,13 @@ export const siblingArticleSchema = articleSchema
   .pick({ title: true, slug: true })
   .nullish();
 export type SiblingArticleType = z.infer<typeof siblingArticleSchema>;
+
+export const articleInListSchema = articleSchema.pick({
+  content: true,
+  excerpt: true,
+  slug: true,
+  title: true,
+  _id: true,
+  datePublished: true,
+});
+export type ArticleInListSchemaType = z.infer<typeof articleInListSchema>;
