@@ -19,12 +19,17 @@ const sanityAssetSchema = z.object({
   _id: z.string(),
   _type: z.string(),
   _ref: z.string().optional(),
+  title: z.string().nullish(),
+  description: z.string().nullish(),
+  altText: z.string().nullish(),
   url: z.string(),
   path: z.string(),
   assetId: z.string(),
   extension: z.string(),
   originalFilename: z.string().optional(),
+  mimeType: z.string(),
 });
+export type SanityAssetType = z.infer<typeof sanityAssetSchema>;
 
 const sanityImageDimensionsSchema = z.object({
   height: z.number(),
@@ -57,10 +62,11 @@ const sanityImageMetadataSchema = z.object({
   palette: sanityImagePaletteSchema.optional(),
 });
 
-const sanityImageAssetSchema = sanityAssetSchema.extend({
+export const sanityImageAssetSchema = sanityAssetSchema.extend({
   _type: z.literal("sanity.imageAsset"),
   metadata: sanityImageMetadataSchema,
 });
+export type SanityImageAssetType = z.infer<typeof sanityImageAssetSchema>;
 
 export const sanityImageSchema = z.object({
   asset: sanityImageAssetSchema,
@@ -97,6 +103,7 @@ export const authorSchema = sanityDocumentSchema.extend({
   _type: z.literal("author"),
   name: z.string(),
   occupation: z.string(),
+  location: z.string(),
   socials: socialsSchema,
   shortBio: z.string(),
   fullBio: z.string(),
@@ -138,7 +145,12 @@ export const articleSchema = articleBaseSchema.extend({
 export type ArticleType = z.infer<typeof articleSchema>;
 
 export const projectSchema = projectBaseSchema.extend({
-  relatedProjects: z.array(projectBaseSchema.omit({})).nullish(),
+  relatedProjects: z.array(projectBaseSchema).nullish(),
   relatedArticles: z.array(articleBaseSchema).nullish(),
 });
 export type ProjectType = z.infer<typeof projectSchema>;
+
+export const siblingArticleSchema = articleSchema
+  .pick({ title: true, slug: true })
+  .nullish();
+export type SiblingArticleType = z.infer<typeof siblingArticleSchema>;

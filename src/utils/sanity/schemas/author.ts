@@ -19,6 +19,13 @@ export default defineType({
     }),
 
     defineField({
+      name: "location",
+      title: "Location",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
       name: "socials",
       title: "Socials",
       type: "socials",

@@ -10,10 +10,10 @@ import { useState } from "react";
 import rt from "reading-time";
 import { ZodError } from "zod";
 
-const Articles = ({
+export default function Articles({
   bannerImage,
   articles,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const [search, setSearch] = useState("");
 
   const filteredArticles = articles.filter(
@@ -124,9 +124,7 @@ const Articles = ({
       </Container>
     </>
   );
-};
-
-export default Articles;
+}
 
 export const getStaticProps = async ({ preview = false }) => {
   const bannerImage = await getBannerImage();
@@ -158,6 +156,15 @@ export const getStaticProps = async ({ preview = false }) => {
   } catch (error) {
     if (error instanceof ZodError) {
       console.error(error.format());
-    } else console.error(error);
+    } else {
+      console.error(error);
+    }
+
+    return {
+      props: {
+        bannerImage,
+        articles: [],
+      },
+    };
   }
 };

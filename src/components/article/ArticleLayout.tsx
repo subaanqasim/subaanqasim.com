@@ -1,34 +1,35 @@
-import type { IArticleFields } from "@utils/types/contentful";
-import type { Sibling } from "../../pages/articles/[slug]";
-import Link from "next/link";
+import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import { useMediaQuery } from "@utils/hooks";
+import type {
+  ArticleType,
+  SiblingArticleType,
+} from "@utils/sanity/schema-types";
+import cn from "classnames";
 import { formatDistance } from "date-fns";
+import Link from "next/link";
 import Seo from "../common/SEO";
 import ShareArticleLinks from "./ShareArticleLinks";
-import { ArrowRightIcon, ArrowLeftIcon } from "@radix-ui/react-icons";
-import cn from "classnames";
-import { useMediaQuery } from "@utils/hooks";
 
 import { CalendarIcon, TimerIcon } from "@radix-ui/react-icons";
-import AuthorHoverCard from "./AuthorHoverCard";
 import { formatDate } from "@utils/formatDate";
+import AuthorHoverCard from "./AuthorHoverCard";
 
-interface IArticleLayoutProps extends IArticleFields {
+interface IArticleLayoutProps extends Omit<ArticleType, "content"> {
   children: React.ReactNode;
-  dateModified: string;
   readingTime: string;
-  nextArticle: Sibling | null;
-  prevArticle: Sibling | null;
+  nextArticle: SiblingArticleType;
+  prevArticle: SiblingArticleType;
 }
 
 const ArticleLayout = ({
   children,
   title,
   author,
-  dateModified,
+  _updatedAt,
   datePublished,
   excerpt,
-  featuredImage,
-  keywords,
+  featureImage,
+  tags,
   slug,
   nextArticle,
   prevArticle,
@@ -36,7 +37,7 @@ const ArticleLayout = ({
 }: IArticleLayoutProps) => {
   const lastUpdated = formatDistance(
     new Date(datePublished),
-    new Date(dateModified),
+    new Date(_updatedAt),
     {
       addSuffix: true,
     },
@@ -49,12 +50,12 @@ const ArticleLayout = ({
       <Seo
         title={title}
         description={excerpt}
-        image={featuredImage}
+        image={featureImage}
         datePublished={datePublished}
-        dateModified={dateModified}
-        authorName={author.fields.name}
-        authorUrl={author.fields.linkedin}
-        tags={keywords}
+        dateModified={_updatedAt}
+        authorName={author.name}
+        authorUrl={author.socials.website ?? "https://subaanqasim.com"}
+        tags={tags}
         type="article"
       />
       <main className="w-full">
@@ -63,7 +64,7 @@ const ArticleLayout = ({
             <h1>{title}</h1>
             <div className="mt-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
               <div className="flex gap-4 text-xs tracking-wide">
-                {keywords.map((word) => (
+                {tags.map((word) => (
                   <div
                     key={word}
                     className="flex items-center justify-center rounded-lg border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 py-[6px] px-[12px] text-center dark:border-neutral-700 dark:from-neutral-800 dark:to-neutral-900 sm:text-left"
@@ -72,7 +73,9 @@ const ArticleLayout = ({
                   </div>
                 ))}
               </div>
-              {isDesktop && <ShareArticleLinks title={title} slug={slug} />}
+              {isDesktop && (
+                <ShareArticleLinks title={title} slug={slug.current} />
+              )}
             </div>
 
             <div className="mt-6 flex flex-col justify-center gap-6 text-sm tracking-wide sm:flex-row sm:items-center sm:justify-between sm:gap-4">
@@ -80,7 +83,7 @@ const ArticleLayout = ({
                 <AuthorHoverCard author={author} />
 
                 <div className="flex flex-col items-start sm:flex-row sm:items-center">
-                  <div>{author.fields.name}</div>
+                  <div>{author.name}</div>
 
                   <div className="flex gap-4 text-neutral-500 dark:text-neutral-400">
                     <div className="flex items-center gap-2">
@@ -101,7 +104,9 @@ const ArticleLayout = ({
                   {`Last updated: ${lastUpdated ? lastUpdated : "---"}`}
                 </div>
 
-                {!isDesktop && <ShareArticleLinks title={title} slug={slug} />}
+                {!isDesktop && (
+                  <ShareArticleLinks title={title} slug={slug.current} />
+                )}
               </div>
             </div>
           </header>
@@ -119,7 +124,7 @@ const ArticleLayout = ({
         >
           {prevArticle && (
             <Link
-              href={`/articles/${prevArticle.fields.slug}`}
+              href={`/articles/${prevArticle.slug.current}`}
               className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]"
             >
               <ArrowLeftIcon className="h-5 w-5 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] group-hover:-translate-x-2" />
@@ -129,7 +134,7 @@ const ArticleLayout = ({
                 </div>
 
                 <div className="mt-3 text-right font-medium tracking-wide">
-                  {prevArticle?.fields.title}
+                  {prevArticle.title}
                 </div>
               </div>
             </Link>
@@ -137,7 +142,7 @@ const ArticleLayout = ({
 
           {nextArticle && (
             <Link
-              href={`/articles/${nextArticle.fields.slug}`}
+              href={`/articles/${nextArticle.slug.current}`}
               className="group flex grow items-center justify-between gap-2 rounded-lg p-4 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] hocus:-translate-y-1 hocus:scale-[1.02] dark:bg-neutral-800 sm:max-w-[50%]"
             >
               <div>
@@ -145,7 +150,7 @@ const ArticleLayout = ({
                   Next Article
                 </div>
                 <div className="mt-3 font-medium tracking-wide">
-                  {nextArticle?.fields.title}
+                  {nextArticle.title}
                 </div>
               </div>
               <ArrowRightIcon className="h-5 w-5 transition-transform duration-200 ease-[cubic-bezier(.5,0,.15,1)] group-hover:translate-x-2" />

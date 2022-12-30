@@ -91,7 +91,6 @@ export default function PhotoMarquee({ photos }: { photos: AssetCollection }) {
                   height={image.fields.file.details.image?.height}
                   sizes="(min-width: 640px) 18rem, 11rem"
                   className="absolute inset-0 h-full w-full object-cover"
-                  priority
                 />
               </div>
             ))}

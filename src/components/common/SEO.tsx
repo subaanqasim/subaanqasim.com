@@ -1,11 +1,12 @@
-import type { Asset } from "contentful";
+import { urlForImage } from "@utils/sanity/sanity-image";
+import type { SanityImageType } from "@utils/sanity/schema-types";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 
 interface CommonProps {
   title: string;
   description?: string;
-  image: Asset;
+  image: SanityImageType;
   noindex?: boolean;
   nofollow?: boolean;
 }
@@ -64,13 +65,11 @@ const SEO = ({
           type: type,
           images: [
             {
-              url: image.fields.file!.url.startsWith("//")
-                ? `https:${image.fields.file!.url}`
-                : image.fields.file!.url,
-              width: image.fields.file!.details.image!.width,
-              height: image.fields.file!.details.image!.height,
-              alt: image.fields?.title,
-              type: image.fields.file?.contentType,
+              url: urlForImage(image).url(),
+              width: image.asset.metadata.dimensions.width,
+              height: image.asset.metadata.dimensions.height,
+              alt: image.asset.altText ?? "",
+              type: image.asset.mimeType,
             },
           ],
           article: {
@@ -96,12 +95,8 @@ const SEO = ({
           title={`${title} | Subaan Qasim`}
           description={seoDescription}
           url={`https://www.subaanqasim.com${router.asPath}`}
-          images={[
-            image.fields.file!.url.startsWith("//")
-              ? `https:${image.fields.file!.url}`
-              : image.fields.file!.url,
-          ]}
-          datePublished={datePublished!}
+          images={[urlForImage(image).url()]}
+          datePublished={datePublished}
           dateModified={dateModified}
           authorName={{
             name: authorName,

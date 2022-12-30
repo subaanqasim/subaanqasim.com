@@ -1,6 +1,6 @@
 import { SEO } from "@components/common";
 import { Container } from "@components/ui";
-import { cda } from "@utils/contentful";
+import { getBannerImage } from "@utils/getBannerImage";
 import { type InferGetStaticPropsType } from "next";
 
 const Offline = ({
@@ -23,7 +23,8 @@ const Offline = ({
 export default Offline;
 
 export const getStaticProps = async () => {
-  const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
+  const bannerImage = await getBannerImage();
+
   return {
     props: {
       bannerImage,

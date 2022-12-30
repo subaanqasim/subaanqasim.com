@@ -1,6 +1,18 @@
-import { cda } from "@utils/contentful";
-export const getBannerImage = async () => {
-  const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
+import { groq } from "next-sanity";
+import { picoSanity } from "./sanity/sanity-server";
+import { sanityImageAssetSchema } from "./sanity/schema-types";
 
-  return bannerImage;
+export const getBannerImage = async () => {
+  const bannerImageAsset = await picoSanity.fetch(
+    groq`
+      *[assetId == "3982ae42a7e10abaaf704305e0defb0ab6628e9c"][0]
+    `,
+  );
+
+  const bannerImage = sanityImageAssetSchema.parse(bannerImageAsset);
+
+  return {
+    _type: "image",
+    asset: bannerImage,
+  };
 };

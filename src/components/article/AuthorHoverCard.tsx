@@ -1,21 +1,22 @@
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
-import Image from "next/image";
-import { type IAuthor } from "@utils/types/contentful";
-import cn from "classnames";
 import {
-  TwitterLogoIcon,
-  LinkedInLogoIcon,
   GitHubLogoIcon,
   InstagramLogoIcon,
+  LinkedInLogoIcon,
+  TwitterLogoIcon,
 } from "@radix-ui/react-icons";
+import { urlForImage } from "@utils/sanity/sanity-image";
+import { type AuthorType } from "@utils/sanity/schema-types";
+import cn from "classnames";
+import Image from "next/image";
 
-const AuthorHoverCard = ({ author }: { author: IAuthor }) => {
+const AuthorHoverCard = ({ author }: { author: AuthorType }) => {
   return (
     <HoverCardPrimitive.Root openDelay={0}>
       <HoverCardPrimitive.Trigger className="cursor-pointer">
         <Image
-          src={`https:${author.fields.headshot.fields.file.url}`}
-          alt={author.fields.headshot.fields.title}
+          src={urlForImage(author.headshot).url()}
+          alt={author.headshot.asset.altText ?? ""}
           width={48}
           height={48}
           sizes="96px"
@@ -40,8 +41,8 @@ const AuthorHoverCard = ({ author }: { author: IAuthor }) => {
           <div className="w-full self-center">
             <div className="aspect-w-4 aspect-h-5 overflow-hidden">
               <Image
-                src={`https:${author.fields.headshot.fields.file.url}`}
-                alt={author.fields.headshot.fields.title}
+                src={urlForImage(author.headshot).url()}
+                alt={author.headshot.asset.altText ?? ""}
                 fill
                 sizes="50vw"
                 className="rounded-md object-cover"
@@ -52,24 +53,24 @@ const AuthorHoverCard = ({ author }: { author: IAuthor }) => {
           <div className="flex max-w-[60%] flex-col justify-start gap-6 text-sm tracking-wide md:justify-center">
             <div>
               <h3 className="text-sm font-medium tracking-wider text-neutral-900 dark:text-neutral-100">
-                {author.fields.name}
+                {author.name}
               </h3>
 
               <p className="text-xs leading-5 text-neutral-500 dark:text-neutral-400">
-                {author.fields.role}
+                {author.occupation}
               </p>
 
               <p className="text-xs leading-5 text-neutral-500 dark:text-neutral-400">
-                {author.fields.location}
+                {author.location}
               </p>
               <p className="mt-2 text-sm leading-5 text-neutral-900 dark:text-neutral-200">
-                {author.fields.shortDescription}
+                {author.shortBio}
               </p>
             </div>
 
             <div className="mt-auto flex justify-center gap-2 md:mt-6">
               <a
-                href={author.fields.twitter}
+                href={author.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
@@ -78,7 +79,7 @@ const AuthorHoverCard = ({ author }: { author: IAuthor }) => {
               </a>
 
               <a
-                href={author.fields.instagram}
+                href={author.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
@@ -87,7 +88,7 @@ const AuthorHoverCard = ({ author }: { author: IAuthor }) => {
               </a>
 
               <a
-                href={author.fields.github}
+                href={author.socials.github}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
@@ -96,7 +97,7 @@ const AuthorHoverCard = ({ author }: { author: IAuthor }) => {
               </a>
 
               <a
-                href={author.fields.linkedin}
+                href={author.socials.linkedIn}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"

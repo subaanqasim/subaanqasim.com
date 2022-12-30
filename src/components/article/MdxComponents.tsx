@@ -21,31 +21,21 @@ const DynamicLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   );
 };
 
-const CustomImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-  const { src, alt, width, height } = props;
+type CustomImageProps = { blurUrl: string } & JSX.IntrinsicElements["img"];
 
-  if (typeof width === "number" && typeof height === "number") {
+const CustomImage = (props: CustomImageProps) => {
+  const { src, alt, width, height, blurUrl } = props;
+
+  if (width && height && src) {
     return (
       <Image
-        src={src!}
+        src={src}
         alt={alt ?? ""}
-        width={width}
-        height={height}
-        className="rounded-lg"
-        sizes="960px"
-      />
-    );
-  }
-
-  if (typeof width === "string" && typeof height === "string") {
-    return (
-      <Image
-        src={src!}
-        alt={alt ?? ""}
-        width={parseInt(width)}
-        height={parseInt(height)}
-        className="rounded-lg"
-        sizes="960px"
+        width={parseInt(width.toString())}
+        height={parseInt(height.toString())}
+        placeholder="blur"
+        blurDataURL={blurUrl}
+        sizes="(max-width: 800px) 100vw, 42rem"
       />
     );
   }
