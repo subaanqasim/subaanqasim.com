@@ -13,17 +13,23 @@ import Image from "next/image";
 const AuthorHoverCard = ({ author }: { author: AuthorType }) => {
   return (
     <HoverCardPrimitive.Root openDelay={0}>
-      <HoverCardPrimitive.Trigger className="cursor-pointer">
-        <Image
-          src={urlForImage(author.headshot).url()}
-          alt={author.headshot.asset.altText ?? ""}
-          width={48}
-          height={48}
-          sizes="96px"
-          className="mr-2 h-8 w-8 rounded-full object-cover"
-          placeholder="blur"
-          blurDataURL={author.headshot.asset.metadata.lqip}
-        />
+      <HoverCardPrimitive.Trigger
+        asChild
+        className="cursor-pointer"
+        aria-label={"About the author"}
+      >
+        <div>
+          <Image
+            src={urlForImage(author.headshot).url()}
+            alt={author.headshot.asset.altText ?? ""}
+            width={48}
+            height={48}
+            sizes="96px"
+            className="mr-2 h-8 w-8 rounded-full object-cover"
+            placeholder="blur"
+            blurDataURL={author.headshot.asset.metadata.lqip}
+          />
+        </div>
       </HoverCardPrimitive.Trigger>
       <HoverCardPrimitive.Content
         align="center"
