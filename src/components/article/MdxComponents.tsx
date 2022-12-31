@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 const DynamicLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const { href, children } = props;
@@ -15,8 +16,16 @@ const DynamicLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   }
 
   return (
-    <a target="_blank" rel="noopener noreferrer" {...props}>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center"
+      {...props}
+    >
       {children}
+      <span className="my-auto ml-1" aria-hidden="true">
+        <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+      </span>
     </a>
   );
 };
