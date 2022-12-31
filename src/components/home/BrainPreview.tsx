@@ -20,12 +20,12 @@ export default function BrainPreview() {
         <ArrowPathIcon className="h-8 w-8 stroke-neutral-400 motion-safe:animate-spin dark:stroke-neutral-600" />
       </div>
 
-      <div className="relative">
+      <div className="relative mt-6">
         <Button
           variant="tertiary"
           size="large"
           state="disabled"
-          className="group mt-6 w-full"
+          className="group w-full"
         >
           Explore my brain
           <ArrowRightIcon className="h-4 w-4 stroke-neutral-500 dark:stroke-neutral-400" />
