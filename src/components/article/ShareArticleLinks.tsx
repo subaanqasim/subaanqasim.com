@@ -30,6 +30,7 @@ const ShareArticleLinks = ({
       <button
         onClick={handleCopyToClipboard}
         className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
+        aria-label="Copy link to clipboard"
       >
         {copied ? (
           <div className="flex items-center gap-1 text-xs">
@@ -46,6 +47,7 @@ const ShareArticleLinks = ({
         target="_blank"
         rel="noopener noreferrer nofollow"
         className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
+        aria-label="Share article on Twitter"
       >
         <TwitterLogoIcon className="h-4 w-4" />
       </a>
@@ -55,6 +57,7 @@ const ShareArticleLinks = ({
         target="_blank"
         rel="noopener noreferrer nofollow"
         className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
+        aria-label="Share article on LinkedIn"
       >
         <LinkedInLogoIcon className="h-4 w-4" />
       </a>
