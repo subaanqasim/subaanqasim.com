@@ -1,8 +1,20 @@
 import { groq } from "next-sanity";
 
+export const imageOptDestructure = groq`
+  ...,
+  media {
+    ...,
+    tags[] ->
+  },
+`;
 const imageDestructure = groq`
   ...,
-  asset ->
+  asset -> {
+    ...,
+    opt {
+      ${imageOptDestructure}
+    }
+  }
 `;
 
 const authorDestructure = groq`
@@ -82,30 +94,11 @@ export const articleBySlugQuery = groq`
   }
 `;
 
-// export const articleBySlugQuery = groq`
-//   *[_type == "article" && slug.current == $slug][0] {
-//     "articleData": {
-//       ...,
-//       author -> {
-//         ...
-//       },
-//       featureImage {
-//         ...
-//       },
-//       relatedArticles[] -> {
-//         ...
-//       },
-//       relatedProjects[] -> {
-//         ...
-//       }
-//     },
-//     "next": *[_type == "article" && ^.datePublished < datePublished] | order(datePublished asc)[0] {
-//       title,
-//       slug,
-//     },
-//     "previous": *[_type == "article" && ^.datePublished > datePublished] | order(datePublished desc)[0] {
-//       title,
-//       slug,
-//     }
-//   }
-// `;
+export const allPhotographyQuery = groq`
+*[_type == "sanity.imageAsset" && "photography" in opt.media.tags[]->.name.current]{
+  ...,
+  opt {
+    ${imageOptDestructure}
+  }
+}
+`;

@@ -1,12 +1,5 @@
-import { createClient } from "contentful";
 import { env } from "@env/server.mjs";
 import { createClient as createAdminClient } from "contentful-management";
-
-export const cda = createClient({
-  space: env.CONTENTFUL_SPACE_ID,
-  accessToken: env.CONTENTFUL_ACCESS_TOKEN,
-  host: env.CONTENTFUL_HOST,
-});
 
 export const cma = createAdminClient(
   {

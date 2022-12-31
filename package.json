@@ -39,7 +39,6 @@
     "@trpc/server": "10.6.0",
     "class-variance-authority": "^0.4.0",
     "classnames": "2.3.2",
-    "contentful": "9.2.14",
     "contentful-management": "10.25.0",
     "date-fns": "2.29.3",
     "focus-visible": "^5.2.0",

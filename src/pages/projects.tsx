@@ -7,7 +7,7 @@ import {
   UserIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 import { type InferGetStaticPropsType } from "next";
 
 export type Project = {

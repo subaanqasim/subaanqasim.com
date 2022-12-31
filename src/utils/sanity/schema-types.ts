@@ -62,24 +62,46 @@ const sanityImageMetadataSchema = z.object({
   palette: sanityImagePaletteSchema.optional(),
 });
 
+const sanityImageOptSchema = z.object({
+  media: z.object({
+    tags: z
+      .array(
+        z.object({
+          _createdAt: z.string().datetime(),
+          _id: z.string(),
+          _rev: z.string().nullish(),
+          _type: z.literal("media.tag"),
+          _updatedAt: z.string().datetime(),
+          name: z.object({
+            _type: z.literal("slug"),
+            current: z.string(),
+          }),
+        }),
+      )
+      .nullish(),
+  }),
+});
+
 export const sanityImageAssetSchema = sanityAssetSchema.extend({
   _type: z.literal("sanity.imageAsset"),
+  _id: z.string(),
   metadata: sanityImageMetadataSchema,
+  opt: sanityImageOptSchema,
 });
 export type SanityImageAssetType = z.infer<typeof sanityImageAssetSchema>;
 
 export const sanityImageSchema = z.object({
   asset: sanityImageAssetSchema,
-  crop: sanityImageCropSchema.optional(),
-  hotspot: sanityImageHotspotSchema.optional(),
+  crop: sanityImageCropSchema.nullish(),
+  hotspot: sanityImageHotspotSchema.nullish(),
 });
 export type SanityImageType = z.infer<typeof sanityImageSchema>;
 
 const sanityDocumentSchema = z.object({
   _id: z.string(),
   _type: z.string(),
-  _createdAt: z.string(),
-  _updatedAt: z.string(),
+  _createdAt: z.string().datetime(),
+  _updatedAt: z.string().datetime(),
   _rev: z.string(),
 });
 

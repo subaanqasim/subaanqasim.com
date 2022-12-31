@@ -1,6 +1,6 @@
 import { SEO } from "@components/common";
 import { Container } from "@components/ui";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 import { type InferGetStaticPropsType } from "next";
 
 const Offline = ({

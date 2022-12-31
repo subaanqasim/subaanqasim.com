@@ -1,7 +1,7 @@
 import { SEO } from "@components/common";
 import SocialMediaCard from "@components/SocialMediaCard";
 import { Container } from "@components/ui";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 import { type InferGetStaticPropsType } from "next";
 import Link from "next/link";
 

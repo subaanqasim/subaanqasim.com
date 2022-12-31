@@ -38,7 +38,6 @@ specifiers:
   babel-loader: 9.1.0
   class-variance-authority: ^0.4.0
   classnames: 2.3.2
-  contentful: 9.2.14
   contentful-management: 10.25.0
   contentful-typescript-codegen: 3.4.0
   date-fns: 2.29.3
@@ -111,7 +110,6 @@ dependencies:
   '@trpc/server': 10.6.0
   class-variance-authority: 0.4.0_typescript@4.9.4
   classnames: 2.3.2
-  contentful: 9.2.14
   contentful-management: 10.25.0
   date-fns: 2.29.3
   focus-visible: 5.2.0
@@ -4686,13 +4684,6 @@ packages:
       - debug
     dev: false
 
-  /contentful-resolve-response/1.4.0:
-    resolution: {integrity: sha512-r5Ljl8BpqDQ/aI7bWidG0Rzzge5E4Q5fNjBoiufirUT7TZOdn4TvWfBB/k3LXWfwhRcauC6dnU9696i6LCY4lg==}
-    engines: {node: '>=4.7.2'}
-    dependencies:
-      fast-copy: 2.1.7
-    dev: false
-
   /contentful-sdk-core/7.0.4:
     resolution: {integrity: sha512-HwYdXmTsVh9rJOq+TA8CsY+vt6ivqkyJZpiEyVboZKIXAa83QmeVLAeBxK75+IiI9KpaPz7LCjVBXTGoTrhV7A==}
     engines: {node: '>=12'}
@@ -4720,20 +4711,6 @@ packages:
       meow: 9.0.0
       prettier: 2.8.1
     dev: true
-
-  /contentful/9.2.14:
-    resolution: {integrity: sha512-HL//idmpr3g46Y2h8IpDCuMGlerp69P1gSXIgP3YqOyERsmdSrKm1ziGNSk/c902+yE0wc0Rrh1HlxGY1EtpQw==}
-    engines: {node: '>=12'}
-    requiresBuild: true
-    dependencies:
-      axios: 0.27.2
-      contentful-resolve-response: 1.4.0
-      contentful-sdk-core: 7.0.4
-      fast-copy: 2.1.7
-      json-stringify-safe: 5.0.1
-    transitivePeerDependencies:
-      - debug
-    dev: false
 
   /convert-source-map/1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
@@ -7295,10 +7272,6 @@ packages:
   /json-stable-stringify-without-jsonify/1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
     dev: true
-
-  /json-stringify-safe/5.0.1:
-    resolution: {integrity: sha512-ZClg6AaYvamvYEE82d3Iyd3vSSIjQ+odgjaTzRuO3s7toCdFKczob2i0zCh7JE8kWn17yvAWhUVxvqGwUalsRA==}
-    dev: false
 
   /json5/1.0.1:
     resolution: {integrity: sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==}

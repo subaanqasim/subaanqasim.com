@@ -1,4 +1,4 @@
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 import { type InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { SEO } from "@components/common";

@@ -1,7 +1,7 @@
 import { type InferGetStaticPropsType } from "next";
 import { SEO } from "@components/common";
 import Development from "../components/Development";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 
 const Privacy = ({
   bannerImage,

@@ -4,7 +4,7 @@ import { SEO } from "@components/common";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import cn from "classnames";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 import { Button, Container } from "@components/ui";
 
 const Support = ({

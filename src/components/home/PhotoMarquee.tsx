@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { useHasMounted } from "@utils/hooks";
 import Image from "next/image";
 import cn from "classnames";
-import { type AssetCollection } from "contentful";
 import { useTheme } from "next-themes";
+import { type SanityImageAssetType } from "@utils/sanity/schema-types";
+import { urlForImage } from "@utils/sanity/sanity-image";
 
 const rotations = [
   "rotate-2",
@@ -33,7 +34,11 @@ const rotations = [
   "-rotate-2",
 ];
 
-export default function PhotoMarquee({ photos }: { photos: AssetCollection }) {
+export default function PhotoMarquee({
+  photos,
+}: {
+  photos: SanityImageAssetType[];
+}) {
   const hasMounted = useHasMounted();
   const { resolvedTheme } = useTheme();
   const marqueeRef = useRef<HTMLDivElement>(null);
@@ -76,19 +81,21 @@ export default function PhotoMarquee({ photos }: { photos: AssetCollection }) {
           }
         >
           <div className="-my-4 flex justify-center gap-5  py-4 sm:gap-8">
-            {photos.items.map((image, i) => (
+            {photos.map((image, i) => (
               <div
-                key={image.fields.title}
+                key={image._id}
                 className={cn(
                   "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 sm:w-72 sm:rounded-2xl",
                   rotations[i % rotations.length],
                 )}
               >
                 <Image
-                  src={`https:${image.fields.file.url}`}
-                  alt={image.fields.description ?? ""}
-                  width={image.fields.file.details.image?.width}
-                  height={image.fields.file.details.image?.height}
+                  src={urlForImage(image).url()}
+                  alt={image.altText ?? ""}
+                  width={image.metadata.dimensions.width}
+                  height={image.metadata.dimensions.height}
+                  placeholder="blur"
+                  blurDataURL={image.metadata.lqip}
                   sizes="(min-width: 640px) 18rem, 11rem"
                   className="absolute inset-0 h-full w-full object-cover"
                 />

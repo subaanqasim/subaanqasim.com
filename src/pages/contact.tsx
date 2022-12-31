@@ -4,7 +4,7 @@ import { SEO } from "@components/common";
 import SocialMediaCard from "../components/SocialMediaCard";
 import EmailToast from "../components/EmailToast";
 import { trpc } from "@utils/trpc";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";

@@ -37,7 +37,7 @@ export default function ArticlePage({
       prevArticle={prevArticle}
       readingTime={article.readingTime}
     >
-      <div className="prose prose-base prose-neutral mx-auto w-full prose-headings:relative dark:prose-invert">
+      <div className="prose-base prose-neutral prose mx-auto w-full prose-headings:relative dark:prose-invert">
         <MDXRemote {...article.content} components={{ ...components } as any} />
       </div>
     </ArticleLayout>
@@ -108,7 +108,7 @@ export const getStaticProps = (async ({
     };
   } catch (error) {
     if (error instanceof ZodError) {
-      console.error(error.format());
+      console.error(error.flatten());
     } else {
       console.error(error);
     }

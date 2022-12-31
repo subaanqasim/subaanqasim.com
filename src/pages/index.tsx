@@ -15,15 +15,19 @@ import Newsletter from "@components/Newsletter";
 import { ProjectCard } from "@components/project";
 import { Button, Container } from "@components/ui";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import { cda } from "@utils/contentful";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage, getProfileImage } from "@utils/getCommonImages";
 import { getReadingTime } from "@utils/reading-time";
-import { allArticlesQuery } from "@utils/sanity/queries";
+import { allArticlesQuery, allPhotographyQuery } from "@utils/sanity/queries";
+import { urlForImage } from "@utils/sanity/sanity-image";
 import { getClient } from "@utils/sanity/sanity-server";
-import { articleInListSchema } from "@utils/sanity/schema-types";
+import {
+  articleInListSchema,
+  sanityImageAssetSchema,
+} from "@utils/sanity/schema-types";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ZodError } from "zod";
 import { projects } from "./projects";
 
 export default function Home({
@@ -112,10 +116,12 @@ export default function Home({
             </div>
           </div>
           <Image
-            src={`https:${profileImage.fields.file.url}`}
-            width={profileImage.fields.file?.details.image?.width}
-            height={profileImage.fields.file?.details.image?.height}
+            src={urlForImage(profileImage.asset).url()}
+            width={profileImage.asset.metadata.dimensions.width}
+            height={profileImage.asset.metadata.dimensions.height}
             alt="Subaan Qasim"
+            placeholder="blur"
+            blurDataURL={profileImage.asset.metadata.lqip}
             sizes="(min-width: 1280px) 320px, (min-width: 1024px) 250px, 0px"
             priority
             className="aspect-[4/5] h-full rounded-xl object-cover max-lg:hidden lg:max-w-[250px] xl:max-w-xs"
@@ -179,27 +185,45 @@ export default function Home({
 }
 
 export const getStaticProps = (async ({ preview = false }) => {
+  const client = getClient(preview);
+
   const bannerImage = await getBannerImage();
-  const profileImage = await cda.getAsset("3Cgp43AjBUNejadXB6C5hu");
-  const photos = await cda.getAssets({
-    "metadata.tags.sys.id[all]": "photography",
-  });
+  const profileImage = await getProfileImage();
 
-  const articleData = await getClient(preview).fetch(allArticlesQuery);
+  try {
+    const photosData = await client.fetch(allPhotographyQuery);
+    const photos = sanityImageAssetSchema.array().nonempty().parse(photosData);
 
-  const articles = articleInListSchema.array().parse(articleData);
+    const articleData = await client.fetch(allArticlesQuery);
+    const articles = articleInListSchema.array().nonempty().parse(articleData);
+    const articlesWithReadingTime = articles.map((article) => ({
+      ...article,
+      readingTime: getReadingTime(article.content),
+    }));
 
-  const articlesWithReadingTime = articles.map((article) => ({
-    ...article,
-    readingTime: getReadingTime(article.content),
-  }));
+    return {
+      props: {
+        bannerImage,
+        profileImage,
+        photos,
+        articles: articlesWithReadingTime,
+      },
+    };
+  } catch (error) {
+    if (error instanceof ZodError) {
+      error = error.flatten();
+      console.error(error);
+    } else {
+      console.error(error);
+    }
 
-  return {
-    props: {
-      bannerImage,
-      profileImage,
-      photos,
-      articles: articlesWithReadingTime,
-    },
-  };
+    return {
+      props: {
+        bannerImage,
+        profileImage,
+        photos: [],
+        articles: [],
+      },
+    };
+  }
 }) satisfies GetStaticProps;

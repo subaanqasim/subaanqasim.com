@@ -1,7 +1,7 @@
 import { ArticlePost } from "@components/article";
 import { SEO } from "@components/common";
 import { Container } from "@components/ui";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 import { getReadingTime } from "@utils/reading-time";
 import { allArticlesQuery } from "@utils/sanity/queries";
 import { getClient } from "@utils/sanity/sanity-server";
