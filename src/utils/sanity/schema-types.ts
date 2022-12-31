@@ -121,6 +121,7 @@ export const articleBaseSchema = sanityDocumentSchema.extend({
   tags: z.array(z.string()),
   excerpt: z.string(),
   content: z.string(),
+  featured: z.boolean().nullish(),
 });
 export type ArticleBaseType = z.infer<typeof articleBaseSchema>;
 
@@ -135,6 +136,7 @@ const projectBaseSchema = sanityDocumentSchema.extend({
   excerpt: z.string(),
   content: z.string(),
   tags: z.array(z.string()),
+  featured: z.boolean().nullish(),
 });
 export type ProjectBaseType = z.infer<typeof projectBaseSchema>;
 

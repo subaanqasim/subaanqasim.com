@@ -25,6 +25,13 @@ export default defineType({
     }),
 
     defineField({
+      name: "featured",
+      title: "Featured?",
+      type: "boolean",
+      initialValue: false,
+    }),
+
+    defineField({
       name: "datePublished",
       title: "Date Published",
       type: "datetime",
