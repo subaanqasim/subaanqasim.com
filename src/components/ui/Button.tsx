@@ -57,7 +57,7 @@ export default function Button<C extends React.ElementType = "button">({
   const Component = as || "button";
 
   return (
-    <div className={cn("group relative", className)}>
+    <div className={cn("group relative inline-block", className)}>
       {variant === "primary" && (
         <span
           aria-hidden="true"
