@@ -10,6 +10,7 @@ import {
 import { MdxComponents } from "@components/mdx";
 import { Container } from "@components/ui";
 import { getBannerImage } from "@utils/getCommonImages";
+import { useBounce } from "@utils/hooks";
 import { getProfileQuery } from "@utils/sanity/queries";
 import { urlForImage } from "@utils/sanity/sanity-image";
 import { picoSanity } from "@utils/sanity/sanity-server";
@@ -20,6 +21,7 @@ import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Link from "next/link";
+import { animated } from "@react-spring/web";
 import Balancer from "react-wrap-balancer";
 
 type SocialLinkProps = {
@@ -35,13 +37,20 @@ function SocialLink({
   children,
   icon: Icon,
 }: SocialLinkProps) {
+  const { style, trigger } = useBounce({
+    rotation: 10,
+  });
+
   return (
     <li className={cn(className, "flex")}>
       <Link
         href={href}
         className="group flex text-sm font-medium text-neutral-800 transition hover:text-cyan-500 dark:text-neutral-200 dark:hover:text-cyan-500"
+        onMouseEnter={trigger}
       >
-        <Icon className="h-6 w-6 flex-none fill-neutral-500 transition group-hover:fill-cyan-500" />
+        <animated.span style={style}>
+          <Icon className="h-6 w-6 flex-none fill-neutral-500 transition group-hover:fill-cyan-500" />
+        </animated.span>
         <span className="ml-4">{children}</span>
       </Link>
     </li>
