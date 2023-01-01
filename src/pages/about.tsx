@@ -7,14 +7,17 @@ import {
   SEO,
   TwitterIcon,
 } from "@components/common";
+import { MdxComponents } from "@components/mdx";
 import { Container } from "@components/ui";
 import { getBannerImage } from "@utils/getCommonImages";
 import { getProfileQuery } from "@utils/sanity/queries";
 import { urlForImage } from "@utils/sanity/sanity-image";
 import { picoSanity } from "@utils/sanity/sanity-server";
 import { authorSchema } from "@utils/sanity/schema-types";
+import { serializeMDX } from "@utils/serializeMDX";
 import cn from "classnames";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
@@ -76,7 +79,13 @@ export default function About({
               </Balancer>
             </h1>
 
-            <Prose className="mt-6">{profile.fullBio}</Prose>
+            <Prose className="mt-6">
+              <MDXRemote
+                {...profile.fullBio}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                components={{ ...MdxComponents } as any}
+              />
+            </Prose>
           </div>
           <div className="lg:pl-20">
             <ul role="list">
@@ -123,10 +132,15 @@ export const getStaticProps = (async () => {
   const bannerImage = await getBannerImage();
   const profile = authorSchema.parse(await picoSanity.fetch(getProfileQuery));
 
+  const fullBioMDX = await serializeMDX(profile.fullBio);
+
   return {
     props: {
       bannerImage,
-      profile,
+      profile: {
+        ...profile,
+        fullBio: fullBioMDX,
+      },
     },
   };
 }) satisfies GetStaticProps;

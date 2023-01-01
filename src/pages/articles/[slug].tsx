@@ -1,6 +1,6 @@
-import { ArticleLayout, components } from "@components/article";
+import { ArticleLayout } from "@components/article";
+import { MdxComponents } from "@components/mdx";
 import { getReadingTime } from "@utils/reading-time";
-import rehypeImgCmsMeta from "@utils/rehype-image-cms-meta";
 import {
   allArticlesSlugQuery,
   articleBySlugQuery,
@@ -10,6 +10,7 @@ import {
   articleSchema,
   siblingArticleSchema,
 } from "@utils/sanity/schema-types";
+import { serializeMDX } from "@utils/serializeMDX";
 import type InferNextPropsType from "infer-next-props-type";
 import type {
   GetStaticPaths,
@@ -17,12 +18,6 @@ import type {
   GetStaticPropsContext,
 } from "next";
 import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeCodeTitles from "rehype-code-titles";
-import rehypePrism from "rehype-prism-plus";
-import rehypeSlug from "rehype-slug";
-import remarkGfm from "remark-gfm";
 import { ZodError } from "zod";
 
 export default function ArticlePage({
@@ -37,9 +32,11 @@ export default function ArticlePage({
       prevArticle={prevArticle}
       readingTime={article.readingTime}
     >
-      <div className="prose-base prose-neutral prose mx-auto w-full prose-headings:relative dark:prose-invert">
-        <MDXRemote {...article.content} components={{ ...components } as any} />
-      </div>
+      <MDXRemote
+        {...article.content}
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        components={{ ...MdxComponents } as any}
+      />
     </ArticleLayout>
   );
 }
@@ -73,27 +70,7 @@ export const getStaticProps = (async ({
     const next = siblingArticleSchema.parse(nextData);
     const previous = siblingArticleSchema.parse(previousData);
 
-    const content = await serialize(article.content, {
-      mdxOptions: {
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [
-          rehypeImgCmsMeta,
-          rehypeSlug,
-          rehypeCodeTitles,
-          rehypePrism,
-          [
-            rehypeAutolinkHeadings,
-            {
-              properties: {
-                className: ["anchor-link"],
-              },
-            },
-          ],
-        ],
-        format: "mdx",
-        development: false,
-      },
-    });
+    const content = await serializeMDX(article.content);
 
     return {
       props: {
