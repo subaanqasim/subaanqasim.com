@@ -46,6 +46,7 @@ export const serverSchema = z.object({
   // Sanity
   SANITY_EDITOR_TOKEN: z.string(),
   SANITY_VIEWER_TOKEN: z.string(),
+  SANITY_REQUIRE_PREVIEW_SECRET: z.string(),
 });
 
 /**

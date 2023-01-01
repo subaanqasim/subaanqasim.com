@@ -11,7 +11,7 @@ import PicoSanity from "picosanity";
 export const picoSanity = new PicoSanity(sanityConfig);
 export const sanityClient = createClient(sanityConfig);
 
-export const previewClient = createClient({
+const previewClient = createClient({
   ...sanityConfig,
   useCdn: false,
   token: env.SANITY_VIEWER_TOKEN,
