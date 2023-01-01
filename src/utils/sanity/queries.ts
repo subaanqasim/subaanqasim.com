@@ -102,3 +102,12 @@ export const allPhotographyQuery = groq`
   }
 }
 `;
+
+export const getProfileQuery = groq`
+  *[_type == "author"][0] {
+      ...,
+      headshot {
+        ${imageDestructure}
+      }
+    }
+`;

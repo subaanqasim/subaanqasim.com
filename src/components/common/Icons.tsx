@@ -1,3 +1,5 @@
+import React from "react";
+
 export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 489 478"
@@ -30,6 +32,17 @@ export const ChevronDownIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <path
       d="M1.75 1.75 4 4.25l2.25-2.5"
       fill="none"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const ChevronRightIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
+    <path
+      d="M6.75 5.75 9.25 8l-2.5 2.25"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -94,13 +107,11 @@ export const LinkedInIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const ChevronRightIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
+export const MailIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
     <path
-      d="M6.75 5.75 9.25 8l-2.5 2.25"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fillRule="evenodd"
+      d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
     />
   </svg>
 );
