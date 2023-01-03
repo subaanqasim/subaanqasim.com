@@ -24,14 +24,6 @@ export const serverSchema = z.object({
   GITHUB_CLIENT_ID: z.string(),
   GITHUB_CLIENT_SECRET: z.string(),
 
-  // Contentful
-  CONTENTFUL_SPACE_ID: z.string(),
-  CONTENTFUL_ACCESS_TOKEN: z.string(),
-  CONTENTFUL_ADMIN_TOKEN: z.string(),
-  CONTENTFUL_ENVIRONMENT: z.string(),
-  CONTENTFUL_HOST: z.string(),
-  REVALIDATE_SECRET: z.string(),
-
   // Stripe
   STRIPE_SECRET_KEY: z.string(),
   STRIPE_WEBHOOK_SECRET: z.string(),
@@ -47,6 +39,7 @@ export const serverSchema = z.object({
   SANITY_EDITOR_TOKEN: z.string(),
   SANITY_VIEWER_TOKEN: z.string(),
   SANITY_REQUIRE_PREVIEW_SECRET: z.string(),
+  SANITY_REVALIDATE_SECRET: z.string(),
 });
 
 /**

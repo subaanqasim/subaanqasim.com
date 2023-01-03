@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 import { picoSanity } from "./sanity/sanity-server";
 import { sanityImageAssetSchema } from "./sanity/schema-types";
-import { imageOptDestructure } from "./sanity/queries";
+import { imageOptProjection } from "./sanity/queries";
 
 export const getBannerImage = async () => {
   const bannerImageAsset = await picoSanity.fetch(
@@ -9,7 +9,7 @@ export const getBannerImage = async () => {
       *[assetId == "3982ae42a7e10abaaf704305e0defb0ab6628e9c"][0]{
         ...,
         opt {
-          ${imageOptDestructure}
+          ${imageOptProjection}
         }
       }
     `,
@@ -29,7 +29,7 @@ export const getProfileImage = async () => {
       *[assetId == "0adf60832d37d233bf2a257784ed3daec9bcb105"][0]{
         ...,
         opt {
-          ${imageOptDestructure}
+          ${imageOptProjection}
         }
       }
     `,

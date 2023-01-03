@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
-    "contentful-types": "contentful-typescript-codegen --output ./src/utils/types/contentful.d.ts",
     "format": "prettier --write \"**/*.{ts,tsx,md}\" && prisma format",
     "clean": "rm -rf .next node_modules",
     "reset": "pnpm clean && pnpm i"
@@ -45,7 +44,6 @@
     "@trpc/server": "10.6.0",
     "class-variance-authority": "^0.4.0",
     "classnames": "2.3.2",
-    "contentful-management": "10.25.0",
     "date-fns": "2.29.3",
     "focus-visible": "^5.2.0",
     "micro": "10.0.1",
@@ -93,7 +91,6 @@
     "@typescript-eslint/parser": "^5.47.0",
     "autoprefixer": "10.4.13",
     "babel-loader": "9.1.0",
-    "contentful-typescript-codegen": "3.4.0",
     "eslint": "8.30.0",
     "eslint-config-next": "13.0.7",
     "eslint-config-prettier": "8.5.0",
