@@ -86,7 +86,7 @@ export const sanityImageAssetSchema = sanityAssetSchema.extend({
   _type: z.literal("sanity.imageAsset"),
   _id: z.string(),
   metadata: sanityImageMetadataSchema,
-  opt: sanityImageOptSchema,
+  opt: sanityImageOptSchema.nullish(),
 });
 export type SanityImageAssetType = z.infer<typeof sanityImageAssetSchema>;
 
@@ -153,14 +153,39 @@ const projectBaseSchema = sanityDocumentSchema.extend({
   slug: slugSchema,
   datePublished: z.string().datetime(),
   featureImage: sanityImageSchema,
-  logo: sanityImageSchema,
+  logoSVGString: z.string(),
   author: authorSchema,
   excerpt: z.string(),
   content: z.string(),
   tags: z.array(z.string()),
   featured: z.boolean().nullish(),
+  pattern: z.object({
+    y: z.number(),
+    squares: z
+      .array(
+        z
+          .object({
+            _key: z.string(),
+            _type: z.literal("square"),
+            square: z.tuple([z.number(), z.number()]),
+          })
+          .transform((v) => v.square),
+      )
+      .nonempty(),
+  }),
 });
 export type ProjectBaseType = z.infer<typeof projectBaseSchema>;
+
+export const projectForCardSchema = projectBaseSchema.pick({
+  _id: true,
+  slug: true,
+  title: true,
+  excerpt: true,
+  logoSVGString: true,
+  pattern: true,
+});
+
+export type ProjectForCard = z.infer<typeof projectForCardSchema>;
 
 export const articleSchema = articleBaseSchema.extend({
   relatedArticles: z.array(articleBaseSchema).nullish(),

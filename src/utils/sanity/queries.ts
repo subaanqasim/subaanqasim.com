@@ -41,7 +41,6 @@ const relatedProjectsProjection = groq`
   featureImage {
     ${imageProjection}
   },
-  logo ->,
   author -> {
     ${authorProjection}
   },
@@ -110,6 +109,17 @@ export const getProfileQuery = groq`
         ${imageProjection}
       }
     }
+`;
+
+export const allProjectsQuery = groq`
+  *[_type == "project"] | order(datePublished desc) {
+    _id,
+    title,
+    slug,
+    excerpt,
+    pattern,
+    logoSVGString 
+  }
 `;
 
 export const staleAuthorRoutesQuery = ({ id }: { id: string }) => groq`

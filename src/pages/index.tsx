@@ -17,24 +17,29 @@ import { Button, Container } from "@components/ui";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { getBannerImage, getProfileImage } from "@utils/getCommonImages";
 import { getReadingTime } from "@utils/reading-time";
-import { allArticlesQuery, allPhotographyQuery } from "@utils/sanity/queries";
+import {
+  allArticlesQuery,
+  allPhotographyQuery,
+  allProjectsQuery,
+} from "@utils/sanity/queries";
 import { urlForImage } from "@utils/sanity/sanity-image";
 import { getClient } from "@utils/sanity/sanity-server";
 import {
   articleInListSchema,
+  projectForCardSchema,
   sanityImageAssetSchema,
 } from "@utils/sanity/schema-types";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ZodError } from "zod";
-import { projects } from "./projects";
 
 export default function Home({
   bannerImage,
   profileImage,
   photos,
   articles,
+  projects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -166,7 +171,7 @@ export default function Home({
         </h2>
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
           {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <ProjectCard key={project._id} project={project} />
           ))}
         </div>
         <Button
@@ -201,11 +206,16 @@ export const getStaticProps = (async ({ preview = false }) => {
       readingTime: getReadingTime(article.content),
     }));
 
+    const projects = projectForCardSchema
+      .array()
+      .parse(await getClient(preview).fetch(allProjectsQuery));
+
     return {
       props: {
         bannerImage,
         profileImage,
         photos,
+        projects,
         articles: articlesWithReadingTime,
       },
     };
@@ -221,6 +231,7 @@ export const getStaticProps = (async ({ preview = false }) => {
       props: {
         bannerImage,
         profileImage,
+        projects: [],
         photos: [],
         articles: [],
       },

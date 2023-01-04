@@ -55,9 +55,12 @@ export default defineType({
     }),
 
     defineField({
-      name: "logo",
-      title: "Logo",
-      type: "image",
+      name: "logoSVGString",
+      title: "Logo SVG String",
+      type: "string",
+      description:
+        "SVG string of the logo. Remove any 'class' or 'currentColor' related attributes.",
+      validation: (rule) => rule.required(),
     }),
 
     defineField({
@@ -83,6 +86,33 @@ export default defineType({
       options: {
         layout: "tags",
       },
+    }),
+
+    defineField({
+      name: "pattern",
+      title: "Pattern",
+      type: "object",
+      fields: [
+        defineField({
+          name: "y",
+          title: "y",
+          type: "number",
+          validation: (rule) => rule.required(),
+        }),
+
+        defineField({
+          name: "squares",
+          title: "squares",
+          type: "array",
+          of: [
+            {
+              type: "square",
+            },
+          ],
+          validation: (rule) => rule.min(1).max(3).required(),
+        }),
+      ],
+      validation: (rule) => rule.required(),
     }),
 
     defineField({

@@ -25,11 +25,7 @@ function Article({ article }: ArticleProps) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title
-          as="h3"
-          href={`/articles/${article.slug.current}`}
-          className="group/border"
-        >
+        <Card.Title as="h3" href="#" className="group/border">
           {article.title}
         </Card.Title>
 

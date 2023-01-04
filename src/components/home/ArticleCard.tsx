@@ -19,7 +19,7 @@ export default function ArticleCard({ articleData }: ArticleCardProps) {
 
   return (
     <Card as="article">
-      <Card.Title as="h3" href={`/articles/${slug.current}`}>
+      <Card.Title as="h3" href="#">
         {title}
       </Card.Title>
       <Card.Eyebrow as="div" decorate className="gap-3">
