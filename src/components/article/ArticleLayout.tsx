@@ -4,6 +4,7 @@ import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { type ReadingTime } from "@utils/reading-time";
 import type {
   ArticleType,
+  ProjectType,
   SiblingArticleType,
 } from "@utils/sanity/schema-types";
 import { useRouter } from "next/router";
@@ -13,10 +14,10 @@ import SiblingLinks from "./SiblingLinks";
 
 type ArticleLayoutProps = {
   children: React.ReactNode;
-  readingTime: ReadingTime;
-  nextArticle: SiblingArticleType;
-  prevArticle: SiblingArticleType;
-  article: Omit<ArticleType, "content">;
+  readingTime?: ReadingTime;
+  nextArticle?: SiblingArticleType;
+  prevArticle?: SiblingArticleType;
+  article: Omit<ArticleType, "content"> | Omit<ProjectType, "content">;
 };
 
 export default function ArticleLayout({

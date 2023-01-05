@@ -15,7 +15,7 @@ type ArticleHeaderProps = {
   title: string;
   datePublished: string;
   updatedAt: string;
-  readingTime: ReadingTime;
+  readingTime?: ReadingTime;
   author: AuthorType;
   slug: string;
 };
@@ -60,15 +60,19 @@ export default function ArticleHeader({
               <span>{formatDate(datePublished)}</span>
             </time>
           </div>
-          /
-          <div className="flex items-center">
-            <ClockIcon className="mr-1 h-4 w-4" />
-            <span
-              aria-label={`${readingTime.minutes} ${readingTime.minuteOrMinutes} read`}
-            >
-              {`${readingTime.minutes} min`}
-            </span>
-          </div>
+          {readingTime && (
+            <>
+              /
+              <div className="flex items-center">
+                <ClockIcon className="mr-1 h-4 w-4" />
+                <span
+                  aria-label={`${readingTime.minutes} ${readingTime.minuteOrMinutes} read`}
+                >
+                  {`${readingTime.minutes} min`}
+                </span>
+              </div>
+            </>
+          )}
           /
           <div className="flex items-center">
             <EyeIcon className="mr-1 h-4 w-4" />

@@ -2,7 +2,7 @@ import { ArticleLayout } from "@components/article";
 import { MdxComponents } from "@components/mdx";
 import { getReadingTime } from "@utils/reading-time";
 import {
-  allArticlesSlugQuery,
+  allArticleSlugsQuery,
   articleBySlugQuery,
 } from "@utils/sanity/queries";
 import { getClient, picoSanity } from "@utils/sanity/sanity-server";
@@ -12,11 +12,7 @@ import {
 } from "@utils/sanity/schema-types";
 import { serializeMDX } from "@utils/serializeMDX";
 import type InferNextPropsType from "infer-next-props-type";
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  GetStaticPropsContext,
-} from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { ZodError } from "zod";
 
@@ -42,7 +38,7 @@ export default function ArticlePage({
 }
 
 export const getStaticPaths = (async () => {
-  const articleSlugs: string[] = await picoSanity.fetch(allArticlesSlugQuery);
+  const articleSlugs: string[] = await picoSanity.fetch(allArticleSlugsQuery);
 
   return {
     paths: articleSlugs.map((slug) => ({
@@ -54,10 +50,7 @@ export const getStaticPaths = (async () => {
   };
 }) satisfies GetStaticPaths;
 
-export const getStaticProps = (async ({
-  params,
-  preview = false,
-}: GetStaticPropsContext) => {
+export const getStaticProps = (async ({ params, preview = false }) => {
   try {
     // Get entry by slug
     const { articleData, nextData, previousData } = await getClient(

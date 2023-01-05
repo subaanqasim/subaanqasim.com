@@ -59,7 +59,7 @@ export const allArticlesQuery = groq`
   }
 `;
 
-export const allArticlesSlugQuery = groq`
+export const allArticleSlugsQuery = groq`
   *[_type == "article" && defined(slug.current)][].slug.current
 `;
 
@@ -119,6 +119,28 @@ export const allProjectsQuery = groq`
     excerpt,
     pattern,
     logoSVGString 
+  }
+`;
+
+export const allProjectSlugsQuery = groq`
+  *[_type == "project" && defined(slug.current)][].slug.current
+`;
+
+export const projectBySlugQuery = groq`
+  *[_type == "project" && slug.current == $slug][0] {
+    ...,
+    author -> {
+      ${authorProjection}
+    },
+    featureImage {
+      ${imageProjection}
+    },
+    relatedArticles[] -> {
+      ${relatedArticlesProjection}
+    },
+    relatedProjects[] -> {
+      ${relatedProjectsProjection}
+    }
   }
 `;
 
