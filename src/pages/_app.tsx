@@ -6,6 +6,33 @@ import { ThemeProvider } from "next-themes";
 import type { AppType } from "next/app";
 import "../styles/globals.css";
 import { trpc } from "../utils/trpc";
+import localFont from "@next/font/local";
+
+const articulatCF = localFont({
+  src: [
+    {
+      path: "../../public/static/fonts/ArticulatCF-Normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/static/fonts/ArticulatCF-Regular.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/static/fonts/ArticulatCF-Medium.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/static/fonts/ArticulatCF-DemiBold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-articulatCF",
+});
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -19,7 +46,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
             <div className="w-full" />
           </div>
         </div>
-        <div className="relative">
+        <div className={`relative ${articulatCF.variable} font-sans`}>
           <MainLayout>
             <Component {...pageProps} />
           </MainLayout>

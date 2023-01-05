@@ -7,7 +7,7 @@ export default function Document() {
       style={{ scrollBehavior: "smooth", scrollPaddingTop: "4rem" }}
     >
       <Head>
-        <link rel="stylesheet" href="https://use.typekit.net/zqu1jvs.css" />
+        {/* <link rel="stylesheet" href="https://use.typekit.net/zqu1jvs.css" /> */}
         <link rel="manifest" href="/static/subaanqasim.webmanifest" />
         <link
           rel="apple-touch-icon"

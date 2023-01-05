@@ -16,6 +16,11 @@ const nextConfig = {
   images: {
     domains: ["images.ctfassets.net", "cdn.sanity.io"],
   },
+  modularizeImports: {
+    "@heroicons/react/24/outline": {
+      transform: "@heroicons/react/24/outline/{{member}}",
+    },
+  },
   experimental: {
     appDir: true,
   },

@@ -326,7 +326,7 @@ module.exports = {
 
     extend: {
       fontFamily: {
-        sans: ["Articulat-CF", ...fontFamily.sans],
+        sans: ["var(--font-articulatCF)", ...fontFamily.sans],
       },
       letterSpacing: {
         tight: "-0.03em",
@@ -337,7 +337,6 @@ module.exports = {
         medium: 500,
         semibold: 600,
         bold: 700,
-        extraBold: 800,
       },
 
       backgroundImage: {
