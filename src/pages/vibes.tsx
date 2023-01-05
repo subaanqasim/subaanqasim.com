@@ -1,19 +1,20 @@
-import { InferGetStaticPropsType } from "next";
-import Development from "../components/Development";
-import Wrapper from "../components/Wrapper";
-import { getBannerImage } from "@utils/getBannerImage";
+import { SEO } from "@components/common";
+import Development from "@components/Development";
+import { getBannerImage } from "@utils/getCommonImages";
+import { type InferGetStaticPropsType } from "next";
 
 const Vibes = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper
-      title="Vibes"
-      description="A collection of tweets, memes and random stuff I majorly vibed with."
-      image={bannerImage}
-    >
+    <>
+      <SEO
+        title="Vibes"
+        description="A collection of tweets, memes and random stuff I majorly vibed with."
+        image={bannerImage}
+      />
       <Development title="Vibes" />
-    </Wrapper>
+    </>
   );
 };
 

@@ -1,10 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { type NextApiRequest, type NextApiResponse } from "next";
 import Stripe from "stripe";
-import { env } from "../../server/env";
+import { env } from "@env/server.mjs";
 import { prisma } from "../../server/db/client";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
-  apiVersion: "2022-08-01",
+  apiVersion: "2022-11-15",
 });
 
 export default async function handler(

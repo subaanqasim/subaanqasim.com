@@ -1,41 +1,54 @@
-import { getBannerImage } from "@utils/getBannerImage";
-import { InferGetStaticPropsType } from "next";
+import { getBannerImage } from "@utils/getCommonImages";
+import { type InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import Wrapper from "../components/Wrapper";
+import { SEO } from "@components/common";
+import { Button, Container } from "@components/ui";
+import Balancer from "react-wrap-balancer";
 
-const NotFound = ({
+export default function NotFound({
   bannerImage,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Wrapper title="404" noindex nofollow image={bannerImage}>
-      <main className="flex w-full flex-col items-center text-center">
-        <h1>420 - Page is too cool for you 🥵</h1>
-        <div className="mt-8 text-xl font-bold">
-          Trying to access this page will have dire consequences.
-        </div>
-        <div className="mt-12 flex flex-col items-center text-neutral-500 dark:text-neutral-400">
-          <p className=" max-w-prose">
-            Jk. The page you are trying to open does not exist. You may have
-            mistyped the address, or the page has been moved to another URL.
-          </p>
-          <p className="mt-4">
-            If you think this is a mistake{" "}
-            <Link href="/contact">
-              <a className="text-orange-700 decoration-2 transition-all hocus:text-orange-900 hocus:underline dark:text-orange-500  dark:hocus:text-orange-300">
+    <>
+      <SEO title="404" noindex nofollow image={bannerImage} />
+      <Container className="mt-16 sm:mt-32">
+        <main className="flex w-full flex-col items-center text-center">
+          <h1 className="text-4xl font-bold md:text-5xl">
+            <Balancer ratio={0.7}>420 - Page is too cool for you 🥵</Balancer>
+          </h1>
+          <div className="mt-8 text-xl font-bold">
+            Trying to access this page will have dire consequences.
+          </div>
+          <div className="mt-12 flex flex-col items-center text-neutral-500 dark:text-neutral-400">
+            <p className=" max-w-prose">
+              Jk. The page you are trying to open does not exist. You may have
+              mistyped the address, or the page has been moved to another URL.
+            </p>
+            <p className="mt-4">
+              If you think this is a mistake{" "}
+              <Link
+                href="/contact"
+                className="text-orange-700 decoration-2 transition-all hocus:text-orange-900 hocus:underline dark:text-orange-500  dark:hocus:text-orange-300"
+              >
                 please get in touch.
-              </a>
-            </Link>
-          </p>
-          <Link href="/">
-            <a className="button-primary mt-16 py-5">Return to safety</a>
-          </Link>
-        </div>
-      </main>
-    </Wrapper>
-  );
-};
+              </Link>
+            </p>
+          </div>
+        </main>
+      </Container>
 
-export default NotFound;
+      <Button
+        as={Link}
+        href="/"
+        variant="primary"
+        size="large"
+        className="mx-auto mt-16 max-w-xs"
+      >
+        Return to safety
+      </Button>
+    </>
+  );
+}
 
 export const getStaticProps = async () => {
   const bannerImage = await getBannerImage();

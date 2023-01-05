@@ -1,15 +1,16 @@
-import Development from "../components/Development";
-import { InferGetStaticPropsType } from "next";
-import Wrapper from "../components/Wrapper";
-import { getBannerImage } from "@utils/getBannerImage";
+import Development from "@components/Development";
+import { type InferGetStaticPropsType } from "next";
+import { SEO } from "@components/common";
+import { getBannerImage } from "@utils/getCommonImages";
 
 const Admin = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper title="Admin" image={bannerImage} nofollow noindex>
+    <>
+      <SEO title="Admin" image={bannerImage} nofollow noindex />
       <Development title="Admin" />
-    </Wrapper>
+    </>
   );
 };
 

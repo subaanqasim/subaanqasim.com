@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // required for contentful-typescript-codegen to generate types from Contentful
 
 const contentful = require("contentful-management");
-const env = require("../server/env.js");
+const env = require("../env/server.mjs");
 
 async function createContentfulClient() {
   const contentfulClient = contentful.createClient({

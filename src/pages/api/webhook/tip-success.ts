@@ -1,12 +1,12 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { type NextApiRequest, type NextApiResponse } from "next";
 import { buffer } from "micro";
 import Stripe from "stripe";
 import { prisma } from "../../../server/db/client";
-import { env } from "../../../server/env";
+import { env } from "@env/server.mjs";
 // import NextCors from "nextjs-cors";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
-  apiVersion: "2022-08-01",
+  apiVersion: "2022-11-15",
 });
 
 const whSecret = env.STRIPE_WEBHOOK_SECRET;
@@ -62,7 +62,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const errorMessage = err instanceof Error ? err.message : "Unknown error";
 
       // On error, log and return the error message.
-      if (err! instanceof Error) console.log(err);
+      if (err instanceof Error) console.log(err);
 
       console.log(`❌ Error message: ${errorMessage}`);
 

@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { InferGetStaticPropsType } from "next";
-import Wrapper from "../components/Wrapper";
+import { useEffect, useState } from "react";
+import { type InferGetStaticPropsType } from "next";
+import { SEO } from "@components/common";
 import SocialMediaCard from "../components/SocialMediaCard";
 import EmailToast from "../components/EmailToast";
 import { trpc } from "@utils/trpc";
-import { getBannerImage } from "@utils/getBannerImage";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { getBannerImage } from "@utils/getCommonImages";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import cx from "classnames";
+import cn from "classnames";
 import { Provider as ToastProvider } from "@radix-ui/react-toast";
+import { Container } from "@components/ui";
 
 const socials = [
   {
     platform: "Twitter",
     handle: "@subaanqasim",
     href: "https://twitter.com/subaanqasim",
-    iconColour: "text-teal-500",
+    iconColour: "text-cyan-500",
     buttonText: "Follow",
     icon: (
       <svg
@@ -55,7 +56,7 @@ const socials = [
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <rect x="4" y="4" width="16" height="16" rx="4"></rect>
-        <circle cx="12" cy="12" r="3"></circle>
+        <circle cy="12" r="3"></circle>
         <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
       </svg>
     ),
@@ -163,11 +164,12 @@ const Contact = ({
 
   return (
     <ToastProvider>
-      <Wrapper
+      <SEO
         title="Contact"
         description="Get in touch with me via email or connect with me on social media."
         image={bannerImage}
-      >
+      />
+      <Container className="mt-16 sm:mt-32">
         <header>
           <h1>Contact</h1>
         </header>
@@ -201,7 +203,7 @@ const Contact = ({
                   id="name"
                   type="text"
                   placeholder=" "
-                  className={cx(
+                  className={cn(
                     errors.name?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
@@ -226,7 +228,7 @@ const Contact = ({
                   id="email"
                   type="email"
                   placeholder=" "
-                  className={cx(
+                  className={cn(
                     errors.email?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
@@ -250,7 +252,7 @@ const Contact = ({
                   id="subject"
                   type="text"
                   placeholder=" "
-                  className={cx(
+                  className={cn(
                     errors.subject?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
@@ -274,7 +276,7 @@ const Contact = ({
                   id="message"
                   placeholder=" "
                   rows={5}
-                  className={cx(
+                  className={cn(
                     errors.message?.message
                       ? "border-red-600 dark:border-red-500"
                       : "border-neutral-300 dark:border-neutral-600",
@@ -303,7 +305,7 @@ const Contact = ({
           </div>
           <EmailToast open={open} setOpen={setOpen} status={status} />
         </main>
-      </Wrapper>
+      </Container>
     </ToastProvider>
   );
 };

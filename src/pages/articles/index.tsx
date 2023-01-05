@@ -1,60 +1,115 @@
-import { cda } from "@utils/contentful";
-import { getBannerImage } from "@utils/getBannerImage";
-import { IArticle } from "@utils/types/contentful";
-import { InferGetStaticPropsType } from "next";
+import { SEO, SimpleLayout } from "@components/common";
+import { Card, Container } from "@components/ui";
+import {
+  CalendarDaysIcon,
+  ClockIcon,
+  EyeIcon,
+  MagnifyingGlassIcon,
+  XCircleIcon,
+} from "@heroicons/react/24/outline";
+import { formatDate } from "@utils/formatDate";
+import { getBannerImage } from "@utils/getCommonImages";
+import { getReadingTime } from "@utils/reading-time";
+import { allArticlesQuery } from "@utils/sanity/queries";
+import { getClient } from "@utils/sanity/sanity-server";
+import { articleSchema } from "@utils/sanity/schema-types";
+import { type InferGetStaticPropsType } from "next";
 import { useState } from "react";
-import rt from "reading-time";
-import ArticlePost from "../../components/ArticlePost";
-import Wrapper from "../../components/Wrapper";
+import { ZodError } from "zod";
 
-type Articles = (Pick<IArticle, "fields"> & {
-  fields: Pick<
-    IArticle["fields"],
-    "title" | "slug" | "excerpt" | "body" | "body2"
-  >;
-})[];
+type ArticleProps = {
+  article: InferGetStaticPropsType<typeof getStaticProps>["articles"][0];
+};
 
-const Articles = ({
+function Article({ article }: ArticleProps) {
+  return (
+    <article className="md:grid md:grid-cols-4 md:items-baseline">
+      <Card className="md:col-span-3">
+        <Card.Title as="h3" href="#" className="group/border">
+          {article.title}
+        </Card.Title>
+
+        {/* Mobile */}
+        <Card.Eyebrow as="div" decorate className="gap-3 md:hidden">
+          <div className="flex items-center">
+            <CalendarDaysIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+            <time dateTime={article.datePublished}>
+              {formatDate(article.datePublished)}
+            </time>
+          </div>
+          /
+          <div className="flex items-center">
+            <ClockIcon className="mr-1 h-4 w-4" />
+            <span
+              aria-label={`${article.readingTime.minutes} ${article.readingTime.minOrMins} read`}
+            >
+              {`${article.readingTime.minutes} ${article.readingTime.minOrMins}`}
+            </span>
+          </div>
+          /
+          <div className="flex items-center">
+            <EyeIcon className="mr-1 h-4 w-4" />
+            <span aria-label={`9999 views`}>9999</span>
+          </div>
+        </Card.Eyebrow>
+
+        <Card.Description>{article.excerpt}</Card.Description>
+        <Card.Cta>Read article</Card.Cta>
+      </Card>
+
+      {/* Desktop */}
+      <Card.Eyebrow as="div" className="mt-1 hidden space-y-1 md:block">
+        <div className="flex items-center">
+          <CalendarDaysIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+          <time dateTime={article.datePublished}>
+            {formatDate(article.datePublished)}
+          </time>
+        </div>
+
+        <div className="flex items-center">
+          <ClockIcon className="mr-1 h-4 w-4" />
+          <span
+            aria-label={`${article.readingTime.minutes} ${article.readingTime.minOrMins} read`}
+          >
+            {`${article.readingTime.minutes} ${article.readingTime.minOrMins}`}
+          </span>
+        </div>
+
+        <div className="flex items-center">
+          <EyeIcon className="mr-1 h-4 w-4" />
+          <span aria-label={`9999 views`}>9999</span>
+        </div>
+      </Card.Eyebrow>
+    </article>
+  );
+}
+
+export default function ArticlesPage({
   bannerImage,
   articles,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const [search, setSearch] = useState("");
 
   const filteredArticles = articles.filter(
     (article) =>
-      article.fields.title.toLowerCase().includes(search.toLowerCase()) ||
-      article.fields.excerpt.toLowerCase().includes(search.toLowerCase()),
+      article.title.toLowerCase().includes(search.toLowerCase()) ||
+      article.excerpt.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
-    <Wrapper
-      title="Articles"
-      description="Thoughts and unadulterated streams of consciousness about Medicine, tech and life."
-      image={bannerImage}
-    >
-      <header>
-        <h1>Articles</h1>
-        <p className="mt-4 max-w-md text-neutral-500 dark:text-neutral-400 ">
-          Thoughts and unadulterated streams of consciousness about Medicine,
-          tech, life, and random projects I&apos;m working on.
-        </p>
-      </header>
-      <main className="w-full">
-        <div className="relative my-6">
+    <>
+      <SEO
+        title="Articles"
+        description="Thoughts and unadulterated streams of consciousness about Medicine, tech and life."
+        image={bannerImage}
+      />
+      <SimpleLayout
+        title="Articles"
+        intro="Thoughts and unadulterated streams of consciousness about Medicine, tech and life."
+      >
+        <div className="relative my-6 mx-auto max-w-3xl">
           <div className="pointer-events-none absolute inset-y-0 left-0 ml-3 flex items-center">
-            <svg
-              viewBox="0 0 15 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 text-neutral-500 dark:text-neutral-400"
-            >
-              <path
-                d="M10 6.5C10 8.433 8.433 10 6.5 10C4.567 10 3 8.433 3 6.5C3 4.567 4.567 3 6.5 3C8.433 3 10 4.567 10 6.5ZM9.30884 10.0159C8.53901 10.6318 7.56251 11 6.5 11C4.01472 11 2 8.98528 2 6.5C2 4.01472 4.01472 2 6.5 2C8.98528 2 11 4.01472 11 6.5C11 7.56251 10.6318 8.53901 10.0159 9.30884L12.8536 12.1464C13.0488 12.3417 13.0488 12.6583 12.8536 12.8536C12.6583 13.0488 12.3417 13.0488 12.1464 12.8536L9.30884 10.0159Z"
-                fill="currentColor"
-                fillRule="evenodd"
-                clipRule="evenodd"
-              ></path>
-            </svg>
+            <MagnifyingGlassIcon className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
           </div>
 
           <input
@@ -71,83 +126,94 @@ const Articles = ({
               className="absolute inset-y-0 right-0 mr-3 flex cursor-pointer items-center p-1 transition-transform hover:scale-[1.1]"
               onClick={() => setSearch("")}
             >
-              <svg
-                viewBox="0 0 15 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 text-neutral-500 dark:text-neutral-400"
-              >
-                <path
-                  d="M0.877075 7.49988C0.877075 3.84219 3.84222 0.877045 7.49991 0.877045C11.1576 0.877045 14.1227 3.84219 14.1227 7.49988C14.1227 11.1575 11.1576 14.1227 7.49991 14.1227C3.84222 14.1227 0.877075 11.1575 0.877075 7.49988ZM7.49991 1.82704C4.36689 1.82704 1.82708 4.36686 1.82708 7.49988C1.82708 10.6329 4.36689 13.1727 7.49991 13.1727C10.6329 13.1727 13.1727 10.6329 13.1727 7.49988C13.1727 4.36686 10.6329 1.82704 7.49991 1.82704ZM9.85358 5.14644C10.0488 5.3417 10.0488 5.65829 9.85358 5.85355L8.20713 7.49999L9.85358 9.14644C10.0488 9.3417 10.0488 9.65829 9.85358 9.85355C9.65832 10.0488 9.34173 10.0488 9.14647 9.85355L7.50002 8.2071L5.85358 9.85355C5.65832 10.0488 5.34173 10.0488 5.14647 9.85355C4.95121 9.65829 4.95121 9.3417 5.14647 9.14644L6.79292 7.49999L5.14647 5.85355C4.95121 5.65829 4.95121 5.3417 5.14647 5.14644C5.34173 4.95118 5.65832 4.95118 5.85358 5.14644L7.50002 6.79289L9.14647 5.14644C9.34173 4.95118 9.65832 4.95118 9.85358 5.14644Z"
-                  fill="currentColor"
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
+              <XCircleIcon className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
             </div>
           )}
         </div>
 
         {search.length === 0 && (
-          <>
-            <h2 className="mb-4">Featured</h2>
-
-            <div className="flex flex-col gap-6">
-              {/* <ArticlePost
-                title="This is Definitely Not a Featured Post"
-                excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                slug=""
-                readingTime="7 min read"
-              /> */}
+          <div className="mx-auto max-w-3xl">
+            <h2 className="mt-16 mb-4 text-2xl font-semibold sm:mt-20 md:text-3xl">
+              Featured
+            </h2>
+            <div className="flex flex-col space-y-16 md:border-l md:border-neutral-100 md:py-2 md:pl-6 md:dark:border-neutral-700/60">
+              {/* {filteredArticles.map((article) => (
+                <Article key={article._id} article={article} />
+              ))} */}
               <p className="text-center text-xl font-medium">
                 Nothing here... yet. Check back soon! 🔜
               </p>
             </div>
-          </>
+          </div>
         )}
 
-        <h2 className="mt-8 mb-4">All Articles</h2>
+        <div className="mx-auto max-w-3xl">
+          <h2 className="mt-16 mb-4 text-2xl font-semibold sm:mt-20 md:text-3xl">
+            All Articles
+          </h2>
+          <div className="flex flex-col space-y-16 md:border-l md:border-neutral-100 md:py-2 md:pl-6 md:dark:border-neutral-700/60">
+            {filteredArticles.length === 0 && (
+              <p className="text-center text-2xl font-semibold">
+                {/* No articles found 😢 */}
+                Intense writing in progress! 🥵
+              </p>
+            )}
 
-        <div className="flex flex-col gap-6">
-          {filteredArticles.length === 0 && (
-            // <p className="text-center text-2xl font-semibold">
-            //   No articles found 😢
-            // </p>
-            <p className="text-center text-2xl font-semibold">
-              Intense writing in progress! 🥵
-            </p>
-          )}
-
-          {filteredArticles.map((article) => (
-            <ArticlePost
-              key={article.fields.title}
-              title={article.fields.title}
-              excerpt={article.fields.excerpt}
-              slug={article.fields.slug}
-              readingTime={rt(article.fields.body + article.fields.body2).text}
-            />
-          ))}
+            {filteredArticles.map((article) => (
+              <Article key={article._id} article={article} />
+            ))}
+          </div>
         </div>
-      </main>
-    </Wrapper>
+      </SimpleLayout>
+
+      <Container className="mt-16 sm:mt-32">
+        <main className="w-full"></main>
+      </Container>
+    </>
   );
-};
+}
 
-export default Articles;
-
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ preview = false }) => {
   const bannerImage = await getBannerImage();
 
-  const { items } = await cda.getEntries({
-    content_type: "article",
-    order: "-fields.datePublished",
-    select: "fields.title,fields.slug,fields.excerpt,fields.body,fields.body2",
-  });
+  const articleData = await getClient(preview).fetch(allArticlesQuery);
 
-  return {
-    props: {
-      bannerImage,
-      articles: items as Articles,
-    },
-  };
+  try {
+    const articles = articleSchema
+      .pick({
+        content: true,
+        excerpt: true,
+        slug: true,
+        title: true,
+        _id: true,
+        datePublished: true,
+      })
+      .array()
+      .parse(articleData);
+
+    const articlesWithReadingTime = articles.map((article) => ({
+      ...article,
+      readingTime: getReadingTime(article.content),
+    }));
+
+    return {
+      props: {
+        bannerImage,
+        articles: articlesWithReadingTime,
+      },
+    };
+  } catch (error) {
+    if (error instanceof ZodError) {
+      console.error(error.format());
+    } else {
+      console.error(error);
+    }
+
+    return {
+      props: {
+        bannerImage,
+        articles: [],
+      },
+    };
+  }
 };

@@ -1,25 +1,30 @@
-import { cda } from "@utils/contentful";
-import { InferGetStaticPropsType } from "next";
-import Wrapper from "../components/Wrapper";
+import { SEO } from "@components/common";
+import { Container } from "@components/ui";
+import { getBannerImage } from "@utils/getCommonImages";
+import { type InferGetStaticPropsType } from "next";
 
 const Offline = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper title="Offline" image={bannerImage} nofollow noindex>
-      <h1>Offline</h1>
-      <p>
-        Oops, it seems that you&apos;re offline. Please ensure a stable internet
-        connection and try reloading the page again!
-      </p>
-    </Wrapper>
+    <>
+      <SEO title="Offline" image={bannerImage} nofollow noindex />
+      <Container className="mt-16 sm:mt-32">
+        <h1>Offline</h1>
+        <p>
+          Oops, it seems that you&apos;re offline. Please ensure a stable
+          internet connection and try reloading the page again!
+        </p>
+      </Container>
+    </>
   );
 };
 
 export default Offline;
 
 export const getStaticProps = async () => {
-  const bannerImage = await cda.getAsset("COSxGtiWl0UGQ6EYRWMMF");
+  const bannerImage = await getBannerImage();
+
   return {
     props: {
       bannerImage,

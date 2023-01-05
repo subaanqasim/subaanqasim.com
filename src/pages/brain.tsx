@@ -1,19 +1,20 @@
-import { InferGetStaticPropsType } from "next";
-import Wrapper from "../components/Wrapper";
+import { type InferGetStaticPropsType } from "next";
+import { SEO } from "@components/common";
 import Development from "../components/Development";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 
 const Brain = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper
-      title="Brain"
-      description="All of my notes, thoughts and ideas from my Obsidian.md vault."
-      image={bannerImage}
-    >
+    <>
+      <SEO
+        title="Brain"
+        description="All of my notes, thoughts and ideas from my Obsidian.md vault."
+        image={bannerImage}
+      />
       <Development title="Brain" />
-    </Wrapper>
+    </>
   );
 };
 

@@ -1,19 +1,20 @@
-import Wrapper from "../components/Wrapper";
-import { InferGetStaticPropsType } from "next";
+import { SEO } from "@components/common";
+import { type InferGetStaticPropsType } from "next";
 import Development from "../components/Development";
-import { getBannerImage } from "@utils/getBannerImage";
+import { getBannerImage } from "@utils/getCommonImages";
 
 const Photography = ({
   bannerImage,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Wrapper
-      title="Photography"
-      description="A gallery of some of my favourite photos whilst out and about."
-      image={bannerImage}
-    >
+    <>
+      <SEO
+        title="Photography"
+        description="A gallery of some of my favourite photos whilst out and about."
+        image={bannerImage}
+      />
       <Development title="Photography" />
-    </Wrapper>
+    </>
   );
 };
 
