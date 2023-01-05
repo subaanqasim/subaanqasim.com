@@ -1,10 +1,6 @@
 import { useState } from "react";
-import {
-  Link2Icon,
-  TwitterLogoIcon,
-  LinkedInLogoIcon,
-  CheckCircledIcon,
-} from "@radix-ui/react-icons";
+import { TwitterIcon, LinkedInIcon } from "@components/common";
+import { CheckCircleIcon, LinkIcon } from "@heroicons/react/24/outline";
 
 const ShareArticleLinks = ({
   title,
@@ -34,11 +30,11 @@ const ShareArticleLinks = ({
       >
         {copied ? (
           <div className="flex items-center gap-1 text-xs">
-            <CheckCircledIcon className="h-4 w-4 text-green-600" />
+            <CheckCircleIcon className="h-4 w-4 text-green-600" />
             Copied!
           </div>
         ) : (
-          <Link2Icon className="h-4 w-4" />
+          <LinkIcon className="h-4 w-4" />
         )}
       </button>
 
@@ -49,7 +45,7 @@ const ShareArticleLinks = ({
         className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
         aria-label="Share article on Twitter"
       >
-        <TwitterLogoIcon className="h-4 w-4" />
+        <TwitterIcon className="h-4 w-4 fill-neutral-500 dark:fill-neutral-400" />
       </a>
 
       <a
@@ -59,7 +55,7 @@ const ShareArticleLinks = ({
         className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
         aria-label="Share article on LinkedIn"
       >
-        <LinkedInLogoIcon className="h-4 w-4" />
+        <LinkedInIcon className="h-4 w-4 fill-neutral-500 dark:fill-neutral-400" />
       </a>
     </div>
   );

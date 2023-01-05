@@ -3,11 +3,11 @@ import {
   CheckIcon,
   HomeIcon,
   CameraIcon,
-  RocketIcon,
-  FileTextIcon,
-  PersonIcon,
-  HamburgerMenuIcon,
-} from "@radix-ui/react-icons";
+  RocketLaunchIcon,
+  DocumentTextIcon,
+  UserIcon,
+  Bars3Icon,
+} from "@heroicons/react/24/outline";
 import cn from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -27,12 +27,12 @@ const generalMenuItems: MenuItem[] = [
   },
   {
     label: "Articles",
-    icon: <FileTextIcon className="mr-2 h-3.5 w-3.5" />,
+    icon: <DocumentTextIcon className="mr-2 h-3.5 w-3.5" />,
     href: "/articles",
   },
   {
     label: "About",
-    icon: <PersonIcon className="mr-2 h-3.5 w-3.5" />,
+    icon: <UserIcon className="mr-2 h-3.5 w-3.5" />,
     href: "/about",
   },
 ];
@@ -40,7 +40,7 @@ const generalMenuItems: MenuItem[] = [
 const portfolioMenuItems: MenuItem[] = [
   {
     label: "Projects",
-    icon: <RocketIcon className="mr-2 h-3.5 w-3.5" />,
+    icon: <RocketLaunchIcon className="mr-2 h-3.5 w-3.5" />,
     href: "/projects",
   },
   {
@@ -93,7 +93,7 @@ const MobileNavbar = () => {
       <nav className="mt-8 mb-16 flex w-full max-w-3xl justify-between rounded-lg bg-neutral-50/75 p-2 shadow-lg backdrop-blur-[6px] dark:bg-neutral-800/75">
         <DropdownMenuPrimitive.Root>
           <DropdownMenuPrimitive.Trigger className="transform-gpu cursor-pointer rounded-sm p-2 transition-all duration-100 ease-in-out hover:scale-[1.05]">
-            <HamburgerMenuIcon className="h-5 w-5" />
+            <Bars3Icon className="h-5 w-5" />
           </DropdownMenuPrimitive.Trigger>
 
           <DropdownMenuPrimitive.Content

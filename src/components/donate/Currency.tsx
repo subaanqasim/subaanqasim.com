@@ -5,7 +5,7 @@ import {
   CheckIcon,
   ChevronDownIcon,
   ChevronUpIcon,
-} from "@radix-ui/react-icons";
+} from "@heroicons/react/24/outline";
 
 const Currency = ({ value, onChange }: any) => {
   return (

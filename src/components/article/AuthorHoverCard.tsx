@@ -1,10 +1,10 @@
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import {
-  GitHubLogoIcon,
-  InstagramLogoIcon,
-  LinkedInLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
+  GitHubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
+} from "@components/common";
 import { urlForImage } from "@utils/sanity/sanity-image";
 import { type AuthorType } from "@utils/sanity/schema-types";
 import cn from "classnames";
@@ -75,14 +75,14 @@ const AuthorHoverCard = ({ author }: { author: AuthorType }) => {
               </p>
             </div>
 
-            <div className="mt-auto flex justify-center gap-2 md:mt-6">
+            <div className="mt-auto flex justify-center gap-2 fill-neutral-500 dark:fill-neutral-400 md:mt-6">
               <a
                 href={author.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
               >
-                <TwitterLogoIcon className="h-4 w-4" />
+                <TwitterIcon className="h-4 w-4 " />
               </a>
 
               <a
@@ -91,7 +91,7 @@ const AuthorHoverCard = ({ author }: { author: AuthorType }) => {
                 rel="noopener noreferrer nofollow"
                 className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
               >
-                <InstagramLogoIcon className="h-4 w-4" />
+                <InstagramIcon className="h-4 w-4" />
               </a>
 
               <a
@@ -100,7 +100,7 @@ const AuthorHoverCard = ({ author }: { author: AuthorType }) => {
                 rel="noopener noreferrer nofollow"
                 className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
               >
-                <GitHubLogoIcon className="h-4 w-4" />
+                <GitHubIcon className="h-4 w-4 fill-neutral-500 dark:fill-neutral-400" />
               </a>
 
               <a
@@ -109,7 +109,7 @@ const AuthorHoverCard = ({ author }: { author: AuthorType }) => {
                 rel="noopener noreferrer nofollow"
                 className="cursor-pointer rounded-md p-1 transition-all hover:scale-110 hover:bg-neutral-200 focus:scale-110 focus:bg-neutral-200 active:scale-95 active:bg-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:active:bg-neutral-500"
               >
-                <LinkedInLogoIcon className="h-4 w-4" />
+                <LinkedInIcon className="h-4 w-4" />
               </a>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { SEO } from "@components/common";
 import { Container } from "@components/ui";
-import { ArrowLeftIcon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { type ReadingTime } from "@utils/reading-time";
 import type {
   ArticleType,
@@ -52,7 +52,7 @@ export default function ArticleLayout({
                 aria-label="Go back to articles"
                 className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-neutral-800/5 ring-1 ring-neutral-900/5 transition dark:border dark:border-neutral-700/50 dark:bg-neutral-800 dark:ring-0 dark:ring-white/10 dark:hover:border-neutral-700 dark:hover:ring-white/20 lg:absolute lg:-left-5 lg:mb-0 lg:-mt-2 xl:-top-1.5 xl:left-0 xl:mt-0"
               >
-                <ArrowLeftIcon className="h-4 w-4 stroke-neutral-500 transition group-hover:stroke-neutral-700 dark:stroke-neutral-500 dark:group-hover:stroke-neutral-400" />
+                <ArrowLeftIcon className="h-4 w-4 stroke-neutral-500 stroke-2 transition group-hover:stroke-neutral-700 dark:stroke-neutral-500 dark:group-hover:stroke-neutral-400" />
               </button>
 
               <article>

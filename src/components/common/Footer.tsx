@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Container } from "../ui/Container";
+import { GitHubIcon } from "./Icons";
+import { Container } from "@components/ui";
 
 const footerData = [
   {
@@ -84,7 +84,7 @@ export default function Footer() {
             <div className="mx-auto grid w-full grid-cols-1 gap-4 border-b border-neutral-300 pb-8 dark:border-neutral-700 sm:grid-cols-3">
               {footerLinks}
             </div>
-            <div className="flex justify-between gap-4 pt-8 text-sm text-neutral-500 dark:text-neutral-500">
+            <div className="flex justify-between gap-4 pt-8 text-sm text-neutral-500 dark:text-neutral-400">
               <p>© Subaan Qasim. All rights reserved.</p>
               <a
                 href="https://www.github.com/subaanqasim/subaanqasim.com"
@@ -92,7 +92,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex transform-gpu items-center transition ease-in-out hover:-translate-y-0.5 hover:text-neutral-600 dark:hover:text-neutral-400"
               >
-                <GitHubLogoIcon className="mr-1.5 inline-block h-3.5 w-3.5" />
+                <GitHubIcon className="mr-1.5 inline-block h-4 w-4 fill-neutral-500 hover:fill-neutral-600 dark:fill-neutral-400 dark:hover:fill-neutral-400" />
                 View on GitHub
               </a>
             </div>
