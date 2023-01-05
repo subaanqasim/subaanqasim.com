@@ -86,6 +86,8 @@ module.exports = {
           "h2, h3, h4, h5, h6": {
             color: "var(--tw-prose-headings)",
             lineHeight: theme("lineHeight.7"),
+            display: "inline-block",
+            position: "relative",
           },
           "h2, h3": {
             fontWeight: theme("fontWeight.bold"),

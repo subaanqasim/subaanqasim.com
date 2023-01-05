@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html
       lang="en"
-      style={{ scrollBehavior: "smooth", scrollPaddingTop: "120px" }}
+      style={{ scrollBehavior: "smooth", scrollPaddingTop: "4rem" }}
     >
       <Head>
         <link rel="stylesheet" href="https://use.typekit.net/zqu1jvs.css" />

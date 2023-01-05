@@ -3,16 +3,19 @@ import { type InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { SEO } from "@components/common";
 import { Button, Container } from "@components/ui";
+import Balancer from "react-wrap-balancer";
 
-const NotFound = ({
+export default function NotFound({
   bannerImage,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <SEO title="404" noindex nofollow image={bannerImage} />
       <Container className="mt-16 sm:mt-32">
         <main className="flex w-full flex-col items-center text-center">
-          <h1>420 - Page is too cool for you 🥵</h1>
+          <h1 className="text-4xl font-bold md:text-5xl">
+            <Balancer ratio={0.7}>420 - Page is too cool for you 🥵</Balancer>
+          </h1>
           <div className="mt-8 text-xl font-bold">
             Trying to access this page will have dire consequences.
           </div>
@@ -45,9 +48,7 @@ const NotFound = ({
       </Button>
     </>
   );
-};
-
-export default NotFound;
+}
 
 export const getStaticProps = async () => {
   const bannerImage = await getBannerImage();
