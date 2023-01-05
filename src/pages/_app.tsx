@@ -1,4 +1,6 @@
 import { MainLayout } from "@components/common";
+import localFont from "@next/font/local";
+import { Analytics } from "@vercel/analytics/react";
 import "focus-visible";
 import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
@@ -6,7 +8,6 @@ import { ThemeProvider } from "next-themes";
 import type { AppType } from "next/app";
 import "../styles/globals.css";
 import { trpc } from "../utils/trpc";
-import localFont from "@next/font/local";
 
 const articulatCF = localFont({
   src: [
@@ -50,6 +51,16 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <div className={`relative ${articulatCF.variable} font-sans`}>
           <MainLayout>
             <Component {...pageProps} />
+            <Analytics
+              beforeSend={(event) => {
+                const url = new URL(event.url);
+                url.searchParams.delete("email");
+                return {
+                  ...event,
+                  url: url.toString(),
+                };
+              }}
+            />
           </MainLayout>
         </div>
       </SessionProvider>
