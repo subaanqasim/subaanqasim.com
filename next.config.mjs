@@ -1,4 +1,5 @@
-import pwa from "next-pwa";
+import pwaInit from "@ducanh2912/next-pwa";
+import { runtimeCaching } from "@ducanh2912/next-pwa";
 import { env } from "./src/env/server.mjs";
 
 // @ts-check
@@ -26,9 +27,11 @@ const nextConfig = {
   },
 };
 
-const withPWA = pwa({
+const withPWA = pwaInit({
   dest: "public",
   disable: env.NODE_ENV === "development",
+  buildExcludes: ["/chunks/app"],
+  runtimeCaching,
 });
 
 export default withPWA({

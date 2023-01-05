@@ -3,13 +3,13 @@
 const sitemapConfig = {
   siteUrl: process.env.SITE_URL || "https://subaanqasim.com",
   generateIndexSitemap: false,
-  exclude: ["/admin", "/_offline"],
+  exclude: ["/admin", "/_offline", "/articles/*", "/projects/*"],
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [
       {
         userAgent: "*",
-        disallow: ["/admin", "/_offline"],
+        disallow: ["/admin", "/_offline", "/articles/*", "/projects/*"],
       },
     ],
   },
