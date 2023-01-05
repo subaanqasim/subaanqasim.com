@@ -32,6 +32,7 @@ const articulatCF = localFont({
     },
   ],
   variable: "--font-articulatCF",
+  display: "swap",
 });
 
 const MyApp: AppType<{ session: Session | null }> = ({
