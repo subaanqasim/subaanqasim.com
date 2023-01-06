@@ -74,7 +74,7 @@ specifiers:
   remark-gfm: 3.0.1
   sanity: ^3.1.4
   sanity-plugin-media: ^2.0.2
-  stripe: 11.5.0
+  stripe: 11.6.0
   superjson: 1.12.1
   suspend-react: ^0.0.9
   swc-loader: ^0.2.3
@@ -138,7 +138,7 @@ dependencies:
   remark-gfm: 3.0.1
   sanity: 3.1.4_wm6cv4qzooxlf2asepxq6u4y3i
   sanity-plugin-media: 2.0.2_5ateeu2pst42rmvslzv6uwj22e
-  stripe: 11.5.0
+  stripe: 11.6.0
   superjson: 1.12.1
   suspend-react: 0.0.9_react@18.2.0
   tailwindcss-radix: 2.6.2
@@ -3520,12 +3520,12 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.10
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
 
   /@types/eslint/8.4.10:
     resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
 
   /@types/estree-jsx/1.0.0:
@@ -3543,7 +3543,6 @@ packages:
 
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-    dev: false
 
   /@types/event-source-polyfill/1.0.0:
     resolution: {integrity: sha512-b8O8/rg7NIW0iJ8i9MNDBZqPljHA+b7AjC3QFqH3dSyW6vgrl3oBgyIv5dw2fibh5enHHDkkPZG5PHza7U4NRw==}
@@ -10244,8 +10243,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /stripe/11.5.0:
-    resolution: {integrity: sha512-yjTqnzeUk2wg1yIeYWOAH6CL5qu9fINzOhqkibXfbyeWSBEBauQrfCoB8shMmREoK2qdkScz1HjahF9qUg+X3g==}
+  /stripe/11.6.0:
+    resolution: {integrity: sha512-ht8S1l8CJJE3jtv2NM1mEQzZBkITYvb9uDpSeXYeNz9iJkFFgDU169htwOW00OdIESvFaIsGgWQatAE5dfOERQ==}
     engines: {node: '>=12.*'}
     dependencies:
       '@types/node': 18.11.18
