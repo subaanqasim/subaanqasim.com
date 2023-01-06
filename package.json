@@ -66,7 +66,7 @@
     "remark-gfm": "3.0.1",
     "sanity": "^3.1.4",
     "sanity-plugin-media": "^2.0.2",
-    "stripe": "11.5.0",
+    "stripe": "11.6.0",
     "superjson": "1.12.1",
     "suspend-react": "^0.0.9",
     "tailwindcss-radix": "2.6.2",
