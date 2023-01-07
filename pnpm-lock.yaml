@@ -25,10 +25,10 @@ specifiers:
   '@tailwindcss/aspect-ratio': 0.4.2
   '@tailwindcss/typography': 0.5.8
   '@tanstack/react-query': 4.20.9
-  '@trpc/client': 10.7.0
-  '@trpc/next': 10.7.0
-  '@trpc/react-query': 10.7.0
-  '@trpc/server': 10.7.0
+  '@trpc/client': 10.8.1
+  '@trpc/next': 10.8.1
+  '@trpc/react-query': 10.8.1
+  '@trpc/server': 10.8.1
   '@types/hast': 2.3.4
   '@types/node': 18.11.18
   '@types/nodemailer': 6.4.7
@@ -106,10 +106,10 @@ dependencies:
   '@sanity/vision': 3.1.4_7vk4hemiocdzgoapztsedsisl4
   '@stripe/stripe-js': 1.46.0
   '@tanstack/react-query': 4.20.9_biqbaboplfbrettd7655fr4n2y
-  '@trpc/client': 10.7.0_@trpc+server@10.7.0
-  '@trpc/next': 10.7.0_feu6xodxtgd2hktgc23del3mna
-  '@trpc/react-query': 10.7.0_voi52uzzn4btzulk52fuvwecw4
-  '@trpc/server': 10.7.0
+  '@trpc/client': 10.8.1_@trpc+server@10.8.1
+  '@trpc/next': 10.8.1_2m5lrw5itftxrkpjug26jfzba4
+  '@trpc/react-query': 10.8.1_4ojdwnpnbtgkfc47umwlqljm64
+  '@trpc/server': 10.8.1
   '@vercel/analytics': 0.1.6_react@18.2.0
   class-variance-authority: 0.4.0_typescript@4.9.4
   classnames: 2.3.2
@@ -3450,53 +3450,53 @@ packages:
     engines: {node: '>= 10'}
     dev: false
 
-  /@trpc/client/10.7.0_@trpc+server@10.7.0:
-    resolution: {integrity: sha512-xCPc2hp37REJst6TXMkJvdc85CHvxpVY6YVdZIjl7uCYoQcrstwy8AWi7ElB3x7e19Cweke+9CAaUXKwAE1AKQ==}
+  /@trpc/client/10.8.1_@trpc+server@10.8.1:
+    resolution: {integrity: sha512-DQ+Y3ek/rjCYaI8ifeeVPVW/KIO6ryye32Xdm9VAkdhd1humYD/4rN2CQ7K1zPTeNpbIpuckEAMEadeB4ItcMQ==}
     peerDependencies:
-      '@trpc/server': 10.7.0
+      '@trpc/server': 10.8.1
     dependencies:
-      '@trpc/server': 10.7.0
+      '@trpc/server': 10.8.1
     dev: false
 
-  /@trpc/next/10.7.0_feu6xodxtgd2hktgc23del3mna:
-    resolution: {integrity: sha512-ZLY4J9IgEHN2op0UM14NCwCDyodRUw8Pmxgnpr62+UMIhDll6uggb2an8Op87l9EeYdKhKe2VavDWphI8vFGgw==}
+  /@trpc/next/10.8.1_2m5lrw5itftxrkpjug26jfzba4:
+    resolution: {integrity: sha512-Jyn421PgZwoJPUodQWxnT+AI1j/u/0aiOu+fSvwQeot4LFCv61QnsD4IkVdYdlb/CnIKZWQIhYVO76RhHHNmhA==}
     peerDependencies:
       '@tanstack/react-query': ^4.3.8
-      '@trpc/client': 10.7.0
-      '@trpc/react-query': ^10.0.0-proxy-beta.21
-      '@trpc/server': 10.7.0
+      '@trpc/client': 10.8.1
+      '@trpc/react-query': ^10.8.0
+      '@trpc/server': 10.8.1
       next: '*'
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
       '@tanstack/react-query': 4.20.9_biqbaboplfbrettd7655fr4n2y
-      '@trpc/client': 10.7.0_@trpc+server@10.7.0
-      '@trpc/react-query': 10.7.0_voi52uzzn4btzulk52fuvwecw4
-      '@trpc/server': 10.7.0
+      '@trpc/client': 10.8.1_@trpc+server@10.8.1
+      '@trpc/react-query': 10.8.1_4ojdwnpnbtgkfc47umwlqljm64
+      '@trpc/server': 10.8.1
       next: 13.1.1_pjwopsidmaokadturxaafygjp4
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-ssr-prepass: 1.5.0_react@18.2.0
     dev: false
 
-  /@trpc/react-query/10.7.0_voi52uzzn4btzulk52fuvwecw4:
-    resolution: {integrity: sha512-dSSmYid6NWocU32QMsH6qWEqnW4mbp7hX01hxsBfAA2mGYD8b4Kgc9ripw4MpPNbsJElJFyWDHfb/UHnhywWbA==}
+  /@trpc/react-query/10.8.1_4ojdwnpnbtgkfc47umwlqljm64:
+    resolution: {integrity: sha512-PSpdfPFKM/UlD9VVtXVtfA8ZmqQZUtsP6ER/+QvXjHN6kTZ92PGJGjcL2HWhWZamLKnZSgudiB6sDsl7gPcOgA==}
     peerDependencies:
       '@tanstack/react-query': ^4.3.8
-      '@trpc/client': 10.7.0
-      '@trpc/server': 10.7.0
+      '@trpc/client': 10.8.1
+      '@trpc/server': 10.8.1
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
       '@tanstack/react-query': 4.20.9_biqbaboplfbrettd7655fr4n2y
-      '@trpc/client': 10.7.0_@trpc+server@10.7.0
-      '@trpc/server': 10.7.0
+      '@trpc/client': 10.8.1_@trpc+server@10.8.1
+      '@trpc/server': 10.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@trpc/server/10.7.0:
-    resolution: {integrity: sha512-kFhlqhzZt5PwVRRDci8oJKMMFGjjq9189stT6bvS9xuuLjRzzwhMShRi99sm/jqhdjWmlXyO3Ncx0rnghUvH+w==}
+  /@trpc/server/10.8.1:
+    resolution: {integrity: sha512-oSNYgFNJbjki4jBByJ/SKHasB/X7kTsEbVGaONNH1DHMz638xlYXPQucV+2bWbhCm5HlXhQTaVN7Or0lsCuUUQ==}
     dev: false
 
   /@types/acorn/4.0.6:
