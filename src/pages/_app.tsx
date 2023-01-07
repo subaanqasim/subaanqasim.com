@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes";
 import type { AppType } from "next/app";
 import "../styles/globals.css";
 import { trpc } from "../utils/trpc";
+import { Provider as WrapBalancerProvider } from "react-wrap-balancer";
 
 const articulatCF = localFont({
   src: [
@@ -50,7 +51,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
         </div>
         <div className={`relative ${articulatCF.variable} font-sans`}>
           <MainLayout>
-            <Component {...pageProps} />
+            <WrapBalancerProvider>
+              <Component {...pageProps} />
+            </WrapBalancerProvider>
             <Analytics
               beforeSend={(event) => {
                 const url = new URL(event.url);
