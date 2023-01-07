@@ -65,7 +65,7 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   react-hook-form: 7.41.5
-  react-wrap-balancer: 0.2.4
+  react-wrap-balancer: 0.3.0
   reading-time: 1.5.0
   rehype-autolink-headings: 6.1.1
   rehype-code-titles: 1.1.0
@@ -129,7 +129,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.41.5_react@18.2.0
-  react-wrap-balancer: 0.2.4_react@18.2.0
+  react-wrap-balancer: 0.3.0_react@18.2.0
   reading-time: 1.5.0
   rehype-autolink-headings: 6.1.1
   rehype-code-titles: 1.1.0
@@ -9321,8 +9321,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /react-wrap-balancer/0.2.4_react@18.2.0:
-    resolution: {integrity: sha512-MVL9/Tw1X72t0i5Y/2j3YmSx1vkJJ22b5Vb+vZ/IOEdq7r9JPNzTfnfkB8wrl98Jwx+F6VCwJXmU7a1lT5PtCA==}
+  /react-wrap-balancer/0.3.0_react@18.2.0:
+    resolution: {integrity: sha512-UlnQvCvSRW0jh8uILic2LJs4tV0KjOO+P70ookE5qRpfZvsKmY8KLcV8s7TBPB6cuVYkoH7+fbqankFrFata8w==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
