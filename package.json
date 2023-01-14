@@ -91,7 +91,7 @@
     "infer-next-props-type": "0.1.0",
     "postcss": "8.4.21",
     "postcss-focus-visible": "7.1.0",
-    "prettier": "2.8.2",
+    "prettier": "2.8.3",
     "prettier-plugin-tailwindcss": "0.2.1",
     "prisma": "4.8.1",
     "swc-loader": "0.2.3",
