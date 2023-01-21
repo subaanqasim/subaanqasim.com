@@ -73,7 +73,7 @@ specifiers:
   rehype-slug: 5.1.0
   remark-gfm: 3.0.1
   sanity: 3.2.3
-  sanity-plugin-media: 2.0.2
+  sanity-plugin-media: 2.0.3
   stripe: 11.6.0
   superjson: 1.12.1
   suspend-react: 0.0.9
@@ -137,7 +137,7 @@ dependencies:
   rehype-slug: 5.1.0
   remark-gfm: 3.0.1
   sanity: 3.2.3_z765n46jyysyfgk6yot2s5acla
-  sanity-plugin-media: 2.0.2_vq56qpzjtvq7yo2uyjlmznkbxq
+  sanity-plugin-media: 2.0.3_vq56qpzjtvq7yo2uyjlmznkbxq
   stripe: 11.6.0
   superjson: 1.12.1
   suspend-react: 0.0.9_react@18.2.0
@@ -9542,8 +9542,8 @@ packages:
       diff-match-patch: 1.0.5
     dev: false
 
-  /sanity-plugin-media/2.0.2_vq56qpzjtvq7yo2uyjlmznkbxq:
-    resolution: {integrity: sha512-StPKT01ChPKgxix/lGOe/ancpyOE9ZPfmrhfAQkmS16IFShCKloiXe4O1YIWAQk/hzLJ8GQSjSSRMPi2HSUVgA==}
+  /sanity-plugin-media/2.0.3_vq56qpzjtvq7yo2uyjlmznkbxq:
+    resolution: {integrity: sha512-pyFpuoMuhVyNUKxYn2uDchinMgNMBnCVytex1FRniZHyrjVAeIQ63ZHwoLksmSUgWWSaVpEWeEqkC7TIdO/0Xw==}
     engines: {node: '>=14'}
     peerDependencies:
       '@sanity/color': ^2.1.20
