@@ -67,7 +67,7 @@
     "sanity": "3.2.3",
     "sanity-plugin-media": "2.0.3",
     "stripe": "11.6.0",
-    "superjson": "1.12.1",
+    "superjson": "1.12.2",
     "suspend-react": "0.0.9",
     "tailwindcss-radix": "2.6.2",
     "unist-util-visit": "4.1.1",
