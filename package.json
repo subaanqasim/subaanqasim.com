@@ -65,7 +65,7 @@
     "rehype-slug": "5.1.0",
     "remark-gfm": "3.0.1",
     "sanity": "3.2.3",
-    "sanity-plugin-media": "2.0.2",
+    "sanity-plugin-media": "2.0.3",
     "stripe": "11.6.0",
     "superjson": "1.12.1",
     "suspend-react": "0.0.9",
