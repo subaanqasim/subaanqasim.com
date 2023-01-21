@@ -52,7 +52,7 @@ specifiers:
   next-mdx-remote: 4.2.1
   next-sanity: 4.0.6
   next-seo: 5.15.0
-  next-sitemap: 3.1.45
+  next-sitemap: 3.1.47
   next-themes: 0.2.1
   nextjs-cors: 2.1.2
   nodemailer: 6.9.0
@@ -121,7 +121,7 @@ dependencies:
   next-mdx-remote: 4.2.1_biqbaboplfbrettd7655fr4n2y
   next-sanity: 4.0.6_i44e4ps4vu56gf4udizi5zvqzy
   next-seo: 5.15.0_7jnwqgtpcnwg4nzft4b6xlzlfi
-  next-sitemap: 3.1.45_qzmmcn6byxg2j2hy7c3csxpwzm
+  next-sitemap: 3.1.47_qzmmcn6byxg2j2hy7c3csxpwzm
   next-themes: 0.2.1_7jnwqgtpcnwg4nzft4b6xlzlfi
   nextjs-cors: 2.1.2_next@13.1.2
   nodemailer: 6.9.0
@@ -8037,8 +8037,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /next-sitemap/3.1.45_qzmmcn6byxg2j2hy7c3csxpwzm:
-    resolution: {integrity: sha512-8vyvWC8KT8RIEUL9Vfiae9yGuIIiJ1IpepzbFtwZx43BaKsoi/Zk9OlmPKuQouVY726xwN7uLZPtgl2l2U+9Ug==}
+  /next-sitemap/3.1.47_qzmmcn6byxg2j2hy7c3csxpwzm:
+    resolution: {integrity: sha512-LZxCWZ6lhQBfv1cuGob3tnsaHWffQM7VDmkXXp8u3n4LD7EJAR/SamlMj3mpHa8bFeuR6TjjRqrq/7e4WSOcLQ==}
     engines: {node: '>=14.18'}
     hasBin: true
     peerDependencies:
