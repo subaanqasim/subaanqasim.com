@@ -69,7 +69,7 @@
     "stripe": "11.7.0",
     "superjson": "1.12.2",
     "suspend-react": "0.0.9",
-    "tailwindcss-radix": "2.6.2",
+    "tailwindcss-radix": "2.7.0",
     "unist-util-visit": "4.1.1",
     "zod": "3.20.2"
   },

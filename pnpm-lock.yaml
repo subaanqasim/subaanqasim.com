@@ -79,7 +79,7 @@ specifiers:
   suspend-react: 0.0.9
   swc-loader: 0.2.3
   tailwindcss: 3.2.4
-  tailwindcss-radix: 2.6.2
+  tailwindcss-radix: 2.7.0
   typescript: 4.9.4
   unist-util-visit: 4.1.1
   zod: 3.20.2
@@ -141,7 +141,7 @@ dependencies:
   stripe: 11.7.0
   superjson: 1.12.2
   suspend-react: 0.0.9_react@18.2.0
-  tailwindcss-radix: 2.6.2
+  tailwindcss-radix: 2.7.0
   unist-util-visit: 4.1.1
   zod: 3.20.2
 
@@ -10163,8 +10163,8 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /tailwindcss-radix/2.6.2:
-    resolution: {integrity: sha512-+pqIyqY9mjMXtJHyDlkiJYMfpa8+Gkt2UE6VrmbYjbLAqva7Lg4q2Rffe9JFNv9dBFfoDTVML7gQd4BDJXOrCg==}
+  /tailwindcss-radix/2.7.0:
+    resolution: {integrity: sha512-fIVkT5zQYdsjT9+/Mvp+DTlJDdTFpRDuyS5+PLuJDAIIVr9+rWYKhK6rsB9QtjwUwwb0YF+BkAJN6CjZivOfLA==}
     dev: false
 
   /tailwindcss/3.2.4_postcss@8.4.21:
