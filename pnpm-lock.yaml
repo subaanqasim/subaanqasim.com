@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@ducanh2912/next-pwa': 7.3.2
+  '@ducanh2912/next-pwa': 7.3.3
   '@headlessui/react': 1.7.8
   '@heroicons/react': 2.0.14
   '@hookform/resolvers': 2.9.10
@@ -85,7 +85,7 @@ specifiers:
   zod: 3.20.2
 
 dependencies:
-  '@ducanh2912/next-pwa': 7.3.2_3ubp3n3hlh25isfkzud5l34lj4
+  '@ducanh2912/next-pwa': 7.3.3_3ubp3n3hlh25isfkzud5l34lj4
   '@headlessui/react': 1.7.8_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.0.14_react@18.2.0
   '@hookform/resolvers': 2.9.10_react-hook-form@7.42.1
@@ -1522,8 +1522,8 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@ducanh2912/next-pwa/7.3.2_3ubp3n3hlh25isfkzud5l34lj4:
-    resolution: {integrity: sha512-NS3ZPBkCppRuAzhvmUrTvwwv78aVMT7AurI1ha27ixSAamLI1nkjqcrDw5RI/rvILqGIid2V1tEZgrr/vuXkTQ==}
+  /@ducanh2912/next-pwa/7.3.3_3ubp3n3hlh25isfkzud5l34lj4:
+    resolution: {integrity: sha512-1Dl++p566E7PjJ6eh7fOjT58bkR+OqMeFErnBdeRkHgLXpIz6lmyc439znTdenN3kjkY5lAmCnjIeaYaXH9cwQ==}
     peerDependencies:
       next: '>=9.1.0'
       swc-loader: 0.x
