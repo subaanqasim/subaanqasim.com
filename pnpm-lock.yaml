@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@ducanh2912/next-pwa': 7.3.1
+  '@ducanh2912/next-pwa': 7.3.2
   '@headlessui/react': 1.7.7
   '@heroicons/react': 2.0.13
   '@hookform/resolvers': 2.9.10
@@ -85,7 +85,7 @@ specifiers:
   zod: 3.20.2
 
 dependencies:
-  '@ducanh2912/next-pwa': 7.3.1_aoduzg2ondlkv44ttlh2cxzcxe
+  '@ducanh2912/next-pwa': 7.3.2_aoduzg2ondlkv44ttlh2cxzcxe
   '@headlessui/react': 1.7.7_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.0.13_react@18.2.0
   '@hookform/resolvers': 2.9.10_react-hook-form@7.42.1
@@ -1522,8 +1522,8 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@ducanh2912/next-pwa/7.3.1_aoduzg2ondlkv44ttlh2cxzcxe:
-    resolution: {integrity: sha512-5xD5Be8itiA8rNjwzQPxEzROQhlo0ed82cMgVL+Ha/UpLte2NYvKVOQy3TI/l2wIeJ5igfm9ZoAzOK8SjInhrw==}
+  /@ducanh2912/next-pwa/7.3.2_aoduzg2ondlkv44ttlh2cxzcxe:
+    resolution: {integrity: sha512-NS3ZPBkCppRuAzhvmUrTvwwv78aVMT7AurI1ha27ixSAamLI1nkjqcrDw5RI/rvILqGIid2V1tEZgrr/vuXkTQ==}
     peerDependencies:
       next: '>=9.1.0'
       swc-loader: 0.x
@@ -3600,12 +3600,12 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.10
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
 
   /@types/eslint/8.4.10:
     resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
 
   /@types/estree-jsx/1.0.0:
@@ -3623,7 +3623,6 @@ packages:
 
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-    dev: false
 
   /@types/event-source-polyfill/1.0.0:
     resolution: {integrity: sha512-b8O8/rg7NIW0iJ8i9MNDBZqPljHA+b7AjC3QFqH3dSyW6vgrl3oBgyIv5dw2fibh5enHHDkkPZG5PHza7U4NRw==}
