@@ -85,7 +85,7 @@
     "@typescript-eslint/eslint-plugin": "5.48.2",
     "@typescript-eslint/parser": "5.48.2",
     "autoprefixer": "10.4.13",
-    "eslint": "8.32.0",
+    "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "eslint-config-prettier": "8.6.0",
     "infer-next-props-type": "0.1.0",
