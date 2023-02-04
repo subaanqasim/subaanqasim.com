@@ -18,7 +18,7 @@ specifiers:
   '@react-spring/web': 9.6.1
   '@sanity/asset-utils': 1.3.0
   '@sanity/image-url': 1.0.2
-  '@sanity/ui': 1.2.0
+  '@sanity/ui': 1.2.2
   '@sanity/vision': 3.2.5
   '@stripe/stripe-js': 1.46.0
   '@swc/core': 1.3.30
@@ -102,7 +102,7 @@ dependencies:
   '@react-spring/web': 9.6.1_biqbaboplfbrettd7655fr4n2y
   '@sanity/asset-utils': 1.3.0
   '@sanity/image-url': 1.0.2
-  '@sanity/ui': 1.2.0_23mhwjhnzfjwvdn7ol54k26zom
+  '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
   '@sanity/vision': 3.2.5_zpips6rqdi4cvufkdv3syqjdja
   '@stripe/stripe-js': 1.46.0
   '@tanstack/react-query': 4.23.0_biqbaboplfbrettd7655fr4n2y
@@ -119,7 +119,7 @@ dependencies:
   next: 13.1.6_pjwopsidmaokadturxaafygjp4
   next-auth: 4.19.2_phzvn2nhb6zk7o4ds4z4gvqlei
   next-mdx-remote: 4.3.0_biqbaboplfbrettd7655fr4n2y
-  next-sanity: 4.1.2_7qelljlu53zuauoe4um4wri6gq
+  next-sanity: 4.1.2_4op2gvr2625wilfr73mbxjos4e
   next-seo: 5.15.0_3vryta7zmbcsw4rrqf4axjqggm
   next-sitemap: 3.1.48_dlcnecpznf2wc36zwuq5m2ie5q
   next-themes: 0.2.1_3vryta7zmbcsw4rrqf4axjqggm
@@ -1880,8 +1880,8 @@ packages:
       '@floating-ui/core': 0.7.3
     dev: false
 
-  /@floating-ui/dom/1.1.0:
-    resolution: {integrity: sha512-TSogMPVxbRe77QCj1dt8NmRiJasPvuc+eT5jnJ6YpLqgOD2zXc5UA3S1qwybN+GVCDNdKfpKy1oj8RpzLJvh6A==}
+  /@floating-ui/dom/1.1.1:
+    resolution: {integrity: sha512-TpIO93+DIujg3g7SykEAGZMDtbJRrmnYRCNYSjJlvIbGhBjRSNTLVbNeDQBrzy9qDgUbiWdc7KA0uZHZ2tJmiw==}
     dependencies:
       '@floating-ui/core': 1.1.0
     dev: false
@@ -1900,13 +1900,13 @@ packages:
       - '@types/react'
     dev: false
 
-  /@floating-ui/react-dom/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-F27E+7SLB5NZvwF9Egqx/PlvxOhMnA6k/yNMQUqaQ9BPZdr4fQgSW6J6AKNIrBQElBT8IRDtv9j6h7FDkgp3dA==}
+  /@floating-ui/react-dom/1.2.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-DbmFBLwFrZhtXgCI2ra7wXYT8L2BN4/4AMQKyu05qzsVji51tXOfF36VE2gpMB6nhJGHa85PdEg75FB4+vnLFQ==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@floating-ui/dom': 1.1.0
+      '@floating-ui/dom': 1.1.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
@@ -3255,8 +3255,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sanity/ui/1.2.0_23mhwjhnzfjwvdn7ol54k26zom:
-    resolution: {integrity: sha512-X5j6b4lfXFuPvGT+ML5cLv+c6d9RLdKmwhQ+iZdfTcSldU8sN1qoZYe3LL8iO2dorIpXvkqanq1x4JOGlboGJg==}
+  /@sanity/ui/1.2.2_23mhwjhnzfjwvdn7ol54k26zom:
+    resolution: {integrity: sha512-u4l9ZskEAwHw7QJXdYFbtR4tgiiUezAkTS5uQZRVINvRWalXQFqJnD4xIbCf0HdPol356aGtgW0aaSNvAHO+rg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: ^18
@@ -3264,11 +3264,11 @@ packages:
       react-is: ^18
       styled-components: ^5.2
     dependencies:
-      '@floating-ui/react-dom': 1.1.1_biqbaboplfbrettd7655fr4n2y
+      '@floating-ui/react-dom': 1.2.2_biqbaboplfbrettd7655fr4n2y
       '@sanity/color': 2.2.2
       '@sanity/icons': 2.2.2_react@18.2.0
       csstype: 3.1.1
-      framer-motion: 8.5.4_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 9.0.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-is: 18.2.0
@@ -3326,7 +3326,7 @@ packages:
       '@rexxars/react-split-pane': 0.1.93_biqbaboplfbrettd7655fr4n2y
       '@sanity/color': 2.2.2
       '@sanity/icons': 2.2.2_react@18.2.0
-      '@sanity/ui': 1.2.0_23mhwjhnzfjwvdn7ol54k26zom
+      '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
       '@uiw/react-codemirror': 4.19.7_pzrqepnlx4uklbalwyntc26e4u
       hashlru: 2.3.0
       is-hotkey: 0.1.8
@@ -5975,8 +5975,8 @@ packages:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
 
-  /framer-motion/8.5.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-xBVovXUIdpKvRvIPsrSTiyXZUYyct9zarzdVeyzv+V6DFsDpHIuppyOjDO8VM1fBspDn+rUU4ZFZ5yJxLmzebQ==}
+  /framer-motion/9.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-0EP7+b/hnsbrFOum9zU+23Fq2cJJrLOqv/yJ26fIzK4CC33ZAjXZGi1/XyblbgnUF0cxZ/SEDj5IYHeQo42qNg==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -7999,7 +7999,7 @@ packages:
       - supports-color
     dev: false
 
-  /next-sanity/4.1.2_7qelljlu53zuauoe4um4wri6gq:
+  /next-sanity/4.1.2_4op2gvr2625wilfr73mbxjos4e:
     resolution: {integrity: sha512-Em7AB7Ghjf1kiGBUXN0MuNHPZkaG/jM+u/LGURU71lamML5CjckGlHnuIztV65P52PoJRcgTEYWBwh3YlTNQPw==}
     engines: {node: '>=16'}
     peerDependencies:
@@ -8015,7 +8015,7 @@ packages:
       '@sanity/icons': 2.2.2_react@18.2.0
       '@sanity/preview-kit': 1.3.1_react@18.2.0
       '@sanity/types': 3.2.5
-      '@sanity/ui': 1.2.0_23mhwjhnzfjwvdn7ol54k26zom
+      '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
       '@sanity/webhook': 2.0.0
       groq: 3.2.4
       next: 13.1.6_pjwopsidmaokadturxaafygjp4
@@ -9077,7 +9077,7 @@ packages:
       '@babel/runtime': 7.20.13
       '@emotion/cache': 11.10.5
       '@emotion/react': 11.10.5_yxdp3dl3eazy3vwpbmv4fq727a
-      '@floating-ui/dom': 1.1.0
+      '@floating-ui/dom': 1.1.1
       '@types/react-transition-group': 4.4.5
       memoize-one: 6.0.0
       prop-types: 15.8.1
@@ -9595,7 +9595,7 @@ packages:
       '@sanity/color': 2.2.2
       '@sanity/icons': 2.2.2_react@18.2.0
       '@sanity/incompatible-plugin': 1.0.4_biqbaboplfbrettd7655fr4n2y
-      '@sanity/ui': 1.2.0_23mhwjhnzfjwvdn7ol54k26zom
+      '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
       '@tanem/react-nprogress': 5.0.25_biqbaboplfbrettd7655fr4n2y
       copy-to-clipboard: 3.3.3
       date-fns: 2.29.3
@@ -9660,7 +9660,7 @@ packages:
       '@sanity/portable-text-editor': 3.2.5_cqtqtcaqdwtl72brpteczjdiui
       '@sanity/schema': 3.2.5
       '@sanity/types': 3.2.5
-      '@sanity/ui': 1.2.0_23mhwjhnzfjwvdn7ol54k26zom
+      '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
       '@sanity/util': 3.2.5
       '@sanity/uuid': 3.0.1
       '@sanity/validation': 3.2.5_@sanity+client@4.0.1
