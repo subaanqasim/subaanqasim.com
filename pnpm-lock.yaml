@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@ducanh2912/next-pwa': 7.3.3
-  '@headlessui/react': 1.7.8
+  '@headlessui/react': 1.7.9
   '@heroicons/react': 2.0.14
   '@hookform/resolvers': 2.9.10
   '@next-auth/prisma-adapter': 1.0.5
@@ -86,7 +86,7 @@ specifiers:
 
 dependencies:
   '@ducanh2912/next-pwa': 7.3.3_zivojft3kmza45ucb7gu6vxm64
-  '@headlessui/react': 1.7.8_biqbaboplfbrettd7655fr4n2y
+  '@headlessui/react': 1.7.9_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.0.14_react@18.2.0
   '@hookform/resolvers': 2.9.10_react-hook-form@7.42.1
   '@next-auth/prisma-adapter': 1.0.5_77bhi65b6v5jbrzr36rs2ojwe4
@@ -1911,8 +1911,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@headlessui/react/1.7.8_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-zcwb0kd7L05hxmoAMIioEaOn235Dg0fUO+iGbLPgLVSjzl/l39V6DTpC2Df49PE5aG5/f5q0PZ9ZHZ78ENNV+A==}
+  /@headlessui/react/1.7.9_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Bobh/+mDciu8kEE2hvdukFYjbfaG4MEkK/6TjWOgqcODLKYpRhWPKPE+dCcCSz/YrwjFVrEAMOiWtfk6sW20/w==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16 || ^17 || ^18
