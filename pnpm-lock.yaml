@@ -74,7 +74,7 @@ specifiers:
   remark-gfm: 3.0.1
   sanity: 3.2.6
   sanity-plugin-media: 2.0.5
-  stripe: 11.8.0
+  stripe: 11.9.1
   superjson: 1.12.2
   suspend-react: 0.0.9
   swc-loader: 0.2.3
@@ -138,7 +138,7 @@ dependencies:
   remark-gfm: 3.0.1
   sanity: 3.2.6_vsyyilp7mi5mllkqecva5vkxuu
   sanity-plugin-media: 2.0.5_optq6ab5sxuwy7q2xfl6k7ifue
-  stripe: 11.8.0
+  stripe: 11.9.1
   superjson: 1.12.2
   suspend-react: 0.0.9_react@18.2.0
   tailwindcss-radix: 2.7.0
@@ -10086,8 +10086,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /stripe/11.8.0:
-    resolution: {integrity: sha512-aGwrJDqYzpjQj0ejt7oN7BE7kUjZFxhUz/gDeyDCS7CBpZhDb26Eb6z9sS8KdbsbmuS8rkkn2lBY4koK7L1ZCw==}
+  /stripe/11.9.1:
+    resolution: {integrity: sha512-obmTRAUC1UKlb3pOlF1tBA31Zo+FBMjnG69aGGTAeq35NlzffxjMjVgh3a55f9jK98FhHkIvY5z0W1FfQymNlQ==}
     engines: {node: '>=12.*'}
     dependencies:
       '@types/node': 18.11.19
