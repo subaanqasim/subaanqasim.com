@@ -33,7 +33,7 @@
     "@sanity/ui": "1.2.2",
     "@sanity/vision": "3.2.6",
     "@stripe/stripe-js": "1.46.0",
-    "@tanstack/react-query": "4.23.0",
+    "@tanstack/react-query": "4.24.4",
     "@trpc/client": "10.9.0",
     "@trpc/next": "10.9.0",
     "@trpc/react-query": "10.9.0",
