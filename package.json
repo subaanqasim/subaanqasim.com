@@ -16,7 +16,7 @@
     "@ducanh2912/next-pwa": "7.3.3",
     "@headlessui/react": "1.7.11",
     "@heroicons/react": "2.0.16",
-    "@hookform/resolvers": "2.9.10",
+    "@hookform/resolvers": "2.9.11",
     "@next-auth/prisma-adapter": "1.0.5",
     "@next/env": "13.1.6",
     "@next/font": "13.1.6",
