@@ -33,7 +33,7 @@ specifiers:
   '@types/node': 18.11.19
   '@types/nodemailer': 6.4.7
   '@types/react': 18.0.28
-  '@types/react-dom': 18.0.10
+  '@types/react-dom': 18.0.11
   '@typescript-eslint/eslint-plugin': 5.50.0
   '@typescript-eslint/parser': 5.50.0
   '@vercel/analytics': 0.1.6
@@ -153,7 +153,7 @@ devDependencies:
   '@types/node': 18.11.19
   '@types/nodemailer': 6.4.7
   '@types/react': 18.0.28
-  '@types/react-dom': 18.0.10
+  '@types/react-dom': 18.0.11
   '@typescript-eslint/eslint-plugin': 5.50.0_go4drrxstycfikanvu45pi4vgq
   '@typescript-eslint/parser': 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64
   autoprefixer: 10.4.13_postcss@8.4.21
@@ -3724,8 +3724,8 @@ packages:
       '@types/react': 18.0.28
     dev: false
 
-  /@types/react-dom/18.0.10:
-    resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
+  /@types/react-dom/18.0.11:
+    resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
       '@types/react': 18.0.28
     dev: true
