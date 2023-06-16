@@ -13,7 +13,7 @@
     "reset": "pnpm clean && pnpm i"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "7.3.3",
+    "@ducanh2912/next-pwa": "8.7.1",
     "@headlessui/react": "1.7.11",
     "@heroicons/react": "2.0.16",
     "@hookform/resolvers": "2.9.11",
