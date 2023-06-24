@@ -5,7 +5,7 @@ specifiers:
   '@headlessui/react': 1.7.15
   '@heroicons/react': 2.0.18
   '@hookform/resolvers': 2.9.11
-  '@next-auth/prisma-adapter': 1.0.5
+  '@next-auth/prisma-adapter': 1.0.7
   '@next/env': 13.1.6
   '@next/font': 13.1.6
   '@prisma/client': 4.9.0
@@ -89,7 +89,7 @@ dependencies:
   '@headlessui/react': 1.7.15_biqbaboplfbrettd7655fr4n2y
   '@heroicons/react': 2.0.18_react@18.2.0
   '@hookform/resolvers': 2.9.11_react-hook-form@7.43.0
-  '@next-auth/prisma-adapter': 1.0.5_77bhi65b6v5jbrzr36rs2ojwe4
+  '@next-auth/prisma-adapter': 1.0.7_77bhi65b6v5jbrzr36rs2ojwe4
   '@next/env': 13.1.6
   '@next/font': 13.1.6
   '@prisma/client': 4.9.0_prisma@4.9.0
@@ -2125,8 +2125,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@next-auth/prisma-adapter/1.0.5_77bhi65b6v5jbrzr36rs2ojwe4:
-    resolution: {integrity: sha512-VqMS11IxPXrPGXw6Oul6jcyS/n8GLOWzRMrPr3EMdtD6eOalM6zz05j08PcNiis8QzkfuYnCv49OvufTuaEwYQ==}
+  /@next-auth/prisma-adapter/1.0.7_77bhi65b6v5jbrzr36rs2ojwe4:
+    resolution: {integrity: sha512-Cdko4KfcmKjsyHFrWwZ//lfLUbcLqlyFqjd/nYE2m3aZ7tjMNUjpks47iw7NTCnXf+5UWz5Ypyt1dSs1EP5QJw==}
     peerDependencies:
       '@prisma/client': '>=2.26.0 || >=3'
       next-auth: ^4
