@@ -37,7 +37,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.50.0
   '@typescript-eslint/parser': 5.50.0
   '@vercel/analytics': 0.1.6
-  autoprefixer: 10.4.13
+  autoprefixer: 10.4.14
   class-variance-authority: 0.4.0
   classnames: 2.3.2
   date-fns: 2.29.3
@@ -156,7 +156,7 @@ devDependencies:
   '@types/react-dom': 18.0.11
   '@typescript-eslint/eslint-plugin': 5.50.0_go4drrxstycfikanvu45pi4vgq
   '@typescript-eslint/parser': 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64
-  autoprefixer: 10.4.13_postcss@8.4.21
+  autoprefixer: 10.4.14_postcss@8.4.21
   eslint: 8.33.0
   eslint-config-next: 13.1.6_4vsywjlpuriuw3tl5oq6zy5a64
   eslint-config-prettier: 8.6.0_eslint@8.33.0
@@ -4566,15 +4566,15 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /autoprefixer/10.4.13_postcss@8.4.21:
-    resolution: {integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==}
+  /autoprefixer/10.4.14_postcss@8.4.21:
+    resolution: {integrity: sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.5
-      caniuse-lite: 1.0.30001450
+      caniuse-lite: 1.0.30001507
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -4716,7 +4716,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001450
+      caniuse-lite: 1.0.30001507
       electron-to-chromium: 1.4.286
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
@@ -4766,6 +4766,10 @@ packages:
 
   /caniuse-lite/1.0.30001450:
     resolution: {integrity: sha512-qMBmvmQmFXaSxexkjjfMvD5rnDL0+m+dUMZKoDYsGG8iZN29RuYh9eRoMvKsT6uMAWlyUUGDEQGJJYjzCIO9ew==}
+    dev: false
+
+  /caniuse-lite/1.0.30001507:
+    resolution: {integrity: sha512-SFpUDoSLCaE5XYL2jfqe9ova/pbQHEmbheDf5r4diNwbAgR3qxM9NQtfsiSscjqoya5K7kFcHPUQ+VsUkIJR4A==}
 
   /capture-stack-trace/1.0.2:
     resolution: {integrity: sha512-X/WM2UQs6VMHUtjUDnZTRI+i1crWteJySFzr9UpGoQa4WQffXVTTXuekjl7TjZRlcF2XfjgITT0HxZ9RnxeT0w==}
