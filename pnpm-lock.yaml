@@ -59,7 +59,7 @@ specifiers:
   picosanity: 4.0.0
   postcss: 8.4.24
   postcss-focus-visible: 7.1.0
-  prettier: 2.8.3
+  prettier: 2.8.8
   prettier-plugin-tailwindcss: 0.2.2
   prisma: 4.9.0
   react: 18.2.0
@@ -163,8 +163,8 @@ devDependencies:
   infer-next-props-type: 0.1.0
   postcss: 8.4.24
   postcss-focus-visible: 7.1.0_postcss@8.4.24
-  prettier: 2.8.3
-  prettier-plugin-tailwindcss: 0.2.2_prettier@2.8.3
+  prettier: 2.8.8
+  prettier-plugin-tailwindcss: 0.2.2_prettier@2.8.8
   prisma: 4.9.0
   swc-loader: 0.2.3_h36g44fa43umgxddi6u65fsyc4
   tailwindcss: 3.2.4_postcss@8.4.24
@@ -8902,7 +8902,7 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-tailwindcss/0.2.2_prettier@2.8.3:
+  /prettier-plugin-tailwindcss/0.2.2_prettier@2.8.8:
     resolution: {integrity: sha512-5RjUbWRe305pUpc48MosoIp6uxZvZxrM6GyOgsbGLTce+ehePKNm7ziW2dLG2air9aXbGuXlHVSQQw4Lbosq3w==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
@@ -8951,11 +8951,11 @@ packages:
       prettier-plugin-twig-melody:
         optional: true
     dependencies:
-      prettier: 2.8.3
+      prettier: 2.8.8
     dev: true
 
-  /prettier/2.8.3:
-    resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
+  /prettier/2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
