@@ -75,7 +75,7 @@ specifiers:
   sanity: 3.2.6
   sanity-plugin-media: 2.0.5
   stripe: 11.9.1
-  superjson: 1.12.2
+  superjson: 1.12.3
   suspend-react: 0.0.9
   swc-loader: 0.2.3
   tailwindcss: 3.2.4
@@ -139,7 +139,7 @@ dependencies:
   sanity: 3.2.6_c5w4k2z5popnwgamhit2xjkus4
   sanity-plugin-media: 2.0.5_vdwjrea6qazkx45adp3buxu4gy
   stripe: 11.9.1
-  superjson: 1.12.2
+  superjson: 1.12.3
   suspend-react: 0.0.9_react@18.2.0
   tailwindcss-radix: 2.7.0
   unist-util-visit: 4.1.2
@@ -10380,8 +10380,8 @@ packages:
     resolution: {integrity: sha512-GP6WDNWf+o403jrEp9c5jibKavrtLW+/qYGhFxFrG8maXhwTBI7gLLhiBb0o7uFccWN+EOS9aMO6cGHWAO07OA==}
     dev: false
 
-  /superjson/1.12.2:
-    resolution: {integrity: sha512-ugvUo9/WmvWOjstornQhsN/sR9mnGtWGYeTxFuqLb4AiT4QdUavjGFRALCPKWWnAiUJ4HTpytj5e0t5HoMRkXg==}
+  /superjson/1.12.3:
+    resolution: {integrity: sha512-0j+U70KUtP8+roVPbwfqkyQI7lBt7ETnuA7KXbTDX3mCKiD/4fXs2ldKSMdt0MCfpTwiMxo20yFU3vu6ewETpQ==}
     engines: {node: '>=10'}
     dependencies:
       copy-anything: 3.0.3
