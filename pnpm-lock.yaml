@@ -81,8 +81,8 @@ dependencies:
     specifier: 10.10.0
     version: 10.10.0
   '@vercel/analytics':
-    specifier: 0.1.6
-    version: 0.1.6(react@18.2.0)
+    specifier: 0.1.11
+    version: 0.1.11(react@18.2.0)
   class-variance-authority:
     specifier: 0.4.0
     version: 0.4.0(typescript@4.9.5)
@@ -4506,8 +4506,8 @@ packages:
       - '@codemirror/search'
     dev: false
 
-  /@vercel/analytics@0.1.6(react@18.2.0):
-    resolution: {integrity: sha512-zNd5pj3iDvq8IMBQHa1YRcIteiw6ZiPB8AsONHd8ieFXlNpLqhXfIYnf4WvTfZ7S1NSJ++mIM14aJnNac/VMXQ==}
+  /@vercel/analytics@0.1.11(react@18.2.0):
+    resolution: {integrity: sha512-mj5CPR02y0BRs1tN3oZcBNAX9a8NxsIUl9vElDPcqxnMfP0RbRc9fI9Ud7+QDg/1Izvt5uMumsr+6YsmVHcyuw==}
     peerDependencies:
       react: ^16.8||^17||^18
     dependencies:
