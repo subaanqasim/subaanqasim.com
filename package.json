@@ -32,7 +32,7 @@
     "@sanity/image-url": "1.0.2",
     "@sanity/ui": "1.7.1",
     "@sanity/vision": "3.2.6",
-    "@stripe/stripe-js": "1.46.0",
+    "@stripe/stripe-js": "1.54.1",
     "@tanstack/react-query": "4.24.9",
     "@trpc/client": "10.10.0",
     "@trpc/next": "10.10.0",
