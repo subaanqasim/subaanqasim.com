@@ -41,7 +41,7 @@
     "@vercel/analytics": "0.1.6",
     "class-variance-authority": "0.4.0",
     "classnames": "2.3.2",
-    "date-fns": "2.29.3",
+    "date-fns": "2.30.0",
     "focus-visible": "5.2.0",
     "micro": "10.0.1",
     "next": "13.1.6",

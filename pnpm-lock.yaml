@@ -90,8 +90,8 @@ dependencies:
     specifier: 2.3.2
     version: 2.3.2
   date-fns:
-    specifier: 2.29.3
-    version: 2.29.3
+    specifier: 2.30.0
+    version: 2.30.0
   focus-visible:
     specifier: 5.2.0
     version: 5.2.0
@@ -3831,7 +3831,7 @@ packages:
     dependencies:
       '@sanity/client': 4.0.1
       '@sanity/types': 3.2.6
-      date-fns: 2.29.3
+      date-fns: 2.30.0
       lodash: 4.17.21
       rxjs: 7.8.1
     transitivePeerDependencies:
@@ -5523,9 +5523,11 @@ packages:
     resolution: {integrity: sha512-8YnDaaf7N3k/q5HnTJVuzSyLETjoZjVmHc4AeKAzOvKHEFQKcn64OKBfzHYtE9zGjctNM7V9I0MfnUVLpi7M5g==}
     dev: false
 
-  /date-fns@2.29.3:
-    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+  /date-fns@2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
     engines: {node: '>=0.11'}
+    dependencies:
+      '@babel/runtime': 7.22.6
     dev: false
 
   /date-now@1.0.1:
@@ -10286,7 +10288,7 @@ packages:
       '@sanity/ui': 1.7.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       '@tanem/react-nprogress': 5.0.44(react-dom@18.2.0)(react@18.2.0)
       copy-to-clipboard: 3.3.3
-      date-fns: 2.29.3
+      date-fns: 2.30.0
       filesize: 8.0.7
       groq: 2.33.2
       is-hotkey: 0.2.0
@@ -10366,7 +10368,7 @@ packages:
       connect-history-api-fallback: 1.6.0
       console-table-printer: 2.11.2
       dataloader: 2.2.2
-      date-fns: 2.29.3
+      date-fns: 2.30.0
       debug: 3.2.7
       diff-match-patch: 1.0.5
       esbuild: 0.16.17
