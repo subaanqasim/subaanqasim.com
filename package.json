@@ -89,7 +89,7 @@
     "eslint-config-next": "13.1.6",
     "eslint-config-prettier": "8.6.0",
     "infer-next-props-type": "0.1.0",
-    "postcss": "8.4.25",
+    "postcss": "8.4.26",
     "postcss-focus-visible": "7.1.0",
     "prettier": "2.8.8",
     "prettier-plugin-tailwindcss": "0.2.2",
