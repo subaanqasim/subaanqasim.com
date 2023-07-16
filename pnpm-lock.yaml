@@ -105,8 +105,8 @@ dependencies:
     specifier: 4.22.1
     version: 4.22.1(next@13.1.6)(nodemailer@6.9.3)(react-dom@18.2.0)(react@18.2.0)
   next-mdx-remote:
-    specifier: 4.3.0
-    version: 4.3.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: 4.4.1
+    version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
   next-sanity:
     specifier: 4.1.2
     version: 4.1.2(@sanity/icons@2.4.1)(@sanity/types@3.14.1)(@sanity/ui@1.7.3)(next@13.1.6)(react@18.2.0)(sanity@3.2.6)(styled-components@5.3.11)
@@ -8667,8 +8667,8 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /next-mdx-remote@4.3.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-fbxkY03pM2Wx5bDNTVKpYD5Hx3QVZGH+6xDtVIxlxXz4HTifP1yI2DrkDvxXbTz0SYGIbluRMIW81IOOa8pigA==}
+  /next-mdx-remote@4.4.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-1BvyXaIou6xy3XoNF4yaMZUCb6vD2GTAa5ciOa6WoO+gAUTYsb1K4rI/HSC2ogAWLrb/7VSV52skz07vOzmqIQ==}
     engines: {node: '>=14', npm: '>=7'}
     peerDependencies:
       react: '>=16.x <=18.x'
