@@ -147,8 +147,8 @@ dependencies:
     specifier: 6.1.1
     version: 6.1.1
   rehype-code-titles:
-    specifier: 1.1.0
-    version: 1.1.0
+    specifier: 1.2.0
+    version: 1.2.0
   rehype-prism-plus:
     specifier: 1.5.1
     version: 1.5.1
@@ -7119,6 +7119,11 @@ packages:
     resolution: {integrity: sha512-nAxA0v8+vXSBDt3AnRUNjyRIQ0rD+ntpbAp4LnPkumc5M9yUbSMa4XDU9Q6etY4f1Wp4bNgvc1yjiZtsTTrSng==}
     dev: false
 
+  /hast@1.0.0:
+    resolution: {integrity: sha512-vFUqlRV5C+xqP76Wwq2SrM0kipnmpxJm7OfvVXpB35Fp+Fn4MV+ozr+JZr5qFvyR1q/U+Foim2x+3P+x9S1PLA==}
+    deprecated: Renamed to rehype
+    dev: false
+
   /hastscript@6.0.0:
     resolution: {integrity: sha512-nDM6bvd7lIqDUiYEiu5Sl/+6ReP0BMk/2f4U/Rooccxkj0P5nm+acM5PrGJ/t5I8qPGiqZSE6hVAwZEdZIvP4w==}
     dependencies:
@@ -10043,10 +10048,12 @@ packages:
       unist-util-visit: 4.1.2
     dev: false
 
-  /rehype-code-titles@1.1.0:
-    resolution: {integrity: sha512-muit6KQWNafowXA0HTUeQtUT+UuP0ra34xty1tuF8WsdjcSm++HswgRAFGXH8CAGe8axuGUxg13+I4yFHFnmfQ==}
+  /rehype-code-titles@1.2.0:
+    resolution: {integrity: sha512-bSr2YJ0GHbHFarUNDZ3VpcGi9HqjLNrA9Lj3nuyox2aGGLhN53dFP2WJtPRnnRqU/vpbCatIgOYxEvWP1YYKrw==}
     engines: {node: '>=16'}
+    requiresBuild: true
     dependencies:
+      hast: 1.0.0
       unist-util-visit: 4.1.2
     dev: false
 
