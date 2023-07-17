@@ -39,7 +39,7 @@
     "@trpc/react-query": "10.10.0",
     "@trpc/server": "10.10.0",
     "@vercel/analytics": "0.1.6",
-    "class-variance-authority": "0.4.0",
+    "class-variance-authority": "0.7.0",
     "classnames": "2.3.2",
     "date-fns": "2.30.0",
     "focus-visible": "5.2.0",
