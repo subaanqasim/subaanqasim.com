@@ -63,8 +63,8 @@ dependencies:
     specifier: 3.2.6
     version: 3.2.6(@babel/runtime@7.22.6)(@codemirror/lint@6.4.0)(@codemirror/state@6.2.1)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.3)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@stripe/stripe-js':
-    specifier: 1.54.1
-    version: 1.54.1
+    specifier: 1.54.2
+    version: 1.54.2
   '@tanstack/react-query':
     specifier: 4.29.25
     version: 4.29.25(react-dom@18.2.0)(react@18.2.0)
@@ -3870,8 +3870,8 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@stripe/stripe-js@1.54.1:
-    resolution: {integrity: sha512-smEXPu1GKMcAj9g2luT16+oXfg2jAwyc68t2Dm5wdtYl3p8PqQaZEiI8tQmboaQAjgF8pIGma6byz1T1vgmpbA==}
+  /@stripe/stripe-js@1.54.2:
+    resolution: {integrity: sha512-R1PwtDvUfs99cAjfuQ/WpwJ3c92+DAMy9xGApjqlWQMj0FKQabUAys2swfTRNzuYAYJh7NqK2dzcYVNkKLEKUg==}
     dev: false
 
   /@surma/rollup-plugin-off-main-thread@2.2.3:
