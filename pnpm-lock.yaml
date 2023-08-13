@@ -126,8 +126,8 @@ dependencies:
     specifier: 6.9.4
     version: 6.9.4
   picosanity:
-    specifier: 4.0.0
-    version: 4.0.0
+    specifier: 4.1.0
+    version: 4.1.0
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -9189,8 +9189,8 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
-  /picosanity@4.0.0:
-    resolution: {integrity: sha512-WM0GXBEXNgA4v/NfGt5xiARLI1qMKLBJ3+OQkJ82MFbLduAi+xg6PdC5BVXVRnXzXRSnl9PkUh/hYRScu6/cqA==}
+  /picosanity@4.1.0:
+    resolution: {integrity: sha512-Lp9Nm5XnRnxi316aTDzkMBm5VEXSQpJ6CYvey2XG3duh3DnqOAjYLKYNI5LV56tU5a66+hRhWWgK2VzUAPShYQ==}
     engines: {node: '>=12'}
     dependencies:
       node-fetch: 2.6.12
