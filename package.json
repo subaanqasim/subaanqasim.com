@@ -87,7 +87,7 @@
     "autoprefixer": "10.4.14",
     "eslint": "8.47.0",
     "eslint-config-next": "13.1.6",
-    "eslint-config-prettier": "8.8.0",
+    "eslint-config-prettier": "8.10.0",
     "infer-next-props-type": "0.1.0",
     "postcss": "8.4.27",
     "postcss-focus-visible": "7.1.0",
