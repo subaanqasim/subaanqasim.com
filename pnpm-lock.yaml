@@ -162,8 +162,8 @@ dependencies:
     specifier: 3.2.6
     version: 3.2.6(@types/node@18.16.19)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   sanity-plugin-media:
-    specifier: 2.2.1
-    version: 2.2.1(@types/react@18.0.28)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.2.6)(styled-components@5.3.11)
+    specifier: 2.2.2
+    version: 2.2.2(@types/react@18.0.28)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.2.6)(styled-components@5.3.11)
   stripe:
     specifier: 11.9.1
     version: 11.9.1
@@ -10267,8 +10267,8 @@ packages:
       diff-match-patch: 1.0.5
     dev: false
 
-  /sanity-plugin-media@2.2.1(@types/react@18.0.28)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.2.6)(styled-components@5.3.11):
-    resolution: {integrity: sha512-Eghn2fkaOmZsbY38EWz1FFllCJn4UbEdgRl2l1mshtY8NyNxaO2P2rDCYa/giazVb46ta4EBJMY4KoxGknMebg==}
+  /sanity-plugin-media@2.2.2(@types/react@18.0.28)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.2.6)(styled-components@5.3.11):
+    resolution: {integrity: sha512-z453GUpxugtVg2jPV39eAU6wWXZ4PKPZ7Ewaq83M2SABeO+YHB2l1f+gtPjP3iJ7Mpf+8BQEg6lo/mPW2y0cTA==}
     engines: {node: '>=14'}
     peerDependencies:
       react: ^18
