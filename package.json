@@ -92,7 +92,7 @@
     "postcss": "8.4.28",
     "postcss-focus-visible": "7.1.0",
     "prettier": "2.8.8",
-    "prettier-plugin-tailwindcss": "0.4.1",
+    "prettier-plugin-tailwindcss": "0.5.3",
     "prisma": "4.9.0",
     "swc-loader": "0.2.3",
     "tailwindcss": "3.2.4",
